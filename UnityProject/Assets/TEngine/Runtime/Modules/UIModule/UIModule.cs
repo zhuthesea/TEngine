@@ -382,12 +382,18 @@ namespace TEngine
                 CloseUI(type);
                 return;
             }
-            
+
             window.Visible = false;
+            window.IsHide = true;
             window.HideTimerId = GameModule.Timer.AddTimer((arg) =>
             {
                 CloseUI(type);
             },window.HideTimeToClose);
+
+            if (window.FullScreen)
+            {
+                OnSetWindowVisible();
+            }
         }
 
         /// <summary>
@@ -469,6 +475,10 @@ namespace TEngine
                 UIWindow window = _stack[i];
                 if (isHideNext == false)
                 {
+                    if (window.IsHide)
+                    {
+                        continue;
+                    }
                     window.Visible = true;
                     if (window.IsPrepare && window.FullScreen)
                     {
