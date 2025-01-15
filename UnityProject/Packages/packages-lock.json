@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "909e96ca7c808cf9be733b881382fabb49523d0b"
+      "hash": "b176d63d93a6b8fd1a873769af7f7fa4c43a4288"
     },
     "com.cysharp.unitask": {
       "version": "file:UniTask",
