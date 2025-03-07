@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 #region Class Documentation
+
 /************************************************************************************************************
 Class Name:     ActorEventDispatcher.cs  局部单位事件分发器。
 Type:           Actor, Event
@@ -13,13 +14,14 @@ Example:
                 /// <remark>只分发和监听这个Event内部的事件</remark>
                 /// </summary>
                 public ActorEventDispatcher Event => _event ??= MemoryPool.Acquire<ActorEventDispatcher>();
-                
+
                 // owner局部发送事件。
                 owner.Event.Send(eventId,xxx);
-                
+
                 // owner监听自身事件并绑定持有对象为owner。 比如是组件的情况下。移除时调用RemoveAllListenerByOwner(owner)会根据持有对象（组件）移除。
                 owner.Event.AddEventListener(eventId,xxx,owner);
 ************************************************************************************************************/
+
 #endregion
 
 namespace TEngine
@@ -65,6 +67,7 @@ namespace TEngine
                 {
                     EventRegInfo.Release(eventRegInfo);
                 }
+
                 kv.Value.Clear();
             }
 
@@ -96,7 +99,7 @@ namespace TEngine
             {
                 if (_allEventListenerMap.TryGetValue(eventId, out var listListener))
                 {
-                    for (int i = listListener.Count - 1; i >= 0 ; i--)
+                    for (int i = listListener.Count - 1; i >= 0; i--)
                     {
                         if (listListener[i].IsDeleted)
                         {
@@ -460,7 +463,7 @@ namespace TEngine
                 bool isProcessing = _processEventList.Contains(eventId);
                 bool delayDeleted = false;
 
-                for (int i = list.Count - 1; i >= 0 ; i--)
+                for (int i = list.Count - 1; i >= 0; i--)
                 {
                     var regInfo = list[i];
                     if (regInfo.Owner == owner)
@@ -586,7 +589,7 @@ namespace TEngine
             DestroyAllEventListener();
         }
     }
-    
+
     /// <summary>
     /// 事件注册信息。
     /// </summary>
@@ -613,8 +616,10 @@ namespace TEngine
             Owner = owner;
             IsDeleted = false;
         }
-        
-        public EventRegInfo() { }
+
+        public EventRegInfo()
+        {
+        }
 
         public void Clear()
         {
@@ -631,7 +636,7 @@ namespace TEngine
             ret.IsDeleted = false;
             return ret;
         }
-        
+
         public static void Release(EventRegInfo eventRegInfo)
         {
             MemoryPool.Release(eventRegInfo);

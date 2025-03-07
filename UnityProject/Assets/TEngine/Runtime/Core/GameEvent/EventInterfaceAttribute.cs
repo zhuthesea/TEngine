@@ -10,7 +10,7 @@ namespace TEngine
         /// <summary>
         /// UI相关的交互。
         /// </summary>
-        GroupUI,   
+        GroupUI,
 
         /// <summary>
         /// 逻辑层内部相关的交互。
@@ -20,12 +20,12 @@ namespace TEngine
 
     [System.AttributeUsage(System.AttributeTargets.Interface)]
     public class EventInterfaceAttribute : Attribute
-     {
-         private EEventGroup _eGroup;
-         public EEventGroup EventGroup => _eGroup;
-         public EventInterfaceAttribute(EEventGroup group)
-         {
-             _eGroup = group;
-         }
+    {
+        public EEventGroup EventGroup { get; }
+
+        public EventInterfaceAttribute(EEventGroup group)
+        {
+            EventGroup = group;
+        }
     }
 }

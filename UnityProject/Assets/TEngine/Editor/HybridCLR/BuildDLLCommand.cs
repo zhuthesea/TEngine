@@ -9,7 +9,7 @@ using UnityEngine;
 public static class BuildDLLCommand
 {
     private const string EnableHybridClrScriptingDefineSymbol = "ENABLE_HYBRIDCLR";
-    
+
     /// <summary>
     /// 禁用HybridCLR宏定义。
     /// </summary>
@@ -18,7 +18,7 @@ public static class BuildDLLCommand
     {
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
         HybridCLR.Editor.SettingsUtil.Enable = false;
-        SyncAssemblyContent.RefreshAssembly();
+        // SyncAssemblyContent.RefreshAssembly();
     }
 
     /// <summary>
@@ -30,9 +30,9 @@ public static class BuildDLLCommand
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
         ScriptingDefineSymbols.AddScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
         HybridCLR.Editor.SettingsUtil.Enable = true;
-        SyncAssemblyContent.RefreshAssembly();
+        // SyncAssemblyContent.RefreshAssembly();
     }
-    
+
     [MenuItem("HybridCLR/Build/BuildAssets And CopyTo AssemblyTextAssetPath")]
     public static void BuildAndCopyDlls()
     {
@@ -42,7 +42,7 @@ public static class BuildDLLCommand
         CopyAOTHotUpdateDlls(target);
 #endif
     }
-    
+
     public static void BuildAndCopyDlls(BuildTarget target)
     {
 #if ENABLE_HYBRIDCLR
@@ -50,14 +50,14 @@ public static class BuildDLLCommand
         CopyAOTHotUpdateDlls(target);
 #endif
     }
-    
+
     public static void CopyAOTHotUpdateDlls(BuildTarget target)
     {
         CopyAOTAssembliesToAssetPath();
         CopyHotUpdateAssembliesToAssetPath();
         AssetDatabase.Refresh();
     }
-    
+
     public static void CopyAOTAssembliesToAssetPath()
     {
 #if ENABLE_HYBRIDCLR
@@ -79,7 +79,7 @@ public static class BuildDLLCommand
         }
 #endif
     }
-    
+
     public static void CopyHotUpdateAssembliesToAssetPath()
     {
 #if ENABLE_HYBRIDCLR

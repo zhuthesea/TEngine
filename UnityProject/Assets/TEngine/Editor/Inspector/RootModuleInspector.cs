@@ -16,9 +16,7 @@ namespace TEngine.Editor
 
         private SerializedProperty m_EditorLanguage = null;
         private SerializedProperty m_TextHelperTypeName = null;
-        private SerializedProperty m_VersionHelperTypeName = null;
         private SerializedProperty m_LogHelperTypeName = null;
-        private SerializedProperty m_CompressionHelperTypeName = null;
         private SerializedProperty m_JsonHelperTypeName = null;
         private SerializedProperty m_FrameRate = null;
         private SerializedProperty m_GameSpeed = null;
@@ -27,8 +25,6 @@ namespace TEngine.Editor
 
         private string[] m_TextHelperTypeNames = null;
         private int m_TextHelperTypeNameIndex = 0;
-        private string[] m_VersionHelperTypeNames = null;
-        private int m_VersionHelperTypeNameIndex = 0;
         private string[] m_LogHelperTypeNames = null;
         private int m_LogHelperTypeNameIndex = 0;
         private string[] m_JsonHelperTypeNames = null;
@@ -55,13 +51,6 @@ namespace TEngine.Editor
                     {
                         m_TextHelperTypeNameIndex = textHelperSelectedIndex;
                         m_TextHelperTypeName.stringValue = textHelperSelectedIndex <= 0 ? null : m_TextHelperTypeNames[textHelperSelectedIndex];
-                    }
-
-                    int versionHelperSelectedIndex = EditorGUILayout.Popup("Version Helper", m_VersionHelperTypeNameIndex, m_VersionHelperTypeNames);
-                    if (versionHelperSelectedIndex != m_VersionHelperTypeNameIndex)
-                    {
-                        m_VersionHelperTypeNameIndex = versionHelperSelectedIndex;
-                        m_VersionHelperTypeName.stringValue = versionHelperSelectedIndex <= 0 ? null : m_VersionHelperTypeNames[versionHelperSelectedIndex];
                     }
 
                     int logHelperSelectedIndex = EditorGUILayout.Popup("Log Helper", m_LogHelperTypeNameIndex, m_LogHelperTypeNames);
@@ -158,9 +147,7 @@ namespace TEngine.Editor
         {
             m_EditorLanguage = serializedObject.FindProperty("m_EditorLanguage");
             m_TextHelperTypeName = serializedObject.FindProperty("m_TextHelperTypeName");
-            m_VersionHelperTypeName = serializedObject.FindProperty("m_VersionHelperTypeName");
-            m_LogHelperTypeName = serializedObject.FindProperty("m_LogHelperTypeName");
-            m_CompressionHelperTypeName = serializedObject.FindProperty("m_CompressionHelperTypeName");
+            m_LogHelperTypeName = serializedObject.FindProperty("m_LogHelperTypeName"); 
             m_JsonHelperTypeName = serializedObject.FindProperty("m_JsonHelperTypeName");
             m_FrameRate = serializedObject.FindProperty("m_FrameRate");
             m_GameSpeed = serializedObject.FindProperty("m_GameSpeed");
@@ -187,24 +174,6 @@ namespace TEngine.Editor
                 {
                     m_TextHelperTypeNameIndex = 0;
                     m_TextHelperTypeName.stringValue = null;
-                }
-            }
-
-            List<string> versionHelperTypeNames = new List<string>
-            {
-                NoneOptionName
-            };
-
-            versionHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(Version.IVersionHelper)));
-            m_VersionHelperTypeNames = versionHelperTypeNames.ToArray();
-            m_VersionHelperTypeNameIndex = 0;
-            if (!string.IsNullOrEmpty(m_VersionHelperTypeName.stringValue))
-            {
-                m_VersionHelperTypeNameIndex = versionHelperTypeNames.IndexOf(m_VersionHelperTypeName.stringValue);
-                if (m_VersionHelperTypeNameIndex <= 0)
-                {
-                    m_VersionHelperTypeNameIndex = 0;
-                    m_VersionHelperTypeName.stringValue = null;
                 }
             }
 
@@ -266,7 +235,7 @@ namespace TEngine.Editor
         {
             for (int i = 0; i < GameSpeed.Length; i++)
             {
-                if (gameSpeed == GameSpeed[i])
+                if (Mathf.Approximately(gameSpeed, GameSpeed[i]))
                 {
                     return i;
                 }

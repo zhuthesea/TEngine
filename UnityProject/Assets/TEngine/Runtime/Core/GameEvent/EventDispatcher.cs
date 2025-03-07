@@ -20,6 +20,7 @@ namespace TEngine
         {
             _eventTable.Clear();
         }
+        
         #region 事件管理接口
 
         /// <summary>
@@ -181,6 +182,7 @@ namespace TEngine
                 d.Callback(arg1, arg2, arg3, arg4, arg5, arg6);
             }
         }
+
         #endregion
     }
 }

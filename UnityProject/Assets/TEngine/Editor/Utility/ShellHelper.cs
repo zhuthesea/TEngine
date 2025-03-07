@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-namespace TEngine
+namespace TEngine.Editor
 {
     /// <summary>
     /// Unity编辑器主动执行cmd帮助类。
