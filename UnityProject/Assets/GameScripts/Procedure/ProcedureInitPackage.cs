@@ -61,7 +61,7 @@ namespace Procedure
                         LauncherMgr.Show(UIDefine.UILoadUpdate);
 
                         Log.Info("Updatable resource mode detected.");
-                        ChangeState<ProcedureUpdateVersion>(procedureOwner);
+                        ChangeState<ProcedureInitResources>(procedureOwner);
                     }
                     else
                     {

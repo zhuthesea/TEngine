@@ -36,6 +36,14 @@ namespace Procedure
                 return;
             }
 
+            if ((_resourceModule.PlayMode == EPlayMode.HostPlayMode || _resourceModule.PlayMode == EPlayMode.WebPlayMode))
+            {
+                //线上最新版本operation.PackageVersion
+                Log.Debug($"Updated package Version : from {_resourceModule.GetPackageVersion()} to {_resourceModule.PackageVersion}");
+                ChangeState<ProcedureUpdateManifest>(procedureOwner);
+                return;
+            }
+
             ChangeState<ProcedurePreload>(procedureOwner);
         }
 
@@ -46,26 +54,22 @@ namespace Procedure
         private IEnumerator InitResources(ProcedureOwner procedureOwner)
         {
             string packageVersion;
-            if (_resourceModule.PlayMode != EPlayMode.HostPlayMode)
+            
+            // 1. 获取资源清单的版本信息
+            var operation1 = _resourceModule.RequestPackageVersionAsync();
+            yield return operation1;
+            if (operation1.Status != EOperationStatus.Succeed)
             {
-                // 2. 获取资源清单的版本信息
-                var operation1 = _resourceModule.RequestPackageVersionAsync();
-                yield return operation1;
-                if (operation1.Status != EOperationStatus.Succeed)
-                {
-                    OnInitResourcesError(procedureOwner);
-                    yield break;
-                }
-    
-                packageVersion = operation1.PackageVersion;
+                OnInitResourcesError(procedureOwner);
+                yield break;
             }
-            else
-            {
-                packageVersion = _resourceModule.PackageVersion;
-            }
+
+            packageVersion = operation1.PackageVersion;
+            _resourceModule.PackageVersion = packageVersion;
+            
             Log.Info($"Init resource package version : {packageVersion}");
             
-            // 3. 传入的版本信息更新资源清单
+            // 2. 传入的版本信息更新资源清单
             var operation = _resourceModule.UpdatePackageManifestAsync(packageVersion);
             yield return operation;
             if (operation.Status != EOperationStatus.Succeed)
