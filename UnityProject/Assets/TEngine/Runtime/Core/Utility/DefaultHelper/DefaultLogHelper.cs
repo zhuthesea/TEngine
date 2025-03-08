@@ -27,7 +27,7 @@ namespace TEngine
             Exception,
         }
 
-        private const ELogLevel FilterLevel = ELogLevel.Info;
+        private const ELogLevel FILTER_LEVEL = ELogLevel.Info;
         private static readonly StringBuilder _stringBuilder = new StringBuilder(1024);
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace TEngine
 
         private static void LogImp(ELogLevel type, string logString)
         {
-            if (type < FilterLevel)
+            if (type < FILTER_LEVEL)
             {
                 return;
             }

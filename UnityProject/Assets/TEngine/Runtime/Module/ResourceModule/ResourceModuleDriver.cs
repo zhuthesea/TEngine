@@ -13,7 +13,7 @@ namespace TEngine
     {
         #region Propreties
 
-        private const int DefaultPriority = 0;
+        private const int DEFAULT_PRIORITY = 0;
 
         private IResourceModule _resourceModule;
 

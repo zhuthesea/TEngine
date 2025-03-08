@@ -26,14 +26,14 @@ namespace TEngine
                     fixedWidth = 60
                 };
 
-                ToolBarTextStyle = new GUIStyle(ButtonStyleName)
+                ToolBarTextStyle = new GUIStyle(BUTTON_STYLE_NAME)
                 {
                     padding = new RectOffset(2, 8, 2, 2),
                     alignment = TextAnchor.MiddleCenter,
                     fontStyle = FontStyle.Bold
                 };
 
-                ToolBarButtonGuiStyle = new GUIStyle(ButtonStyleName)
+                ToolBarButtonGuiStyle = new GUIStyle(BUTTON_STYLE_NAME)
                 {
                     padding = new RectOffset(2, 8, 2, 2),
                     alignment = TextAnchor.MiddleCenter,
@@ -48,7 +48,7 @@ namespace TEngine
             _resourceModeIndex = EditorPrefs.GetInt("EditorPlayMode", 0);
         }
 
-        private const string ButtonStyleName = "Tab middle";
+        private const string BUTTON_STYLE_NAME = "Tab middle";
         static GUIStyle _buttonGuiStyle;
 
         private static readonly string[] _resourceModeNames =

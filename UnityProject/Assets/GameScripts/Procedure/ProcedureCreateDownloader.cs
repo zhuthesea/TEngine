@@ -15,7 +15,7 @@ namespace Procedure
     {
         private int _curTryCount;
 
-        private const int MaxTryCount = 3;
+        private const int MAX_TRY_COUNT = 3;
 
         public override bool UseNativeDialog { get; }
 

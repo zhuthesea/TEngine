@@ -18,7 +18,7 @@ namespace TEngine
         private float _volume = 1.0f;
         private float _duration;
         private float _fadeoutTimer;
-        private const float FadeoutDuration = 0.2f;
+        private const float FADEOUT_DURATION = 0.2f;
         private bool _inPool;
 
         /// <summary>
@@ -273,7 +273,7 @@ namespace TEngine
             {
                 if (fadeout)
                 {
-                    _fadeoutTimer = FadeoutDuration;
+                    _fadeoutTimer = FADEOUT_DURATION;
                     _audioAgentRuntimeState = AudioAgentRuntimeState.FadingOut;
                 }
                 else
@@ -379,7 +379,7 @@ namespace TEngine
                 if (_fadeoutTimer > 0f)
                 {
                     _fadeoutTimer -= elapseSeconds;
-                    _source.volume = _volume * _fadeoutTimer / FadeoutDuration;
+                    _source.volume = _volume * _fadeoutTimer / FADEOUT_DURATION;
                 }
                 else
                 {

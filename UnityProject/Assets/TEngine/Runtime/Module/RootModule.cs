@@ -9,25 +9,33 @@ namespace TEngine
     [DisallowMultipleComponent]
     public sealed class RootModule : MonoBehaviour
     {
-        private const int DefaultDpi = 96; // default windows dpi
+        private const int DEFAULT_DPI = 96; // default windows dpi
 
         private float _gameSpeedBeforePause = 1f;
 
-        [SerializeField] private Language editorLanguage = Language.Unspecified;
+        [SerializeField]
+        private Language editorLanguage = Language.Unspecified;
 
-        [SerializeField] private string textHelperTypeName = "TEngine.DefaultTextHelper";
+        [SerializeField]
+        private string textHelperTypeName = "TEngine.DefaultTextHelper";
 
-        [SerializeField] private string logHelperTypeName = "TEngine.DefaultLogHelper";
+        [SerializeField]
+        private string logHelperTypeName = "TEngine.DefaultLogHelper";
 
-        [SerializeField] private string jsonHelperTypeName = "TEngine.DefaultJsonHelper";
+        [SerializeField]
+        private string jsonHelperTypeName = "TEngine.DefaultJsonHelper";
 
-        [SerializeField] private int frameRate = 120;
+        [SerializeField]
+        private int frameRate = 120;
 
-        [SerializeField] private float gameSpeed = 1f;
+        [SerializeField]
+        private float gameSpeed = 1f;
 
-        [SerializeField] private bool runInBackground = true;
+        [SerializeField]
+        private bool runInBackground = true;
 
-        [SerializeField] private bool neverSleep = true;
+        [SerializeField]
+        private bool neverSleep = true;
 
         /// <summary>
         /// 获取或设置编辑器语言（仅编辑器内有效）。
@@ -102,7 +110,7 @@ namespace TEngine
             Utility.Converter.ScreenDpi = Screen.dpi;
             if (Utility.Converter.ScreenDpi <= 0)
             {
-                Utility.Converter.ScreenDpi = DefaultDpi;
+                Utility.Converter.ScreenDpi = DEFAULT_DPI;
             }
 
             Application.targetFrameRate = frameRate;

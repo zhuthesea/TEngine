@@ -8,9 +8,9 @@ namespace TEngine
     /// </summary>
     internal sealed partial class ObjectPoolModule : Module, IObjectPoolModule, IUpdateModule
     {
-        private const int DefaultCapacity = int.MaxValue;
-        private const float DefaultExpireTime = float.MaxValue;
-        private const int DefaultPriority = 0;
+        private const int DEFAULT_CAPACITY = int.MaxValue;
+        private const float DEFAULT_EXPIRE_TIME = float.MaxValue;
+        private const int DEFAULT_PRIORITY = 0;
 
         private readonly Dictionary<TypeNamePair, ObjectPoolBase> _objectPools;
         private readonly List<ObjectPoolBase> _cachedAllObjectPools;
@@ -370,7 +370,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>() where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, false, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -391,7 +391,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, false, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -402,7 +402,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name)
         {
-            return InternalCreateObjectPool(objectType, name, false, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, false, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -413,7 +413,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(int capacity) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, int capacity)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -446,7 +446,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -458,7 +458,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name, int capacity) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -470,7 +470,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name, int capacity)
         {
-            return InternalCreateObjectPool(objectType, name, false, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, false, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -494,7 +494,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, name, false, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, false, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -506,7 +506,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(int capacity, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -518,7 +518,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, int capacity, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -530,7 +530,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(int capacity, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool<T>(string.Empty, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -542,7 +542,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, int capacity, int priority)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -554,7 +554,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(float expireTime, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool<T>(string.Empty, false, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -566,7 +566,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, float expireTime, int priority)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool(objectType, string.Empty, false, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -579,7 +579,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name, int capacity, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, false, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -592,7 +592,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name, int capacity, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, name, false, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, false, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -605,7 +605,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name, int capacity, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool<T>(name, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -618,7 +618,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name, int capacity, int priority)
         {
-            return InternalCreateObjectPool(objectType, name, false, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool(objectType, name, false, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -631,7 +631,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name, float expireTime, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, false, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool<T>(name, false, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -644,7 +644,7 @@ namespace TEngine
         /// <returns>要创建的允许单次获取的对象池。</returns>
         public ObjectPoolBase CreateSingleSpawnObjectPool(Type objectType, string name, float expireTime, int priority)
         {
-            return InternalCreateObjectPool(objectType, name, false, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool(objectType, name, false, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -739,7 +739,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>() where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, true, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -749,7 +749,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -760,7 +760,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, true, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -771,7 +771,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name)
         {
-            return InternalCreateObjectPool(objectType, name, true, DefaultExpireTime, DefaultCapacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, true, DEFAULT_EXPIRE_TIME, DEFAULT_CAPACITY, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -782,7 +782,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(int capacity) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -793,7 +793,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, int capacity)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -804,7 +804,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -815,7 +815,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -827,7 +827,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name, int capacity) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -839,7 +839,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name, int capacity)
         {
-            return InternalCreateObjectPool(objectType, name, true, DefaultExpireTime, capacity, DefaultExpireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -851,7 +851,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, true, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -863,7 +863,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, name, true, expireTime, DefaultCapacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, true, expireTime, DEFAULT_CAPACITY, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -875,7 +875,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(int capacity, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -887,7 +887,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, int capacity, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -899,7 +899,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(int capacity, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool<T>(string.Empty, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -911,7 +911,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, int capacity, int priority)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -923,7 +923,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(float expireTime, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool<T>(string.Empty, true, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -935,7 +935,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, float expireTime, int priority)
         {
-            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool(objectType, string.Empty, true, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -948,7 +948,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name, int capacity, float expireTime) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool<T>(name, true, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -961,7 +961,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name, int capacity, float expireTime)
         {
-            return InternalCreateObjectPool(objectType, name, true, expireTime, capacity, expireTime, DefaultPriority);
+            return InternalCreateObjectPool(objectType, name, true, expireTime, capacity, expireTime, DEFAULT_PRIORITY);
         }
 
         /// <summary>
@@ -974,7 +974,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name, int capacity, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool<T>(name, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -987,7 +987,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name, int capacity, int priority)
         {
-            return InternalCreateObjectPool(objectType, name, true, DefaultExpireTime, capacity, DefaultExpireTime, priority);
+            return InternalCreateObjectPool(objectType, name, true, DEFAULT_EXPIRE_TIME, capacity, DEFAULT_EXPIRE_TIME, priority);
         }
 
         /// <summary>
@@ -1000,7 +1000,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public IObjectPool<T> CreateMultiSpawnObjectPool<T>(string name, float expireTime, int priority) where T : ObjectBase
         {
-            return InternalCreateObjectPool<T>(name, true, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool<T>(name, true, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>
@@ -1013,7 +1013,7 @@ namespace TEngine
         /// <returns>要创建的允许多次获取的对象池。</returns>
         public ObjectPoolBase CreateMultiSpawnObjectPool(Type objectType, string name, float expireTime, int priority)
         {
-            return InternalCreateObjectPool(objectType, name, true, expireTime, DefaultCapacity, expireTime, priority);
+            return InternalCreateObjectPool(objectType, name, true, expireTime, DEFAULT_CAPACITY, expireTime, priority);
         }
 
         /// <summary>

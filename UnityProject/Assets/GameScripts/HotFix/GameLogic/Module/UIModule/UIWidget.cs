@@ -265,7 +265,7 @@ namespace GameLogic
                 for (var index = 0; index < listCanvas.Length; index++)
                 {
                     var childCanvas = listCanvas[index];
-                    childCanvas.sortingOrder = parentCanvas.sortingOrder + childCanvas.sortingOrder % UIModule.WindowDeep;
+                    childCanvas.sortingOrder = parentCanvas.sortingOrder + childCanvas.sortingOrder % UIModule.WINDOW_DEEP;
                 }
             }
         }
