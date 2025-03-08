@@ -10,30 +10,30 @@ namespace GameLogic
 {
     public sealed partial class UIModule : Singleton<UIModule>, IUpdate
     {
-        private static Transform m_InstanceRoot = null;
+        private static Transform _instanceRoot = null;
 
-        private bool m_enableErrorLog = true;
+        private bool _enableErrorLog = true;
 
-        private Camera m_UICamera = null;
+        private readonly Camera _uiCamera = null;
 
-        private readonly List<UIWindow> _stack = new List<UIWindow>(100);
+        private readonly List<UIWindow> _uiStack = new List<UIWindow>(100);
 
-        public const int LAYER_DEEP = 2000;
-        public const int WINDOW_DEEP = 100;
-        public const int WINDOW_HIDE_LAYER = 2; // Ignore Raycast
-        public const int WINDOW_SHOW_LAYER = 5; // UI
+        public const int LayerDeep = 2000;
+        public const int WindowDeep = 100;
+        public const int WindowHideLayer = 2; // Ignore Raycast
+        public const int WindowShowLayer = 5; // UI
 
         public static IUIResourceLoader Resource;
         
         /// <summary>
         /// UI根节点。
         /// </summary>
-        public static Transform UIRoot => m_InstanceRoot;
+        public static Transform UIRoot => _instanceRoot;
 
         /// <summary>
         /// UI根节点。
         /// </summary>
-        public Camera UICamera => m_UICamera;
+        public Camera UICamera => _uiCamera;
 
         private ErrorLogger _errorLogger;
         
@@ -42,7 +42,7 @@ namespace GameLogic
             var uiRoot = GameObject.Find("UIRoot");
             if (uiRoot != null)
             {
-                m_InstanceRoot = uiRoot.GetComponentInChildren<Canvas>()?.transform;
+                _instanceRoot = uiRoot.GetComponentInChildren<Canvas>()?.transform;
             }
             else
             {
@@ -52,31 +52,31 @@ namespace GameLogic
             
             Resource = new UIResourceLoader();
 
-            UnityEngine.Object.DontDestroyOnLoad(m_InstanceRoot.parent != null ? m_InstanceRoot.parent : m_InstanceRoot);
+            UnityEngine.Object.DontDestroyOnLoad(_instanceRoot.parent != null ? _instanceRoot.parent : _instanceRoot);
 
-            m_InstanceRoot.gameObject.layer = LayerMask.NameToLayer("UI");
+            _instanceRoot.gameObject.layer = LayerMask.NameToLayer("UI");
 
             if (Debugger.Instance != null)
             {
                 switch (Debugger.Instance.ActiveWindowType)
                 {
                     case DebuggerActiveWindowType.AlwaysOpen:
-                        m_enableErrorLog = true;
+                        _enableErrorLog = true;
                         break;
 
                     case DebuggerActiveWindowType.OnlyOpenWhenDevelopment:
-                        m_enableErrorLog = Debug.isDebugBuild;
+                        _enableErrorLog = Debug.isDebugBuild;
                         break;
 
                     case DebuggerActiveWindowType.OnlyOpenInEditor:
-                        m_enableErrorLog = Application.isEditor;
+                        _enableErrorLog = Application.isEditor;
                         break;
 
                     default:
-                        m_enableErrorLog = false;
+                        _enableErrorLog = false;
                         break;
                 }
-                if (m_enableErrorLog)
+                if (_enableErrorLog)
                 {
                     _errorLogger = new ErrorLogger(this);
                 }   
@@ -91,9 +91,9 @@ namespace GameLogic
                 _errorLogger = null;
             }
             CloseAll(isShutDown:true);
-            if (m_InstanceRoot != null && m_InstanceRoot.parent != null)
+            if (_instanceRoot != null && _instanceRoot.parent != null)
             {
-                UnityEngine.Object.Destroy(m_InstanceRoot.parent.gameObject);
+                UnityEngine.Object.Destroy(_instanceRoot.parent.gameObject);
             }
         }
 
@@ -164,12 +164,12 @@ namespace GameLogic
         /// </summary>
         public string GetTopWindow()
         {
-            if (_stack.Count == 0)
+            if (_uiStack.Count == 0)
             {
                 return string.Empty;
             }
 
-            UIWindow topWindow = _stack[^1];
+            UIWindow topWindow = _uiStack[^1];
             return topWindow.WindowName;
         }
 
@@ -179,10 +179,10 @@ namespace GameLogic
         public string GetTopWindow(int layer)
         {
             UIWindow lastOne = null;
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                if (_stack[i].WindowLayer == layer)
-                    lastOne = _stack[i];
+                if (_uiStack[i].WindowLayer == layer)
+                    lastOne = _uiStack[i];
             }
 
             if (lastOne == null)
@@ -196,9 +196,9 @@ namespace GameLogic
         /// </summary>
         public bool IsAnyLoading()
         {
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                var window = _stack[i];
+                var window = _uiStack[i];
                 if (window.IsLoadDone == false)
                     return true;
             }
@@ -390,13 +390,13 @@ namespace GameLogic
         /// </summary>
         public void CloseAll(bool isShutDown = false)
         {
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 window.InternalDestroy(isShutDown);
             }
 
-            _stack.Clear();
+            _uiStack.Clear();
         }
 
         /// <summary>
@@ -404,16 +404,16 @@ namespace GameLogic
         /// </summary>
         public void CloseAllWithOut(UIWindow withOut)
         {
-            for (int i = _stack.Count - 1; i >= 0; i--)
+            for (int i = _uiStack.Count - 1; i >= 0; i--)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 if (window == withOut)
                 {
                     continue;
                 }
 
                 window.InternalDestroy();
-                _stack.RemoveAt(i);
+                _uiStack.RemoveAt(i);
             }
         }
 
@@ -422,16 +422,16 @@ namespace GameLogic
         /// </summary>
         public void CloseAllWithOut<T>() where T : UIWindow
         {
-            for (int i = _stack.Count - 1; i >= 0; i--)
+            for (int i = _uiStack.Count - 1; i >= 0; i--)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 if (window.GetType() == typeof(T))
                 {
                     continue;
                 }
 
                 window.InternalDestroy();
-                _stack.RemoveAt(i);
+                _uiStack.RemoveAt(i);
             }
         }
 
@@ -445,13 +445,13 @@ namespace GameLogic
 
         private void OnSortWindowDepth(int layer)
         {
-            int depth = layer * LAYER_DEEP;
-            for (int i = 0; i < _stack.Count; i++)
+            int depth = layer * LayerDeep;
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                if (_stack[i].WindowLayer == layer)
+                if (_uiStack[i].WindowLayer == layer)
                 {
-                    _stack[i].Depth = depth;
-                    depth += WINDOW_DEEP;
+                    _uiStack[i].Depth = depth;
+                    depth += WindowDeep;
                 }
             }
         }
@@ -459,9 +459,9 @@ namespace GameLogic
         private void OnSetWindowVisible()
         {
             bool isHideNext = false;
-            for (int i = _stack.Count - 1; i >= 0; i--)
+            for (int i = _uiStack.Count - 1; i >= 0; i--)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 if (isHideNext == false)
                 {
                     if (window.IsHide)
@@ -581,9 +581,9 @@ namespace GameLogic
 
         private UIWindow GetWindow(string windowName)
         {
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 if (window.WindowName == windowName)
                 {
                     return window;
@@ -595,9 +595,9 @@ namespace GameLogic
 
         private bool IsContains(string windowName)
         {
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                UIWindow window = _stack[i];
+                UIWindow window = _uiStack[i];
                 if (window.WindowName == windowName)
                 {
                     return true;
@@ -615,9 +615,9 @@ namespace GameLogic
 
             // 获取插入到所属层级的位置
             int insertIndex = -1;
-            for (int i = 0; i < _stack.Count; i++)
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                if (window.WindowLayer == _stack[i].WindowLayer)
+                if (window.WindowLayer == _uiStack[i].WindowLayer)
                 {
                     insertIndex = i + 1;
                 }
@@ -626,9 +626,9 @@ namespace GameLogic
             // 如果没有所属层级，找到相邻层级
             if (insertIndex == -1)
             {
-                for (int i = 0; i < _stack.Count; i++)
+                for (int i = 0; i < _uiStack.Count; i++)
                 {
-                    if (window.WindowLayer > _stack[i].WindowLayer)
+                    if (window.WindowLayer > _uiStack[i].WindowLayer)
                     {
                         insertIndex = i + 1;
                     }
@@ -642,31 +642,31 @@ namespace GameLogic
             }
 
             // 最后插入到堆栈
-            _stack.Insert(insertIndex, window);
+            _uiStack.Insert(insertIndex, window);
         }
 
         private void Pop(UIWindow window)
         {
             // 从堆栈里移除
-            _stack.Remove(window);
+            _uiStack.Remove(window);
         }
 
         public void OnUpdate()
         {
-            if (_stack == null)
+            if (_uiStack == null)
             {
                 return;
             }
 
-            int count = _stack.Count;
-            for (int i = 0; i < _stack.Count; i++)
+            int count = _uiStack.Count;
+            for (int i = 0; i < _uiStack.Count; i++)
             {
-                if (_stack.Count != count)
+                if (_uiStack.Count != count)
                 {
                     break;
                 }
 
-                var window = _stack[i];
+                var window = _uiStack[i];
                 window.InternalUpdate();
             }
         }

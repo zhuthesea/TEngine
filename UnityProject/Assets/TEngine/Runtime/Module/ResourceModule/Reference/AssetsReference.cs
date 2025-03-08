@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace TEngine
@@ -21,9 +22,9 @@ namespace TEngine
 
     public sealed class AssetsReference : MonoBehaviour
     {
-        [SerializeField] private GameObject _sourceGameObject;
+        [SerializeField] private GameObject sourceGameObject;
 
-        [SerializeField] private List<AssetsRefInfo> _refAssetInfoList;
+        [SerializeField] private List<AssetsRefInfo> refAssetInfoList;
 
         private IResourceModule _resourceModule;
 
@@ -39,9 +40,9 @@ namespace TEngine
                 throw new GameFrameworkException($"resourceModule is null.");
             }
 
-            if (_sourceGameObject != null)
+            if (sourceGameObject != null)
             {
-                _resourceModule.UnloadAsset(_sourceGameObject);
+                _resourceModule.UnloadAsset(sourceGameObject);
             }
 
             ReleaseRefAssetInfoList();
@@ -49,14 +50,14 @@ namespace TEngine
 
         private void ReleaseRefAssetInfoList()
         {
-            if (_refAssetInfoList != null)
+            if (refAssetInfoList != null)
             {
-                foreach (var refInfo in _refAssetInfoList)
+                foreach (var refInfo in refAssetInfoList)
                 {
                     _resourceModule.UnloadAsset(refInfo.refAsset);
                 }
 
-                _refAssetInfoList.Clear();
+                refAssetInfoList.Clear();
             }
         }
 
@@ -73,7 +74,7 @@ namespace TEngine
             }
 
             _resourceModule = resourceModule;
-            _sourceGameObject = source;
+            sourceGameObject = source;
             return this;
         }
 
@@ -85,11 +86,11 @@ namespace TEngine
             }
 
             _resourceModule = resourceModule;
-            if (_refAssetInfoList == null)
+            if (refAssetInfoList == null)
             {
-                _refAssetInfoList = new List<AssetsRefInfo>();
+                refAssetInfoList = new List<AssetsRefInfo>();
             }
-            _refAssetInfoList.Add(new AssetsRefInfo(source));
+            refAssetInfoList.Add(new AssetsRefInfo(source));
             return this;
         }
 

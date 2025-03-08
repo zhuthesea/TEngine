@@ -103,12 +103,12 @@ namespace GameLogic
         /// <summary>
         /// 存在Update更新的UI子组件列表。
         /// </summary>
-        protected List<UIWidget> m_listUpdateChild = null;
+        protected List<UIWidget> ListUpdateChild = null;
 
         /// <summary>
         /// 是否持有Update行为。
         /// </summary>
-        protected bool m_updateListValid = false;
+        protected bool UpdateListValid = false;
 
         /// <summary>
         /// 代码自动生成绑定。
@@ -186,7 +186,7 @@ namespace GameLogic
 
         internal void SetUpdateDirty()
         {
-            m_updateListValid = false;
+            UpdateListValid = false;
             if (Parent != null)
             {
                 Parent.SetUpdateDirty();

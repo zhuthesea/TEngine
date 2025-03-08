@@ -10,11 +10,6 @@ namespace Procedure
         /// </summary>
         public abstract bool UseNativeDialog { get; }
         
-        protected IResourceModule _resourceModule;
-
-        protected ProcedureBase()
-        {
-            _resourceModule = ModuleSystem.GetModule<IResourceModule>();
-        }
+        protected readonly IResourceModule _resourceModule = ModuleSystem.GetModule<IResourceModule>();
     }
 }

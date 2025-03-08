@@ -49,19 +49,19 @@ namespace TEngine
 
         public string FallbackHostServerURL { get; set; }
 
-        private string m_ApplicableGameVersion;
+        private string _applicableGameVersion;
 
-        private int m_InternalResourceVersion;
+        private int _internalResourceVersion;
 
         /// <summary>
         /// 获取当前资源适用的游戏版本号。
         /// </summary>
-        public string ApplicableGameVersion => m_ApplicableGameVersion;
+        public string ApplicableGameVersion => _applicableGameVersion;
 
         /// <summary>
         /// 获取当前内部资源版本号。
         /// </summary>
-        public int InternalResourceVersion => m_InternalResourceVersion;
+        public int InternalResourceVersion => _internalResourceVersion;
 
         /// <summary>
         /// 当前最新的包裹版本。
@@ -318,10 +318,10 @@ namespace TEngine
         public void OnLowMemory()
         {
             Log.Warning("Low memory reported...");
-            m_ForceUnloadUnusedAssetsAction?.Invoke(true);
+            _forceUnloadUnusedAssetsAction?.Invoke(true);
         }
 
-        private Action<bool> m_ForceUnloadUnusedAssetsAction;
+        private Action<bool> _forceUnloadUnusedAssetsAction;
 
         /// <summary>
         /// 低内存回调保护。
@@ -329,7 +329,7 @@ namespace TEngine
         /// <param name="action">低内存行为。</param>
         public void SetForceUnloadUnusedAssetsAction(Action<bool> action)
         {
-            m_ForceUnloadUnusedAssetsAction = action;
+            _forceUnloadUnusedAssetsAction = action;
         }
 
         /// <summary>
@@ -337,7 +337,7 @@ namespace TEngine
         /// </summary>
         public void UnloadUnusedAssets()
         {
-            m_AssetPool.ReleaseAllUnused();
+            _assetPool.ReleaseAllUnused();
             foreach (var package in PackageMap.Values)
             {
                 if (package is { InitializeStatus: EOperationStatus.Succeed })
@@ -369,7 +369,7 @@ namespace TEngine
 
         public void ForceUnloadUnusedAssets(bool performGCCollect)
         {
-            m_ForceUnloadUnusedAssetsAction?.Invoke(performGCCollect);
+            _forceUnloadUnusedAssetsAction?.Invoke(performGCCollect);
         }
 
         #region Public Methods
@@ -623,7 +623,7 @@ namespace TEngine
             }
 
             string assetObjectKey = GetCacheKey(location, packageName);
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 return assetObject.Target as T;
@@ -634,7 +634,7 @@ namespace TEngine
             T ret = handle.AssetObject as T;
 
             assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-            m_AssetPool.Register(assetObject, true);
+            _assetPool.Register(assetObject, true);
 
             return ret;
         }
@@ -647,7 +647,7 @@ namespace TEngine
             }
 
             string assetObjectKey = GetCacheKey(location, packageName);
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 return AssetsReference.Instantiate(assetObject.Target as GameObject, parent, this).gameObject;
@@ -658,7 +658,7 @@ namespace TEngine
             GameObject gameObject = AssetsReference.Instantiate(handle.AssetObject as GameObject, parent, this).gameObject;
 
             assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-            m_AssetPool.Register(assetObject, true);
+            _assetPool.Register(assetObject, true);
 
             return gameObject;
         }
@@ -687,7 +687,7 @@ namespace TEngine
 
             await TryWaitingLoading(assetObjectKey);
 
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 await UniTask.Yield();
@@ -706,7 +706,7 @@ namespace TEngine
                 if (assetHandle.AssetObject != null)
                 {
                     assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-                    m_AssetPool.Register(assetObject, true);
+                    _assetPool.Register(assetObject, true);
 
                     callback?.Invoke(assetObject.Target as T);
                 }
@@ -748,7 +748,7 @@ namespace TEngine
 
             await TryWaitingLoading(assetObjectKey);
 
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 await UniTask.Yield();
@@ -768,7 +768,7 @@ namespace TEngine
             }
 
             assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-            m_AssetPool.Register(assetObject, true);
+            _assetPool.Register(assetObject, true);
 
             _assetLoadingList.Remove(assetObjectKey);
 
@@ -786,7 +786,7 @@ namespace TEngine
 
             await TryWaitingLoading(assetObjectKey);
 
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 await UniTask.Yield();
@@ -808,7 +808,7 @@ namespace TEngine
             GameObject gameObject = AssetsReference.Instantiate(handle.AssetObject as GameObject, parent, this).gameObject;
 
             assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-            m_AssetPool.Register(assetObject, true);
+            _assetPool.Register(assetObject, true);
 
             _assetLoadingList.Remove(assetObjectKey);
 
@@ -844,7 +844,7 @@ namespace TEngine
 
             float duration = Time.time;
 
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 await UniTask.Yield();
@@ -895,7 +895,7 @@ namespace TEngine
             else
             {
                 assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-                m_AssetPool.Register(assetObject, true);
+                _assetPool.Register(assetObject, true);
 
                 _assetLoadingList.Remove(assetObjectKey);
 
@@ -934,7 +934,7 @@ namespace TEngine
 
             float duration = Time.time;
 
-            AssetObject assetObject = m_AssetPool.Spawn(assetObjectKey);
+            AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
             if (assetObject != null)
             {
                 await UniTask.Yield();
@@ -985,7 +985,7 @@ namespace TEngine
             else
             {
                 assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
-                m_AssetPool.Register(assetObject, true);
+                _assetPool.Register(assetObject, true);
 
                 _assetLoadingList.Remove(assetObjectKey);
 

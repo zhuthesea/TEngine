@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using YooAsset;
 
 namespace TEngine
@@ -14,23 +15,23 @@ namespace TEngine
 
         private const int DefaultPriority = 0;
 
-        private IResourceModule m_ResourceModule;
+        private IResourceModule _resourceModule;
 
-        private bool m_ForceUnloadUnusedAssets = false;
+        private bool _forceUnloadUnusedAssets = false;
 
-        private bool m_PreorderUnloadUnusedAssets = false;
+        private bool _preorderUnloadUnusedAssets = false;
 
-        private bool m_PerformGCCollect = false;
+        private bool _performGCCollect = false;
 
-        private AsyncOperation m_AsyncOperation = null;
+        private AsyncOperation _asyncOperation = null;
 
-        private float m_LastUnloadUnusedAssetsOperationElapseSeconds = 0f;
+        private float _lastUnloadUnusedAssetsOperationElapseSeconds = 0f;
 
-        [SerializeField] private float m_MinUnloadUnusedAssetsInterval = 60f;
+        [SerializeField] private float minUnloadUnusedAssetsInterval = 60f;
 
-        [SerializeField] private float m_MaxUnloadUnusedAssetsInterval = 300f;
+        [SerializeField] private float maxUnloadUnusedAssetsInterval = 300f;
 
-        [SerializeField] private bool m_UseSystemUnloadUnusedAssets = true;
+        [SerializeField] private bool useSystemUnloadUnusedAssets = true;
 
         /// <summary>
         /// 当前最新的包裹版本。
@@ -87,54 +88,54 @@ namespace TEngine
         /// <summary>
         /// 是否支持边玩边下载。
         /// </summary>
-        [SerializeField] private bool m_UpdatableWhilePlaying = false;
+        [SerializeField] private bool updatableWhilePlaying = false;
 
         /// <summary>
         /// 是否支持边玩边下载。
         /// </summary>
-        public bool UpdatableWhilePlaying => m_UpdatableWhilePlaying;
+        public bool UpdatableWhilePlaying => updatableWhilePlaying;
 
         /// <summary>
         /// 设置异步系统参数，每帧执行消耗的最大时间切片（单位：毫秒）
         /// </summary>
-        [SerializeField] public long Milliseconds = 30;
+        [SerializeField] public long milliseconds = 30;
 
-        public int m_DownloadingMaxNum = 10;
+        public int downloadingMaxNum = 10;
 
         /// <summary>
         /// 获取或设置同时最大下载数目。
         /// </summary>
         public int DownloadingMaxNum
         {
-            get => m_DownloadingMaxNum;
-            set => m_DownloadingMaxNum = value;
+            get => downloadingMaxNum;
+            set => downloadingMaxNum = value;
         }
 
-        public int m_FailedTryAgain = 3;
+        [SerializeField] public int failedTryAgain = 3;
 
         public int FailedTryAgain
         {
-            get => m_FailedTryAgain;
-            set => m_FailedTryAgain = value;
+            get => failedTryAgain;
+            set => failedTryAgain = value;
         }
 
         /// <summary>
         /// 获取当前资源适用的游戏版本号。
         /// </summary>
-        public string ApplicableGameVersion => m_ResourceModule.ApplicableGameVersion;
+        public string ApplicableGameVersion => _resourceModule.ApplicableGameVersion;
 
         /// <summary>
         /// 获取当前内部资源版本号。
         /// </summary>
-        public int InternalResourceVersion => m_ResourceModule.InternalResourceVersion;
+        public int InternalResourceVersion => _resourceModule.InternalResourceVersion;
 
         /// <summary>
         /// 获取或设置无用资源释放的最小间隔时间，以秒为单位。
         /// </summary>
         public float MinUnloadUnusedAssetsInterval
         {
-            get => m_MinUnloadUnusedAssetsInterval;
-            set => m_MinUnloadUnusedAssetsInterval = value;
+            get => minUnloadUnusedAssetsInterval;
+            set => minUnloadUnusedAssetsInterval = value;
         }
 
         /// <summary>
@@ -142,8 +143,8 @@ namespace TEngine
         /// </summary>
         public float MaxUnloadUnusedAssetsInterval
         {
-            get => m_MaxUnloadUnusedAssetsInterval;
-            set => m_MaxUnloadUnusedAssetsInterval = value;
+            get => maxUnloadUnusedAssetsInterval;
+            set => maxUnloadUnusedAssetsInterval = value;
         }
 
         /// <summary>
@@ -151,30 +152,30 @@ namespace TEngine
         /// </summary>
         public bool UseSystemUnloadUnusedAssets
         {
-            get => m_UseSystemUnloadUnusedAssets;
-            set => m_UseSystemUnloadUnusedAssets = value;
+            get => useSystemUnloadUnusedAssets;
+            set => useSystemUnloadUnusedAssets = value;
         }
 
         /// <summary>
         /// 获取无用资源释放的等待时长，以秒为单位。
         /// </summary>
-        public float LastUnloadUnusedAssetsOperationElapseSeconds => m_LastUnloadUnusedAssetsOperationElapseSeconds;
+        public float LastUnloadUnusedAssetsOperationElapseSeconds => _lastUnloadUnusedAssetsOperationElapseSeconds;
 
-        [SerializeField] private float m_AssetAutoReleaseInterval = 60f;
+        [SerializeField] private float assetAutoReleaseInterval = 60f;
 
-        [SerializeField] private int m_AssetCapacity = 64;
+        [SerializeField] private int assetCapacity = 64;
 
-        [SerializeField] private float m_AssetExpireTime = 60f;
+        [SerializeField] private float assetExpireTime = 60f;
 
-        [SerializeField] private int m_AssetPriority = 0;
+        [SerializeField] private int assetPriority = 0;
 
         /// <summary>
         /// 获取或设置资源对象池自动释放可释放对象的间隔秒数。
         /// </summary>
         public float AssetAutoReleaseInterval
         {
-            get => m_ResourceModule.AssetAutoReleaseInterval;
-            set => m_ResourceModule.AssetAutoReleaseInterval = m_AssetAutoReleaseInterval = value;
+            get => _resourceModule.AssetAutoReleaseInterval;
+            set => _resourceModule.AssetAutoReleaseInterval = assetAutoReleaseInterval = value;
         }
 
         /// <summary>
@@ -182,8 +183,8 @@ namespace TEngine
         /// </summary>
         public int AssetCapacity
         {
-            get => m_ResourceModule.AssetCapacity;
-            set => m_ResourceModule.AssetCapacity = m_AssetCapacity = value;
+            get => _resourceModule.AssetCapacity;
+            set => _resourceModule.AssetCapacity = assetCapacity = value;
         }
 
         /// <summary>
@@ -191,8 +192,8 @@ namespace TEngine
         /// </summary>
         public float AssetExpireTime
         {
-            get => m_ResourceModule.AssetExpireTime;
-            set => m_ResourceModule.AssetExpireTime = m_AssetExpireTime = value;
+            get => _resourceModule.AssetExpireTime;
+            set => _resourceModule.AssetExpireTime = assetExpireTime = value;
         }
 
         /// <summary>
@@ -200,16 +201,16 @@ namespace TEngine
         /// </summary>
         public int AssetPriority
         {
-            get => m_ResourceModule.AssetPriority;
-            set => m_ResourceModule.AssetPriority = m_AssetPriority = value;
+            get => _resourceModule.AssetPriority;
+            set => _resourceModule.AssetPriority = assetPriority = value;
         }
 
         #endregion
 
         private void Start()
         {
-            m_ResourceModule = ModuleSystem.GetModule<IResourceModule>();
-            if (m_ResourceModule == null)
+            _resourceModule = ModuleSystem.GetModule<IResourceModule>();
+            if (_resourceModule == null)
             {
                 Log.Fatal("Resource module is invalid.");
                 return;
@@ -223,20 +224,20 @@ namespace TEngine
 #endif
             }
 
-            m_ResourceModule.DefaultPackageName = PackageName;
-            m_ResourceModule.PlayMode = PlayMode;
-            m_ResourceModule.Milliseconds = Milliseconds;
-            m_ResourceModule.HostServerURL = Settings.UpdateSetting.GetResDownLoadPath();
-            m_ResourceModule.FallbackHostServerURL = Settings.UpdateSetting.GetFallbackResDownLoadPath();
-            m_ResourceModule.DownloadingMaxNum = DownloadingMaxNum;
-            m_ResourceModule.FailedTryAgain = FailedTryAgain;
-            m_ResourceModule.UpdatableWhilePlaying = UpdatableWhilePlaying;
-            m_ResourceModule.Initialize();
-            m_ResourceModule.AssetAutoReleaseInterval = m_AssetAutoReleaseInterval;
-            m_ResourceModule.AssetCapacity = m_AssetCapacity;
-            m_ResourceModule.AssetExpireTime = m_AssetExpireTime;
-            m_ResourceModule.AssetPriority = m_AssetPriority;
-            m_ResourceModule.SetForceUnloadUnusedAssetsAction(ForceUnloadUnusedAssets);
+            _resourceModule.DefaultPackageName = PackageName;
+            _resourceModule.PlayMode = PlayMode;
+            _resourceModule.Milliseconds = milliseconds;
+            _resourceModule.HostServerURL = Settings.UpdateSetting.GetResDownLoadPath();
+            _resourceModule.FallbackHostServerURL = Settings.UpdateSetting.GetFallbackResDownLoadPath();
+            _resourceModule.DownloadingMaxNum = DownloadingMaxNum;
+            _resourceModule.FailedTryAgain = FailedTryAgain;
+            _resourceModule.UpdatableWhilePlaying = UpdatableWhilePlaying;
+            _resourceModule.Initialize();
+            _resourceModule.AssetAutoReleaseInterval = assetAutoReleaseInterval;
+            _resourceModule.AssetCapacity = assetCapacity;
+            _resourceModule.AssetExpireTime = assetExpireTime;
+            _resourceModule.AssetPriority = assetPriority;
+            _resourceModule.SetForceUnloadUnusedAssetsAction(ForceUnloadUnusedAssets);
             Log.Info($"ResourceModule Run Mode：{PlayMode}");
         }
 
@@ -248,38 +249,38 @@ namespace TEngine
         /// <param name="performGCCollect">是否使用垃圾回收。</param>
         public void ForceUnloadUnusedAssets(bool performGCCollect)
         {
-            m_ForceUnloadUnusedAssets = true;
+            _forceUnloadUnusedAssets = true;
             if (performGCCollect)
             {
-                m_PerformGCCollect = true;
+                _performGCCollect = true;
             }
         }
 
 
         private void Update()
         {
-            m_LastUnloadUnusedAssetsOperationElapseSeconds += Time.unscaledDeltaTime;
-            if (m_AsyncOperation == null && (m_ForceUnloadUnusedAssets || m_LastUnloadUnusedAssetsOperationElapseSeconds >= m_MaxUnloadUnusedAssetsInterval ||
-                                             m_PreorderUnloadUnusedAssets && m_LastUnloadUnusedAssetsOperationElapseSeconds >= m_MinUnloadUnusedAssetsInterval))
+            _lastUnloadUnusedAssetsOperationElapseSeconds += Time.unscaledDeltaTime;
+            if (_asyncOperation == null && (_forceUnloadUnusedAssets || _lastUnloadUnusedAssetsOperationElapseSeconds >= maxUnloadUnusedAssetsInterval ||
+                                             _preorderUnloadUnusedAssets && _lastUnloadUnusedAssetsOperationElapseSeconds >= minUnloadUnusedAssetsInterval))
             {
                 Log.Info("Unload unused assets...");
-                m_ForceUnloadUnusedAssets = false;
-                m_PreorderUnloadUnusedAssets = false;
-                m_LastUnloadUnusedAssetsOperationElapseSeconds = 0f;
-                m_AsyncOperation = Resources.UnloadUnusedAssets();
-                if (m_UseSystemUnloadUnusedAssets)
+                _forceUnloadUnusedAssets = false;
+                _preorderUnloadUnusedAssets = false;
+                _lastUnloadUnusedAssetsOperationElapseSeconds = 0f;
+                _asyncOperation = Resources.UnloadUnusedAssets();
+                if (useSystemUnloadUnusedAssets)
                 {
-                    m_ResourceModule.UnloadUnusedAssets();
+                    _resourceModule.UnloadUnusedAssets();
                 }
             }
 
-            if (m_AsyncOperation is { isDone: true })
+            if (_asyncOperation is { isDone: true })
             {
-                m_AsyncOperation = null;
-                if (m_PerformGCCollect)
+                _asyncOperation = null;
+                if (_performGCCollect)
                 {
                     Log.Info("GC.Collect...");
-                    m_PerformGCCollect = false;
+                    _performGCCollect = false;
                     GC.Collect();
                 }
             }

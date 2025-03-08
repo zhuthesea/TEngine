@@ -2,15 +2,15 @@
 {
     internal partial class ResourceModule
     {
-        private IObjectPool<AssetObject> m_AssetPool;
+        private IObjectPool<AssetObject> _assetPool;
         
         /// <summary>
         /// 获取或设置资源对象池自动释放可释放对象的间隔秒数。
         /// </summary>
         public float AssetAutoReleaseInterval
         {
-            get => m_AssetPool.AutoReleaseInterval;
-            set => m_AssetPool.AutoReleaseInterval = value;
+            get => _assetPool.AutoReleaseInterval;
+            set => _assetPool.AutoReleaseInterval = value;
         }
 
         /// <summary>
@@ -18,8 +18,8 @@
         /// </summary>
         public int AssetCapacity
         {
-            get => m_AssetPool.Capacity;
-            set => m_AssetPool.Capacity = value;
+            get => _assetPool.Capacity;
+            set => _assetPool.Capacity = value;
         }
 
         /// <summary>
@@ -27,8 +27,8 @@
         /// </summary>
         public float AssetExpireTime
         {
-            get => m_AssetPool.ExpireTime;
-            set => m_AssetPool.ExpireTime = value;
+            get => _assetPool.ExpireTime;
+            set => _assetPool.ExpireTime = value;
         }
 
         /// <summary>
@@ -36,8 +36,8 @@
         /// </summary>
         public int AssetPriority
         {
-            get => m_AssetPool.Priority;
-            set => m_AssetPool.Priority = value;
+            get => _assetPool.Priority;
+            set => _assetPool.Priority = value;
         }
         
         /// <summary>
@@ -46,9 +46,9 @@
         /// <param name="asset">要卸载的资源。</param>
         public void UnloadAsset(object asset)
         {
-            if (m_AssetPool != null)
+            if (_assetPool != null)
             {
-                m_AssetPool.Unspawn(asset);
+                _assetPool.Unspawn(asset);
             }
         }
         
@@ -62,7 +62,7 @@
             {
                 throw new GameFrameworkException("Object pool manager is invalid.");
             }
-            m_AssetPool = objectPoolModule.CreateMultiSpawnObjectPool<AssetObject>("Asset Pool");
+            _assetPool = objectPoolModule.CreateMultiSpawnObjectPool<AssetObject>("Asset Pool");
         }
     }
 }

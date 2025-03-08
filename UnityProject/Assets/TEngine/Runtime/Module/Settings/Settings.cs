@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace TEngine
 {
@@ -27,13 +25,13 @@ namespace TEngine
         }
 
         [SerializeField] private AudioSetting audioSetting;
-        
+
         [SerializeField] private ProcedureSetting procedureSetting;
 
         [SerializeField] private UpdateSetting updateSetting;
         
         public static AudioSetting AudioSetting => Instance.audioSetting;
-        
+
         public static ProcedureSetting ProcedureSetting => Instance.procedureSetting;
 
         public static UpdateSetting UpdateSetting => Instance.updateSetting;

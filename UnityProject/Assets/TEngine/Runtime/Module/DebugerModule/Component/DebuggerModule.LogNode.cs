@@ -10,22 +10,22 @@ namespace TEngine
         /// </summary>
         public sealed class LogNode : IMemory
         {
-            private DateTime m_LogTime;
-            private int m_LogFrameCount;
-            private LogType m_LogType;
-            private string m_LogMessage;
-            private string m_StackTrack;
+            private DateTime _logTime;
+            private int _logFrameCount;
+            private LogType _logType;
+            private string _logMessage;
+            private string _stackTrack;
 
             /// <summary>
             /// 初始化日志记录结点的新实例。
             /// </summary>
             public LogNode()
             {
-                m_LogTime = default(DateTime);
-                m_LogFrameCount = 0;
-                m_LogType = LogType.Error;
-                m_LogMessage = null;
-                m_StackTrack = null;
+                _logTime = default(DateTime);
+                _logFrameCount = 0;
+                _logType = LogType.Error;
+                _logMessage = null;
+                _stackTrack = null;
             }
 
             /// <summary>
@@ -35,7 +35,7 @@ namespace TEngine
             {
                 get
                 {
-                    return m_LogTime;
+                    return _logTime;
                 }
             }
 
@@ -46,7 +46,7 @@ namespace TEngine
             {
                 get
                 {
-                    return m_LogFrameCount;
+                    return _logFrameCount;
                 }
             }
 
@@ -57,7 +57,7 @@ namespace TEngine
             {
                 get
                 {
-                    return m_LogType;
+                    return _logType;
                 }
             }
 
@@ -68,7 +68,7 @@ namespace TEngine
             {
                 get
                 {
-                    return m_LogMessage;
+                    return _logMessage;
                 }
             }
 
@@ -79,7 +79,7 @@ namespace TEngine
             {
                 get
                 {
-                    return m_StackTrack;
+                    return _stackTrack;
                 }
             }
 
@@ -93,11 +93,11 @@ namespace TEngine
             public static LogNode Create(LogType logType, string logMessage, string stackTrack)
             {
                 LogNode logNode = MemoryPool.Acquire<LogNode>();
-                logNode.m_LogTime = DateTime.UtcNow;
-                logNode.m_LogFrameCount = Time.frameCount;
-                logNode.m_LogType = logType;
-                logNode.m_LogMessage = logMessage;
-                logNode.m_StackTrack = stackTrack;
+                logNode._logTime = DateTime.UtcNow;
+                logNode._logFrameCount = Time.frameCount;
+                logNode._logType = logType;
+                logNode._logMessage = logMessage;
+                logNode._stackTrack = stackTrack;
                 return logNode;
             }
 
@@ -106,11 +106,11 @@ namespace TEngine
             /// </summary>
             public void Clear()
             {
-                m_LogTime = default(DateTime);
-                m_LogFrameCount = 0;
-                m_LogType = LogType.Error;
-                m_LogMessage = null;
-                m_StackTrack = null;
+                _logTime = default(DateTime);
+                _logFrameCount = 0;
+                _logType = LogType.Error;
+                _logMessage = null;
+                _stackTrack = null;
             }
         }
     }

@@ -25,69 +25,69 @@ namespace TEngine
             private bool _lastFatalFilter = true;
 
             [SerializeField]
-            private bool m_LockScroll = true;
+            private bool lockScroll = true;
 
             [SerializeField]
-            private int m_MaxLine = 100;
+            private int maxLine = 100;
 
             [SerializeField]
-            private bool m_InfoFilter = true;
+            private bool infoFilter = true;
 
             [SerializeField]
-            private bool m_WarningFilter = true;
+            private bool warningFilter = true;
 
             [SerializeField]
-            private bool m_ErrorFilter = true;
+            private bool errorFilter = true;
 
             [SerializeField]
-            private bool m_FatalFilter = true;
+            private bool fatalFilter = true;
 
             [SerializeField]
-            private Color32 m_InfoColor = Color.white;
+            private Color32 infoColor = Color.white;
 
             [SerializeField]
-            private Color32 m_WarningColor = Color.yellow;
+            private Color32 warningColor = Color.yellow;
 
             [SerializeField]
-            private Color32 m_ErrorColor = Color.red;
+            private Color32 errorColor = Color.red;
 
             [SerializeField]
-            private Color32 m_FatalColor = new Color(0.7f, 0.2f, 0.2f);
+            private Color32 fatalColor = new Color(0.7f, 0.2f, 0.2f);
 
             public bool LockScroll
             {
-                get => m_LockScroll;
-                set => m_LockScroll = value;
+                get => lockScroll;
+                set => lockScroll = value;
             }
 
             public int MaxLine
             {
-                get => m_MaxLine;
-                set => m_MaxLine = value;
+                get => maxLine;
+                set => maxLine = value;
             }
 
             public bool InfoFilter
             {
-                get => m_InfoFilter;
-                set => m_InfoFilter = value;
+                get => infoFilter;
+                set => infoFilter = value;
             }
 
             public bool WarningFilter
             {
-                get => m_WarningFilter;
-                set => m_WarningFilter = value;
+                get => warningFilter;
+                set => warningFilter = value;
             }
 
             public bool ErrorFilter
             {
-                get => m_ErrorFilter;
-                set => m_ErrorFilter = value;
+                get => errorFilter;
+                set => errorFilter = value;
             }
 
             public bool FatalFilter
             {
-                get => m_FatalFilter;
-                set => m_FatalFilter = value;
+                get => fatalFilter;
+                set => fatalFilter = value;
             }
 
             public int InfoCount => _infoCount;
@@ -100,36 +100,36 @@ namespace TEngine
 
             public Color32 InfoColor
             {
-                get => m_InfoColor;
-                set => m_InfoColor = value;
+                get => infoColor;
+                set => infoColor = value;
             }
 
             public Color32 WarningColor
             {
-                get => m_WarningColor;
-                set => m_WarningColor = value;
+                get => warningColor;
+                set => warningColor = value;
             }
 
             public Color32 ErrorColor
             {
-                get => m_ErrorColor;
-                set => m_ErrorColor = value;
+                get => errorColor;
+                set => errorColor = value;
             }
 
             public Color32 FatalColor
             {
-                get => m_FatalColor;
-                set => m_FatalColor = value;
+                get => fatalColor;
+                set => fatalColor = value;
             }
 
             public void Initialize(params object[] args)
             {
                 Application.logMessageReceived += OnLogMessageReceived;
-                m_LockScroll = _lastLockScroll = PlayerPrefs.GetInt("Debugger.Console.LockScroll", 1) == 1;
-                m_InfoFilter = _lastInfoFilter = PlayerPrefs.GetInt("Debugger.Console.InfoFilter", 1) == 1;
-                m_WarningFilter = _lastWarningFilter = PlayerPrefs.GetInt("Debugger.Console.WarningFilter", 1) == 1;
-                m_ErrorFilter = _lastErrorFilter = PlayerPrefs.GetInt("Debugger.Console.ErrorFilter", 1) == 1;
-                m_FatalFilter = _lastFatalFilter = PlayerPrefs.GetInt("Debugger.Console.FatalFilter", 1) == 1;
+                lockScroll = _lastLockScroll = PlayerPrefs.GetInt("Debugger.Console.LockScroll", 1) == 1;
+                infoFilter = _lastInfoFilter = PlayerPrefs.GetInt("Debugger.Console.InfoFilter", 1) == 1;
+                warningFilter = _lastWarningFilter = PlayerPrefs.GetInt("Debugger.Console.WarningFilter", 1) == 1;
+                errorFilter = _lastErrorFilter = PlayerPrefs.GetInt("Debugger.Console.ErrorFilter", 1) == 1;
+                fatalFilter = _lastFatalFilter = PlayerPrefs.GetInt("Debugger.Console.FatalFilter", 1) == 1;
             }
 
             public void Shutdown()
@@ -148,34 +148,34 @@ namespace TEngine
 
             public void OnUpdate(float elapseSeconds, float realElapseSeconds)
             {
-                if (_lastLockScroll != m_LockScroll)
+                if (_lastLockScroll != lockScroll)
                 {
-                    _lastLockScroll = m_LockScroll;
-                    PlayerPrefs.SetInt("Debugger.Console.LockScroll", m_LockScroll ? 1 : 0);
+                    _lastLockScroll = lockScroll;
+                    PlayerPrefs.SetInt("Debugger.Console.LockScroll", lockScroll ? 1 : 0);
                 }
 
-                if (_lastInfoFilter != m_InfoFilter)
+                if (_lastInfoFilter != infoFilter)
                 {
-                    _lastInfoFilter = m_InfoFilter;
-                    PlayerPrefs.SetInt("Debugger.Console.InfoFilter", m_InfoFilter ? 1 : 0);
+                    _lastInfoFilter = infoFilter;
+                    PlayerPrefs.SetInt("Debugger.Console.InfoFilter", infoFilter ? 1 : 0);
                 }
 
-                if (_lastWarningFilter != m_WarningFilter)
+                if (_lastWarningFilter != warningFilter)
                 {
-                    _lastWarningFilter = m_WarningFilter;
-                    PlayerPrefs.SetInt("Debugger.Console.WarningFilter", m_WarningFilter ? 1 : 0);
+                    _lastWarningFilter = warningFilter;
+                    PlayerPrefs.SetInt("Debugger.Console.WarningFilter", warningFilter ? 1 : 0);
                 }
 
-                if (_lastErrorFilter != m_ErrorFilter)
+                if (_lastErrorFilter != errorFilter)
                 {
-                    _lastErrorFilter = m_ErrorFilter;
-                    PlayerPrefs.SetInt("Debugger.Console.ErrorFilter", m_ErrorFilter ? 1 : 0);
+                    _lastErrorFilter = errorFilter;
+                    PlayerPrefs.SetInt("Debugger.Console.ErrorFilter", errorFilter ? 1 : 0);
                 }
 
-                if (_lastFatalFilter != m_FatalFilter)
+                if (_lastFatalFilter != fatalFilter)
                 {
-                    _lastFatalFilter = m_FatalFilter;
-                    PlayerPrefs.SetInt("Debugger.Console.FatalFilter", m_FatalFilter ? 1 : 0);
+                    _lastFatalFilter = fatalFilter;
+                    PlayerPrefs.SetInt("Debugger.Console.FatalFilter", fatalFilter ? 1 : 0);
                 }
             }
 
@@ -189,18 +189,18 @@ namespace TEngine
                     {
                         Clear();
                     }
-                    m_LockScroll = GUILayout.Toggle(m_LockScroll, "Lock Scroll", GUILayout.Width(90f));
+                    lockScroll = GUILayout.Toggle(lockScroll, "Lock Scroll", GUILayout.Width(90f));
                     GUILayout.FlexibleSpace();
-                    m_InfoFilter = GUILayout.Toggle(m_InfoFilter, Utility.Text.Format("Info ({0})", _infoCount), GUILayout.Width(90f));
-                    m_WarningFilter = GUILayout.Toggle(m_WarningFilter, Utility.Text.Format("Warning ({0})", _warningCount), GUILayout.Width(90f));
-                    m_ErrorFilter = GUILayout.Toggle(m_ErrorFilter, Utility.Text.Format("Error ({0})", _errorCount), GUILayout.Width(90f));
-                    m_FatalFilter = GUILayout.Toggle(m_FatalFilter, Utility.Text.Format("Fatal ({0})", _fatalCount), GUILayout.Width(90f));
+                    infoFilter = GUILayout.Toggle(infoFilter, Utility.Text.Format("Info ({0})", _infoCount), GUILayout.Width(90f));
+                    warningFilter = GUILayout.Toggle(warningFilter, Utility.Text.Format("Warning ({0})", _warningCount), GUILayout.Width(90f));
+                    errorFilter = GUILayout.Toggle(errorFilter, Utility.Text.Format("Error ({0})", _errorCount), GUILayout.Width(90f));
+                    fatalFilter = GUILayout.Toggle(fatalFilter, Utility.Text.Format("Fatal ({0})", _fatalCount), GUILayout.Width(90f));
                 }
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginVertical("box");
                 {
-                    if (m_LockScroll)
+                    if (lockScroll)
                     {
                         _logScrollPosition.y = float.MaxValue;
                     }
@@ -213,28 +213,28 @@ namespace TEngine
                             switch (logNode.LogType)
                             {
                                 case LogType.Log:
-                                    if (!m_InfoFilter)
+                                    if (!infoFilter)
                                     {
                                         continue;
                                     }
                                     break;
 
                                 case LogType.Warning:
-                                    if (!m_WarningFilter)
+                                    if (!warningFilter)
                                     {
                                         continue;
                                     }
                                     break;
 
                                 case LogType.Error:
-                                    if (!m_ErrorFilter)
+                                    if (!errorFilter)
                                     {
                                         continue;
                                     }
                                     break;
 
                                 case LogType.Exception:
-                                    if (!m_FatalFilter)
+                                    if (!fatalFilter)
                                     {
                                         continue;
                                     }
@@ -367,7 +367,7 @@ namespace TEngine
                 }
 
                 _logNodes.Enqueue(LogNode.Create(logType, logMessage, stackTrace));
-                while (_logNodes.Count > m_MaxLine)
+                while (_logNodes.Count > maxLine)
                 {
                     MemoryPool.Release(_logNodes.Dequeue());
                 }
@@ -385,19 +385,19 @@ namespace TEngine
                 switch (logType)
                 {
                     case LogType.Log:
-                        color = m_InfoColor;
+                        color = infoColor;
                         break;
 
                     case LogType.Warning:
-                        color = m_WarningColor;
+                        color = warningColor;
                         break;
 
                     case LogType.Error:
-                        color = m_ErrorColor;
+                        color = errorColor;
                         break;
 
                     case LogType.Exception:
-                        color = m_FatalColor;
+                        color = fatalColor;
                         break;
                 }
 

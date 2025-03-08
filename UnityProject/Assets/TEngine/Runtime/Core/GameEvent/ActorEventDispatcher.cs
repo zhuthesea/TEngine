@@ -34,24 +34,17 @@ namespace TEngine
         /// <summary>
         /// 所有事件。
         /// </summary>
-        private readonly Dictionary<int, List<EventRegInfo>> _allEventListenerMap;
+        private readonly Dictionary<int, List<EventRegInfo>> _allEventListenerMap = new();
 
         /// <summary>
         /// 用于标记一个事件是不是正在处理。
         /// </summary>
-        private readonly List<int> _processEventList;
+        private readonly List<int> _processEventList = new();
 
         /// <summary>
         /// 用于标记一个事件是不是被移除。
         /// </summary>
-        private readonly List<int> _delayDeleteEventList;
-
-        public ActorEventDispatcher()
-        {
-            _processEventList = new List<int>();
-            _delayDeleteEventList = new List<int>();
-            _allEventListenerMap = new Dictionary<int, List<EventRegInfo>>();
-        }
+        private readonly List<int> _delayDeleteEventList = new();
 
         /// <summary>
         /// 移除所有事件监听。

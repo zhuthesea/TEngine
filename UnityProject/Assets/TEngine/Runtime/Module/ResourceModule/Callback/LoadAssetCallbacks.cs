@@ -5,9 +5,9 @@ namespace TEngine
     /// </summary>
     public sealed class LoadAssetCallbacks
     {
-        private readonly LoadAssetSuccessCallback m_LoadAssetSuccessCallback;
-        private readonly LoadAssetFailureCallback m_LoadAssetFailureCallback;
-        private readonly LoadAssetUpdateCallback m_LoadAssetUpdateCallback;
+        private readonly LoadAssetSuccessCallback _loadAssetSuccessCallback;
+        private readonly LoadAssetFailureCallback _loadAssetFailureCallback;
+        private readonly LoadAssetUpdateCallback _loadAssetUpdateCallback;
 
         /// <summary>
         /// 初始化加载资源回调函数集的新实例。
@@ -51,9 +51,9 @@ namespace TEngine
                 throw new GameFrameworkException("Load asset success callback is invalid.");
             }
 
-            m_LoadAssetSuccessCallback = loadAssetSuccessCallback;
-            m_LoadAssetFailureCallback = loadAssetFailureCallback;
-            m_LoadAssetUpdateCallback = loadAssetUpdateCallback;
+            _loadAssetSuccessCallback = loadAssetSuccessCallback;
+            _loadAssetFailureCallback = loadAssetFailureCallback;
+            _loadAssetUpdateCallback = loadAssetUpdateCallback;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace TEngine
         {
             get
             {
-                return m_LoadAssetSuccessCallback;
+                return _loadAssetSuccessCallback;
             }
         }
 
@@ -74,7 +74,7 @@ namespace TEngine
         {
             get
             {
-                return m_LoadAssetFailureCallback;
+                return _loadAssetFailureCallback;
             }
         }
 
@@ -85,7 +85,7 @@ namespace TEngine
         {
             get
             {
-                return m_LoadAssetUpdateCallback;
+                return _loadAssetUpdateCallback;
             }
         }
     }

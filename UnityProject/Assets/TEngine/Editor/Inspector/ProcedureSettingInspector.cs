@@ -8,12 +8,12 @@ namespace TEngine.Editor.Inspector
     [CustomEditor(typeof(ProcedureSetting))]
     internal sealed class ProcedureSettingInspector : GameFrameworkInspector
     {
-        private SerializedProperty m_AvailableProcedureTypeNames = null;
-        private SerializedProperty m_EntranceProcedureTypeName = null;
+        private SerializedProperty _availableProcedureTypeNames = null;
+        private SerializedProperty _entranceProcedureTypeName = null;
 
-        private string[] m_ProcedureTypeNames = null;
-        private List<string> m_CurrentAvailableProcedureTypeNames = null;
-        private int m_EntranceProcedureIndex = -1;
+        private string[] _procedureTypeNames = null;
+        private List<string> _currentAvailableProcedureTypeNames = null;
+        private int _entranceProcedureIndex = -1;
 
         public override void OnInspectorGUI()
         {
@@ -23,7 +23,7 @@ namespace TEngine.Editor.Inspector
 
             ProcedureSetting t = (ProcedureSetting)target;
 
-            if (string.IsNullOrEmpty(m_EntranceProcedureTypeName.stringValue))
+            if (string.IsNullOrEmpty(_entranceProcedureTypeName.stringValue))
             {
                 EditorGUILayout.HelpBox("Entrance procedure is invalid.", MessageType.Error);
             }
@@ -31,23 +31,23 @@ namespace TEngine.Editor.Inspector
             EditorGUI.BeginDisabledGroup(EditorApplication.isPlayingOrWillChangePlaymode);
             {
                 GUILayout.Label("Available Procedures", EditorStyles.boldLabel);
-                if (m_ProcedureTypeNames.Length > 0)
+                if (_procedureTypeNames.Length > 0)
                 {
                     EditorGUILayout.BeginVertical("box");
                     {
-                        foreach (string procedureTypeName in m_ProcedureTypeNames)
+                        foreach (string procedureTypeName in _procedureTypeNames)
                         {
-                            bool selected = m_CurrentAvailableProcedureTypeNames.Contains(procedureTypeName);
+                            bool selected = _currentAvailableProcedureTypeNames.Contains(procedureTypeName);
                             if (selected != EditorGUILayout.ToggleLeft(procedureTypeName, selected))
                             {
                                 if (!selected)
                                 {
-                                    m_CurrentAvailableProcedureTypeNames.Add(procedureTypeName);
+                                    _currentAvailableProcedureTypeNames.Add(procedureTypeName);
                                     WriteAvailableProcedureTypeNames();
                                 }
-                                else if (procedureTypeName != m_EntranceProcedureTypeName.stringValue)
+                                else if (procedureTypeName != _entranceProcedureTypeName.stringValue)
                                 {
-                                    m_CurrentAvailableProcedureTypeNames.Remove(procedureTypeName);
+                                    _currentAvailableProcedureTypeNames.Remove(procedureTypeName);
                                     WriteAvailableProcedureTypeNames();
                                 }
                             }
@@ -60,15 +60,15 @@ namespace TEngine.Editor.Inspector
                     EditorGUILayout.HelpBox("There is no available procedure.", MessageType.Warning);
                 }
 
-                if (m_CurrentAvailableProcedureTypeNames.Count > 0)
+                if (_currentAvailableProcedureTypeNames.Count > 0)
                 {
                     EditorGUILayout.Separator();
 
-                    int selectedIndex = EditorGUILayout.Popup("Entrance Procedure", m_EntranceProcedureIndex, m_CurrentAvailableProcedureTypeNames.ToArray());
-                    if (selectedIndex != m_EntranceProcedureIndex)
+                    int selectedIndex = EditorGUILayout.Popup("Entrance Procedure", _entranceProcedureIndex, _currentAvailableProcedureTypeNames.ToArray());
+                    if (selectedIndex != _entranceProcedureIndex)
                     {
-                        m_EntranceProcedureIndex = selectedIndex;
-                        m_EntranceProcedureTypeName.stringValue = m_CurrentAvailableProcedureTypeNames[selectedIndex];
+                        _entranceProcedureIndex = selectedIndex;
+                        _entranceProcedureTypeName.stringValue = _currentAvailableProcedureTypeNames[selectedIndex];
                     }
                 }
                 else
@@ -92,28 +92,28 @@ namespace TEngine.Editor.Inspector
 
         private void OnEnable()
         {
-            m_AvailableProcedureTypeNames = serializedObject.FindProperty("availableProcedureTypeNames");
-            m_EntranceProcedureTypeName = serializedObject.FindProperty("entranceProcedureTypeName");
+            _availableProcedureTypeNames = serializedObject.FindProperty("availableProcedureTypeNames");
+            _entranceProcedureTypeName = serializedObject.FindProperty("entranceProcedureTypeName");
 
             RefreshTypeNames();
         }
 
         private void RefreshTypeNames()
         {
-            m_ProcedureTypeNames = Type.GetRuntimeTypeNames(typeof(ProcedureBase));
+            _procedureTypeNames = Type.GetRuntimeTypeNames(typeof(ProcedureBase));
             ReadAvailableProcedureTypeNames();
-            int oldCount = m_CurrentAvailableProcedureTypeNames.Count;
-            m_CurrentAvailableProcedureTypeNames = m_CurrentAvailableProcedureTypeNames.Where(x => m_ProcedureTypeNames.Contains(x)).ToList();
-            if (m_CurrentAvailableProcedureTypeNames.Count != oldCount)
+            int oldCount = _currentAvailableProcedureTypeNames.Count;
+            _currentAvailableProcedureTypeNames = _currentAvailableProcedureTypeNames.Where(x => _procedureTypeNames.Contains(x)).ToList();
+            if (_currentAvailableProcedureTypeNames.Count != oldCount)
             {
                 WriteAvailableProcedureTypeNames();
             }
-            else if (!string.IsNullOrEmpty(m_EntranceProcedureTypeName.stringValue))
+            else if (!string.IsNullOrEmpty(_entranceProcedureTypeName.stringValue))
             {
-                m_EntranceProcedureIndex = m_CurrentAvailableProcedureTypeNames.IndexOf(m_EntranceProcedureTypeName.stringValue);
-                if (m_EntranceProcedureIndex < 0)
+                _entranceProcedureIndex = _currentAvailableProcedureTypeNames.IndexOf(_entranceProcedureTypeName.stringValue);
+                if (_entranceProcedureIndex < 0)
                 {
-                    m_EntranceProcedureTypeName.stringValue = null;
+                    _entranceProcedureTypeName.stringValue = null;
                 }
             }
 
@@ -122,36 +122,36 @@ namespace TEngine.Editor.Inspector
 
         private void ReadAvailableProcedureTypeNames()
         {
-            m_CurrentAvailableProcedureTypeNames = new List<string>();
-            int count = m_AvailableProcedureTypeNames.arraySize;
+            _currentAvailableProcedureTypeNames = new List<string>();
+            int count = _availableProcedureTypeNames.arraySize;
             for (int i = 0; i < count; i++)
             {
-                m_CurrentAvailableProcedureTypeNames.Add(m_AvailableProcedureTypeNames.GetArrayElementAtIndex(i).stringValue);
+                _currentAvailableProcedureTypeNames.Add(_availableProcedureTypeNames.GetArrayElementAtIndex(i).stringValue);
             }
         }
 
         private void WriteAvailableProcedureTypeNames()
         {
-            m_AvailableProcedureTypeNames.ClearArray();
-            if (m_CurrentAvailableProcedureTypeNames == null)
+            _availableProcedureTypeNames.ClearArray();
+            if (_currentAvailableProcedureTypeNames == null)
             {
                 return;
             }
 
-            m_CurrentAvailableProcedureTypeNames.Sort();
-            int count = m_CurrentAvailableProcedureTypeNames.Count;
+            _currentAvailableProcedureTypeNames.Sort();
+            int count = _currentAvailableProcedureTypeNames.Count;
             for (int i = 0; i < count; i++)
             {
-                m_AvailableProcedureTypeNames.InsertArrayElementAtIndex(i);
-                m_AvailableProcedureTypeNames.GetArrayElementAtIndex(i).stringValue = m_CurrentAvailableProcedureTypeNames[i];
+                _availableProcedureTypeNames.InsertArrayElementAtIndex(i);
+                _availableProcedureTypeNames.GetArrayElementAtIndex(i).stringValue = _currentAvailableProcedureTypeNames[i];
             }
 
-            if (!string.IsNullOrEmpty(m_EntranceProcedureTypeName.stringValue))
+            if (!string.IsNullOrEmpty(_entranceProcedureTypeName.stringValue))
             {
-                m_EntranceProcedureIndex = m_CurrentAvailableProcedureTypeNames.IndexOf(m_EntranceProcedureTypeName.stringValue);
-                if (m_EntranceProcedureIndex < 0)
+                _entranceProcedureIndex = _currentAvailableProcedureTypeNames.IndexOf(_entranceProcedureTypeName.stringValue);
+                if (_entranceProcedureIndex < 0)
                 {
-                    m_EntranceProcedureTypeName.stringValue = null;
+                    _entranceProcedureTypeName.stringValue = null;
                 }
             }
         }

@@ -138,7 +138,7 @@ namespace GameLogic
             {
                 if (_canvas != null)
                 {
-                    return _canvas.gameObject.layer == UIModule.WINDOW_SHOW_LAYER;
+                    return _canvas.gameObject.layer == UIModule.WindowShowLayer;
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace GameLogic
             {
                 if (_canvas != null)
                 {
-                    int setLayer = value ? UIModule.WINDOW_SHOW_LAYER : UIModule.WINDOW_HIDE_LAYER;
+                    int setLayer = value ? UIModule.WindowShowLayer : UIModule.WindowHideLayer;
                     if (_canvas.gameObject.layer == setLayer)
                         return;
 
@@ -295,15 +295,15 @@ namespace GameLogic
             List<UIWidget> listNextUpdateChild = null;
             if (ListChild != null && ListChild.Count > 0)
             {
-                listNextUpdateChild = m_listUpdateChild;
-                var updateListValid = m_updateListValid;
+                listNextUpdateChild = ListUpdateChild;
+                var updateListValid = UpdateListValid;
                 List<UIWidget> listChild = null;
                 if (!updateListValid)
                 {
                     if (listNextUpdateChild == null)
                     {
                         listNextUpdateChild = new List<UIWidget>();
-                        m_listUpdateChild = listNextUpdateChild;
+                        ListUpdateChild = listNextUpdateChild;
                     }
                     else
                     {
@@ -336,7 +336,7 @@ namespace GameLogic
 
                 if (!updateListValid)
                 {
-                    m_updateListValid = true;
+                    UpdateListValid = true;
                 }
             }
 

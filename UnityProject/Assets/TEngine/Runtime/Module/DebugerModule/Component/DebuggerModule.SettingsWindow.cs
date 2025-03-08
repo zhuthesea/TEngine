@@ -8,13 +8,13 @@ namespace TEngine
         private sealed class SettingsWindow : ScrollableDebuggerWindowBase
         {
             private Debugger _debugger = null;
-            private float m_LastIconX = 0f;
-            private float m_LastIconY = 0f;
-            private float m_LastWindowX = 0f;
-            private float m_LastWindowY = 0f;
-            private float m_LastWindowWidth = 0f;
-            private float m_LastWindowHeight = 0f;
-            private float m_LastWindowScale = 0f;
+            private float _lastIconX = 0f;
+            private float _lastIconY = 0f;
+            private float _lastWindowX = 0f;
+            private float _lastWindowY = 0f;
+            private float _lastWindowWidth = 0f;
+            private float _lastWindowHeight = 0f;
+            private float _lastWindowScale = 0f;
 
             public override void Initialize(params object[] args)
             {
@@ -25,59 +25,59 @@ namespace TEngine
                     return;
                 }
 
-                m_LastIconX = PlayerPrefs.GetFloat("Debugger.Icon.X", DefaultIconRect.x);
-                m_LastIconY = PlayerPrefs.GetFloat("Debugger.Icon.Y", DefaultIconRect.y);
-                m_LastWindowX = PlayerPrefs.GetFloat("Debugger.Window.X", DefaultWindowRect.x);
-                m_LastWindowY = PlayerPrefs.GetFloat("Debugger.Window.Y", DefaultWindowRect.y);
-                m_LastWindowWidth = PlayerPrefs.GetFloat("Debugger.Window.Width", DefaultWindowRect.width);
-                m_LastWindowHeight = PlayerPrefs.GetFloat("Debugger.Window.Height", DefaultWindowRect.height);
+                _lastIconX = PlayerPrefs.GetFloat("Debugger.Icon.X", DefaultIconRect.x);
+                _lastIconY = PlayerPrefs.GetFloat("Debugger.Icon.Y", DefaultIconRect.y);
+                _lastWindowX = PlayerPrefs.GetFloat("Debugger.Window.X", DefaultWindowRect.x);
+                _lastWindowY = PlayerPrefs.GetFloat("Debugger.Window.Y", DefaultWindowRect.y);
+                _lastWindowWidth = PlayerPrefs.GetFloat("Debugger.Window.Width", DefaultWindowRect.width);
+                _lastWindowHeight = PlayerPrefs.GetFloat("Debugger.Window.Height", DefaultWindowRect.height);
                 
-                _debugger.WindowScale = m_LastWindowScale = PlayerPrefs.GetFloat("Debugger.Window.Scale", DefaultWindowScale);
-                _debugger.IconRect = new Rect(m_LastIconX, m_LastIconY, DefaultIconRect.width, DefaultIconRect.height);
-                _debugger.WindowRect = new Rect(m_LastWindowX, m_LastWindowY, m_LastWindowWidth, m_LastWindowHeight);
+                _debugger.WindowScale = _lastWindowScale = PlayerPrefs.GetFloat("Debugger.Window.Scale", DefaultWindowScale);
+                _debugger.IconRect = new Rect(_lastIconX, _lastIconY, DefaultIconRect.width, DefaultIconRect.height);
+                _debugger.WindowRect = new Rect(_lastWindowX, _lastWindowY, _lastWindowWidth, _lastWindowHeight);
             }
 
             public override void OnUpdate(float elapseSeconds, float realElapseSeconds)
             {
-                if (Math.Abs(m_LastIconX - _debugger.IconRect.x) > 0.01f)
+                if (Math.Abs(_lastIconX - _debugger.IconRect.x) > 0.01f)
                 {
-                    m_LastIconX = _debugger.IconRect.x;
+                    _lastIconX = _debugger.IconRect.x;
                     PlayerPrefs.SetFloat("Debugger.Icon.X", _debugger.IconRect.x);
                 }
 
-                if (Math.Abs(m_LastIconY - _debugger.IconRect.y) > 0.01f)
+                if (Math.Abs(_lastIconY - _debugger.IconRect.y) > 0.01f)
                 {
-                    m_LastIconY = _debugger.IconRect.y;
+                    _lastIconY = _debugger.IconRect.y;
                     PlayerPrefs.SetFloat("Debugger.Icon.Y", _debugger.IconRect.y);
                 }
 
-                if (Math.Abs(m_LastWindowX - _debugger.WindowRect.x) > 0.01f)
+                if (Math.Abs(_lastWindowX - _debugger.WindowRect.x) > 0.01f)
                 {
-                    m_LastWindowX = _debugger.WindowRect.x;
+                    _lastWindowX = _debugger.WindowRect.x;
                     PlayerPrefs.SetFloat("Debugger.Window.X", _debugger.WindowRect.x);
                 }
 
-                if (Math.Abs(m_LastWindowY - _debugger.WindowRect.y) > 0.01f)
+                if (Math.Abs(_lastWindowY - _debugger.WindowRect.y) > 0.01f)
                 {
-                    m_LastWindowY = _debugger.WindowRect.y;
+                    _lastWindowY = _debugger.WindowRect.y;
                     PlayerPrefs.SetFloat("Debugger.Window.Y", _debugger.WindowRect.y);
                 }
 
-                if (Math.Abs(m_LastWindowWidth - _debugger.WindowRect.width) > 0.01f)
+                if (Math.Abs(_lastWindowWidth - _debugger.WindowRect.width) > 0.01f)
                 {
-                    m_LastWindowWidth = _debugger.WindowRect.width;
+                    _lastWindowWidth = _debugger.WindowRect.width;
                     PlayerPrefs.SetFloat("Debugger.Window.Width", _debugger.WindowRect.width);
                 }
 
-                if (Math.Abs(m_LastWindowHeight - _debugger.WindowRect.height) > 0.01f)
+                if (Math.Abs(_lastWindowHeight - _debugger.WindowRect.height) > 0.01f)
                 {
-                    m_LastWindowHeight = _debugger.WindowRect.height;
+                    _lastWindowHeight = _debugger.WindowRect.height;
                     PlayerPrefs.SetFloat("Debugger.Window.Height", _debugger.WindowRect.height);
                 }
 
-                if (Math.Abs(m_LastWindowScale - _debugger.WindowScale) > 0.01f)
+                if (Math.Abs(_lastWindowScale - _debugger.WindowScale) > 0.01f)
                 {
-                    m_LastWindowScale = _debugger.WindowScale;
+                    _lastWindowScale = _debugger.WindowScale;
                     PlayerPrefs.SetFloat("Debugger.Window.Scale", _debugger.WindowScale);
                 }
             }

@@ -6,7 +6,7 @@ namespace TEngine
     {
         private sealed class QualityInformationWindow : ScrollableDebuggerWindowBase
         {
-            private bool m_ApplyExpensiveChanges = false;
+            private bool _applyExpensiveChanges = false;
 
             protected override void OnDrawScrollableWindow()
             {
@@ -16,12 +16,12 @@ namespace TEngine
                     int currentQualityLevel = QualitySettings.GetQualityLevel();
 
                     DrawItem("Current Quality Level", QualitySettings.names[currentQualityLevel]);
-                    m_ApplyExpensiveChanges = GUILayout.Toggle(m_ApplyExpensiveChanges, "Apply expensive changes on quality level change.");
+                    _applyExpensiveChanges = GUILayout.Toggle(_applyExpensiveChanges, "Apply expensive changes on quality level change.");
 
                     int newQualityLevel = GUILayout.SelectionGrid(currentQualityLevel, QualitySettings.names, 3, "toggle");
                     if (newQualityLevel != currentQualityLevel)
                     {
-                        QualitySettings.SetQualityLevel(newQualityLevel, m_ApplyExpensiveChanges);
+                        QualitySettings.SetQualityLevel(newQualityLevel, _applyExpensiveChanges);
                     }
                 }
                 GUILayout.EndVertical();

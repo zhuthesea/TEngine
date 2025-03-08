@@ -5,9 +5,9 @@
     /// </summary>
     public sealed class LoadSceneCallbacks
     {
-        private readonly LoadSceneSuccessCallback m_LoadSceneSuccessCallback;
-        private readonly LoadSceneFailureCallback m_LoadSceneFailureCallback;
-        private readonly LoadSceneUpdateCallback m_LoadSceneUpdateCallback;
+        private readonly LoadSceneSuccessCallback _loadSceneSuccessCallback;
+        private readonly LoadSceneFailureCallback _loadSceneFailureCallback;
+        private readonly LoadSceneUpdateCallback _loadSceneUpdateCallback;
 
         /// <summary>
         /// 初始化加载场景回调函数集的新实例。
@@ -51,9 +51,9 @@
                 throw new GameFrameworkException("Load scene success callback is invalid.");
             }
 
-            m_LoadSceneSuccessCallback = loadSceneSuccessCallback;
-            m_LoadSceneFailureCallback = loadSceneFailureCallback;
-            m_LoadSceneUpdateCallback = loadSceneUpdateCallback;
+            _loadSceneSuccessCallback = loadSceneSuccessCallback;
+            _loadSceneFailureCallback = loadSceneFailureCallback;
+            _loadSceneUpdateCallback = loadSceneUpdateCallback;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@
         {
             get
             {
-                return m_LoadSceneSuccessCallback;
+                return _loadSceneSuccessCallback;
             }
         }
 
@@ -74,7 +74,7 @@
         {
             get
             {
-                return m_LoadSceneFailureCallback;
+                return _loadSceneFailureCallback;
             }
         }
 
@@ -85,7 +85,7 @@
         {
             get
             {
-                return m_LoadSceneUpdateCallback;
+                return _loadSceneUpdateCallback;
             }
         }
     }

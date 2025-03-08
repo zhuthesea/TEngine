@@ -8,10 +8,10 @@ namespace TEngine
     {
         private sealed class MemoryPoolPoolInformationWindow : ScrollableDebuggerWindowBase
         {
-            private readonly Dictionary<string, List<MemoryPoolInfo>> m_MemoryPoolInfos = new Dictionary<string, List<MemoryPoolInfo>>(StringComparer.Ordinal);
-            private readonly Comparison<MemoryPoolInfo> m_NormalClassNameComparer = NormalClassNameComparer;
-            private readonly Comparison<MemoryPoolInfo> m_FullClassNameComparer = FullClassNameComparer;
-            private bool m_ShowFullClassName = false;
+            private readonly Dictionary<string, List<MemoryPoolInfo>> _memoryPoolInfos = new Dictionary<string, List<MemoryPoolInfo>>(StringComparer.Ordinal);
+            private readonly Comparison<MemoryPoolInfo> _normalClassNameComparer = NormalClassNameComparer;
+            private readonly Comparison<MemoryPoolInfo> _fullClassNameComparer = FullClassNameComparer;
+            private bool _showFullClassName = false;
 
             public override void Initialize(params object[] args)
             {
@@ -27,30 +27,30 @@ namespace TEngine
                 }
                 GUILayout.EndVertical();
 
-                m_ShowFullClassName = GUILayout.Toggle(m_ShowFullClassName, "Show Full Class Name");
-                m_MemoryPoolInfos.Clear();
+                _showFullClassName = GUILayout.Toggle(_showFullClassName, "Show Full Class Name");
+                _memoryPoolInfos.Clear();
                 MemoryPoolInfo[] memoryPoolInfos = MemoryPool.GetAllMemoryPoolInfos();
                 foreach (MemoryPoolInfo memoryPoolInfo in memoryPoolInfos)
                 {
                     string assemblyName = memoryPoolInfo.Type.Assembly.GetName().Name;
                     List<MemoryPoolInfo> results = null;
-                    if (!m_MemoryPoolInfos.TryGetValue(assemblyName, out results))
+                    if (!_memoryPoolInfos.TryGetValue(assemblyName, out results))
                     {
                         results = new List<MemoryPoolInfo>();
-                        m_MemoryPoolInfos.Add(assemblyName, results);
+                        _memoryPoolInfos.Add(assemblyName, results);
                     }
 
                     results.Add(memoryPoolInfo);
                 }
 
-                foreach (KeyValuePair<string, List<MemoryPoolInfo>> assemblyMemoryPoolInfo in m_MemoryPoolInfos)
+                foreach (KeyValuePair<string, List<MemoryPoolInfo>> assemblyMemoryPoolInfo in _memoryPoolInfos)
                 {
                     GUILayout.Label(Utility.Text.Format("<b>Assembly: {0}</b>", assemblyMemoryPoolInfo.Key));
                     GUILayout.BeginVertical("box");
                     {
                         GUILayout.BeginHorizontal();
                         {
-                            GUILayout.Label(m_ShowFullClassName ? "<b>Full Class Name</b>" : "<b>Class Name</b>");
+                            GUILayout.Label(_showFullClassName ? "<b>Full Class Name</b>" : "<b>Class Name</b>");
                             GUILayout.Label("<b>Unused</b>", GUILayout.Width(60f));
                             GUILayout.Label("<b>Using</b>", GUILayout.Width(60f));
                             GUILayout.Label("<b>Acquire</b>", GUILayout.Width(60f));
@@ -62,7 +62,7 @@ namespace TEngine
 
                         if (assemblyMemoryPoolInfo.Value.Count > 0)
                         {
-                            assemblyMemoryPoolInfo.Value.Sort(m_ShowFullClassName ? m_FullClassNameComparer : m_NormalClassNameComparer);
+                            assemblyMemoryPoolInfo.Value.Sort(_showFullClassName ? _fullClassNameComparer : _normalClassNameComparer);
                             foreach (MemoryPoolInfo memoryPoolInfo in assemblyMemoryPoolInfo.Value)
                             {
                                 DrawMemoryPoolInfo(memoryPoolInfo);
@@ -81,7 +81,7 @@ namespace TEngine
             {
                 GUILayout.BeginHorizontal();
                 {
-                    GUILayout.Label(m_ShowFullClassName ? memoryPoolInfo.Type.FullName : memoryPoolInfo.Type.Name);
+                    GUILayout.Label(_showFullClassName ? memoryPoolInfo.Type.FullName : memoryPoolInfo.Type.Name);
                     GUILayout.Label(memoryPoolInfo.UnusedMemoryCount.ToString(), GUILayout.Width(60f));
                     GUILayout.Label(memoryPoolInfo.UsingMemoryCount.ToString(), GUILayout.Width(60f));
                     GUILayout.Label(memoryPoolInfo.AcquireMemoryCount.ToString(), GUILayout.Width(60f));

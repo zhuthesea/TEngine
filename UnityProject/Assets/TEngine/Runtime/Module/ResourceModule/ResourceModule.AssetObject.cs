@@ -10,14 +10,8 @@ namespace TEngine
         /// </summary>
         private sealed class AssetObject : ObjectBase
         {
-            private AssetHandle m_AssetHandle;
-            private ResourceModule m_ResourceManager;
-
-
-            public AssetObject()
-            {
-                m_AssetHandle = null;
-            }
+            private AssetHandle _assetHandle = null;
+            private ResourceModule _resourceModule;
 
             public static AssetObject Create(string name, object target, object assetHandle, ResourceModule resourceModule)
             {
@@ -33,15 +27,15 @@ namespace TEngine
 
                 AssetObject assetObject = MemoryPool.Acquire<AssetObject>();
                 assetObject.Initialize(name, target);
-                assetObject.m_AssetHandle = (AssetHandle)assetHandle;
-                assetObject.m_ResourceManager = resourceModule;
+                assetObject._assetHandle = (AssetHandle)assetHandle;
+                assetObject._resourceModule = resourceModule;
                 return assetObject;
             }
 
             public override void Clear()
             {
                 base.Clear();
-                m_AssetHandle = null;
+                _assetHandle = null;
             }
 
             protected internal override void OnUnspawn()
@@ -53,7 +47,7 @@ namespace TEngine
             {
                 if (!isShutdown)
                 {
-                    AssetHandle handle = m_AssetHandle;
+                    AssetHandle handle = _assetHandle;
                     if (handle is { IsValid: true })
                     {
                         handle.Dispose();

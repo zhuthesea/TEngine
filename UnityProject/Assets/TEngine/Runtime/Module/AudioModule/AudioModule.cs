@@ -389,7 +389,7 @@ namespace TEngine
             for (int index = 0; index < (int)AudioType.Max; ++index)
             {
                 AudioType audioType = (AudioType)index;
-                AudioGroupConfig audioGroupConfig = _audioGroupConfigs.First(t => t.AudioType == audioType);
+                AudioGroupConfig audioGroupConfig = _audioGroupConfigs.First(t => t.audioType == audioType);
                 _audioCategories[index] = new AudioCategory(audioGroupConfig.AgentHelperCount, _audioMixer, audioGroupConfig);
                 _categoriesVolume[index] = audioGroupConfig.Volume;
             }

@@ -13,35 +13,35 @@ MonoBehaviour:
   m_Name: AudioSetting
   m_EditorClassIdentifier: 
   audioGroupConfigs:
-  - m_Name: Music
-    m_Mute: 0
-    m_Volume: 0.5
-    m_AgentHelperCount: 1
-    AudioType: 2
+  - name: Music
+    mute: 0
+    volume: 0.5
+    agentHelperCount: 1
+    audioType: 2
     audioRolloffMode: 1
     minDistance: 15
     maxDistance: 50
-  - m_Name: Sound
-    m_Mute: 0
-    m_Volume: 0.5
-    m_AgentHelperCount: 4
-    AudioType: 0
+  - name: Sound
+    mute: 0
+    volume: 0.5
+    agentHelperCount: 4
+    audioType: 0
     audioRolloffMode: 0
     minDistance: 1
     maxDistance: 500
-  - m_Name: UISound
-    m_Mute: 0
-    m_Volume: 0.5
-    m_AgentHelperCount: 4
-    AudioType: 1
+  - name: UISound
+    mute: 0
+    volume: 0.5
+    agentHelperCount: 4
+    audioType: 1
     audioRolloffMode: 0
     minDistance: 1
     maxDistance: 500
-  - m_Name: Voice
-    m_Mute: 0
-    m_Volume: 0.5
-    m_AgentHelperCount: 1
-    AudioType: 3
+  - name: Voice
+    mute: 0
+    volume: 0.5
+    agentHelperCount: 1
+    audioType: 3
     audioRolloffMode: 0
     minDistance: 1
     maxDistance: 500

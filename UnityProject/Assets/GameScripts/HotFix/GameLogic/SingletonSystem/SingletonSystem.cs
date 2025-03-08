@@ -281,16 +281,16 @@ namespace GameLogic
 
         #region 生命周期
 
-        private static bool m_isInit = false;
+        private static bool _isInit = false;
 
         private static void CheckInit()
         {
-            if (m_isInit == true)
+            if (_isInit == true)
             {
                 return;
             }
             
-            m_isInit = true;
+            _isInit = true;
 
             _updateDriver ??= ModuleSystem.GetModule<IUpdateDriver>();
             _updateDriver.AddUpdateListener(OnUpdate);
@@ -304,12 +304,12 @@ namespace GameLogic
         
         private static void DeInit()
         {
-            if (m_isInit == false)
+            if (_isInit == false)
             {
                 return;
             }
 
-            m_isInit = false;
+            _isInit = false;
 
             _updateDriver ??= ModuleSystem.GetModule<IUpdateDriver>();
             _updateDriver.RemoveUpdateListener(OnUpdate);

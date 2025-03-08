@@ -7,7 +7,7 @@ namespace TEngine
     /// </summary>
     public abstract class ObjectPoolBase
     {
-        private readonly string m_Name;
+        private readonly string _name;
 
         /// <summary>
         /// 初始化对象池基类的新实例。
@@ -23,18 +23,18 @@ namespace TEngine
         /// <param name="name">对象池名称。</param>
         public ObjectPoolBase(string name)
         {
-            m_Name = name ?? string.Empty;
+            _name = name ?? string.Empty;
         }
 
         /// <summary>
         /// 获取对象池名称。
         /// </summary>
-        public string Name => m_Name;
+        public string Name => _name;
 
         /// <summary>
         /// 获取对象池完整名称。
         /// </summary>
-        public string FullName => new TypeNamePair(ObjectType, m_Name).ToString();
+        public string FullName => new TypeNamePair(ObjectType, _name).ToString();
 
         /// <summary>
         /// 获取对象池对象类型。

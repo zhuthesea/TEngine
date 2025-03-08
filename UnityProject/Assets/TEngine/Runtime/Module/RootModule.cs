@@ -9,41 +9,33 @@ namespace TEngine
     [DisallowMultipleComponent]
     public sealed class RootModule : MonoBehaviour
     {
-        private const int DefaultDpi = 96;  // default windows dpi
+        private const int DefaultDpi = 96; // default windows dpi
 
-        private float m_GameSpeedBeforePause = 1f;
+        private float _gameSpeedBeforePause = 1f;
 
-        [SerializeField]
-        private Language m_EditorLanguage = Language.Unspecified;
+        [SerializeField] private Language editorLanguage = Language.Unspecified;
 
-        [SerializeField]
-        private string m_TextHelperTypeName = "TEngine.DefaultTextHelper";
-        
-        [SerializeField]
-        private string m_LogHelperTypeName = "TEngine.DefaultLogHelper";
+        [SerializeField] private string textHelperTypeName = "TEngine.DefaultTextHelper";
 
-        [SerializeField]
-        private string m_JsonHelperTypeName = "TEngine.DefaultJsonHelper";
+        [SerializeField] private string logHelperTypeName = "TEngine.DefaultLogHelper";
 
-        [SerializeField]
-        private int m_FrameRate = 120;
+        [SerializeField] private string jsonHelperTypeName = "TEngine.DefaultJsonHelper";
 
-        [SerializeField]
-        private float m_GameSpeed = 1f;
+        [SerializeField] private int frameRate = 120;
 
-        [SerializeField]
-        private bool m_RunInBackground = true;
+        [SerializeField] private float gameSpeed = 1f;
 
-        [SerializeField]
-        private bool m_NeverSleep = true;
+        [SerializeField] private bool runInBackground = true;
+
+        [SerializeField] private bool neverSleep = true;
 
         /// <summary>
         /// 获取或设置编辑器语言（仅编辑器内有效）。
         /// </summary>
         public Language EditorLanguage
         {
-            get => m_EditorLanguage;
-            set => m_EditorLanguage = value;
+            get => editorLanguage;
+            set => editorLanguage = value;
         }
 
         /// <summary>
@@ -51,8 +43,8 @@ namespace TEngine
         /// </summary>
         public int FrameRate
         {
-            get => m_FrameRate;
-            set => Application.targetFrameRate = m_FrameRate = value;
+            get => frameRate;
+            set => Application.targetFrameRate = frameRate = value;
         }
 
         /// <summary>
@@ -60,27 +52,27 @@ namespace TEngine
         /// </summary>
         public float GameSpeed
         {
-            get => m_GameSpeed;
-            set => Time.timeScale = m_GameSpeed = value >= 0f ? value : 0f;
+            get => gameSpeed;
+            set => Time.timeScale = gameSpeed = value >= 0f ? value : 0f;
         }
 
         /// <summary>
         /// 获取游戏是否暂停。
         /// </summary>
-        public bool IsGamePaused => m_GameSpeed <= 0f;
+        public bool IsGamePaused => gameSpeed <= 0f;
 
         /// <summary>
         /// 获取是否正常游戏速度。
         /// </summary>
-        public bool IsNormalGameSpeed => Math.Abs(m_GameSpeed - 1f) < 0.01f;
+        public bool IsNormalGameSpeed => Math.Abs(gameSpeed - 1f) < 0.01f;
 
         /// <summary>
         /// 获取或设置是否允许后台运行。
         /// </summary>
         public bool RunInBackground
         {
-            get => m_RunInBackground;
-            set => Application.runInBackground = m_RunInBackground = value;
+            get => runInBackground;
+            set => Application.runInBackground = runInBackground = value;
         }
 
         /// <summary>
@@ -88,10 +80,10 @@ namespace TEngine
         /// </summary>
         public bool NeverSleep
         {
-            get => m_NeverSleep;
+            get => neverSleep;
             set
             {
-                m_NeverSleep = value;
+                neverSleep = value;
                 Screen.sleepTimeout = value ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
             }
         }
@@ -112,11 +104,11 @@ namespace TEngine
             {
                 Utility.Converter.ScreenDpi = DefaultDpi;
             }
-            
-            Application.targetFrameRate = m_FrameRate;
-            Time.timeScale = m_GameSpeed;
-            Application.runInBackground = m_RunInBackground;
-            Screen.sleepTimeout = m_NeverSleep ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
+
+            Application.targetFrameRate = frameRate;
+            Time.timeScale = gameSpeed;
+            Application.runInBackground = runInBackground;
+            Screen.sleepTimeout = neverSleep ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
 
             Application.lowMemory += OnLowMemory;
             GameTime.StartFrame();
@@ -161,7 +153,7 @@ namespace TEngine
                 return;
             }
 
-            m_GameSpeedBeforePause = GameSpeed;
+            _gameSpeedBeforePause = GameSpeed;
             GameSpeed = 0f;
         }
 
@@ -175,7 +167,7 @@ namespace TEngine
                 return;
             }
 
-            GameSpeed = m_GameSpeedBeforePause;
+            GameSpeed = _gameSpeedBeforePause;
         }
 
         /// <summary>
@@ -198,22 +190,22 @@ namespace TEngine
 
         private void InitTextHelper()
         {
-            if (string.IsNullOrEmpty(m_TextHelperTypeName))
+            if (string.IsNullOrEmpty(textHelperTypeName))
             {
                 return;
             }
 
-            Type textHelperType = Utility.Assembly.GetType(m_TextHelperTypeName);
+            Type textHelperType = Utility.Assembly.GetType(textHelperTypeName);
             if (textHelperType == null)
             {
-                Log.Error("Can not find text helper type '{0}'.", m_TextHelperTypeName);
+                Log.Error("Can not find text helper type '{0}'.", textHelperTypeName);
                 return;
             }
 
             Utility.Text.ITextHelper textHelper = (Utility.Text.ITextHelper)Activator.CreateInstance(textHelperType);
             if (textHelper == null)
             {
-                Log.Error("Can not create text helper instance '{0}'.", m_TextHelperTypeName);
+                Log.Error("Can not create text helper instance '{0}'.", textHelperTypeName);
                 return;
             }
 
@@ -222,21 +214,24 @@ namespace TEngine
 
         private void InitLogHelper()
         {
-            if (string.IsNullOrEmpty(m_LogHelperTypeName))
+            if (string.IsNullOrEmpty(logHelperTypeName))
             {
                 return;
             }
 
-            Type logHelperType = Utility.Assembly.GetType(m_LogHelperTypeName);
+            Type logHelperType = Utility.Assembly.GetType(logHelperTypeName);
             if (logHelperType == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not find log helper type '{0}'.", m_LogHelperTypeName));
+                throw new GameFrameworkException(Utility.Text.Format("Can not find log helper type '{0}'.",
+                    logHelperTypeName));
             }
 
-            GameFrameworkLog.ILogHelper logHelper = (GameFrameworkLog.ILogHelper)Activator.CreateInstance(logHelperType);
+            GameFrameworkLog.ILogHelper
+                logHelper = (GameFrameworkLog.ILogHelper)Activator.CreateInstance(logHelperType);
             if (logHelper == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not create log helper instance '{0}'.", m_LogHelperTypeName));
+                throw new GameFrameworkException(Utility.Text.Format("Can not create log helper instance '{0}'.",
+                    logHelperTypeName));
             }
 
             GameFrameworkLog.SetLogHelper(logHelper);
@@ -244,22 +239,22 @@ namespace TEngine
 
         private void InitJsonHelper()
         {
-            if (string.IsNullOrEmpty(m_JsonHelperTypeName))
+            if (string.IsNullOrEmpty(jsonHelperTypeName))
             {
                 return;
             }
 
-            Type jsonHelperType = Utility.Assembly.GetType(m_JsonHelperTypeName);
+            Type jsonHelperType = Utility.Assembly.GetType(jsonHelperTypeName);
             if (jsonHelperType == null)
             {
-                Log.Error("Can not find JSON helper type '{0}'.", m_JsonHelperTypeName);
+                Log.Error("Can not find JSON helper type '{0}'.", jsonHelperTypeName);
                 return;
             }
 
             Utility.Json.IJsonHelper jsonHelper = (Utility.Json.IJsonHelper)Activator.CreateInstance(jsonHelperType);
             if (jsonHelper == null)
             {
-                Log.Error("Can not create JSON helper instance '{0}'.", m_JsonHelperTypeName);
+                Log.Error("Can not create JSON helper instance '{0}'.", jsonHelperTypeName);
                 return;
             }
 
@@ -269,7 +264,7 @@ namespace TEngine
         private void OnLowMemory()
         {
             Log.Warning("Low memory reported...");
-            
+
             IObjectPoolModule objectPoolModule = ModuleSystem.GetModule<IObjectPoolModule>();
             if (objectPoolModule != null)
             {

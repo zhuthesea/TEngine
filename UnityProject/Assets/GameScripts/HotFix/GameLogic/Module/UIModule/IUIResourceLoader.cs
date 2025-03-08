@@ -37,7 +37,7 @@ namespace GameLogic
     /// </summary>
     public class UIResourceLoader : IUIResourceLoader
     {
-        private readonly IResourceModule m_ResourceLoaderImp = ModuleSystem.GetModule<IResourceModule>();
+        private readonly IResourceModule _resourceLoaderImp = ModuleSystem.GetModule<IResourceModule>();
 
         /// <summary>
         /// 同步加载游戏物体并实例化。
@@ -49,7 +49,7 @@ namespace GameLogic
         /// <remarks>会实例化资源到场景，无需主动UnloadAsset，Destroy时自动UnloadAsset。</remarks>
         public GameObject LoadGameObject(string location, Transform parent = null, string packageName = "")
         {
-            return m_ResourceLoaderImp.LoadGameObject(location, parent, packageName);
+            return _resourceLoaderImp.LoadGameObject(location, parent, packageName);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace GameLogic
         /// <remarks>会实例化资源到场景，无需主动UnloadAsset，Destroy时自动UnloadAsset。</remarks>
         public async UniTask<GameObject> LoadGameObjectAsync(string location, Transform parent = null, CancellationToken cancellationToken = default, string packageName = "")
         {
-            return await m_ResourceLoaderImp.LoadGameObjectAsync(location, parent, cancellationToken, packageName);
+            return await _resourceLoaderImp.LoadGameObjectAsync(location, parent, cancellationToken, packageName);
         }
     }
 }

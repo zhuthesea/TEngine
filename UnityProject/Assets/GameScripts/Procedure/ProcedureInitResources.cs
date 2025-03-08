@@ -10,7 +10,7 @@ namespace Procedure
 {
     public class ProcedureInitResources : ProcedureBase
     {
-        private bool m_InitResourcesComplete = false;
+        private bool _initResourcesComplete = false;
 
         public override bool UseNativeDialog => true;
 
@@ -18,7 +18,7 @@ namespace Procedure
         {
             base.OnEnter(procedureOwner);
 
-            m_InitResourcesComplete = false;
+            _initResourcesComplete = false;
 
             LauncherMgr.Show(UIDefine.UILoadUpdate, "初始化资源中...");
 
@@ -30,7 +30,7 @@ namespace Procedure
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if (!m_InitResourcesComplete)
+            if (!_initResourcesComplete)
             {
                 // 初始化资源未完成则继续等待
                 return;
@@ -74,7 +74,7 @@ namespace Procedure
                 yield break;
             }
             
-            m_InitResourcesComplete = true;
+            _initResourcesComplete = true;
         }
         
         private void OnInitResourcesError(ProcedureOwner procedureOwner)

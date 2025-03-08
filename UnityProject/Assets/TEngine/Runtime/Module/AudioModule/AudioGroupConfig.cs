@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TEngine
 {
@@ -9,19 +10,19 @@ namespace TEngine
     [Serializable]
     public sealed class AudioGroupConfig
     {
-        [SerializeField] private string m_Name = null;
+        [SerializeField] private string name = null;
 
-        [SerializeField] private bool m_Mute = false;
+        [SerializeField] private bool mute = false;
 
-        [SerializeField, Range(0f, 1f)] private float m_Volume = 1f;
+        [SerializeField, Range(0f, 1f)] private float volume = 1f;
 
-        [SerializeField] private int m_AgentHelperCount = 1;
+        [SerializeField] private int agentHelperCount = 1;
 
         /// <summary>
         /// 音效分类，可分别关闭/开启对应分类音效。
         /// </summary>
         /// <remarks>命名与AudioMixer中分类名保持一致。</remarks>
-        public AudioType AudioType;
+        public AudioType audioType;
 
         /// <summary>
         /// 音频源中3D声音的衰减模式。
@@ -44,22 +45,22 @@ namespace TEngine
         /// <summary>
         /// 音频轨道组配置的名称。
         /// </summary>
-        public string Name => m_Name;
+        public string Name => name;
 
         /// <summary>
         /// 是否禁用。
         /// </summary>
-        public bool Mute => m_Mute;
+        public bool Mute => mute;
 
         /// <summary>
         /// 音量大小。
         /// </summary>
-        public float Volume => m_Volume;
+        public float Volume => volume;
 
         /// <summary>
         /// 音频代理个数。
         /// <remarks>命名与AudioMixer中个数保持一致。</remarks>
         /// </summary>
-        public int AgentHelperCount => m_AgentHelperCount;
+        public int AgentHelperCount => agentHelperCount;
     }
 }

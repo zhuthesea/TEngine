@@ -9,16 +9,9 @@ namespace TEngine
         /// </summary>
         private sealed class DebuggerWindowGroup : IDebuggerWindowGroup
         {
-            private readonly List<KeyValuePair<string, IDebuggerWindow>> _debuggerWindows;
-            private int _selectedIndex;
-            private string[] _debuggerWindowNames;
-
-            public DebuggerWindowGroup()
-            {
-                _debuggerWindows = new List<KeyValuePair<string, IDebuggerWindow>>();
-                _selectedIndex = 0;
-                _debuggerWindowNames = null;
-            }
+            private readonly List<KeyValuePair<string, IDebuggerWindow>> _debuggerWindows = new();
+            private int _selectedIndex = 0;
+            private string[] _debuggerWindowNames = null;
 
             /// <summary>
             /// 获取调试器窗口数量。

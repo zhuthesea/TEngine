@@ -18,106 +18,103 @@ namespace Procedure
     /// </summary>
     public class ProcedureLoadAssembly : ProcedureBase
     {
-        private bool m_enableAddressable = true;
+        private bool _enableAddressable = true;
         public override bool UseNativeDialog => true;
-        private int m_LoadAssetCount;
-        private int m_LoadMetadataAssetCount;
-        private int m_FailureAssetCount;
-        private int m_FailureMetadataAssetCount;
-        private bool m_LoadAssemblyComplete;
-        private bool m_LoadMetadataAssemblyComplete;
-        private bool m_LoadAssemblyWait;
-#pragma warning disable CS0414
-        private bool m_LoadMetadataAssemblyWait;
-#pragma warning restore CS0414
-        private Assembly m_MainLogicAssembly;
-        private List<Assembly> m_HotfixAssemblys;
-        private IFsm<IProcedureModule> m_procedureOwner;
-        private UpdateSetting m_Setting;
+        private int _loadAssetCount;
+        private int _loadMetadataAssetCount;
+        private int _failureAssetCount;
+        private int _failureMetadataAssetCount;
+        private bool _loadAssemblyComplete;
+        private bool _loadMetadataAssemblyComplete;
+        private bool _loadAssemblyWait;
+        private bool _loadMetadataAssemblyWait;
+        private Assembly _mainLogicAssembly;
+        private List<Assembly> _hotfixAssemblyList;
+        private IFsm<IProcedureModule> _procedureOwner;
+        private UpdateSetting _setting;
 
         protected override void OnInit(IFsm<IProcedureModule> procedureOwner)
         {
             base.OnInit(procedureOwner);
-            m_Setting = Settings.UpdateSetting;
+            _setting = Settings.UpdateSetting;
         }
 
         protected override void OnEnter(IFsm<IProcedureModule> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            Log.Debug("HyBridCLR ProcedureLoadAssembly OnEnter");
-            m_procedureOwner = procedureOwner;
-
+            Log.Debug("HybridCLR ProcedureLoadAssembly OnEnter");
+            _procedureOwner = procedureOwner;
             LoadAssembly().Forget();
         }
 
         private async UniTaskVoid LoadAssembly()
         {
-            m_LoadAssemblyComplete = false;
-            m_HotfixAssemblys = new List<Assembly>();
+            _loadAssemblyComplete = false;
+            _hotfixAssemblyList = new List<Assembly>();
 
             //AOT Assembly加载原始metadata
-            if (m_Setting.Enable)
+            if (_setting.Enable)
             {
 #if !UNITY_EDITOR
-                m_LoadMetadataAssemblyComplete = false;
+                _loadMetadataAssemblyComplete = false;
                 LoadMetadataForAOTAssembly();
 #else
-                m_LoadMetadataAssemblyComplete = true;
+                _loadMetadataAssemblyComplete = true;
 #endif
             }
             else
             {
-                m_LoadMetadataAssemblyComplete = true;
+                _loadMetadataAssemblyComplete = true;
             }
 
-            if (!m_Setting.Enable || _resourceModule.PlayMode == EPlayMode.EditorSimulateMode)
+            if (!_setting.Enable || _resourceModule.PlayMode == EPlayMode.EditorSimulateMode)
             {
-                m_MainLogicAssembly = GetMainLogicAssembly();
+                _mainLogicAssembly = GetMainLogicAssembly();
             }
             else
             {
-                if (m_Setting.Enable)
+                if (_setting.Enable)
                 {
-                    foreach (string hotUpdateDllName in m_Setting.HotUpdateAssemblies)
+                    foreach (string hotUpdateDllName in _setting.HotUpdateAssemblies)
                     {
                         var assetLocation = hotUpdateDllName;
-                        if (!m_enableAddressable)
+                        if (!_enableAddressable)
                         {
                             assetLocation = Utility.Path.GetRegularPath(
                                 Path.Combine(
                                     "Assets",
-                                    m_Setting.AssemblyTextAssetPath,
-                                    $"{hotUpdateDllName}{m_Setting.AssemblyTextAssetExtension}"));
+                                    _setting.AssemblyTextAssetPath,
+                                    $"{hotUpdateDllName}{_setting.AssemblyTextAssetExtension}"));
                         }
 
                         Log.Debug($"LoadAsset: [ {assetLocation} ]");
-                        m_LoadAssetCount++;
+                        _loadAssetCount++;
                         var result = await _resourceModule.LoadAssetAsync<TextAsset>(assetLocation);
                         LoadAssetSuccess(result);
                     }
 
-                    m_LoadAssemblyWait = true;
+                    _loadAssemblyWait = true;
                 }
                 else
                 {
-                    m_MainLogicAssembly = GetMainLogicAssembly();
+                    _mainLogicAssembly = GetMainLogicAssembly();
                 }
             }
 
-            if (m_LoadAssetCount == 0)
+            if (_loadAssetCount == 0)
             {
-                m_LoadAssemblyComplete = true;
+                _loadAssemblyComplete = true;
             }
         }
 
         protected override void OnUpdate(IFsm<IProcedureModule> procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
-            if (!m_LoadAssemblyComplete)
+            if (!_loadAssemblyComplete)
             {
                 return;
             }
-            if (!m_LoadMetadataAssemblyComplete)
+            if (!_loadMetadataAssemblyComplete)
             {
                 return;
             }
@@ -126,17 +123,17 @@ namespace Procedure
 
         private void AllAssemblyLoadComplete()
         {
-            ChangeState<ProcedureStartGame>(m_procedureOwner);
+            ChangeState<ProcedureStartGame>(_procedureOwner);
 #if UNITY_EDITOR
-            m_MainLogicAssembly = GetMainLogicAssembly();
+            _mainLogicAssembly = GetMainLogicAssembly();
 #endif
-            if (m_MainLogicAssembly == null)
+            if (_mainLogicAssembly == null)
             {
                 Log.Fatal($"Main logic assembly missing.");
                 return;
             }
             
-            var appType = m_MainLogicAssembly.GetType("GameApp");
+            var appType = _mainLogicAssembly.GetType("GameApp");
             if (appType == null)
             {
                 Log.Fatal($"Main logic type 'GameMain' missing.");
@@ -148,31 +145,31 @@ namespace Procedure
                 Log.Fatal($"Main logic entry method 'Entrance' missing.");
                 return;
             }
-            object[] objects = new object[] { new object[] { m_HotfixAssemblys } };
+            object[] objects = new object[] { new object[] { _hotfixAssemblyList } };
             entryMethod.Invoke(appType, objects);
         }
 
         private Assembly GetMainLogicAssembly()
         {
-            m_HotfixAssemblys.Clear();
+            _hotfixAssemblyList.Clear();
             Assembly mainLogicAssembly = null;
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (string.Compare(m_Setting.LogicMainDllName, $"{assembly.GetName().Name}.dll",
+                if (string.Compare(_setting.LogicMainDllName, $"{assembly.GetName().Name}.dll",
                         StringComparison.Ordinal) == 0)
                 {
                     mainLogicAssembly = assembly;
                 }
 
-                foreach (var hotUpdateDllName in m_Setting.HotUpdateAssemblies)
+                foreach (var hotUpdateDllName in _setting.HotUpdateAssemblies)
                 {
                     if (hotUpdateDllName == $"{assembly.GetName().Name}.dll")
                     {
-                        m_HotfixAssemblys.Add(assembly);
+                        _hotfixAssemblyList.Add(assembly);
                     }
                 }
 
-                if (mainLogicAssembly != null && m_HotfixAssemblys.Count == m_Setting.HotUpdateAssemblies.Count)
+                if (mainLogicAssembly != null && _hotfixAssemblyList.Count == _setting.HotUpdateAssemblies.Count)
                 {
                     break;
                 }
@@ -187,7 +184,7 @@ namespace Procedure
         /// <param name="textAsset">代码资产。</param>
         private void LoadAssetSuccess(TextAsset textAsset)
         {
-            m_LoadAssetCount--;
+            _loadAssetCount--;
             if (textAsset == null)
             {
                 Log.Warning($"Load Assembly failed.");
@@ -200,22 +197,22 @@ namespace Procedure
             try
             {
                 var assembly = Assembly.Load(textAsset.bytes);
-                if (string.Compare(m_Setting.LogicMainDllName, assetName, StringComparison.Ordinal) == 0)
+                if (string.Compare(_setting.LogicMainDllName, assetName, StringComparison.Ordinal) == 0)
                 {
-                    m_MainLogicAssembly = assembly;
+                    _mainLogicAssembly = assembly;
                 }
-                m_HotfixAssemblys.Add(assembly);
+                _hotfixAssemblyList.Add(assembly);
                 Log.Debug($"Assembly [ {assembly.GetName().Name} ] loaded");
             }
             catch (Exception e)
             {
-                m_FailureAssetCount++;
+                _failureAssetCount++;
                 Log.Fatal(e);
                 throw;
             }
             finally
             {
-                m_LoadAssemblyComplete = m_LoadAssemblyWait && 0 == m_LoadAssetCount;
+                _loadAssemblyComplete = _loadAssemblyWait && 0 == _loadAssetCount;
             }
             _resourceModule.UnloadAsset(textAsset);
         }
@@ -231,29 +228,29 @@ namespace Procedure
 
             // 注意，补充元数据是给AOT dll补充元数据，而不是给热更新dll补充元数据。
             // 热更新dll不缺元数据，不需要补充，如果调用LoadMetadataForAOTAssembly会返回错误
-            if (m_Setting.AOTMetaAssemblies.Count == 0)
+            if (_setting.AOTMetaAssemblies.Count == 0)
             {
-                m_LoadMetadataAssemblyComplete = true;
+                _loadMetadataAssemblyComplete = true;
                 return;
             }
-            foreach (string aotDllName in m_Setting.AOTMetaAssemblies)
+            foreach (string aotDllName in _setting.AOTMetaAssemblies)
             {
                 var assetLocation = aotDllName;
-                if (!m_enableAddressable)
+                if (!_enableAddressable)
                 {
                     assetLocation = Utility.Path.GetRegularPath(
                         Path.Combine(
                             "Assets",
-                            m_Setting.AssemblyTextAssetPath,
-                            $"{aotDllName}{m_Setting.AssemblyTextAssetExtension}"));
+                            _setting.AssemblyTextAssetPath,
+                            $"{aotDllName}{_setting.AssemblyTextAssetExtension}"));
                 }
 
 
                 Log.Debug($"LoadMetadataAsset: [ {assetLocation} ]");
-                m_LoadMetadataAssetCount++;
+                _loadMetadataAssetCount++;
                 _resourceModule.LoadAsset<TextAsset>(assetLocation, LoadMetadataAssetSuccess);
             }
-            m_LoadMetadataAssemblyWait = true;
+            _loadMetadataAssemblyWait = true;
         }
 
         /// <summary>
@@ -262,7 +259,7 @@ namespace Procedure
         /// <param name="textAsset">代码资产。</param>
         private void LoadMetadataAssetSuccess(TextAsset textAsset)
         {
-            m_LoadMetadataAssetCount--;
+            _loadMetadataAssetCount--;
             if (null == textAsset)
             {
                 Log.Debug($"LoadMetadataAssetSuccess:Load Metadata failed.");
@@ -283,13 +280,13 @@ namespace Procedure
             }
             catch (Exception e)
             {
-                m_FailureMetadataAssetCount++;
+                _failureMetadataAssetCount++;
                 Log.Fatal(e.Message);
                 throw;
             }
             finally
             {
-                m_LoadMetadataAssemblyComplete = m_LoadMetadataAssemblyWait && 0 == m_LoadMetadataAssetCount;
+                _loadMetadataAssemblyComplete = _loadMetadataAssemblyWait && 0 == _loadMetadataAssetCount;
             }
             _resourceModule.UnloadAsset(textAsset);
         }

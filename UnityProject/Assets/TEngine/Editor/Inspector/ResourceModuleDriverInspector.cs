@@ -16,23 +16,23 @@ namespace TEngine.Editor.Inspector
             "WebPlayMode (WebGL运行模式)"
         };
 
-        private SerializedProperty m_PlayMode = null;
-        private SerializedProperty m_UpdatableWhilePlaying = null;
-        private SerializedProperty m_Milliseconds = null;
-        private SerializedProperty m_MinUnloadUnusedAssetsInterval = null;
-        private SerializedProperty m_MaxUnloadUnusedAssetsInterval = null;
-        private  SerializedProperty m_UseSystemUnloadUnusedAssets = null;
-        private SerializedProperty m_AssetAutoReleaseInterval = null;
-        private SerializedProperty m_AssetCapacity = null;
-        private SerializedProperty m_AssetExpireTime = null;
-        private SerializedProperty m_AssetPriority = null;
-        private SerializedProperty m_DownloadingMaxNum = null;
-        private SerializedProperty m_FailedTryAgain = null;
-        private SerializedProperty m_PackageName = null;
-        private int m_playModeIndex = 0;
+        private SerializedProperty _playMode = null;
+        private SerializedProperty _updatableWhilePlaying = null;
+        private SerializedProperty _milliseconds = null;
+        private SerializedProperty _minUnloadUnusedAssetsInterval = null;
+        private SerializedProperty _maxUnloadUnusedAssetsInterval = null;
+        private  SerializedProperty _useSystemUnloadUnusedAssets = null;
+        private SerializedProperty _assetAutoReleaseInterval = null;
+        private SerializedProperty _assetCapacity = null;
+        private SerializedProperty _assetExpireTime = null;
+        private SerializedProperty _assetPriority = null;
+        private SerializedProperty _downloadingMaxNum = null;
+        private SerializedProperty _failedTryAgain = null;
+        private SerializedProperty _packageName = null;
+        private int _playModeIndex = 0;
 
-        private int m_PackageNameIndex = 0;
-        private string[] m_PackageNames;
+        private int _packageNameIndex = 0;
+        private string[] _packageNames;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -49,48 +49,48 @@ namespace TEngine.Editor.Inspector
                 }
                 else
                 {
-                    int selectedIndex = EditorGUILayout.Popup("Play Mode", m_playModeIndex, _playModeNames);
-                    if (selectedIndex != m_playModeIndex)
+                    int selectedIndex = EditorGUILayout.Popup("Play Mode", _playModeIndex, _playModeNames);
+                    if (selectedIndex != _playModeIndex)
                     {
-                        m_playModeIndex = selectedIndex;
-                        m_PlayMode.enumValueIndex = selectedIndex;
+                        _playModeIndex = selectedIndex;
+                        _playMode.enumValueIndex = selectedIndex;
                     }
                 }
             }
-            EditorGUILayout.PropertyField(m_UpdatableWhilePlaying);
+            EditorGUILayout.PropertyField(_updatableWhilePlaying);
             
             EditorGUI.EndDisabledGroup();
 
-            m_PackageNames = GetBuildPackageNames().ToArray();
-            m_PackageNameIndex = Array.IndexOf(m_PackageNames, m_PackageName.stringValue);
-            if (m_PackageNameIndex < 0)
+            _packageNames = GetBuildPackageNames().ToArray();
+            _packageNameIndex = Array.IndexOf(_packageNames, _packageName.stringValue);
+            if (_packageNameIndex < 0)
             {
-                m_PackageNameIndex = 0;
+                _packageNameIndex = 0;
             }
-            m_PackageNameIndex = EditorGUILayout.Popup("Package Name", m_PackageNameIndex, m_PackageNames);
-            if (m_PackageName.stringValue != m_PackageNames[m_PackageNameIndex])
+            _packageNameIndex = EditorGUILayout.Popup("Package Name", _packageNameIndex, _packageNames);
+            if (_packageName.stringValue != _packageNames[_packageNameIndex])
             {
-                m_PackageName.stringValue = m_PackageNames[m_PackageNameIndex];
+                _packageName.stringValue = _packageNames[_packageNameIndex];
             }
 
-            int milliseconds = EditorGUILayout.DelayedIntField("Milliseconds", m_Milliseconds.intValue);
-            if (milliseconds != m_Milliseconds.intValue)
+            int milliseconds = EditorGUILayout.DelayedIntField("Milliseconds", _milliseconds.intValue);
+            if (milliseconds != _milliseconds.intValue)
             {
                 if (EditorApplication.isPlaying)
                 {
-                    t.Milliseconds = milliseconds;
+                    t.milliseconds = milliseconds;
                 }
                 else
                 {
-                    m_Milliseconds.longValue = milliseconds;
+                    _milliseconds.longValue = milliseconds;
                 }
             }
 
-            EditorGUILayout.PropertyField(m_UseSystemUnloadUnusedAssets);
+            EditorGUILayout.PropertyField(_useSystemUnloadUnusedAssets);
             
             float minUnloadUnusedAssetsInterval =
-                EditorGUILayout.Slider("Min Unload Unused Assets Interval", m_MinUnloadUnusedAssetsInterval.floatValue, 0f, 3600f);
-            if (Math.Abs(minUnloadUnusedAssetsInterval - m_MinUnloadUnusedAssetsInterval.floatValue) > 0.01f)
+                EditorGUILayout.Slider("Min Unload Unused Assets Interval", _minUnloadUnusedAssetsInterval.floatValue, 0f, 3600f);
+            if (Math.Abs(minUnloadUnusedAssetsInterval - _minUnloadUnusedAssetsInterval.floatValue) > 0.01f)
             {
                 if (EditorApplication.isPlaying)
                 {
@@ -98,13 +98,13 @@ namespace TEngine.Editor.Inspector
                 }
                 else
                 {
-                    m_MinUnloadUnusedAssetsInterval.floatValue = minUnloadUnusedAssetsInterval;
+                    _minUnloadUnusedAssetsInterval.floatValue = minUnloadUnusedAssetsInterval;
                 }
             }
 
             float maxUnloadUnusedAssetsInterval =
-                EditorGUILayout.Slider("Max Unload Unused Assets Interval", m_MaxUnloadUnusedAssetsInterval.floatValue, 0f, 3600f);
-            if (Math.Abs(maxUnloadUnusedAssetsInterval - m_MaxUnloadUnusedAssetsInterval.floatValue) > 0.01f)
+                EditorGUILayout.Slider("Max Unload Unused Assets Interval", _maxUnloadUnusedAssetsInterval.floatValue, 0f, 3600f);
+            if (Math.Abs(maxUnloadUnusedAssetsInterval - _maxUnloadUnusedAssetsInterval.floatValue) > 0.01f)
             {
                 if (EditorApplication.isPlaying)
                 {
@@ -112,12 +112,12 @@ namespace TEngine.Editor.Inspector
                 }
                 else
                 {
-                    m_MaxUnloadUnusedAssetsInterval.floatValue = maxUnloadUnusedAssetsInterval;
+                    _maxUnloadUnusedAssetsInterval.floatValue = maxUnloadUnusedAssetsInterval;
                 }
             }
 
-            float downloadingMaxNum = EditorGUILayout.Slider("Max Downloading Num", m_DownloadingMaxNum.intValue, 1f, 48f);
-            if (Math.Abs(downloadingMaxNum - m_DownloadingMaxNum.intValue) > 0.001f)
+            float downloadingMaxNum = EditorGUILayout.Slider("Max Downloading Num", _downloadingMaxNum.intValue, 1f, 48f);
+            if (Math.Abs(downloadingMaxNum - _downloadingMaxNum.intValue) > 0.001f)
             {
                 if (EditorApplication.isPlaying)
                 {
@@ -125,12 +125,12 @@ namespace TEngine.Editor.Inspector
                 }
                 else
                 {
-                    m_DownloadingMaxNum.intValue = (int)downloadingMaxNum;
+                    _downloadingMaxNum.intValue = (int)downloadingMaxNum;
                 }
             }
 
-            float failedTryAgain = EditorGUILayout.Slider("Max FailedTryAgain Count", m_FailedTryAgain.intValue, 1f, 48f);
-            if (Math.Abs(failedTryAgain - m_FailedTryAgain.intValue) > 0.001f)
+            float failedTryAgain = EditorGUILayout.Slider("Max FailedTryAgain Count", _failedTryAgain.intValue, 1f, 48f);
+            if (Math.Abs(failedTryAgain - _failedTryAgain.intValue) > 0.001f)
             {
                 if (EditorApplication.isPlaying)
                 {
@@ -138,14 +138,14 @@ namespace TEngine.Editor.Inspector
                 }
                 else
                 {
-                    m_FailedTryAgain.intValue = (int)failedTryAgain;
+                    _failedTryAgain.intValue = (int)failedTryAgain;
                 }
             }
 
             EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
             {
-                float assetAutoReleaseInterval = EditorGUILayout.DelayedFloatField("Asset Auto Release Interval", m_AssetAutoReleaseInterval.floatValue);
-                if (Math.Abs(assetAutoReleaseInterval - m_AssetAutoReleaseInterval.floatValue) > 0.01f)
+                float assetAutoReleaseInterval = EditorGUILayout.DelayedFloatField("Asset Auto Release Interval", _assetAutoReleaseInterval.floatValue);
+                if (Math.Abs(assetAutoReleaseInterval - _assetAutoReleaseInterval.floatValue) > 0.01f)
                 {
                     if (EditorApplication.isPlaying)
                     {
@@ -153,12 +153,12 @@ namespace TEngine.Editor.Inspector
                     }
                     else
                     {
-                        m_AssetAutoReleaseInterval.floatValue = assetAutoReleaseInterval;
+                        _assetAutoReleaseInterval.floatValue = assetAutoReleaseInterval;
                     }
                 }
 
-                int assetCapacity = EditorGUILayout.DelayedIntField("Asset Capacity", m_AssetCapacity.intValue);
-                if (assetCapacity != m_AssetCapacity.intValue)
+                int assetCapacity = EditorGUILayout.DelayedIntField("Asset Capacity", _assetCapacity.intValue);
+                if (assetCapacity != _assetCapacity.intValue)
                 {
                     if (EditorApplication.isPlaying)
                     {
@@ -166,12 +166,12 @@ namespace TEngine.Editor.Inspector
                     }
                     else
                     {
-                        m_AssetCapacity.intValue = assetCapacity;
+                        _assetCapacity.intValue = assetCapacity;
                     }
                 }
 
-                float assetExpireTime = EditorGUILayout.DelayedFloatField("Asset Expire Time", m_AssetExpireTime.floatValue);
-                if (Math.Abs(assetExpireTime - m_AssetExpireTime.floatValue) > 0.01f)
+                float assetExpireTime = EditorGUILayout.DelayedFloatField("Asset Expire Time", _assetExpireTime.floatValue);
+                if (Math.Abs(assetExpireTime - _assetExpireTime.floatValue) > 0.01f)
                 {
                     if (EditorApplication.isPlaying)
                     {
@@ -179,12 +179,12 @@ namespace TEngine.Editor.Inspector
                     }
                     else
                     {
-                        m_AssetExpireTime.floatValue = assetExpireTime;
+                        _assetExpireTime.floatValue = assetExpireTime;
                     }
                 }
 
-                int assetPriority = EditorGUILayout.DelayedIntField("Asset Priority", m_AssetPriority.intValue);
-                if (assetPriority != m_AssetPriority.intValue)
+                int assetPriority = EditorGUILayout.DelayedIntField("Asset Priority", _assetPriority.intValue);
+                if (assetPriority != _assetPriority.intValue)
                 {
                     if (EditorApplication.isPlaying)
                     {
@@ -192,7 +192,7 @@ namespace TEngine.Editor.Inspector
                     }
                     else
                     {
-                        m_AssetPriority.intValue = assetPriority;
+                        _assetPriority.intValue = assetPriority;
                     }
                 }
             }
@@ -219,19 +219,19 @@ namespace TEngine.Editor.Inspector
 
         private void OnEnable()
         {
-            m_PlayMode = serializedObject.FindProperty("playMode");
-            m_UpdatableWhilePlaying = serializedObject.FindProperty("m_UpdatableWhilePlaying");
-            m_Milliseconds = serializedObject.FindProperty("Milliseconds");
-            m_MinUnloadUnusedAssetsInterval = serializedObject.FindProperty("m_MinUnloadUnusedAssetsInterval");
-            m_MaxUnloadUnusedAssetsInterval = serializedObject.FindProperty("m_MaxUnloadUnusedAssetsInterval");
-            m_UseSystemUnloadUnusedAssets = serializedObject.FindProperty("m_UseSystemUnloadUnusedAssets");
-            m_AssetAutoReleaseInterval = serializedObject.FindProperty("m_AssetAutoReleaseInterval");
-            m_AssetCapacity = serializedObject.FindProperty("m_AssetCapacity");
-            m_AssetExpireTime = serializedObject.FindProperty("m_AssetExpireTime");
-            m_AssetPriority = serializedObject.FindProperty("m_AssetPriority");
-            m_DownloadingMaxNum = serializedObject.FindProperty("m_DownloadingMaxNum");
-            m_FailedTryAgain = serializedObject.FindProperty("m_FailedTryAgain");
-            m_PackageName = serializedObject.FindProperty("packageName");
+            _playMode = serializedObject.FindProperty("playMode");
+            _updatableWhilePlaying = serializedObject.FindProperty("updatableWhilePlaying");
+            _milliseconds = serializedObject.FindProperty("milliseconds");
+            _minUnloadUnusedAssetsInterval = serializedObject.FindProperty("minUnloadUnusedAssetsInterval");
+            _maxUnloadUnusedAssetsInterval = serializedObject.FindProperty("maxUnloadUnusedAssetsInterval");
+            _useSystemUnloadUnusedAssets = serializedObject.FindProperty("useSystemUnloadUnusedAssets");
+            _assetAutoReleaseInterval = serializedObject.FindProperty("assetAutoReleaseInterval");
+            _assetCapacity = serializedObject.FindProperty("assetCapacity");
+            _assetExpireTime = serializedObject.FindProperty("assetExpireTime");
+            _assetPriority = serializedObject.FindProperty("assetPriority");
+            _downloadingMaxNum = serializedObject.FindProperty("downloadingMaxNum");
+            _failedTryAgain = serializedObject.FindProperty("failedTryAgain");
+            _packageName = serializedObject.FindProperty("packageName");
 
             RefreshModes();
             RefreshTypeNames();
@@ -239,7 +239,7 @@ namespace TEngine.Editor.Inspector
 
         private void RefreshModes()
         {
-            m_playModeIndex = m_PlayMode.enumValueIndex > 0 ? m_PlayMode.enumValueIndex : 0;
+            _playModeIndex = _playMode.enumValueIndex > 0 ? _playMode.enumValueIndex : 0;
         }
 
         private void RefreshTypeNames()

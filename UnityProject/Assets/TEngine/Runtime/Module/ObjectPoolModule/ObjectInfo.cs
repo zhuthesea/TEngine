@@ -9,12 +9,12 @@ namespace TEngine
     [StructLayout(LayoutKind.Auto)]
     public struct ObjectInfo
     {
-        private readonly string m_Name;
-        private readonly bool m_Locked;
-        private readonly bool m_CustomCanReleaseFlag;
-        private readonly int m_Priority;
-        private readonly DateTime m_LastUseTime;
-        private readonly int m_SpawnCount;
+        private readonly string _name;
+        private readonly bool _locked;
+        private readonly bool _customCanReleaseFlag;
+        private readonly int _priority;
+        private readonly DateTime _lastUseTime;
+        private readonly int _spawnCount;
 
         /// <summary>
         /// 初始化对象信息的新实例。
@@ -27,47 +27,47 @@ namespace TEngine
         /// <param name="spawnCount">对象的获取计数。</param>
         public ObjectInfo(string name, bool locked, bool customCanReleaseFlag, int priority, DateTime lastUseTime, int spawnCount)
         {
-            m_Name = name;
-            m_Locked = locked;
-            m_CustomCanReleaseFlag = customCanReleaseFlag;
-            m_Priority = priority;
-            m_LastUseTime = lastUseTime;
-            m_SpawnCount = spawnCount;
+            _name = name;
+            _locked = locked;
+            _customCanReleaseFlag = customCanReleaseFlag;
+            _priority = priority;
+            _lastUseTime = lastUseTime;
+            _spawnCount = spawnCount;
         }
 
         /// <summary>
         /// 获取对象名称。
         /// </summary>
-        public string Name => m_Name;
+        public string Name => _name;
 
         /// <summary>
         /// 获取对象是否被加锁。
         /// </summary>
-        public bool Locked => m_Locked;
+        public bool Locked => _locked;
 
         /// <summary>
         /// 获取对象自定义释放检查标记。
         /// </summary>
-        public bool CustomCanReleaseFlag => m_CustomCanReleaseFlag;
+        public bool CustomCanReleaseFlag => _customCanReleaseFlag;
 
         /// <summary>
         /// 获取对象的优先级。
         /// </summary>
-        public int Priority => m_Priority;
+        public int Priority => _priority;
 
         /// <summary>
         /// 获取对象上次使用时间。
         /// </summary>
-        public DateTime LastUseTime => m_LastUseTime;
+        public DateTime LastUseTime => _lastUseTime;
 
         /// <summary>
         /// 获取对象是否正在使用。
         /// </summary>
-        public bool IsInUse => m_SpawnCount > 0;
+        public bool IsInUse => _spawnCount > 0;
 
         /// <summary>
         /// 获取对象的获取计数。
         /// </summary>
-        public int SpawnCount => m_SpawnCount;
+        public int SpawnCount => _spawnCount;
     }
 }

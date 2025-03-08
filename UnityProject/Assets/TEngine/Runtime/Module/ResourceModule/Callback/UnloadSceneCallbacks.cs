@@ -5,8 +5,8 @@
     /// </summary>
     public sealed class UnloadSceneCallbacks
     {
-        private readonly UnloadSceneSuccessCallback m_UnloadSceneSuccessCallback;
-        private readonly UnloadSceneFailureCallback m_UnloadSceneFailureCallback;
+        private readonly UnloadSceneSuccessCallback _unloadSceneSuccessCallback;
+        private readonly UnloadSceneFailureCallback _unloadSceneFailureCallback;
 
         /// <summary>
         /// 初始化卸载场景回调函数集的新实例。
@@ -29,8 +29,8 @@
                 throw new GameFrameworkException("Unload scene success callback is invalid.");
             }
 
-            m_UnloadSceneSuccessCallback = unloadSceneSuccessCallback;
-            m_UnloadSceneFailureCallback = unloadSceneFailureCallback;
+            _unloadSceneSuccessCallback = unloadSceneSuccessCallback;
+            _unloadSceneFailureCallback = unloadSceneFailureCallback;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         {
             get
             {
-                return m_UnloadSceneSuccessCallback;
+                return _unloadSceneSuccessCallback;
             }
         }
 
@@ -51,7 +51,7 @@
         {
             get
             {
-                return m_UnloadSceneFailureCallback;
+                return _unloadSceneFailureCallback;
             }
         }
     }

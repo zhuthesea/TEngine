@@ -6,24 +6,24 @@
         {
             private sealed class Sample
             {
-                private readonly string m_Name;
-                private readonly string m_Type;
-                private readonly long m_Size;
-                private bool m_Highlight;
+                private readonly string _name;
+                private readonly string _type;
+                private readonly long _size;
+                private bool _highlight;
 
                 public Sample(string name, string type, long size)
                 {
-                    m_Name = name;
-                    m_Type = type;
-                    m_Size = size;
-                    m_Highlight = false;
+                    _name = name;
+                    _type = type;
+                    _size = size;
+                    _highlight = false;
                 }
 
                 public string Name
                 {
                     get
                     {
-                        return m_Name;
+                        return _name;
                     }
                 }
 
@@ -31,7 +31,7 @@
                 {
                     get
                     {
-                        return m_Type;
+                        return _type;
                     }
                 }
 
@@ -39,7 +39,7 @@
                 {
                     get
                     {
-                        return m_Size;
+                        return _size;
                     }
                 }
 
@@ -47,11 +47,11 @@
                 {
                     get
                     {
-                        return m_Highlight;
+                        return _highlight;
                     }
                     set
                     {
-                        m_Highlight = value;
+                        _highlight = value;
                     }
                 }
             }

@@ -7,32 +7,32 @@ namespace TEngine
         /// <summary>
         /// 资源组件。
         /// </summary>
-        private static IResourceModule m_ResourceModule;
+        private static IResourceModule _resourceModule;
 
-        private LoadAssetCallbacks m_LoadAssetCallbacks;
+        private LoadAssetCallbacks _loadAssetCallbacks;
         
-        public static IResourceModule ResourceModule => m_ResourceModule;
+        public static IResourceModule ResourceModule => _resourceModule;
 
         private void InitializedResources()
         {
-            m_ResourceModule = ModuleSystem.GetModule<IResourceModule>();
-            m_LoadAssetCallbacks = new LoadAssetCallbacks(OnLoadAssetSuccess, OnLoadAssetFailure);
+            _resourceModule = ModuleSystem.GetModule<IResourceModule>();
+            _loadAssetCallbacks = new LoadAssetCallbacks(OnLoadAssetSuccess, OnLoadAssetFailure);
         }
 
         private void OnLoadAssetFailure(string assetName, LoadResourceStatus status, string errormessage, object userdata)
         {
-            m_AssetLoadingList.Remove(assetName);
+            _assetLoadingList.Remove(assetName);
             Log.Error("Can not load asset from '{1}' with error message '{2}'.", assetName, errormessage);
         }
 
         private void OnLoadAssetSuccess(string assetName, object asset, float duration, object userdata)
         {
-            m_AssetLoadingList.Remove(assetName);
+            _assetLoadingList.Remove(assetName);
             ISetAssetObject setAssetObject = (ISetAssetObject)userdata;
             UnityEngine.Object assetObject = asset as UnityEngine.Object;
             if (assetObject != null)
             {
-                m_AssetItemPool.Register(AssetItemObject.Create(setAssetObject.Location, assetObject), true);
+                _assetItemPool.Register(AssetItemObject.Create(setAssetObject.Location, assetObject), true);
                 SetAsset(setAssetObject, assetObject);
             }
             else
@@ -49,15 +49,15 @@ namespace TEngine
         {
             await TryWaitingLoading(setAssetObject.Location);
             
-            if (m_AssetItemPool.CanSpawn(setAssetObject.Location))
+            if (_assetItemPool.CanSpawn(setAssetObject.Location))
             {
-                var assetObject = (T)m_AssetItemPool.Spawn(setAssetObject.Location).Target;
+                var assetObject = (T)_assetItemPool.Spawn(setAssetObject.Location).Target;
                 SetAsset(setAssetObject, assetObject);
             }
             else
             {
-                m_AssetLoadingList.Add(setAssetObject.Location);
-                m_ResourceModule.LoadAssetAsync(setAssetObject.Location, 0, m_LoadAssetCallbacks, setAssetObject);
+                _assetLoadingList.Add(setAssetObject.Location);
+                _resourceModule.LoadAssetAsync(setAssetObject.Location, 0, _loadAssetCallbacks, setAssetObject);
             }
         }
     }
