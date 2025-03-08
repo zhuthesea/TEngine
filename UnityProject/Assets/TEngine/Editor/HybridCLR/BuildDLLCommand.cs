@@ -63,9 +63,9 @@ public static class BuildDLLCommand
 #if ENABLE_HYBRIDCLR
         var target = EditorUserBuildSettings.activeBuildTarget;
         string aotAssembliesSrcDir = SettingsUtil.GetAssembliesPostIl2CppStripDir(target);
-        string aotAssembliesDstDir = Application.dataPath +"/"+ SettingsUtils.HybridCLRCustomGlobalSettings.AssemblyTextAssetPath;
+        string aotAssembliesDstDir = Application.dataPath +"/"+ TEngine.Settings.UpdateSetting.AssemblyTextAssetPath;
 
-        foreach (var dll in SettingsUtils.HybridCLRCustomGlobalSettings.AOTMetaAssemblies)
+        foreach (var dll in TEngine.Settings.UpdateSetting.AOTMetaAssemblies)
         {
             string srcDllPath = $"{aotAssembliesSrcDir}/{dll}";
             if (!System.IO.File.Exists(srcDllPath))
@@ -86,7 +86,7 @@ public static class BuildDLLCommand
         var target = EditorUserBuildSettings.activeBuildTarget;
 
         string hotfixDllSrcDir = SettingsUtil.GetHotUpdateDllsOutputDirByTarget(target);
-        string hotfixAssembliesDstDir = Application.dataPath +"/"+ SettingsUtils.HybridCLRCustomGlobalSettings.AssemblyTextAssetPath;
+        string hotfixAssembliesDstDir = Application.dataPath +"/"+ TEngine.Settings.UpdateSetting.AssemblyTextAssetPath;
         foreach (var dll in SettingsUtil.HotUpdateAssemblyFilesExcludePreserved)
         {
             string dllPath = $"{hotfixDllSrcDir}/{dll}";

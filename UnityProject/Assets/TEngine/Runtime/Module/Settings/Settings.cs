@@ -19,7 +19,6 @@ namespace TEngine
                         return _instance;
                     }
                 }
-
                 return _instance;
             }
         }
@@ -34,6 +33,18 @@ namespace TEngine
 
         public static ProcedureSetting ProcedureSetting => Instance.procedureSetting;
 
-        public static UpdateSetting UpdateSetting => Instance.updateSetting;
+        public static UpdateSetting UpdateSetting
+        {
+            get
+            {
+#if UNITY_EDITOR
+                if (Instance == null)
+                {
+                    return UnityEditor.AssetDatabase.LoadAssetAtPath<UpdateSetting>("Assets/TEngine/Settings/UpdateSetting.asset");
+                }
+#endif
+                return Instance.updateSetting;
+            }
+        }
     }
 }
