@@ -11,7 +11,7 @@ namespace TEngine
     {
         private sealed partial class RuntimeMemoryInformationWindow<T> : ScrollableDebuggerWindowBase where T : UnityEngine.Object
         {
-            private const int ShowSampleCount = 300;
+            private const int SHOW_SAMPLE_COUNT = 300;
 
             private readonly List<Sample> _samples = new List<Sample>();
             private readonly Comparison<Sample> _sampleComparer = SampleComparer;
@@ -69,7 +69,7 @@ namespace TEngine
                             GUILayout.EndHorizontal();
 
                             count++;
-                            if (count >= ShowSampleCount)
+                            if (count >= SHOW_SAMPLE_COUNT)
                             {
                                 break;
                             }

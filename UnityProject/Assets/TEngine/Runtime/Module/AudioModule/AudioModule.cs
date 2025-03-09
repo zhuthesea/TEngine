@@ -10,9 +10,9 @@ namespace TEngine
 {
     internal class AudioModule : Module, IAudioModule, IUpdateModule
     {
-        public const string MusicVolumeName = "MusicVolume";
-        public const string UISoundVolumeName = "UISoundVolume";
-        public const string VoiceVolumeName = "VoiceVolume";
+        public const string MUSIC_VOLUME_NAME = "MusicVolume";
+        public const string UI_SOUND_VOLUME_NAME = "UISoundVolume";
+        public const string VOICE_VOLUME_NAME = "VoiceVolume";
 
         private AudioMixer _audioMixer;
         private Transform _instanceRoot = null;
@@ -113,7 +113,7 @@ namespace TEngine
 
                 float volume = Mathf.Clamp(value, 0.0001f, 1.0f);
                 _categoriesVolume[(int)AudioType.Music] = volume;
-                _audioMixer.SetFloat(MusicVolumeName, Mathf.Log10(volume) * 20f);
+                _audioMixer.SetFloat(MUSIC_VOLUME_NAME, Mathf.Log10(volume) * 20f);
             }
         }
 
@@ -167,7 +167,7 @@ namespace TEngine
 
                 float volume = Mathf.Clamp(value, 0.0001f, 1.0f);
                 _categoriesVolume[(int)AudioType.UISound] = volume;
-                _audioMixer.SetFloat(UISoundVolumeName, Mathf.Log10(volume) * 20f);
+                _audioMixer.SetFloat(UI_SOUND_VOLUME_NAME, Mathf.Log10(volume) * 20f);
             }
         }
 
@@ -194,7 +194,7 @@ namespace TEngine
 
                 float volume = Mathf.Clamp(value, 0.0001f, 1.0f);
                 _categoriesVolume[(int)AudioType.Voice] = volume;
-                _audioMixer.SetFloat(VoiceVolumeName, Mathf.Log10(volume) * 20f);
+                _audioMixer.SetFloat(VOICE_VOLUME_NAME, Mathf.Log10(volume) * 20f);
             }
         }
 
@@ -210,7 +210,7 @@ namespace TEngine
                     return false;
                 }
 
-                if (_audioMixer.GetFloat(MusicVolumeName, out var db))
+                if (_audioMixer.GetFloat(MUSIC_VOLUME_NAME, out var db))
                 {
                     return db > -80f;
                 }
@@ -231,11 +231,11 @@ namespace TEngine
                 // 音乐采用0音量方式，避免恢复播放时的复杂逻辑
                 if (value)
                 {
-                    _audioMixer.SetFloat(MusicVolumeName, Mathf.Log10(_categoriesVolume[(int)AudioType.Music]) * 20f);
+                    _audioMixer.SetFloat(MUSIC_VOLUME_NAME, Mathf.Log10(_categoriesVolume[(int)AudioType.Music]) * 20f);
                 }
                 else
                 {
-                    _audioMixer.SetFloat(MusicVolumeName, -80f);
+                    _audioMixer.SetFloat(MUSIC_VOLUME_NAME, -80f);
                 }
             }
         }
@@ -389,7 +389,7 @@ namespace TEngine
             for (int index = 0; index < (int)AudioType.Max; ++index)
             {
                 AudioType audioType = (AudioType)index;
-                AudioGroupConfig audioGroupConfig = _audioGroupConfigs.First(t => t.audioType == audioType);
+                AudioGroupConfig audioGroupConfig = _audioGroupConfigs.First(t => t.AudioType == audioType);
                 _audioCategories[index] = new AudioCategory(audioGroupConfig.AgentHelperCount, _audioMixer, audioGroupConfig);
                 _categoriesVolume[index] = audioGroupConfig.Volume;
             }

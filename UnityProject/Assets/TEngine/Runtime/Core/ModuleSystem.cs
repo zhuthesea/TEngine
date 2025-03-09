@@ -12,12 +12,12 @@ namespace TEngine
         /// 默认设计的模块数量。
         /// <remarks>有增删可以自行修改减少内存分配与GCAlloc。</remarks>
         /// </summary>
-        internal const int DesignModuleCount = 16;
+        internal const int DESIGN_MODULE_COUNT = 16;
 
-        private static readonly Dictionary<Type, Module> _moduleMaps = new Dictionary<Type, Module>(DesignModuleCount);
+        private static readonly Dictionary<Type, Module> _moduleMaps = new Dictionary<Type, Module>(DESIGN_MODULE_COUNT);
         private static readonly LinkedList<Module> _modules = new LinkedList<Module>();
         private static readonly LinkedList<Module> _updateModules = new LinkedList<Module>();
-        private static readonly List<IUpdateModule> _updateExecuteList = new List<IUpdateModule>(DesignModuleCount);
+        private static readonly List<IUpdateModule> _updateExecuteList = new List<IUpdateModule>(DESIGN_MODULE_COUNT);
 
         private static bool _isExecuteListDirty;
 

@@ -18,7 +18,7 @@ namespace Launcher
         public Text _label_package;
         private Dictionary<StyleEnum, Dictionary<BtnEnum, StyleItem>> loadConfig;
 
-        private const string ConfigPath = "RawBytes/UIStyle/Style.json";
+        private const string CONFIG_PATH = "RawBytes/UIStyle/Style.json";
 
         public enum StyleEnum
         {

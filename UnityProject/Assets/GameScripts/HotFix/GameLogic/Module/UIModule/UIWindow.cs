@@ -138,7 +138,7 @@ namespace GameLogic
             {
                 if (_canvas != null)
                 {
-                    return _canvas.gameObject.layer == UIModule.WindowShowLayer;
+                    return _canvas.gameObject.layer == UIModule.WINDOW_SHOW_LAYER;
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace GameLogic
             {
                 if (_canvas != null)
                 {
-                    int setLayer = value ? UIModule.WindowShowLayer : UIModule.WindowHideLayer;
+                    int setLayer = value ? UIModule.WINDOW_SHOW_LAYER : UIModule.WINDOW_HIDE_LAYER;
                     if (_canvas.gameObject.layer == setLayer)
                         return;
 

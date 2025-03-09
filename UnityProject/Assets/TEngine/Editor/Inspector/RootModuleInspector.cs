@@ -10,7 +10,7 @@ namespace TEngine.Editor
     [CustomEditor(typeof(RootModule))]
     internal sealed class RootModuleInspector : GameFrameworkInspector
     {
-        private const string NoneOptionName = "<None>";
+        private const string NONE_OPTION_NAME = "<None>";
         private static readonly float[] GameSpeed = new float[] { 0f, 0.01f, 0.1f, 0.25f, 0.5f, 1f, 1.5f, 2f, 4f, 8f };
         private static readonly string[] GameSpeedForDisplay = new string[] { "0x", "0.01x", "0.1x", "0.25x", "0.5x", "1x", "1.5x", "2x", "4x", "8x" };
 
@@ -161,7 +161,7 @@ namespace TEngine.Editor
         {
             List<string> textHelperTypeNames = new List<string>
             {
-                NoneOptionName
+                NONE_OPTION_NAME
             };
 
             textHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(Utility.Text.ITextHelper)));
@@ -179,7 +179,7 @@ namespace TEngine.Editor
 
             List<string> logHelperTypeNames = new List<string>
             {
-                NoneOptionName
+                NONE_OPTION_NAME
             };
 
             logHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(GameFrameworkLog.ILogHelper)));
@@ -197,7 +197,7 @@ namespace TEngine.Editor
 
             List<string> jsonHelperTypeNames = new List<string>
             {
-                NoneOptionName
+                NONE_OPTION_NAME
             };
 
             jsonHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(Utility.Json.IJsonHelper)));

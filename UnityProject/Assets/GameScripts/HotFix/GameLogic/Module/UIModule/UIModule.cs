@@ -18,10 +18,10 @@ namespace GameLogic
 
         private readonly List<UIWindow> _uiStack = new List<UIWindow>(100);
 
-        public const int LayerDeep = 2000;
-        public const int WindowDeep = 100;
-        public const int WindowHideLayer = 2; // Ignore Raycast
-        public const int WindowShowLayer = 5; // UI
+        public const int LAYER_DEEP = 2000;
+        public const int WINDOW_DEEP = 100;
+        public const int WINDOW_HIDE_LAYER = 2; // Ignore Raycast
+        public const int WINDOW_SHOW_LAYER = 5; // UI
 
         public static IUIResourceLoader Resource;
         
@@ -445,13 +445,13 @@ namespace GameLogic
 
         private void OnSortWindowDepth(int layer)
         {
-            int depth = layer * LayerDeep;
+            int depth = layer * LAYER_DEEP;
             for (int i = 0; i < _uiStack.Count; i++)
             {
                 if (_uiStack[i].WindowLayer == layer)
                 {
                     _uiStack[i].Depth = depth;
-                    depth += WindowDeep;
+                    depth += WINDOW_DEEP;
                 }
             }
         }

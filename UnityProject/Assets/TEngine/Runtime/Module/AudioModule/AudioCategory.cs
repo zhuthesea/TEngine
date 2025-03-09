@@ -76,7 +76,7 @@ namespace TEngine
             this.audioMixer = audioMixer;
             _maxChannel = maxChannel;
             _audioGroupConfig = audioGroupConfig;
-            AudioMixerGroup[] audioMixerGroups = audioMixer.FindMatchingGroups(Utility.Text.Format("Master/{0}", audioGroupConfig.audioType.ToString()));
+            AudioMixerGroup[] audioMixerGroups = audioMixer.FindMatchingGroups(Utility.Text.Format("Master/{0}", audioGroupConfig.AudioType.ToString()));
             if (audioMixerGroups.Length > 0)
             {
                 _audioMixerGroup = audioMixerGroups[0];

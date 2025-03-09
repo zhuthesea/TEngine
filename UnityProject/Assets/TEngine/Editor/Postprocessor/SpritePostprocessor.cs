@@ -38,10 +38,10 @@ public class SpritePostprocessor : AssetPostprocessor
 
 public static class EditorSpriteSaveInfo
 {
-    private const string NormalAtlasDir = "Assets/AssetArt/Atlas";
-    private const string UISpritePath = "Assets/AssetRaw/UIRaw";
-    private const string UIAtlasPath = "Assets/AssetRaw/UIRaw/Atlas";
-    private const string UIRawPath = "Assets/AssetRaw/UIRaw/UIRaw";
+    private const string NORMAL_ATLAS_DIR = "Assets/AssetArt/Atlas";
+    private const string UI_SPRITE_PATH = "Assets/AssetRaw/UIRaw";
+    private const string UI_ATLAS_PATH = "Assets/AssetRaw/UIRaw/Atlas";
+    private const string UI_RAW_PATH = "Assets/AssetRaw/UIRaw/UIRaw";
     private static readonly List<string> _dirtyAtlasList = new List<string>();
     private static readonly Dictionary<string, List<string>> _allASprites = new Dictionary<string, List<string>>();
     private static readonly Dictionary<string, string> _uiAtlasMap = new Dictionary<string, string>();
@@ -58,7 +58,7 @@ public static class EditorSpriteSaveInfo
         EditorApplication.update += CheckDirty;
 
         //读取所有图集信息
-        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NormalAtlasDir });
+        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NORMAL_ATLAS_DIR });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);
@@ -123,7 +123,7 @@ public static class EditorSpriteSaveInfo
 
     public static void OnImportSprite(string assetPath)
     {
-        if (!assetPath.StartsWith(UISpritePath))
+        if (!assetPath.StartsWith(UI_SPRITE_PATH))
         {
             return;
         }
@@ -134,7 +134,7 @@ public static class EditorSpriteSaveInfo
         {
             var modify = false;
 
-            if (assetPath.StartsWith(UISpritePath))
+            if (assetPath.StartsWith(UI_SPRITE_PATH))
             {
                 if (ti.textureType != TextureImporterType.Sprite)
                 {
@@ -314,7 +314,7 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        if (!assetPath.StartsWith(UISpritePath))
+        if (!assetPath.StartsWith(UI_SPRITE_PATH))
         {
             return;
         }
@@ -332,7 +332,7 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        if (assetPath.StartsWith(UISpritePath))
+        if (assetPath.StartsWith(UI_SPRITE_PATH))
         {
             var spriteName = Path.GetFileNameWithoutExtension(assetPath);
             if (_uiAtlasMap.ContainsKey(spriteName))
@@ -369,8 +369,8 @@ public static class EditorSpriteSaveInfo
             }
         }
 
-        var pathv2 = $"{NormalAtlasDir}/{atlasName}.spriteatlasv2";
-        var path = $"{NormalAtlasDir}/{atlasName}.asset";
+        var pathv2 = $"{NORMAL_ATLAS_DIR}/{atlasName}.spriteatlasv2";
+        var path = $"{NORMAL_ATLAS_DIR}/{atlasName}.asset";
 
         if (spriteList.Count == 0)
         {
@@ -449,7 +449,7 @@ public static class EditorSpriteSaveInfo
         List<string> needSaveAtlas = new List<string>();
         m_tempAllASprites.Clear();
         _allASprites.Clear();
-        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UIAtlasPath });
+        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UI_ATLAS_PATH });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);

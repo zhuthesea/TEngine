@@ -22,7 +22,7 @@ namespace TEngine
         /// 音效分类，可分别关闭/开启对应分类音效。
         /// </summary>
         /// <remarks>命名与AudioMixer中分类名保持一致。</remarks>
-        public AudioType audioType;
+        public AudioType AudioType;
 
         /// <summary>
         /// 音频源中3D声音的衰减模式。
