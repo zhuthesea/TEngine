@@ -27,11 +27,14 @@ namespace TEngine
 
         private float _lastUnloadUnusedAssetsOperationElapseSeconds = 0f;
 
-        [SerializeField] private float minUnloadUnusedAssetsInterval = 60f;
+        [SerializeField]
+        private float minUnloadUnusedAssetsInterval = 60f;
 
-        [SerializeField] private float maxUnloadUnusedAssetsInterval = 300f;
+        [SerializeField]
+        private float maxUnloadUnusedAssetsInterval = 300f;
 
-        [SerializeField] private bool useSystemUnloadUnusedAssets = true;
+        [SerializeField]
+        private bool useSystemUnloadUnusedAssets = true;
 
         /// <summary>
         /// 当前最新的包裹版本。
@@ -41,7 +44,8 @@ namespace TEngine
         /// <summary>
         /// 资源包名称。
         /// </summary>
-        [SerializeField] private string packageName = "DefaultPackage";
+        [SerializeField]
+        private string packageName = "DefaultPackage";
 
         /// <summary>
         /// 资源包名称。
@@ -55,7 +59,8 @@ namespace TEngine
         /// <summary>
         /// 资源系统运行模式。
         /// </summary>
-        [SerializeField] private EPlayMode playMode = EPlayMode.EditorSimulateMode;
+        [SerializeField]
+        private EPlayMode playMode = EPlayMode.EditorSimulateMode;
 
         /// <summary>
         /// 资源系统运行模式。
@@ -88,7 +93,8 @@ namespace TEngine
         /// <summary>
         /// 是否支持边玩边下载。
         /// </summary>
-        [SerializeField] private bool updatableWhilePlaying = false;
+        [SerializeField]
+        private bool updatableWhilePlaying = false;
 
         /// <summary>
         /// 是否支持边玩边下载。
@@ -98,7 +104,8 @@ namespace TEngine
         /// <summary>
         /// 设置异步系统参数，每帧执行消耗的最大时间切片（单位：毫秒）
         /// </summary>
-        [SerializeField] public long milliseconds = 30;
+        [SerializeField]
+        public long milliseconds = 30;
 
         public int downloadingMaxNum = 10;
 
@@ -111,7 +118,8 @@ namespace TEngine
             set => downloadingMaxNum = value;
         }
 
-        [SerializeField] public int failedTryAgain = 3;
+        [SerializeField]
+        public int failedTryAgain = 3;
 
         public int FailedTryAgain
         {
@@ -161,13 +169,17 @@ namespace TEngine
         /// </summary>
         public float LastUnloadUnusedAssetsOperationElapseSeconds => _lastUnloadUnusedAssetsOperationElapseSeconds;
 
-        [SerializeField] private float assetAutoReleaseInterval = 60f;
+        [SerializeField]
+        private float assetAutoReleaseInterval = 60f;
 
-        [SerializeField] private int assetCapacity = 64;
+        [SerializeField]
+        private int assetCapacity = 64;
 
-        [SerializeField] private float assetExpireTime = 60f;
+        [SerializeField]
+        private float assetExpireTime = 60f;
 
-        [SerializeField] private int assetPriority = 0;
+        [SerializeField]
+        private int assetPriority = 0;
 
         /// <summary>
         /// 获取或设置资源对象池自动释放可释放对象的间隔秒数。
@@ -261,7 +273,7 @@ namespace TEngine
         {
             _lastUnloadUnusedAssetsOperationElapseSeconds += Time.unscaledDeltaTime;
             if (_asyncOperation == null && (_forceUnloadUnusedAssets || _lastUnloadUnusedAssetsOperationElapseSeconds >= maxUnloadUnusedAssetsInterval ||
-                                             _preorderUnloadUnusedAssets && _lastUnloadUnusedAssetsOperationElapseSeconds >= minUnloadUnusedAssetsInterval))
+                                            _preorderUnloadUnusedAssets && _lastUnloadUnusedAssetsOperationElapseSeconds >= minUnloadUnusedAssetsInterval))
             {
                 Log.Info("Unload unused assets...");
                 _forceUnloadUnusedAssets = false;

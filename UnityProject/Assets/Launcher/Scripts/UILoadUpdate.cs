@@ -8,11 +8,20 @@ namespace Launcher
     /// </summary>
     public class UILoadUpdate : UIBase
     {
-        [SerializeField] public Button _btn_clear;
-        [SerializeField] public Scrollbar _obj_progress;
-        [SerializeField] public Text _label_desc;
-        [SerializeField] public Text _label_appid;
-        [SerializeField] public Text _label_resid;
+        [SerializeField]
+        public Button _btn_clear;
+
+        [SerializeField]
+        public Scrollbar _obj_progress;
+
+        [SerializeField]
+        public Text _label_desc;
+
+        [SerializeField]
+        public Text _label_appid;
+
+        [SerializeField]
+        public Text _label_resid;
 
         public virtual void Start()
         {

@@ -18,25 +18,27 @@ namespace TEngine
     internal partial class ResourceExtComponent : MonoBehaviour
     {
         public static ResourceExtComponent Instance { private set; get; }
-        
+
         private readonly TimeoutController _timeoutController = new TimeoutController();
-        
+
         /// <summary>
         /// 正在加载的资源列表。
         /// </summary>
         private readonly HashSet<string> _assetLoadingList = new HashSet<string>();
-        
+
         /// <summary>
         /// 检查是否可以释放间隔
         /// </summary>
-        [SerializeField] private float checkCanReleaseInterval = 30f;
+        [SerializeField]
+        private float checkCanReleaseInterval = 30f;
 
         private float _checkCanReleaseTime = 0.0f;
 
         /// <summary>
         /// 对象池自动释放时间间隔
         /// </summary>
-        [SerializeField] private float autoReleaseInterval = 60f;
+        [SerializeField]
+        private float autoReleaseInterval = 60f;
 
         /// <summary>
         /// 保存加载的图片对象
@@ -68,7 +70,7 @@ namespace TEngine
                 "SetAssetPool",
                 autoReleaseInterval, 16, 60, 0);
             _loadAssetObjectsLinkedList = new LinkedList<LoadAssetObject>();
-            
+
             InitializedResources();
         }
 
@@ -118,7 +120,7 @@ namespace TEngine
             _loadAssetObjectsLinkedList.AddLast(new LoadAssetObject(setAssetObject, assetObject));
             setAssetObject.SetAsset(assetObject);
         }
-        
+
         private async UniTask TryWaitingLoading(string assetObjectKey)
         {
             if (_assetLoadingList.Contains(assetObjectKey))
@@ -133,7 +135,6 @@ namespace TEngine
 #else
                     ;
 #endif
-                
                 }
                 catch (OperationCanceledException ex)
                 {

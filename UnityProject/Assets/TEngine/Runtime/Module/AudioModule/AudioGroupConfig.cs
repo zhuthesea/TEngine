@@ -10,13 +10,17 @@ namespace TEngine
     [Serializable]
     public sealed class AudioGroupConfig
     {
-        [SerializeField] private string name = null;
+        [SerializeField]
+        private string name = null;
 
-        [SerializeField] private bool mute = false;
+        [SerializeField]
+        private bool mute = false;
 
-        [SerializeField, Range(0f, 1f)] private float volume = 1f;
+        [SerializeField, Range(0f, 1f)]
+        private float volume = 1f;
 
-        [SerializeField] private int agentHelperCount = 1;
+        [SerializeField]
+        private int agentHelperCount = 1;
 
         /// <summary>
         /// 音效分类，可分别关闭/开启对应分类音效。

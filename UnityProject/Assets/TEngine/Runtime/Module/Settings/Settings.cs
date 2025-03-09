@@ -19,16 +19,20 @@ namespace TEngine
                         return _instance;
                     }
                 }
+
                 return _instance;
             }
         }
 
-        [SerializeField] private AudioSetting audioSetting;
+        [SerializeField]
+        private AudioSetting audioSetting;
 
-        [SerializeField] private ProcedureSetting procedureSetting;
+        [SerializeField]
+        private ProcedureSetting procedureSetting;
 
-        [SerializeField] private UpdateSetting updateSetting;
-        
+        [SerializeField]
+        private UpdateSetting updateSetting;
+
         public static AudioSetting AudioSetting => Instance.audioSetting;
 
         public static ProcedureSetting ProcedureSetting => Instance.procedureSetting;

@@ -11,7 +11,9 @@ namespace TEngine
     [Serializable]
     public class AudioCategory
     {
-        [SerializeField] private AudioMixer audioMixer = null;
+        [SerializeField]
+        private AudioMixer audioMixer = null;
+
         public List<AudioAgent> AudioAgents;
         private readonly AudioMixerGroup _audioMixerGroup;
         private AudioGroupConfig _audioGroupConfig;
@@ -72,7 +74,7 @@ namespace TEngine
         public AudioCategory(int maxChannel, AudioMixer audioMixer, AudioGroupConfig audioGroupConfig)
         {
             var audioModule = ModuleSystem.GetModule<IAudioModule>();
-            
+
             this.audioMixer = audioMixer;
             _maxChannel = maxChannel;
             _audioGroupConfig = audioGroupConfig;

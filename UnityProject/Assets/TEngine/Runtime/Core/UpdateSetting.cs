@@ -14,7 +14,7 @@ namespace TEngine
         /// 强制更新(不更新无法进入游戏。)
         /// </summary>
         Force = 1,
-            
+
         /// <summary>
         /// 非强制(不更新可以进入游戏。)
         /// </summary>
@@ -30,20 +30,21 @@ namespace TEngine
         /// 更新存在提示。
         /// </summary>
         Notice = 1,
-            
+
         /// <summary>
         /// 更新非提示。
         /// </summary>
         NoNotice = 2,
     }
-    
+
     [CreateAssetMenu(menuName = "TEngine/UpdateSetting", fileName = "UpdateSetting")]
     public class UpdateSetting : ScriptableObject
     {
         /// <summary>
         /// 项目名称。
         /// </summary>
-        [SerializeField] private string projectName = "Demo";
+        [SerializeField]
+        private string projectName = "Demo";
 
         public bool Enable
         {
@@ -60,7 +61,8 @@ namespace TEngine
         [Header("Auto sync with [HybridCLRGlobalSettings]")]
         public List<string> HotUpdateAssemblies = new List<string>() { "GameBase.dll", "GameProto.dll", "GameLogic.dll" };
 
-        [Header("Need manual setting!")] public List<string> AOTMetaAssemblies = new List<string>() { "mscorlib.dll", "System.dll", "System.Core.dll", "TEngine.Runtime.dll" };
+        [Header("Need manual setting!")]
+        public List<string> AOTMetaAssemblies = new List<string>() { "mscorlib.dll", "System.dll", "System.Core.dll", "TEngine.Runtime.dll" };
 
         /// <summary>
         /// Dll of main business logic assembly
@@ -79,19 +81,21 @@ namespace TEngine
 
         [Header("更新设置")]
         public UpdateStyle UpdateStyle = UpdateStyle.Force;
-        
+
         public UpdateNotice UpdateNotice = UpdateNotice.Notice;
-        
+
         /// <summary>
         /// 资源服务器地址。
         /// </summary>
-        [SerializeField] private string ResDownLoadPath = "http://127.0.0.1:8081";
+        [SerializeField]
+        private string ResDownLoadPath = "http://127.0.0.1:8081";
 
         /// <summary>
         /// 资源服务备用地址。
         /// </summary>
-        [SerializeField] private string FallbackResDownLoadPath = "http://127.0.0.1:8082";
-        
+        [SerializeField]
+        private string FallbackResDownLoadPath = "http://127.0.0.1:8082";
+
         /// <summary>
         /// 获取资源下载路径。
         /// </summary>

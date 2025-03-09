@@ -11,9 +11,11 @@ namespace TEngine
         private IProcedureModule _procedureModule = null;
         private ProcedureBase _entranceProcedure = null;
 
-        [SerializeField] private string[] availableProcedureTypeNames = null;
+        [SerializeField]
+        private string[] availableProcedureTypeNames = null;
 
-        [SerializeField] private string entranceProcedureTypeName = null;
+        [SerializeField]
+        private string entranceProcedureTypeName = null;
 
         /// <summary>
         /// 获取当前流程。

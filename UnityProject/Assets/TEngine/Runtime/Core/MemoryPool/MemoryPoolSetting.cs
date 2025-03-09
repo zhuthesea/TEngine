@@ -34,7 +34,8 @@ namespace TEngine
     [DisallowMultipleComponent]
     public sealed class MemoryPoolSetting : MonoBehaviour
     {
-        [SerializeField] private MemoryStrictCheckType m_EnableStrictCheck = MemoryStrictCheckType.OnlyEnableWhenDevelopment;
+        [SerializeField]
+        private MemoryStrictCheckType m_EnableStrictCheck = MemoryStrictCheckType.OnlyEnableWhenDevelopment;
 
         /// <summary>
         /// 获取或设置是否开启强制检查。
@@ -72,7 +73,8 @@ namespace TEngine
                     EnableStrictCheck = false;
                     break;
             }
-            UnityEngine.Object.Destroy(gameObject);
+
+            Destroy(gameObject);
         }
     }
 }

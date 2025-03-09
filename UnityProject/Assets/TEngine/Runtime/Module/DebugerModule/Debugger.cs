@@ -107,6 +107,7 @@ namespace TEngine
                 {
                     _eventSystem.SetActive(!value);
                 }
+
                 _showFullWindow = value;
             }
         }
@@ -139,6 +140,7 @@ namespace TEngine
         }
 
         private GameObject _eventSystem;
+
         /// <summary>
         /// 游戏框架模块初始化。
         /// </summary>
@@ -165,9 +167,9 @@ namespace TEngine
             }
 
             _fpsCounter = new FpsCounter(0.5f);
-            
+
             var lastIconX = PlayerPrefs.GetFloat("Debugger.Icon.X", DefaultIconRect.x);
-            var  lastIconY = PlayerPrefs.GetFloat("Debugger.Icon.Y", DefaultIconRect.y);
+            var lastIconY = PlayerPrefs.GetFloat("Debugger.Icon.Y", DefaultIconRect.y);
             var lastWindowX = PlayerPrefs.GetFloat("Debugger.Window.X", DefaultWindowRect.x);
             var lastWindowY = PlayerPrefs.GetFloat("Debugger.Window.Y", DefaultWindowRect.y);
             var lastWindowWidth = PlayerPrefs.GetFloat("Debugger.Window.Width", DefaultWindowRect.width);

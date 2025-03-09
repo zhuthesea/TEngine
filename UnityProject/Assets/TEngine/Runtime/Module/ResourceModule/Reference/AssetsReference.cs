@@ -22,9 +22,11 @@ namespace TEngine
 
     public sealed class AssetsReference : MonoBehaviour
     {
-        [SerializeField] private GameObject sourceGameObject;
+        [SerializeField]
+        private GameObject sourceGameObject;
 
-        [SerializeField] private List<AssetsRefInfo> refAssetInfoList;
+        [SerializeField]
+        private List<AssetsRefInfo> refAssetInfoList;
 
         private IResourceModule _resourceModule;
 
@@ -90,6 +92,7 @@ namespace TEngine
             {
                 refAssetInfoList = new List<AssetsRefInfo>();
             }
+
             refAssetInfoList.Add(new AssetsRefInfo(source));
             return this;
         }

@@ -18,7 +18,7 @@ namespace TEngine
         GroupLogic,
     }
 
-    [System.AttributeUsage(System.AttributeTargets.Interface)]
+    [AttributeUsage(AttributeTargets.Interface)]
     public class EventInterfaceAttribute : Attribute
     {
         public EEventGroup EventGroup { get; }
