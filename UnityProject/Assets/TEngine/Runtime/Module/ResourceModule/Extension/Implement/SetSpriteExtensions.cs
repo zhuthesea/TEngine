@@ -1,4 +1,5 @@
-﻿using TEngine;
+﻿using System.Threading;
+using TEngine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,10 @@ public static class SetSpriteExtensions
     /// <param name="image">UI/Image。</param>
     /// <param name="location">资源定位地址。</param>
     /// <param name="setNativeSize">是否使用原始分辨率。</param>
-    public static void SetSprite(this Image image, string location, bool setNativeSize = false)
+    /// <param name="cancellationToken">取消设置资源的Token。</param>
+    public static void SetSprite(this Image image, string location, bool setNativeSize = false, CancellationToken cancellationToken = default)
     {
-        ResourceExtComponent.Instance.SetAssetByResources<Sprite>(SetSpriteObject.Create(image, location, setNativeSize)).Forget();
+        ResourceExtComponent.Instance.SetAssetByResources<Sprite>(SetSpriteObject.Create(image, location, setNativeSize, cancellationToken)).Forget();
     }
 
     /// <summary>
@@ -20,8 +22,9 @@ public static class SetSpriteExtensions
     /// </summary>
     /// <param name="spriteRenderer">2D/SpriteRender。</param>
     /// <param name="location">资源定位地址。</param>
-    public static void SetSprite(this SpriteRenderer spriteRenderer, string location)
+    /// <param name="cancellationToken">取消设置资源的Token。</param>
+    public static void SetSprite(this SpriteRenderer spriteRenderer, string location, CancellationToken cancellationToken = default)
     {
-        ResourceExtComponent.Instance.SetAssetByResources<Sprite>(SetSpriteObject.Create(spriteRenderer, location)).Forget();
+        ResourceExtComponent.Instance.SetAssetByResources<Sprite>(SetSpriteObject.Create(spriteRenderer, location, cancellationToken)).Forget();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -40,10 +41,15 @@ namespace TEngine
         public string Location { get; private set; }
 
         private bool _setNativeSize = false;
+        
+        private CancellationToken _cancellationToken;
 
         public void SetAsset(Object asset)
         {
             _sprite = (Sprite)asset;
+            
+            if (_cancellationToken.IsCancellationRequested)
+                return;
 
             if (_image != null)
             {
@@ -84,21 +90,23 @@ namespace TEngine
             _setNativeSize = false;
         }
 
-        public static SetSpriteObject Create(Image image, string location, bool setNativeSize = false)
+        public static SetSpriteObject Create(Image image, string location, bool setNativeSize = false, CancellationToken cancellationToken = default)
         {
             SetSpriteObject item = MemoryPool.Acquire<SetSpriteObject>();
             item._image = image;
             item._setNativeSize = setNativeSize;
             item.Location = location;
+            item._cancellationToken = cancellationToken;
             item._setType = SetType.Image;
             return item;
         }
         
-        public static SetSpriteObject Create(SpriteRenderer spriteRenderer, string location)
+        public static SetSpriteObject Create(SpriteRenderer spriteRenderer, string location, CancellationToken cancellationToken = default)
         {
             SetSpriteObject item = MemoryPool.Acquire<SetSpriteObject>();
             item._spriteRenderer = spriteRenderer;
             item.Location = location;
+            item._cancellationToken = cancellationToken;
             item._setType = SetType.SpriteRender;
             return item;
         }
