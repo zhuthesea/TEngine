@@ -114,8 +114,8 @@ namespace TEngine
             {
                 defaultPackage = YooAssets.CreatePackage(packageName);
                 YooAssets.SetDefaultPackage(defaultPackage);
-                DefaultPackage = defaultPackage;
             }
+            DefaultPackage = defaultPackage;
 
             IObjectPoolModule objectPoolManager = ModuleSystem.GetModule<IObjectPoolModule>();
             SetObjectPoolModule(objectPoolManager);
