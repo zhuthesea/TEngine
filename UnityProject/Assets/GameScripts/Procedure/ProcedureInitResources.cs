@@ -60,7 +60,7 @@ namespace Procedure
             yield return operation1;
             if (operation1.Status != EOperationStatus.Succeed)
             {
-                OnInitResourcesError(procedureOwner);
+                OnInitResourcesError(procedureOwner, operation1.Error);
                 yield break;
             }
 
@@ -70,20 +70,21 @@ namespace Procedure
             Log.Info($"Init resource package version : {packageVersion}");
             
             // 2. 传入的版本信息更新资源清单
-            var operation = _resourceModule.UpdatePackageManifestAsync(packageVersion);
-            yield return operation;
-            if (operation.Status != EOperationStatus.Succeed)
+            var operation2 = _resourceModule.UpdatePackageManifestAsync(packageVersion);
+            yield return operation2;
+            if (operation2.Status != EOperationStatus.Succeed)
             {
-                OnInitResourcesError(procedureOwner);
+                OnInitResourcesError(procedureOwner, operation2.Error);
                 yield break;
             }
             
             _initResourcesComplete = true;
         }
         
-        private void OnInitResourcesError(ProcedureOwner procedureOwner)
+        private void OnInitResourcesError(ProcedureOwner procedureOwner, string message)
         {
-            LauncherMgr.ShowMessageBox($"初始化资源失败！点击确认重试</color>", MessageShowType.TwoButton,
+            Log.Error(message);
+            LauncherMgr.ShowMessageBox($"初始化资源失败！点击确认重试 \n <color=#FF0000>{message}</color>", MessageShowType.TwoButton,
                 LoadStyle.StyleEnum.Style_Retry
                 , () =>
                 {
