@@ -59,7 +59,7 @@ namespace TEngine
         }
 
         [Header("Auto sync with [HybridCLRGlobalSettings]")]
-        public List<string> HotUpdateAssemblies = new List<string>() { "GameBase.dll", "GameProto.dll", "GameLogic.dll" };
+        public List<string> HotUpdateAssemblies = new List<string>() {"GameProto.dll", "GameLogic.dll" };
 
         [Header("Need manual setting!")]
         public List<string> AOTMetaAssemblies = new List<string>() { "mscorlib.dll", "System.dll", "System.Core.dll", "TEngine.Runtime.dll" };
