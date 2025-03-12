@@ -75,22 +75,17 @@ Assets
 ├── Scenes              // 主场景目录
 ├── TEngine             // 框架核心目录
 └── GameScripts         // 程序集目录
-    ├── Main            // 主程序程序集(启动器与流程)
+    ├── Procedure       // 启动器与流程
     └── HotFix          // 游戏热更程序集目录 [Folder]
-        ├── GameBase    // 游戏基础框架程序集 [Dll]
         ├── GameProto   // 游戏配置协议程序集 [Dll]
         └── GameLogic   // 游戏业务逻辑程序集 [Dll]
-            ├── GameApp.cs                  // 热更主入口
-            └── GameApp_RegisterSystem.cs   // 热更主入口注册系统
+            └── GameApp.cs                  // 热更主入口
 
 
 TEngine
 ├── Editor              // TEngine编辑器核心代码
 └── Runtime             // TEngine运行时核心代码
 ```
-
- - 必要：项目使用了以下第三方插件，请自行购买导入：
-   - /UnityProject/Assets/Plugins/Sirenix
 
 ---
 ## <strong>优质开源项目推荐
