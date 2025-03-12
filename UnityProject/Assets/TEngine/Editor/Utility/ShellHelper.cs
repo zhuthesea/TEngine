@@ -102,5 +102,13 @@ namespace TEngine.Editor
                 process.Close();
             }
         }
+        
+        public static void RunByPath(string path)
+        {
+            if (!string.IsNullOrEmpty(path))
+            {
+                Process.Start(path);
+            }
+        }
     }
 }
