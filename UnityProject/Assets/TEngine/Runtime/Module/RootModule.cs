@@ -9,6 +9,20 @@ namespace TEngine
     [DisallowMultipleComponent]
     public sealed class RootModule : MonoBehaviour
     {
+        private static RootModule _instance = null;
+
+        public static RootModule Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<RootModule>();
+                }
+                return _instance;
+            }
+        }
+        
         private const int DEFAULT_DPI = 96; // default windows dpi
 
         private float _gameSpeedBeforePause = 1f;
@@ -101,6 +115,7 @@ namespace TEngine
         /// </summary>
         private void Awake()
         {
+            _instance = this;
             InitTextHelper();
             InitLogHelper();
             Log.Info("Unity Version: {0}", Application.unityVersion);

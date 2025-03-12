@@ -265,6 +265,26 @@
             {
                 return !_enable ? defaultValue : GetString(GetUserKey(key), defaultValue);
             }
+            
+            /// <summary>
+            /// 检查是否存在指定游戏配置项。
+            /// </summary>
+            /// <param name="settingName">要检查游戏配置项的名称。</param>
+            /// <returns>指定的游戏配置项是否存在。</returns>
+            public static bool HasSetting(string settingName)
+            {
+                return PlayerPrefs.HasKey(settingName);
+            }
+            
+            /// <summary>
+            /// 保存游戏配置。
+            /// </summary>
+            /// <returns>是否保存游戏配置成功。</returns>
+            public static bool Save()
+            {
+                UnityEngine.PlayerPrefs.Save();
+                return true;
+            }
         }
     }
 }
