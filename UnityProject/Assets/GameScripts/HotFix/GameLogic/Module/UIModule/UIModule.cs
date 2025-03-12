@@ -14,7 +14,7 @@ namespace GameLogic
 
         private bool _enableErrorLog = true;
 
-        private readonly Camera _uiCamera = null;
+        private Camera _uiCamera = null;
 
         private readonly List<UIWindow> _uiStack = new List<UIWindow>(100);
 
@@ -43,6 +43,7 @@ namespace GameLogic
             if (uiRoot != null)
             {
                 _instanceRoot = uiRoot.GetComponentInChildren<Canvas>()?.transform;
+                _uiCamera = uiRoot.GetComponentInChildren<Camera>();
             }
             else
             {
