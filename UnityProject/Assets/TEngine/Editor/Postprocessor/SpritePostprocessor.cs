@@ -38,19 +38,18 @@ public class SpritePostprocessor : AssetPostprocessor
 
 public static class EditorSpriteSaveInfo
 {
-    private const string NORMAL_ATLAS_DIR = "Assets/AssetArt/Atlas";
-    private const string UI_SPRITE_PATH = "Assets/AssetRaw/UIRaw";
-    private const string UI_ATLAS_PATH = "Assets/AssetRaw/UIRaw/Atlas";
-    private const string UI_RAW_PATH = "Assets/AssetRaw/UIRaw/UIRaw";
+    private const string NormalAtlasDir = "Assets/AssetArt/Atlas";
+    private const string UISpritePath = "Assets/AssetRaw/UIRaw";
+    private const string UIAtlasPath = "Assets/AssetRaw/UIRaw/Atlas";
     private static readonly List<string> _dirtyAtlasList = new List<string>();
     private static readonly Dictionary<string, List<string>> _allASprites = new Dictionary<string, List<string>>();
     private static readonly Dictionary<string, string> _uiAtlasMap = new Dictionary<string, string>();
-    private static bool _inited = false;
+    private static bool _isInit = false;
     private static bool m_dirty = false;
 
     public static void Init()
     {
-        if (_inited)
+        if (_isInit)
         {
             return;
         }
@@ -58,7 +57,7 @@ public static class EditorSpriteSaveInfo
         EditorApplication.update += CheckDirty;
 
         //读取所有图集信息
-        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NORMAL_ATLAS_DIR });
+        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NormalAtlasDir });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);
@@ -83,7 +82,7 @@ public static class EditorSpriteSaveInfo
             }
         }
 
-        _inited = true;
+        _isInit = true;
     }
 
     public static void CheckDirty()
@@ -123,7 +122,7 @@ public static class EditorSpriteSaveInfo
 
     public static void OnImportSprite(string assetPath)
     {
-        if (!assetPath.StartsWith(UI_SPRITE_PATH))
+        if (!assetPath.StartsWith(UISpritePath))
         {
             return;
         }
@@ -134,7 +133,7 @@ public static class EditorSpriteSaveInfo
         {
             var modify = false;
 
-            if (assetPath.StartsWith(UI_SPRITE_PATH))
+            if (assetPath.StartsWith(UISpritePath))
             {
                 if (ti.textureType != TextureImporterType.Sprite)
                 {
@@ -170,6 +169,7 @@ public static class EditorSpriteSaveInfo
                     if (andPlatformSettings.format != TextureImporterFormat.ASTC_6x6)
                     {
                         andPlatformSettings.format = TextureImporterFormat.ASTC_6x6;
+                        andPlatformSettings.compressionQuality = 50;
                         ti.SetPlatformTextureSettings(andPlatformSettings);
                         modify = true;
                     }
@@ -187,6 +187,22 @@ public static class EditorSpriteSaveInfo
                         iosPlatformSettings.format = TextureImporterFormat.ASTC_5x5;
                         iosPlatformSettings.compressionQuality = 50;
                         ti.SetPlatformTextureSettings(iosPlatformSettings);
+                        modify = true;
+                    }
+
+                    //调整WebGL格式
+                    var webglSettings = ti.GetPlatformTextureSettings("WebGL");
+                    if (!webglSettings.overridden)
+                    {
+                        webglSettings.overridden = true;
+                        modify = true;
+                    }
+
+                    if (webglSettings.format != TextureImporterFormat.ASTC_6x6)
+                    {
+                        webglSettings.format = TextureImporterFormat.ASTC_6x6;
+                        webglSettings.compressionQuality = 50;
+                        ti.SetPlatformTextureSettings(webglSettings);
                         modify = true;
                     }
                 }
@@ -314,7 +330,7 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        if (!assetPath.StartsWith(UI_SPRITE_PATH))
+        if (!assetPath.StartsWith(UISpritePath))
         {
             return;
         }
@@ -332,7 +348,7 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        if (assetPath.StartsWith(UI_SPRITE_PATH))
+        if (assetPath.StartsWith(UISpritePath))
         {
             var spriteName = Path.GetFileNameWithoutExtension(assetPath);
             if (_uiAtlasMap.ContainsKey(spriteName))
@@ -369,8 +385,7 @@ public static class EditorSpriteSaveInfo
             }
         }
 
-        var pathv2 = $"{NORMAL_ATLAS_DIR}/{atlasName}.spriteatlasv2";
-        var path = $"{NORMAL_ATLAS_DIR}/{atlasName}.asset";
+        var path = $"{NormalAtlasDir}/{atlasName}.spriteatlas";
 
         if (spriteList.Count == 0)
         {
@@ -379,15 +394,11 @@ public static class EditorSpriteSaveInfo
                 AssetDatabase.DeleteAsset(path);
             }
 
-            if (File.Exists(pathv2))
-            {
-                AssetDatabase.DeleteAsset(pathv2);
-            }
-
             return;
         }
 
-        var atlas = new SpriteAtlasAsset();
+        var atlas = new SpriteAtlas();
+        // var atlas = new SpriteAtlasAsset();
         var setting = new SpriteAtlasPackingSettings
         {
             blockOffset = 1,
@@ -409,30 +420,34 @@ public static class EditorSpriteSaveInfo
         if (!iphonePlatformSetting.overridden)
         {
             iphonePlatformSetting.overridden = true;
-            iphonePlatformSetting.format = isOpaque ? TextureImporterFormat.ASTC_5x5 : TextureImporterFormat.ASTC_6x6;
+            iphonePlatformSetting.format = TextureImporterFormat.ASTC_5x5;
             iphonePlatformSetting.compressionQuality = 100;
             atlas.SetPlatformSettings(iphonePlatformSetting);
         }
 
         var androidPlatformSetting = atlas.GetPlatformSettings("Android");
-        if (isOpaque && !androidPlatformSetting.overridden)
+        if (!androidPlatformSetting.overridden)
         {
             androidPlatformSetting.overridden = true;
-            androidPlatformSetting.format = TextureImporterFormat.ETC_RGB4;
+            androidPlatformSetting.format = TextureImporterFormat.ASTC_6x6;
             androidPlatformSetting.compressionQuality = 100;
             atlas.SetPlatformSettings(androidPlatformSetting);
+        }
+
+        var webglSettings = atlas.GetPlatformSettings("WebGL");
+        if (!webglSettings.overridden)
+        {
+            webglSettings.overridden = true;
+            webglSettings.format = TextureImporterFormat.ASTC_6x6;
+            webglSettings.compressionQuality = 50;
+            atlas.SetPlatformSettings(webglSettings);
         }
 
         atlas.SetPackingSettings(setting);
         atlas.Add(spriteList.ToArray());
 
         AssetDatabase.CreateAsset(atlas, path);
-        if (File.Exists(pathv2))
-        {
-            AssetDatabase.DeleteAsset(pathv2);
-        }
-
-        File.Move(path, pathv2);
+        AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
 
@@ -440,16 +455,16 @@ public static class EditorSpriteSaveInfo
 
     #region 重新生成图集
 
-    private static Dictionary<string, List<string>> m_tempAllASprites = new Dictionary<string, List<string>>();
+    private static readonly Dictionary<string, List<string>> m_tempAllASprites = new Dictionary<string, List<string>>();
 
-    [MenuItem("TEngine/图集/重新生成UI图集")]
+    [MenuItem("TEngine/Atlas/重新生成UI图集", false, 90)]
     static void ForceGenAtlas()
     {
         Init();
         List<string> needSaveAtlas = new List<string>();
         m_tempAllASprites.Clear();
         _allASprites.Clear();
-        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UI_ATLAS_PATH });
+        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UIAtlasPath });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);
