@@ -35,17 +35,17 @@ namespace GameLogic
         /// <summary>
         /// 所属UI父节点。
         /// </summary>
-        protected UIBase parent = null;
+        protected UIBase _parent = null;
 
         /// <summary>
         /// UI父节点。
         /// </summary>
-        public UIBase Parent => parent;
+        public UIBase Parent => _parent;
 
         /// <summary>
         /// 自定义数据集。
         /// </summary>
-        protected System.Object[] userDatas;
+        protected System.Object[] _userDatas;
         
         /// <summary>
         /// 自定义数据。
@@ -54,9 +54,9 @@ namespace GameLogic
         {
             get
             {
-                if (userDatas != null && userDatas.Length >= 1)
+                if (_userDatas != null && _userDatas.Length >= 1)
                 {
-                    return userDatas[0];
+                    return _userDatas[0];
                 }
                 else
                 {
@@ -68,21 +68,24 @@ namespace GameLogic
         /// <summary>
         /// 自定义数据集。
         /// </summary>
-        public System.Object[] UserDatas => userDatas;
+        public System.Object[] UserDatas => _userDatas;
 
         /// <summary>
         /// 窗口的实例资源对象。
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public virtual GameObject gameObject { protected set; get; }
 
         /// <summary>
         /// 窗口位置组件。
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public virtual Transform transform { protected set; get; }
 
         /// <summary>
         /// 窗口矩阵位置组件。
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public virtual RectTransform rectTransform { protected set; get; }
 
         /// <summary>
@@ -98,17 +101,17 @@ namespace GameLogic
         /// <summary>
         /// UI子组件列表。
         /// </summary>
-        public List<UIWidget> ListChild = new List<UIWidget>();
+        internal readonly List<UIWidget> ListChild = new List<UIWidget>();
 
         /// <summary>
         /// 存在Update更新的UI子组件列表。
         /// </summary>
-        protected List<UIWidget> ListUpdateChild = null;
+        protected List<UIWidget> _listUpdateChild = null;
 
         /// <summary>
         /// 是否持有Update行为。
         /// </summary>
-        protected bool UpdateListValid = false;
+        protected bool _updateListValid = false;
 
         /// <summary>
         /// 代码自动生成绑定。
@@ -139,23 +142,23 @@ namespace GameLogic
         }
 
         /// <summary>
-        /// 窗口刷新
+        /// 窗口刷新。
         /// </summary>
         protected virtual void OnRefresh()
         {
         }
 
         /// <summary>
-        /// 是否需要Update
+        /// 是否需要Update。
         /// </summary>
-        protected bool HasOverrideUpdate = true;
+        protected bool _hasOverrideUpdate = true;
 
         /// <summary>
-        /// 窗口更新
+        /// 窗口更新。
         /// </summary>
         protected virtual void OnUpdate()
         {
-            HasOverrideUpdate = false;
+            _hasOverrideUpdate = false;
         }
 
         internal void CallDestroy()
@@ -164,7 +167,7 @@ namespace GameLogic
         }
 
         /// <summary>
-        /// 窗口销毁
+        /// 窗口销毁。
         /// </summary>
         protected virtual void OnDestroy()
         {
@@ -186,7 +189,7 @@ namespace GameLogic
 
         internal void SetUpdateDirty()
         {
-            UpdateListValid = false;
+            _updateListValid = false;
             if (Parent != null)
             {
                 Parent.SetUpdateDirty();

@@ -20,13 +20,13 @@ namespace GameLogic
 
         private Canvas _canvas;
         
-        protected Canvas Canvas => _canvas;
+        public Canvas Canvas => _canvas;
 
         private Canvas[] _childCanvas;
 
         private GraphicRaycaster _raycaster;
         
-        protected GraphicRaycaster GraphicRaycaster => _raycaster;
+        public GraphicRaycaster GraphicRaycaster => _raycaster;
 
         private GraphicRaycaster[] _childRaycaster;
 
@@ -233,7 +233,7 @@ namespace GameLogic
         internal void TryInvoke(System.Action<UIWindow> prepareCallback, System.Object[] userDatas)
         {
             CancelHideToCloseTimer();
-            base.userDatas = userDatas;
+            base._userDatas = userDatas;
             if (IsPrepare)
             {
                 prepareCallback?.Invoke(this);
@@ -247,7 +247,7 @@ namespace GameLogic
         internal async UniTaskVoid InternalLoad(string location, Action<UIWindow> prepareCallback, bool isAsync, System.Object[] userDatas)
         {
             _prepareCallback = prepareCallback;
-            this.userDatas = userDatas;
+            this._userDatas = userDatas;
             if (!FromResources)
             {
                 if (isAsync)
@@ -295,15 +295,15 @@ namespace GameLogic
             List<UIWidget> listNextUpdateChild = null;
             if (ListChild != null && ListChild.Count > 0)
             {
-                listNextUpdateChild = ListUpdateChild;
-                var updateListValid = UpdateListValid;
+                listNextUpdateChild = _listUpdateChild;
+                var updateListValid = _updateListValid;
                 List<UIWidget> listChild = null;
                 if (!updateListValid)
                 {
                     if (listNextUpdateChild == null)
                     {
                         listNextUpdateChild = new List<UIWidget>();
-                        ListUpdateChild = listNextUpdateChild;
+                        _listUpdateChild = listNextUpdateChild;
                     }
                     else
                     {
@@ -336,16 +336,16 @@ namespace GameLogic
 
                 if (!updateListValid)
                 {
-                    UpdateListValid = true;
+                    _updateListValid = true;
                 }
             }
 
             bool needUpdate = false;
             if (listNextUpdateChild == null || listNextUpdateChild.Count <= 0)
             {
-                HasOverrideUpdate = true;
+                _hasOverrideUpdate = true;
                 OnUpdate();
-                needUpdate = HasOverrideUpdate;
+                needUpdate = _hasOverrideUpdate;
             }
             else
             {
