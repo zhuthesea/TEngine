@@ -38,14 +38,14 @@ public class SpritePostprocessor : AssetPostprocessor
 
 public static class EditorSpriteSaveInfo
 {
-    private const string NormalAtlasDir = "Assets/AssetArt/Atlas";
-    private const string UISpritePath = "Assets/AssetRaw/UIRaw";
-    private const string UIAtlasPath = "Assets/AssetRaw/UIRaw/Atlas";
+    private const string NORMAL_ATLAS_DIR = "Assets/AssetArt/Atlas";
+    private const string UI_SPRITE_PATH = "Assets/AssetRaw/UIRaw";
+    private const string UI_ATLAS_PATH = "Assets/AssetRaw/UIRaw/Atlas";
     private static readonly List<string> _dirtyAtlasList = new List<string>();
     private static readonly Dictionary<string, List<string>> _allASprites = new Dictionary<string, List<string>>();
     private static readonly Dictionary<string, string> _uiAtlasMap = new Dictionary<string, string>();
     private static bool _isInit = false;
-    private static bool m_dirty = false;
+    private static bool _dirty = false;
 
     public static void Init()
     {
@@ -57,7 +57,7 @@ public static class EditorSpriteSaveInfo
         EditorApplication.update += CheckDirty;
 
         //读取所有图集信息
-        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NormalAtlasDir });
+        string[] findAssets = AssetDatabase.FindAssets("t:SpriteAtlas", new[] { NORMAL_ATLAS_DIR });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);
@@ -87,9 +87,9 @@ public static class EditorSpriteSaveInfo
 
     public static void CheckDirty()
     {
-        if (m_dirty)
+        if (_dirty)
         {
-            m_dirty = false;
+            _dirty = false;
 
             AssetDatabase.Refresh();
             float lastProgress = -1;
@@ -122,7 +122,7 @@ public static class EditorSpriteSaveInfo
 
     public static void OnImportSprite(string assetPath)
     {
-        if (!assetPath.StartsWith(UISpritePath))
+        if (!assetPath.StartsWith(UI_SPRITE_PATH))
         {
             return;
         }
@@ -133,7 +133,7 @@ public static class EditorSpriteSaveInfo
         {
             var modify = false;
 
-            if (assetPath.StartsWith(UISpritePath))
+            if (assetPath.StartsWith(UI_SPRITE_PATH))
             {
                 if (ti.textureType != TextureImporterType.Sprite)
                 {
@@ -282,13 +282,13 @@ public static class EditorSpriteSaveInfo
         if (!_uiAtlasMap.TryGetValue(spriteName, out string oldAssetPath) || spritePath == oldAssetPath)
         {
             _uiAtlasMap[spriteName] = spritePath;
-            m_dirty = true;
+            _dirty = true;
         }
         else
         {
             Debug.LogError($"有重名的图片：{spriteName}\n旧图集：{oldAssetPath}\n新图集：{spritePath} ");
             _uiAtlasMap[spriteName] = spritePath;
-            m_dirty = true;
+            _dirty = true;
         }
 
         string atlasName = GetPackageTag(assetPath);
@@ -304,8 +304,7 @@ public static class EditorSpriteSaveInfo
         }
         else
         {
-            List<string> ret;
-            if (!_allASprites.TryGetValue(atlasName, out ret))
+            if (!_allASprites.TryGetValue(atlasName, out var ret))
             {
                 ret = new List<string>();
                 _allASprites.Add(atlasName, ret);
@@ -314,7 +313,7 @@ public static class EditorSpriteSaveInfo
             if (!ret.Contains(assetPath))
             {
                 ret.Add(assetPath);
-                m_dirty = true;
+                _dirty = true;
                 if (!_dirtyAtlasList.Contains(atlasName))
                 {
                     _dirtyAtlasList.Add(atlasName);
@@ -330,7 +329,7 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        if (!assetPath.StartsWith(UISpritePath))
+        if (!assetPath.StartsWith(UI_SPRITE_PATH))
         {
             return;
         }
@@ -342,24 +341,23 @@ public static class EditorSpriteSaveInfo
             return;
         }
 
-        //改成文件名的匹配
         if (!ret.Exists(s => Path.GetFileName(s) == Path.GetFileName(assetPath)))
         {
             return;
         }
 
-        if (assetPath.StartsWith(UISpritePath))
+        if (assetPath.StartsWith(UI_SPRITE_PATH))
         {
             var spriteName = Path.GetFileNameWithoutExtension(assetPath);
             if (_uiAtlasMap.ContainsKey(spriteName))
             {
                 _uiAtlasMap.Remove(spriteName);
-                m_dirty = true;
+                _dirty = true;
             }
         }
 
         ret.Remove(assetPath);
-        m_dirty = true;
+        _dirty = true;
         if (!_dirtyAtlasList.Contains(atlasName))
         {
             _dirtyAtlasList.Add(atlasName);
@@ -385,7 +383,7 @@ public static class EditorSpriteSaveInfo
             }
         }
 
-        var path = $"{NormalAtlasDir}/{atlasName}.spriteatlas";
+        var path = $"{NORMAL_ATLAS_DIR}/{atlasName}.spriteatlas";
 
         if (spriteList.Count == 0)
         {
@@ -455,24 +453,24 @@ public static class EditorSpriteSaveInfo
 
     #region 重新生成图集
 
-    private static readonly Dictionary<string, List<string>> m_tempAllASprites = new Dictionary<string, List<string>>();
+    private static readonly Dictionary<string, List<string>> _tempAllASprites = new Dictionary<string, List<string>>();
 
     [MenuItem("TEngine/Atlas/重新生成UI图集", false, 90)]
     static void ForceGenAtlas()
     {
         Init();
         List<string> needSaveAtlas = new List<string>();
-        m_tempAllASprites.Clear();
+        _tempAllASprites.Clear();
         _allASprites.Clear();
-        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UIAtlasPath });
+        var findAssets = AssetDatabase.FindAssets("t:sprite", new[] { UI_ATLAS_PATH });
         foreach (var findAsset in findAssets)
         {
             var path = AssetDatabase.GUIDToAssetPath(findAsset);
             var atlasName = GetPackageTag(path);
-            if (!m_tempAllASprites.TryGetValue(atlasName, out var spriteList))
+            if (!_tempAllASprites.TryGetValue(atlasName, out var spriteList))
             {
                 spriteList = new List<string>();
-                m_tempAllASprites[atlasName] = spriteList;
+                _tempAllASprites[atlasName] = spriteList;
             }
 
             if (!spriteList.Contains(path))
@@ -482,7 +480,7 @@ public static class EditorSpriteSaveInfo
         }
 
         //有变化的才刷
-        var iter = m_tempAllASprites.GetEnumerator();
+        var iter = _tempAllASprites.GetEnumerator();
         while (iter.MoveNext())
         {
             bool needSave = false;
