@@ -264,9 +264,9 @@ namespace GameLogic
         /// </summary>
         /// <param name="userDatas">用户自定义数据。</param>
         /// <returns>打开窗口操作句柄。</returns>
-        public async UniTask<UIWindow> ShowUIAsyncAwait<T>(params System.Object[] userDatas) where T : UIWindow
+        public async UniTask<T> ShowUIAsyncAwait<T>(params System.Object[] userDatas) where T : UIWindow
         {
-            return await ShowUIAwaitImp(typeof(T), true, userDatas);
+            return await ShowUIAwaitImp(typeof(T), true, userDatas) as T;
         }
 
         /// <summary>
