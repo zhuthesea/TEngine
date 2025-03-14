@@ -173,10 +173,16 @@
                 spriteAtlasAsset.Add(sprites.ToArray());
                 SpriteAtlasAsset.Save(spriteAtlasAsset, outputPath);
                 AssetDatabase.Refresh();
+
                 EditorApplication.delayCall += () =>
                 {
+#if UNITY_2022_1_OR_NEWER
                     SpriteAtlasImporter sai = (SpriteAtlasImporter)AssetImporter.GetAtPath(outputPath);
                     ConfigureAtlasV2Settings(sai);
+#else
+                    ConfigureAtlasV2Settings(spriteAtlasAsset);
+                    SpriteAtlasAsset.Save(spriteAtlasAsset, outputPath);
+#endif
                     AssetDatabase.WriteImportSettingsIfDirty(outputPath);
                     AssetDatabase.Refresh();
                 };
@@ -203,6 +209,8 @@
                 .ToList();
         }
 
+
+#if UNITY_2022_1_OR_NEWER
         private static void ConfigureAtlasV2Settings(SpriteAtlasImporter atlasImporter)
         {
             void SetPlatform(string platform, TextureImporterFormat format)
@@ -214,6 +222,34 @@
                 settings.format = format;
                 settings.compressionQuality = Config.compressionQuality;
                 atlasImporter.SetPlatformSettings(settings);
+            }
+            
+            SetPlatform("Android", Config.androidFormat);
+            SetPlatform("iPhone", Config.iosFormat);
+            SetPlatform("WebGL", Config.webglFormat);
+            
+            var packingSettings = new SpriteAtlasPackingSettings
+            {
+                padding = Config.padding,
+                enableRotation = Config.enableRotation,
+                blockOffset = Config.blockOffset,
+                enableTightPacking = Config.tightPacking,
+                enableAlphaDilation = true
+            };
+            atlasImporter.packingSettings = packingSettings;
+        }
+#else
+        private static void ConfigureAtlasV2Settings(SpriteAtlasAsset spriteAtlasAsset)
+        {
+            void SetPlatform(string platform, TextureImporterFormat format)
+            {
+                var settings = spriteAtlasAsset.GetPlatformSettings(platform);
+                if (settings == null) return;
+                ;
+                settings.overridden = true;
+                settings.format = format;
+                settings.compressionQuality = Config.compressionQuality;
+                spriteAtlasAsset.SetPlatformSettings(settings);
             }
 
             SetPlatform("Android", Config.androidFormat);
@@ -228,8 +264,10 @@
                 enableTightPacking = Config.tightPacking,
                 enableAlphaDilation = true
             };
-            atlasImporter.packingSettings = packingSettings;
+            spriteAtlasAsset.SetPackingSettings(packingSettings);
         }
+#endif
+
 
         private static void ConfigureAtlasSettings(SpriteAtlas atlas)
         {
@@ -251,6 +289,7 @@
                 padding = Config.padding,
                 enableRotation = Config.enableRotation,
                 blockOffset = Config.blockOffset,
+                enableTightPacking = Config.tightPacking,
             };
             atlas.SetPackingSettings(packingSettings);
         }
