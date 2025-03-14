@@ -1,6 +1,6 @@
 ﻿namespace TEngine.Editor
 {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -173,9 +173,13 @@
                 spriteAtlasAsset.Add(sprites.ToArray());
                 SpriteAtlasAsset.Save(spriteAtlasAsset, outputPath);
                 AssetDatabase.Refresh();
-                SpriteAtlasImporter sai = (SpriteAtlasImporter)AssetImporter.GetAtPath(outputPath);
-                ConfigureAtlasV2Settings(sai);
-                AssetDatabase.WriteImportSettingsIfDirty(outputPath);
+                EditorApplication.delayCall += () =>
+                {
+                    SpriteAtlasImporter sai = (SpriteAtlasImporter)AssetImporter.GetAtPath(outputPath);
+                    ConfigureAtlasV2Settings(sai);
+                    AssetDatabase.WriteImportSettingsIfDirty(outputPath);
+                    AssetDatabase.Refresh();
+                };
             }
             else
             {
