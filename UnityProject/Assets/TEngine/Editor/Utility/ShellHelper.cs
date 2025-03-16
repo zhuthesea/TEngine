@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Text;
 
 namespace TEngine.Editor
 {
@@ -102,12 +103,52 @@ namespace TEngine.Editor
                 process.Close();
             }
         }
-        
+
         public static void RunByPath(string path)
         {
             if (!string.IsNullOrEmpty(path))
             {
-                Process.Start(path);
+                try
+                {
+                    Process process = new Process();
+                    ProcessStartInfo startInfo = new ProcessStartInfo(path)
+                    {
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        // 添加编码设置，确保中文正确显示
+                        StandardOutputEncoding = Encoding.UTF8,
+                        StandardErrorEncoding = Encoding.UTF8
+                    };
+
+                    process.StartInfo = startInfo;
+                    process.OutputDataReceived += (_, args) =>
+                    {
+                        if (args.Data != null)
+                        {
+                            UnityEngine.Debug.Log($"[Process Output]: {args.Data}");
+                        }
+                    };
+                    process.ErrorDataReceived += (_, args) =>
+                    {
+                        if (args.Data != null)
+                        {
+                            UnityEngine.Debug.LogError($"[Process Error]: {args.Data}");
+                        }
+                    };
+
+                    process.Start();
+                    process.BeginOutputReadLine();
+                    process.BeginErrorReadLine();
+
+                    UnityEngine.Debug.Log($"Started process with ID: {process.Id} for path: {path}");
+                }
+                catch (Exception e)
+                {
+                    UnityEngine.Debug.LogError($"Error starting process at path {path}: {e.Message}");
+                    UnityEngine.Debug.LogException(e);
+                }
             }
         }
     }
