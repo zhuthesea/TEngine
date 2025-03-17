@@ -50,7 +50,8 @@ namespace Procedure
                 return;
             }
             
-            Language language = LocalizationModule.Instance.Language;
+            ILocalizationModule localizationModule = ModuleSystem.GetModule<ILocalizationModule>();
+            Language language = localizationModule.Language;
             if (Utility.PlayerPrefs.HasSetting(Constant.Setting.Language))
             {
                 try
@@ -75,7 +76,7 @@ namespace Procedure
                 Utility.PlayerPrefs.Save();
             }
             
-            LocalizationModule.Instance.Language = language;
+            localizationModule.Language = language;
             Log.Info("Init language settings complete, current language is '{0}'.", language.ToString());
         }
 

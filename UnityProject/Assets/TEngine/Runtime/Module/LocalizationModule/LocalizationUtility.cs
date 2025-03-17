@@ -6,7 +6,7 @@ namespace TEngine
     /// <summary>
     /// 默认本地化辅助器。
     /// </summary>
-    public class DefaultLocalizationHelper
+    public class LocalizationUtility
     {
 #if UNITY_EDITOR
         public const string I2GlobalSourcesEditorPath = "Assets/Editor/I2Localization/I2Languages.asset";
@@ -74,7 +74,7 @@ namespace TEngine
         private static readonly Dictionary<Language, string> s_LanguageMap = new Dictionary<Language, string>();
         private static readonly Dictionary<string, Language> s_LanguageStrMap = new Dictionary<string, Language>();
 
-        static DefaultLocalizationHelper()
+        static LocalizationUtility()
         {
             RegisterLanguageMap(Language.English);
             RegisterLanguageMap(Language.ChineseSimplified, "Chinese");
