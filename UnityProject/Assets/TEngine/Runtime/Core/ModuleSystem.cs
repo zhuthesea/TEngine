@@ -106,7 +106,7 @@ namespace TEngine
         /// <returns>要创建的游戏框架模块。</returns>
         private static Module CreateModule(Type moduleType)
         {
-            Module module = (Module)Activator.CreateInstance(moduleType);
+            Module module = (Module)EmitHelper.CreateInstance(moduleType);
             if (module == null)
             {
                 throw new GameFrameworkException(Utility.Text.Format("Can not create module '{0}'.", moduleType.FullName));

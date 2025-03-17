@@ -225,7 +225,7 @@ namespace TEngine
                 return;
             }
 
-            Utility.Text.ITextHelper textHelper = (Utility.Text.ITextHelper)Activator.CreateInstance(textHelperType);
+            Utility.Text.ITextHelper textHelper = (Utility.Text.ITextHelper)EmitHelper.CreateInstance(textHelperType);
             if (textHelper == null)
             {
                 Log.Error("Can not create text helper instance '{0}'.", textHelperTypeName);
@@ -250,7 +250,7 @@ namespace TEngine
             }
 
             GameFrameworkLog.ILogHelper
-                logHelper = (GameFrameworkLog.ILogHelper)Activator.CreateInstance(logHelperType);
+                logHelper = (GameFrameworkLog.ILogHelper)EmitHelper.CreateInstance(logHelperType);
             if (logHelper == null)
             {
                 throw new GameFrameworkException(Utility.Text.Format("Can not create log helper instance '{0}'.",
@@ -274,7 +274,7 @@ namespace TEngine
                 return;
             }
 
-            Utility.Json.IJsonHelper jsonHelper = (Utility.Json.IJsonHelper)Activator.CreateInstance(jsonHelperType);
+            Utility.Json.IJsonHelper jsonHelper = (Utility.Json.IJsonHelper)EmitHelper.CreateInstance(jsonHelperType);
             if (jsonHelper == null)
             {
                 Log.Error("Can not create JSON helper instance '{0}'.", jsonHelperTypeName);

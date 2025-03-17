@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameLogic;
 using TEngine;
@@ -8,35 +9,43 @@ using UnityEngine.UI;
 
 namespace GameLogic
 {
+    /// <summary>
+    /// UI管理模块。
+    /// </summary>
     public sealed partial class UIModule : Singleton<UIModule>, IUpdate
     {
-        private static Transform _instanceRoot = null;
+        // 核心字段
+        private static Transform _instanceRoot = null;          // UI根节点变换组件
+        private bool _enableErrorLog = true;                    // 是否启用错误日志
+        private Camera _uiCamera = null;                        // UI专用摄像机
+        private readonly List<UIWindow> _uiStack = new List<UIWindow>(128); // 窗口堆栈
+        private ErrorLogger _errorLogger;                       // 错误日志记录器
 
-        private bool _enableErrorLog = true;
-
-        private Camera _uiCamera = null;
-
-        private readonly List<UIWindow> _uiStack = new List<UIWindow>(100);
-
-        public const int LAYER_DEEP = 2000;
+        // 常量定义
+        public const int LAYER_DEEP = 2000; 
         public const int WINDOW_DEEP = 100;
         public const int WINDOW_HIDE_LAYER = 2; // Ignore Raycast
         public const int WINDOW_SHOW_LAYER = 5; // UI
 
+        // 资源加载接口
         public static IUIResourceLoader Resource;
         
         /// <summary>
-        /// UI根节点。
+        /// UI根节点访问属性
         /// </summary>
         public static Transform UIRoot => _instanceRoot;
 
         /// <summary>
-        /// UI根节点。
+        /// UI摄像机访问属性
         /// </summary>
         public Camera UICamera => _uiCamera;
-
-        private ErrorLogger _errorLogger;
         
+        /// <summary>
+        /// 模块初始化（自动调用）。
+        /// 1. 查找场景中的UIRoot
+        /// 2. 初始化资源加载器
+        /// 3. 配置错误日志系统
+        /// </summary>
         protected override void OnInit()
         {
             var uiRoot = GameObject.Find("UIRoot");
@@ -84,6 +93,12 @@ namespace GameLogic
             }
         }
 
+        /// <summary>
+        /// 模块释放（自动调用）。
+        /// 1. 清理错误日志系统
+        /// 2. 关闭所有窗口
+        /// 3. 销毁UI根节点
+        /// </summary>
         protected override void OnRelease()
         {
             if (_errorLogger != null)
@@ -103,7 +118,7 @@ namespace GameLogic
         /// <summary>
         /// 设置屏幕安全区域（异形屏支持）。
         /// </summary>
-        /// <param name="safeRect">安全区域</param>
+        /// <param name="safeRect">安全区域矩形（基于屏幕像素坐标）。</param>
         public static void ApplyScreenSafeRect(Rect safeRect)
         {
             CanvasScaler scaler = UIRoot.GetComponentInParent<CanvasScaler>();
@@ -232,9 +247,9 @@ namespace GameLogic
         /// </summary>
         /// <param name="userDatas">用户自定义数据。</param>
         /// <returns>打开窗口操作句柄。</returns>
-        public void ShowUIAsync<T>(params System.Object[] userDatas) where T : UIWindow
+        public void ShowUIAsync<T>(params System.Object[] userDatas) where T : UIWindow , new()
         {
-            ShowUIImp(typeof(T), true, userDatas);
+            ShowUIImp<T>(true, userDatas);
         }
 
         /// <summary>
@@ -254,9 +269,9 @@ namespace GameLogic
         /// <typeparam name="T">窗口类。</typeparam>
         /// <param name="userDatas">用户自定义数据。</param>
         /// <returns>打开窗口操作句柄。</returns>
-        public void ShowUI<T>(params System.Object[] userDatas) where T : UIWindow
+        public void ShowUI<T>(params System.Object[] userDatas) where T : UIWindow , new()
         {
-            ShowUIImp(typeof(T), false, userDatas);
+            ShowUIImp<T>(false, userDatas);
         }
         
         /// <summary>
@@ -264,9 +279,9 @@ namespace GameLogic
         /// </summary>
         /// <param name="userDatas">用户自定义数据。</param>
         /// <returns>打开窗口操作句柄。</returns>
-        public async UniTask<T> ShowUIAsyncAwait<T>(params System.Object[] userDatas) where T : UIWindow
+        public async UniTask<T> ShowUIAsyncAwait<T>(params System.Object[] userDatas) where T : UIWindow , new()
         {
-            return await ShowUIAwaitImp(typeof(T), true, userDatas) as T;
+            return await ShowUIAwaitImp<T>(true, userDatas) as T;
         }
 
         /// <summary>
@@ -284,38 +299,54 @@ namespace GameLogic
         {
             string windowName = type.FullName;
 
-            // 如果窗口已经存在
-            if (IsContains(windowName))
+            if (!TryGetWindow(windowName, out UIWindow window, userDatas))
             {
-                UIWindow window = GetWindow(windowName);
-                Pop(window); //弹出窗口
-                Push(window); //重新压入
-                window.TryInvoke(OnWindowPrepare, userDatas);
-            }
-            else
-            {
-                UIWindow window = CreateInstance(type);
+                window = CreateInstance(type);
                 Push(window); //首次压入
                 window.InternalLoad(window.AssetName, OnWindowPrepare, isAsync, userDatas).Forget();
             }
         }
         
-        private async UniTask<UIWindow> ShowUIAwaitImp(Type type, bool isAsync, params System.Object[] userDatas)
+        private void ShowUIImp<T>(bool isAsync, params System.Object[] userDatas) where T : UIWindow , new()
         {
+            Type type = typeof(T);
             string windowName = type.FullName;
 
-            // 如果窗口已经存在
+            if (!TryGetWindow(windowName, out UIWindow window, userDatas))
+            {
+                window = CreateInstance<T>();
+                Push(window); //首次压入
+                window.InternalLoad(window.AssetName, OnWindowPrepare, isAsync, userDatas).Forget();
+            }
+        }
+
+        private bool TryGetWindow(string windowName,out UIWindow window, params System.Object[] userDatas)
+        {
+            window = null;
             if (IsContains(windowName))
             {
-                UIWindow window = GetWindow(windowName);
+                window = GetWindow(windowName);
                 Pop(window); //弹出窗口
                 Push(window); //重新压入
                 window.TryInvoke(OnWindowPrepare, userDatas);
-                return window;
+                
+                return true;
+            }
+            return false;
+        }
+        
+        private async UniTask<T> ShowUIAwaitImp<T>(bool isAsync, params System.Object[] userDatas) where T : UIWindow , new()
+        {
+            Type type = typeof(T);
+            string windowName = type.FullName;
+
+            if (TryGetWindow(windowName, out UIWindow window, userDatas))
+            {
+                return window as T;
             }
             else
             {
-                UIWindow window = CreateInstance(type);
+                window = CreateInstance<T>();
                 Push(window); //首次压入
                 window.InternalLoad(window.AssetName, OnWindowPrepare, isAsync, userDatas).Forget();
                 float time = 0f;
@@ -328,13 +359,14 @@ namespace GameLogic
                     }
                     await UniTask.Yield();
                 }
-                return window;
+                return window as T;
             }
         }
 
         /// <summary>
-        /// 关闭窗口
+        /// 关闭窗口。
         /// </summary>
+        /// <typeparam name="T">窗口类型</typeparam>
         public void CloseUI<T>() where T : UIWindow
         {
             CloseUI(typeof(T));
@@ -375,7 +407,7 @@ namespace GameLogic
 
             window.Visible = false;
             window.IsHide = true;
-            window.HideTimerId = ModuleSystem.GetModule<ITimerModule>().AddTimer((arg) =>
+            window.HideTimerId = GameModule.Timer.AddTimer((arg) =>
             {
                 CloseUI(type);
             },window.HideTimeToClose);
@@ -481,10 +513,32 @@ namespace GameLogic
                 }
             }
         }
+        
+        private UIWindow CreateInstance<T>() where T : UIWindow , new()
+        {
+            Type type = typeof(T);
+            UIWindow window = new T();
+            WindowAttribute attribute = Attribute.GetCustomAttribute(type, typeof(WindowAttribute)) as WindowAttribute;
+
+            if (window == null)
+                throw new GameFrameworkException($"Window {type.FullName} create instance failed.");
+
+            if (attribute != null)
+            {
+                string assetName = string.IsNullOrEmpty(attribute.Location) ? type.Name : attribute.Location;
+                window.Init(type.FullName, attribute.WindowLayer, attribute.FullScreen, assetName, attribute.FromResources, attribute.HideTimeToClose);
+            }
+            else
+            {
+                window.Init(type.FullName, (int)UILayer.UI, fullScreen: window.FullScreen, assetName: type.Name, fromResources: false, hideTimeToClose: 10);
+            }
+
+            return window;
+        }
 
         private UIWindow CreateInstance(Type type)
         {
-            UIWindow window = Activator.CreateInstance(type) as UIWindow;
+            UIWindow window = EmitHelper.CreateInstance(type) as UIWindow;
             WindowAttribute attribute = Attribute.GetCustomAttribute(type, typeof(WindowAttribute)) as WindowAttribute;
 
             if (window == null)
@@ -507,7 +561,7 @@ namespace GameLogic
         /// 异步获取窗口。
         /// </summary>
         /// <returns>打开窗口操作句柄。</returns>
-        public async UniTask<T> GetUIAsyncAwait<T>() where T : UIWindow
+        public async UniTask<T> GetUIAsyncAwait<T>(CancellationToken cancellationToken) where T : UIWindow
         {
             string windowName = typeof(T).FullName;
             var window = GetWindow(windowName);
@@ -536,7 +590,7 @@ namespace GameLogic
                 {
                     break;
                 }
-                await UniTask.Yield();
+                await UniTask.Yield(cancellationToken: cancellationToken);
             }
             return ret;
         }
@@ -612,7 +666,9 @@ namespace GameLogic
         {
             // 如果已经存在
             if (IsContains(window.WindowName))
-                throw new System.Exception($"Window {window.WindowName} is exist.");
+            {
+                throw new GameFrameworkException($"Window {window.WindowName} is exist.");
+            }
 
             // 获取插入到所属层级的位置
             int insertIndex = -1;

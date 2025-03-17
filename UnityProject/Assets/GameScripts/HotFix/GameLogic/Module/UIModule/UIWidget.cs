@@ -55,7 +55,7 @@ namespace GameLogic
         }
         
         /// <summary>
-        /// 窗口可见性
+        /// 窗口可见性。
         /// </summary>
         public bool Visible
         {
@@ -278,7 +278,7 @@ namespace GameLogic
         /// 组件被销毁调用。
         /// <remarks>请勿手动调用！</remarks>
         /// </summary>
-        internal void OnDestroyWidget()
+        protected internal void OnDestroyWidget()
         {
             Parent?.SetUpdateDirty();
             

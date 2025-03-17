@@ -14,8 +14,11 @@ namespace GameLogic
         System = 4,
     }
 
+    /// <summary>
+    /// UI窗口属性。
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
-    public class WindowAttribute : Attribute
+    public class WindowAttribute : Attribute    // 用于标记UI窗口,最好完整支持是做成配置表，可以支持货币栏位配置，UI跳转配置等等~
     {
         /// <summary>
         /// 窗口层级

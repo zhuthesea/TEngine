@@ -77,7 +77,7 @@ namespace TEngine
                 }
 
                 _addMemoryCount++;
-                return (IMemory)Activator.CreateInstance(_memoryType);
+                return (IMemory)EmitHelper.CreateInstance(_memoryType);
             }
 
             public void Release(IMemory memory)
@@ -121,7 +121,7 @@ namespace TEngine
                     _addMemoryCount += count;
                     while (count-- > 0)
                     {
-                        _memories.Enqueue((IMemory)Activator.CreateInstance(_memoryType));
+                        _memories.Enqueue((IMemory)EmitHelper.CreateInstance(_memoryType));
                     }
                 }
             }

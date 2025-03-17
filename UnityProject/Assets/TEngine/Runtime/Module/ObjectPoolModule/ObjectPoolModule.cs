@@ -1271,7 +1271,7 @@ namespace TEngine
 
             Type objectPoolType = typeof(ObjectPool<>).MakeGenericType(objectType);
             ObjectPoolBase objectPool =
-                (ObjectPoolBase)Activator.CreateInstance(objectPoolType, name, allowMultiSpawn, autoReleaseInterval, capacity, expireTime, priority);
+                (ObjectPoolBase)EmitHelper.CreateInstance(objectPoolType, name, allowMultiSpawn, autoReleaseInterval, capacity, expireTime, priority);
             _objectPools.Add(typeNamePair, objectPool);
             return objectPool;
         }

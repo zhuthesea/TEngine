@@ -130,7 +130,7 @@ namespace GameLogic
         }
 
         /// <summary>
-        /// 窗口可见性
+        /// 窗口可见性。
         /// </summary>
         public bool Visible
         {
@@ -174,7 +174,7 @@ namespace GameLogic
         }
 
         /// <summary>
-        /// 窗口交互性
+        /// 窗口交互性。
         /// </summary>
         private bool Interactable
         {
