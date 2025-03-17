@@ -78,6 +78,12 @@ public class GameModule
 
     private static ITimerModule _timer;
 
+    /// <summary>
+    /// 获取本地化模块。
+    /// </summary>
+    public static ILocalizationModule Localization => _localization ??= Get<ILocalizationModule>();
+    
+    private static ILocalizationModule _localization;
     #endregion
     
     /// <summary>
@@ -107,5 +113,6 @@ public class GameModule
         _ui = null;
         _scene = null;
         _timer = null;
+        _localization = null;
     }
 }
