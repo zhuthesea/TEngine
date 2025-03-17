@@ -561,7 +561,7 @@ namespace GameLogic
         /// 异步获取窗口。
         /// </summary>
         /// <returns>打开窗口操作句柄。</returns>
-        public async UniTask<T> GetUIAsyncAwait<T>(CancellationToken cancellationToken) where T : UIWindow
+        public async UniTask<T> GetUIAsyncAwait<T>(CancellationToken cancellationToken = default) where T : UIWindow
         {
             string windowName = typeof(T).FullName;
             var window = GetWindow(windowName);
