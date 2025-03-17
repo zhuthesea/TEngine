@@ -538,7 +538,7 @@ namespace GameLogic
 
         private UIWindow CreateInstance(Type type)
         {
-            UIWindow window = EmitHelper.CreateInstance(type) as UIWindow;
+            UIWindow window = Activator.CreateInstance(type) as UIWindow;
             WindowAttribute attribute = Attribute.GetCustomAttribute(type, typeof(WindowAttribute)) as WindowAttribute;
 
             if (window == null)

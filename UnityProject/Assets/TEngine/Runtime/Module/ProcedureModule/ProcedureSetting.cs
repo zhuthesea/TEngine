@@ -75,7 +75,7 @@ namespace TEngine
                     return;
                 }
 
-                procedures[i] = (ProcedureBase)EmitHelper.CreateInstance(procedureType);
+                procedures[i] = (ProcedureBase)Activator.CreateInstance(procedureType);
                 if (procedures[i] == null)
                 {
                     Log.Error("Can not create procedure instance '{0}'.", availableProcedureTypeNames[i]);
