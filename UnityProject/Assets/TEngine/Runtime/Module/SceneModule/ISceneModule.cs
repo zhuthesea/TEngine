@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 namespace TEngine
@@ -17,10 +18,22 @@ namespace TEngine
         /// <param name="sceneMode">场景加载模式</param>
         /// <param name="suspendLoad">加载完毕时是否主动挂起</param>
         /// <param name="priority">优先级</param>
+        /// <param name="gcCollect">加载主场景是否回收垃圾。</param>
+        /// <param name="progressCallBack">加载进度回调。</param>
+        public UniTask<Scene> LoadScene(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100, bool gcCollect = true,
+            Action<float> progressCallBack = null);
+
+        /// <summary>
+        /// 加载场景。
+        /// </summary>
+        /// <param name="location">场景的定位地址</param>
+        /// <param name="sceneMode">场景加载模式</param>
+        /// <param name="suspendLoad">加载完毕时是否主动挂起</param>
+        /// <param name="priority">优先级</param>
         /// <param name="callBack">加载回调。</param>
         /// <param name="gcCollect">加载主场景是否回收垃圾。</param>
         /// <param name="progressCallBack">加载进度回调。</param>
-        public Scene LoadScene(string location,
+        public void LoadScene(string location,
             LoadSceneMode sceneMode = LoadSceneMode.Single,
             bool suspendLoad = false,
             uint priority = 100,

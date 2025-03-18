@@ -49,10 +49,78 @@ namespace TEngine
         /// <param name="sceneMode">场景加载模式</param>
         /// <param name="suspendLoad">加载完毕时是否主动挂起</param>
         /// <param name="priority">优先级</param>
+        /// <param name="gcCollect">加载主场景是否回收垃圾。</param>
+        /// <param name="progressCallBack">加载进度回调。</param>
+        public async UniTask<Scene> LoadScene(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100, bool gcCollect = true, Action<float> progressCallBack = null)
+        {
+            if (sceneMode == LoadSceneMode.Additive)
+            {
+                if (_subScenes.TryGetValue(location, out SceneHandle subScene))
+                {
+                    throw new Exception($"Could not load subScene while already loaded. Scene: {location}");
+                }
+
+                subScene = YooAssets.LoadSceneAsync(location, sceneMode, LocalPhysicsMode.None, suspendLoad, priority);
+
+
+                if (progressCallBack != null)
+                {
+                    while (!subScene.IsDone && subScene.IsValid)
+                    {
+                        progressCallBack.Invoke(subScene.Progress);
+                        await UniTask.Yield();
+                    }
+                }
+                else
+                {
+                    await subScene.ToUniTask();
+                }
+                
+                _subScenes.Add(location, subScene);
+                
+                return subScene.SceneObject;
+            }
+            else
+            {
+                if (_currentMainScene is { IsDone: false })
+                {
+                    throw new Exception($"Could not load MainScene while loading. CurrentMainScene: {_currentMainSceneName}.");
+                }
+
+                _currentMainSceneName = location;
+
+                _currentMainScene = YooAssets.LoadSceneAsync(location, sceneMode, LocalPhysicsMode.None, suspendLoad, priority);
+                
+                if (progressCallBack != null)
+                {
+                    while (!_currentMainScene.IsDone && _currentMainScene.IsValid)
+                    {
+                        progressCallBack.Invoke(_currentMainScene.Progress);
+                        await UniTask.Yield();
+                    }
+                }
+                else
+                {
+                    await _currentMainScene.ToUniTask();
+                }
+
+                ModuleSystem.GetModule<IResourceModule>().ForceUnloadUnusedAssets(gcCollect);
+                
+                return _currentMainScene.SceneObject;
+            }
+        }
+
+        /// <summary>
+        /// 加载场景。
+        /// </summary>
+        /// <param name="location">场景的定位地址</param>
+        /// <param name="sceneMode">场景加载模式</param>
+        /// <param name="suspendLoad">加载完毕时是否主动挂起</param>
+        /// <param name="priority">优先级</param>
         /// <param name="callBack">加载回调。</param>
         /// <param name="gcCollect">加载主场景是否回收垃圾。</param>
         /// <param name="progressCallBack">加载进度回调。</param>
-        public Scene LoadScene(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100,
+        public void LoadScene(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100,
             Action<Scene> callBack = null,
             bool gcCollect = true, Action<float> progressCallBack = null)
         {
@@ -61,7 +129,7 @@ namespace TEngine
                 if (_subScenes.TryGetValue(location, out SceneHandle subScene))
                 {
                     Log.Warning($"Could not load subScene while already loaded. Scene: {location}");
-                    return default;
+                    return;
                 }
 
                 subScene = YooAssets.LoadSceneAsync(location, sceneMode, LocalPhysicsMode.None, suspendLoad, priority);
@@ -77,15 +145,13 @@ namespace TEngine
                 }
 
                 _subScenes.Add(location, subScene);
-
-                return default;
             }
             else
             {
                 if (_currentMainScene is { IsDone: false })
                 {
                     Log.Warning($"Could not load MainScene while loading. CurrentMainScene: {_currentMainSceneName}.");
-                    return default;
+                    return;
                 }
 
                 _currentMainSceneName = location;
@@ -103,8 +169,6 @@ namespace TEngine
                 }
 
                 ModuleSystem.GetModule<IResourceModule>().ForceUnloadUnusedAssets(gcCollect);
-
-                return _currentMainScene.SceneObject;
             }
         }
 
