@@ -40,14 +40,14 @@ namespace TEngine.Editor
                 // 标记对象为“已修改”，确保修改能被保存
                 EditorUtility.SetDirty(updateSetting);
                 
-                bool isHotChanged = HotUpdateAssemblies.SequenceEqual(updateSetting.HotUpdateAssemblies);
-                bool isAOTChanged = AOTMetaAssemblies.SequenceEqual(updateSetting.AOTMetaAssemblies);
+                bool isHotChanged = !HotUpdateAssemblies.SequenceEqual(updateSetting.HotUpdateAssemblies);
+                bool isAOTChanged = !AOTMetaAssemblies.SequenceEqual(updateSetting.AOTMetaAssemblies);
                 if (isHotChanged)
                 {
                     HybridCLRSettings.Instance.hotUpdateAssemblies = updateSetting.HotUpdateAssemblies.ToArray();
-                    for (int i = 0; i < HotUpdateAssemblies.Count; i++)
+                    for (int i = 0; i < updateSetting.HotUpdateAssemblies.Count; i++)
                     {
-                        var assemblyName = HotUpdateAssemblies[i];
+                        var assemblyName = updateSetting.HotUpdateAssemblies[i];
                         string assemblyNameWithoutExtension = assemblyName.Substring(0, assemblyName.LastIndexOf('.'));
                         HybridCLRSettings.Instance.hotUpdateAssemblies[i] = assemblyNameWithoutExtension;
                     }
@@ -57,6 +57,13 @@ namespace TEngine.Editor
                 {
                     HybridCLRSettings.Instance.patchAOTAssemblies = updateSetting.AOTMetaAssemblies.ToArray();
                     Debug.Log("AOTMetaAssemblies changed");
+                }
+
+                if (isAOTChanged || isHotChanged)
+                {
+                    // 在修改HybridCLRSettings后添加
+                    EditorUtility.SetDirty(HybridCLRSettings.Instance);
+                    AssetDatabase.SaveAssets();
                 }
             }
         }
