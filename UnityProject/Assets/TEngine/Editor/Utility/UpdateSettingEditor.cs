@@ -45,6 +45,12 @@ namespace TEngine.Editor
                 if (isHotChanged)
                 {
                     HybridCLRSettings.Instance.hotUpdateAssemblies = updateSetting.HotUpdateAssemblies.ToArray();
+                    for (int i = 0; i < HotUpdateAssemblies.Count; i++)
+                    {
+                        var assemblyName = HotUpdateAssemblies[i];
+                        string assemblyNameWithoutExtension = assemblyName.Substring(0, assemblyName.LastIndexOf('.'));
+                        HybridCLRSettings.Instance.hotUpdateAssemblies[i] = assemblyNameWithoutExtension;
+                    }
                     Debug.Log("HotUpdateAssemblies changed");
                 }
                 if (isAOTChanged)
