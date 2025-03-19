@@ -20,7 +20,7 @@ namespace TEngine
         /// <param name="priority">优先级</param>
         /// <param name="gcCollect">加载主场景是否回收垃圾。</param>
         /// <param name="progressCallBack">加载进度回调。</param>
-        public UniTask<Scene> LoadScene(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100, bool gcCollect = true,
+        public UniTask<Scene> LoadSceneAsync(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 100, bool gcCollect = true,
             Action<float> progressCallBack = null);
 
         /// <summary>
@@ -66,9 +66,16 @@ namespace TEngine
         /// 异步卸载子场景。
         /// </summary>
         /// <param name="location">场景资源定位地址。</param>
+        /// <param name="progressCallBack">进度回调。</param>
+        public UniTask<bool> UnloadAsync(string location, Action<float> progressCallBack = null);
+        
+        /// <summary>
+        /// 异步卸载子场景。
+        /// </summary>
+        /// <param name="location">场景资源定位地址。</param>
         /// <param name="callBack">卸载完成回调。</param>
         /// <param name="progressCallBack">进度回调。</param>
-        public void UnloadAsync(string location, Action callBack = null, Action<float> progressCallBack = null);
+        public void Unload(string location, Action callBack = null, Action<float> progressCallBack = null);
 
         /// <summary>
         /// 是否包含场景。
