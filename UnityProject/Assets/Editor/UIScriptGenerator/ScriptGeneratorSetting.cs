@@ -181,5 +181,15 @@ namespace TEngine.Editor.UI
 
             return Instance.CodePath;
         }
+        
+        public static string GetWidgetName()
+        {
+            if (Instance == null)
+            {
+                return string.Empty;
+            }
+
+            return Instance.WidgetName;
+        }
     }
 }

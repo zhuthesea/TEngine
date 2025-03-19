@@ -60,8 +60,18 @@ namespace TEngine.Editor.UI
                     strFile.Append("using TEngine;\n\n");
                     strFile.Append($"namespace {ScriptGeneratorSetting.GetUINameSpace()}\n");
                     strFile.Append("{\n");
-                    strFile.Append("\t[Window(UILayer.UI)]\n");
-                    strFile.Append("\tclass " + root.name + " : UIWindow\n");
+                    
+                    var widgetPrefix = $"{(ScriptGeneratorSetting.GetCodeStyle() == UIFieldCodeStyle.MPrefix ? "m_" : "_")}{ScriptGeneratorSetting.GetWidgetName()}";
+                    if (root.name.StartsWith(widgetPrefix))
+                    {
+                        strFile.Append("\tclass " + root.name.Replace(widgetPrefix, "") + " : UIWidget\n");
+                    }
+                    else
+                    {
+                        strFile.Append("\t[Window(UILayer.UI)]\n");
+                        strFile.Append("\tclass " + root.name + " : UIWindow\n");
+                    }
+                    
                     strFile.Append("\t{\n");
                 }
 
