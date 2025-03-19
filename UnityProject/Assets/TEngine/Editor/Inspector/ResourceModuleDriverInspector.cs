@@ -17,6 +17,7 @@ namespace TEngine.Editor.Inspector
         };
 
         private SerializedProperty _playMode = null;
+        private SerializedProperty _encryptionType = null;
         private SerializedProperty _updatableWhilePlaying = null;
         private SerializedProperty _milliseconds = null;
         private SerializedProperty _minUnloadUnusedAssetsInterval = null;
@@ -56,6 +57,8 @@ namespace TEngine.Editor.Inspector
                         _playMode.enumValueIndex = selectedIndex;
                     }
                 }
+                
+                EditorGUILayout.PropertyField(_encryptionType);
             }
             EditorGUILayout.PropertyField(_updatableWhilePlaying);
             
@@ -220,6 +223,7 @@ namespace TEngine.Editor.Inspector
         private void OnEnable()
         {
             _playMode = serializedObject.FindProperty("playMode");
+            _encryptionType = serializedObject.FindProperty("encryptionType");
             _updatableWhilePlaying = serializedObject.FindProperty("updatableWhilePlaying");
             _milliseconds = serializedObject.FindProperty("milliseconds");
             _minUnloadUnusedAssetsInterval = serializedObject.FindProperty("minUnloadUnusedAssetsInterval");

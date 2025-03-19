@@ -89,6 +89,14 @@ namespace TEngine
 #endif
             }
         }
+        
+        [SerializeField]
+        private EncryptionType encryptionType = EncryptionType.None;
+        
+        /// <summary>
+        /// 资源模块的加密类型。
+        /// </summary>
+        public EncryptionType EncryptionType => encryptionType;
 
         /// <summary>
         /// 是否支持边玩边下载。
@@ -238,6 +246,7 @@ namespace TEngine
 
             _resourceModule.DefaultPackageName = PackageName;
             _resourceModule.PlayMode = PlayMode;
+            _resourceModule.EncryptionType = encryptionType;
             _resourceModule.Milliseconds = milliseconds;
             _resourceModule.HostServerURL = Settings.UpdateSetting.GetResDownLoadPath();
             _resourceModule.FallbackHostServerURL = Settings.UpdateSetting.GetFallbackResDownLoadPath();

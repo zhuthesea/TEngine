@@ -179,6 +179,55 @@ namespace TEngine
             return 32;
         }
     }
+    
+    
+    #region WebDecryptionServices
+    /// <summary>
+    /// 资源文件偏移加载解密类
+    /// </summary>
+    public class FileOffsetWebDecryption : IWebDecryptionServices
+    {
+        public WebDecryptResult LoadAssetBundle(WebDecryptFileInfo fileInfo)
+        {
+            int offset = GetFileOffset();
+            byte[] decryptedData = new byte[fileInfo.FileData.Length - offset];
+            Buffer.BlockCopy(fileInfo.FileData, offset, decryptedData, 0, decryptedData.Length);
+            // 从内存中加载AssetBundle
+            WebDecryptResult decryptResult = new WebDecryptResult();
+            decryptResult.Result = AssetBundle.LoadFromMemory(decryptedData);
+            return decryptResult;
+        }
+
+        private static int GetFileOffset()
+        {
+            return 32;
+        }
+    }
+    
+    public class FileStreamWebDecryption : IWebDecryptionServices
+    {
+        public WebDecryptResult LoadAssetBundle(WebDecryptFileInfo fileInfo)
+        {
+            // 优化：使用Buffer批量操作替代逐字节异或
+            byte[] decryptedData = new byte[fileInfo.FileData.Length];
+            Buffer.BlockCopy(fileInfo.FileData, 0, decryptedData, 0, fileInfo.FileData.Length);
+            
+            // 批量异或解密（性能优化）
+            int batchSize = sizeof(ulong);
+            int length = decryptedData.Length / batchSize * batchSize;
+            for (int i = 0; i < length; i += batchSize)
+            {
+                ulong value = BitConverter.ToUInt64(decryptedData, i);
+                value ^= BundleStream.KEY;
+                Buffer.BlockCopy(BitConverter.GetBytes(value), 0, decryptedData, i, batchSize);
+            }
+
+            WebDecryptResult decryptResult = new WebDecryptResult();
+            decryptResult.Result = AssetBundle.LoadFromMemory(decryptedData);
+            return decryptResult;
+        }
+    }
+    #endregion
 }
 
 /// <summary>
@@ -200,9 +249,14 @@ public class BundleStream : FileStream
     public override int Read(byte[] array, int offset, int count)
     {
         var index = base.Read(array, offset, count);
-        for (int i = 0; i < array.Length; i++)
+        // 批量异或解密（性能优化）
+        int batchSize = sizeof(ulong);
+        int length = array.Length / batchSize * batchSize;
+        for (int i = 0; i < length; i += batchSize)
         {
-            array[i] ^= KEY;
+            ulong value = BitConverter.ToUInt64(array, i);
+            value ^= BundleStream.KEY;
+            Buffer.BlockCopy(BitConverter.GetBytes(value), 0, array, i, batchSize);
         }
 
         return index;
