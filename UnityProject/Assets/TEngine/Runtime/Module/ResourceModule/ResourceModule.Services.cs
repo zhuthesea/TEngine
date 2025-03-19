@@ -212,14 +212,9 @@ namespace TEngine
             byte[] decryptedData = new byte[fileInfo.FileData.Length];
             Buffer.BlockCopy(fileInfo.FileData, 0, decryptedData, 0, fileInfo.FileData.Length);
             
-            // 批量异或解密（性能优化）
-            int batchSize = sizeof(ulong);
-            int length = decryptedData.Length / batchSize * batchSize;
-            for (int i = 0; i < length; i += batchSize)
+            for (int i = 0; i < decryptedData.Length; i++)
             {
-                ulong value = BitConverter.ToUInt64(decryptedData, i);
-                value ^= BundleStream.KEY;
-                Buffer.BlockCopy(BitConverter.GetBytes(value), 0, decryptedData, i, batchSize);
+                decryptedData[i] ^= BundleStream.KEY;
             }
 
             WebDecryptResult decryptResult = new WebDecryptResult();
@@ -249,16 +244,10 @@ public class BundleStream : FileStream
     public override int Read(byte[] array, int offset, int count)
     {
         var index = base.Read(array, offset, count);
-        // 批量异或解密（性能优化）
-        int batchSize = sizeof(ulong);
-        int length = array.Length / batchSize * batchSize;
-        for (int i = 0; i < length; i += batchSize)
+        for (int i = 0; i < array.Length; i++)
         {
-            ulong value = BitConverter.ToUInt64(array, i);
-            value ^= BundleStream.KEY;
-            Buffer.BlockCopy(BitConverter.GetBytes(value), 0, array, i, batchSize);
+            array[i] ^= KEY;
         }
-
         return index;
     }
 }
