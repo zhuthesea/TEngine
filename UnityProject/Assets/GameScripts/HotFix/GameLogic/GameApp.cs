@@ -22,7 +22,7 @@ public partial class GameApp
         _hotfixAssembly = (List<Assembly>)objects[0];
         Log.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
         Log.Warning("======= Entrance GameApp =======");
-        ModuleSystem.GetModule<IUpdateDriver>().AddDestroyListener(Release);
+        Utility.Unity.AddDestroyListener(Release);
         StartGameLogic();
     }
     
