@@ -67,7 +67,7 @@ namespace TEngine
             DecryptResult decryptResult = new DecryptResult();
             decryptResult.ManagedStream = bundleStream;
             decryptResult.Result =
-                AssetBundle.LoadFromStream(bundleStream, fileInfo.FileLoadCRC, GetManagedReadBufferSize());
+                AssetBundle.LoadFromStream(bundleStream, 0, GetManagedReadBufferSize());
             return decryptResult;
         }
 
@@ -82,7 +82,7 @@ namespace TEngine
             DecryptResult decryptResult = new DecryptResult();
             decryptResult.ManagedStream = bundleStream;
             decryptResult.CreateRequest =
-                AssetBundle.LoadFromStreamAsync(bundleStream, fileInfo.FileLoadCRC, GetManagedReadBufferSize());
+                AssetBundle.LoadFromStreamAsync(bundleStream, 0, GetManagedReadBufferSize());
             return decryptResult;
         }
 
@@ -141,7 +141,7 @@ namespace TEngine
             DecryptResult decryptResult = new DecryptResult();
             decryptResult.ManagedStream = null;
             decryptResult.Result =
-                AssetBundle.LoadFromFile(fileInfo.FileLoadPath, fileInfo.FileLoadCRC, GetFileOffset());
+                AssetBundle.LoadFromFile(fileInfo.FileLoadPath, 0, GetFileOffset());
             return decryptResult;
         }
 
@@ -154,7 +154,7 @@ namespace TEngine
             DecryptResult decryptResult = new DecryptResult();
             decryptResult.ManagedStream = null;
             decryptResult.CreateRequest =
-                AssetBundle.LoadFromFileAsync(fileInfo.FileLoadPath, fileInfo.FileLoadCRC, GetFileOffset());
+                AssetBundle.LoadFromFileAsync(fileInfo.FileLoadPath, 0, GetFileOffset());
             return decryptResult;
         }
 
