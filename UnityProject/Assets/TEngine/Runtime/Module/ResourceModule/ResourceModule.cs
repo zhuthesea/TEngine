@@ -197,6 +197,7 @@ namespace TEngine
             {
                 var createParameters = new WebPlayModeParameters();
 #if UNITY_WEBGL && WEIXINMINIGAME && !UNITY_EDITOR
+                Log.Info("=======================WEIXINMINIGAME=======================");
                 IWebDecryptionServices webDecryptionServices = CreateWebDecryptionServices();
 
                 // 注意：如果有子目录，请修改此处！
@@ -206,6 +207,7 @@ namespace TEngine
                 IRemoteServices remoteServices = new RemoteServices(defaultHostServer, fallbackHostServer);
                 createParameters.WebServerFileSystemParameters = WechatFileSystemCreater.CreateFileSystemParameters(packageRoot, remoteServices, webDecryptionServices);
 #else
+                Log.Info("=======================UNITY_WEBGL=======================");
                 createParameters.WebServerFileSystemParameters = FileSystemParameters.CreateDefaultWebServerFileSystemParameters();
 #endif
                 initializationOperation = package.InitializeAsync(createParameters);

@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Scripting;
 using YooAsset;
 using WeChatWASM;
 
+[Preserve]
 public static class WechatFileSystemCreater
 {
     public static FileSystemParameters CreateFileSystemParameters(string packageRoot, IRemoteServices remoteServices)
@@ -29,6 +31,7 @@ public static class WechatFileSystemCreater
 /// 微信小游戏文件系统
 /// 参考：https://wechat-miniprogram.github.io/minigame-unity-webgl-transform/Design/UsingAssetBundle.html
 /// </summary>
+[Preserve]
 internal class WechatFileSystem : IFileSystem
 {
     private class WebRemoteServices : IRemoteServices

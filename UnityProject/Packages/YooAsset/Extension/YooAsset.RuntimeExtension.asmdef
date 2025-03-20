@@ -1,16 +1,14 @@
 {
-    "name": "TEngine.Runtime",
-    "rootNamespace": "TEngine",
+    "name": "YooAsset.RuntimeExtension",
+    "rootNamespace": "",
     "references": [
         "GUID:e34a5702dd353724aa315fb8011f08c3",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:5efd170ecd8084500bed5692932fe14e",
-        "YooAsset.RuntimeExtension"
+        "GUID:bb21d6197862c4c3e863390dec9859a7"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": true,
+    "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
