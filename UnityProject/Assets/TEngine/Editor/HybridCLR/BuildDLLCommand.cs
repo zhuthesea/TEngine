@@ -17,7 +17,9 @@ public static class BuildDLLCommand
     public static void Disable()
     {
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
+#if ENABLE_HYBRIDCLR
         HybridCLR.Editor.SettingsUtil.Enable = false;
+#endif
         // SyncAssemblyContent.RefreshAssembly();
     }
 
@@ -29,7 +31,9 @@ public static class BuildDLLCommand
     {
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
         ScriptingDefineSymbols.AddScriptingDefineSymbol(EnableHybridClrScriptingDefineSymbol);
+#if ENABLE_HYBRIDCLR
         HybridCLR.Editor.SettingsUtil.Enable = true;
+#endif
         // SyncAssemblyContent.RefreshAssembly();
     }
 

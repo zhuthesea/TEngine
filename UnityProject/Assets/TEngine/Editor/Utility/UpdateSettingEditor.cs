@@ -1,8 +1,9 @@
+#if ENABLE_HYBRIDCLR
 using System.Collections.Generic;
 using System.Linq;
-using HybridCLR.Editor.Settings;
 using UnityEditor;
 using UnityEngine;
+using HybridCLR.Editor.Settings;
 
 namespace TEngine.Editor
 {
@@ -69,3 +70,4 @@ namespace TEngine.Editor
         }
     }
 }
+#endif
