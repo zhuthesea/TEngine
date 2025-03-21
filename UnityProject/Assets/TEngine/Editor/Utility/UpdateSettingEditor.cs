@@ -68,6 +68,36 @@ namespace TEngine.Editor
                 }
             }
         }
+
+        public static void ForceUpdateAssemblies()
+        {
+
+            UpdateSetting updateSetting = null;
+            string[] guids = AssetDatabase.FindAssets("t:ScriptGeneratorSetting");
+            if (guids.Length >= 1)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                updateSetting = AssetDatabase.LoadAssetAtPath<UpdateSetting>(path);
+            }
+
+            if (updateSetting == null)
+            {
+                Log.Error("Can not find ScriptGeneratorSetting");
+                return;
+            }
+            
+            HybridCLRSettings.Instance.hotUpdateAssemblies = updateSetting.HotUpdateAssemblies.ToArray();
+            for (int i = 0; i < updateSetting.HotUpdateAssemblies.Count; i++)
+            {
+                var assemblyName = updateSetting.HotUpdateAssemblies[i];
+                string assemblyNameWithoutExtension = assemblyName.Substring(0, assemblyName.LastIndexOf('.'));
+                HybridCLRSettings.Instance.hotUpdateAssemblies[i] = assemblyNameWithoutExtension;
+            }
+            
+            HybridCLRSettings.Instance.patchAOTAssemblies = updateSetting.AOTMetaAssemblies.ToArray();
+            
+            Debug.Log("HotUpdateAssemblies changed");
+        }
     }
 }
 #endif
