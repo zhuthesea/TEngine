@@ -14,7 +14,7 @@ namespace TEngine
             /// <summary>
             /// 设置动画辅助器。
             /// </summary>
-            /// <param name="textHelper">要设置的字符辅助器。</param>
+            /// <param name="textHelper">要设置的动画辅助器。</param>
             public static void SetTweenHelper(ITweenHelper textHelper)
             {
                 _tweenHelper = textHelper;
@@ -877,7 +877,7 @@ namespace TEngine
         }
     }
     
-    public static class DTweenExtensions
+    public static class TweenExtensions
     {
         public static long OnComplete(this long tweenId, Action onComplete)
         {
