@@ -20,7 +20,7 @@ namespace TEngine.Localization
 				bool changed = mInstance==null;
 
 				if (mInstance==null)
-					mInstance = (ResourceManager)FindObjectOfType(typeof(ResourceManager));
+					mInstance = Utility.Unity.FindObjectOfType<ResourceManager>();
 
 				if (mInstance==null)
 				{

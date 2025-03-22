@@ -12,7 +12,7 @@ namespace TEngine
             {
                 if (_instance == null)
                 {
-                    _instance = GameObject.FindObjectOfType<Settings>();
+                    _instance = Utility.Unity.FindObjectOfType<Settings>();
 
                     if (_instance != null)
                     {
