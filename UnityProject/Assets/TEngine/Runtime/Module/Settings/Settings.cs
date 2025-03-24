@@ -44,7 +44,12 @@ namespace TEngine
 #if UNITY_EDITOR
                 if (Instance == null)
                 {
-                    return UnityEditor.AssetDatabase.LoadAssetAtPath<UpdateSetting>("Assets/TEngine/Settings/UpdateSetting.asset");
+                    string[] guids = UnityEditor.AssetDatabase.FindAssets("t:UpdateSetting");
+                    if (guids.Length >= 1)
+                    {
+                        string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guids[0]);
+                        return UnityEditor.AssetDatabase.LoadAssetAtPath<UpdateSetting>(path);
+                    }
                 }
 #endif
                 return Instance.updateSetting;
