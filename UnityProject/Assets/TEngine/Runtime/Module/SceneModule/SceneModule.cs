@@ -153,14 +153,11 @@ namespace TEngine
 
                 subScene = YooAssets.LoadSceneAsync(location, sceneMode, LocalPhysicsMode.None, suspendLoad, priority);
 
-                if (callBack != null)
+                subScene.Completed += handle =>
                 {
-                    subScene.Completed += handle =>
-                    {
-                        _handlingScene.Remove(location);
-                        callBack.Invoke(handle.SceneObject);
-                    };
-                }
+                    _handlingScene.Remove(location);
+                    callBack?.Invoke(handle.SceneObject);
+                };
 
                 if (progressCallBack != null)
                 {
@@ -181,14 +178,11 @@ namespace TEngine
 
                 _currentMainScene = YooAssets.LoadSceneAsync(location, sceneMode, LocalPhysicsMode.None, suspendLoad, priority);
 
-                if (callBack != null)
+                _currentMainScene.Completed += handle =>
                 {
-                    _currentMainScene.Completed += handle =>
-                    {
-                        _handlingScene.Remove(location);
-                        callBack.Invoke(handle.SceneObject);
-                    };
-                }
+                    _handlingScene.Remove(location);
+                    callBack?.Invoke(handle.SceneObject);
+                };
 
                 if (progressCallBack != null)
                 {
@@ -376,15 +370,12 @@ namespace TEngine
                 }
 
                 subScene.UnloadAsync();
-                if (callBack != null)
+                subScene.UnloadAsync().Completed += @base =>
                 {
-                    subScene.UnloadAsync().Completed += @base =>
-                    {
-                        _subScenes.Remove(location);
-                        _handlingScene.Remove(location);
-                        callBack.Invoke();
-                    };
-                }
+                    _subScenes.Remove(location);
+                    _handlingScene.Remove(location);
+                    callBack?.Invoke();
+                };
 
                 if (progressCallBack != null)
                 {
