@@ -73,7 +73,7 @@ namespace TEngine.Editor
         {
 
             UpdateSetting updateSetting = null;
-            string[] guids = AssetDatabase.FindAssets("t:ScriptGeneratorSetting");
+            string[] guids = AssetDatabase.FindAssets("t:UpdateSetting");
             if (guids.Length >= 1)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guids[0]);
@@ -82,7 +82,7 @@ namespace TEngine.Editor
 
             if (updateSetting == null)
             {
-                Log.Error("Can not find ScriptGeneratorSetting");
+                Log.Error("Can not find UpdateSetting");
                 return;
             }
             
