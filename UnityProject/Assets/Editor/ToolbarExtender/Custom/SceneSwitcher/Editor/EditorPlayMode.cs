@@ -67,10 +67,8 @@ namespace TEngine
             EditorGUI.BeginDisabledGroup(EditorApplication.isPlayingOrWillChangePlaymode);
             {
                 // GUILayout.Label("资源加载模式:",ToolbarStyles.ToolBarTextStyle);
-
-                GUILayout.Space(10);
-
-                GUILayout.FlexibleSpace();
+                //GUILayout.Space(10);
+                //GUILayout.FlexibleSpace();
 
                 // 资源模式
                 int selectedIndex = EditorGUILayout.Popup("", _resourceModeIndex, _resourceModeNames, ToolbarStyles.ToolBarButtonGuiStyle);
@@ -81,10 +79,8 @@ namespace TEngine
                     _resourceModeIndex = selectedIndex;
                     EditorPrefs.SetInt("EditorPlayMode", selectedIndex);
                 }
-
-                GUILayout.FlexibleSpace();
-
-                GUILayout.Space(400);
+                //GUILayout.FlexibleSpace();
+                //GUILayout.Space(400);
             }
             EditorGUI.EndDisabledGroup();
         }

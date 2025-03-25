@@ -45,7 +45,7 @@ namespace UnityToolbarExtender.Examples
             var size = EditorStyles.popup.CalcSize(new GUIContent(m_SceneName[sceneSelected]));
             // 创建水平布局
             //EditorGUILayout.BeginHorizontal();
-
+            GUILayout.Space(20);
             // 将控件推到左边和右边
             //GUILayout.FlexibleSpace(); // 先占用左边的所有空间
             EditorGUILayout.LabelField("当前场景:", GUILayout.Width(55));
