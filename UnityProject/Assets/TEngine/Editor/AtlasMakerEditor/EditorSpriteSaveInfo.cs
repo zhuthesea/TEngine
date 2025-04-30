@@ -90,7 +90,7 @@
         {
             var currentPath = Path.GetDirectoryName(assetPath);
             var rootPath = Config.sourceAtlasRoot.Replace("\\", "/").TrimEnd('/');
-
+            currentPath = currentPath.Replace("\\", "/");
             while (currentPath != null && currentPath.StartsWith(rootPath))
             {
                 var parentAtlasName = GetAtlasNameForDirectory(currentPath);
