@@ -20,19 +20,26 @@ namespace TEngine
         }
     }
 
+    [DisallowMultipleComponent]
     public sealed class AssetsReference : MonoBehaviour
     {
+        private static readonly Dictionary<GameObject, int> _gameObjectCountMap = new Dictionary<GameObject, int>();
+
         [SerializeField]
         private GameObject sourceGameObject;
 
         [SerializeField]
         private List<AssetsRefInfo> refAssetInfoList;
 
-        private IResourceModule _resourceModule;
+        private static IResourceModule _resourceModule;
 
-        private void OnDestroy()
+        private void CheckInit()
         {
-            if (_resourceModule == null)
+            if (_resourceModule != null)
+            {
+                return;
+            }
+            else
             {
                 _resourceModule = ModuleSystem.GetModule<IResourceModule>();
             }
@@ -41,10 +48,54 @@ namespace TEngine
             {
                 throw new GameFrameworkException($"resourceModule is null.");
             }
+        }
 
+        private void CheckRelease()
+        {
+            if (_gameObjectCountMap.TryGetValue(sourceGameObject, out var count))
+            {
+                if (count <= 1)
+                {
+                    _gameObjectCountMap.Remove(sourceGameObject);
+                    _resourceModule.UnloadAsset(sourceGameObject);
+                }
+                else
+                {
+                    _gameObjectCountMap[sourceGameObject] = count - 1;
+                }
+            }
+            else
+            {
+                Log.Warning($"sourceGameObject is not invalid.");
+            }
+        }
+
+        private void CheckAdd()
+        {
+            if (_gameObjectCountMap.TryGetValue(sourceGameObject, out var count))
+            {
+                _gameObjectCountMap[sourceGameObject] = count + 1;
+            }
+            else
+            {
+                _gameObjectCountMap[sourceGameObject] = 1;
+            }
+        }
+
+        private void Awake()
+        {
             if (sourceGameObject != null)
             {
-                _resourceModule.UnloadAsset(sourceGameObject);
+                _gameObjectCountMap[sourceGameObject] = _gameObjectCountMap.TryGetValue(sourceGameObject, out var count) ? count + 1 : 1;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            CheckInit();
+            if (sourceGameObject != null)
+            {
+                CheckRelease();
             }
 
             ReleaseRefAssetInfoList();
@@ -77,6 +128,7 @@ namespace TEngine
 
             _resourceModule = resourceModule;
             sourceGameObject = source;
+            CheckAdd();
             return this;
         }
 
