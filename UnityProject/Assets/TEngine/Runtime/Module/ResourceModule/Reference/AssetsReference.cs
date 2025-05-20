@@ -178,7 +178,7 @@ namespace TEngine
             }
 
             var comp = instance.GetComponent<AssetsReference>();
-            return comp ? comp : instance.AddComponent<AssetsReference>().Ref(source, resourceModule);
+            return comp ? comp.Ref(source, resourceModule) : instance.AddComponent<AssetsReference>().Ref(source, resourceModule);
         }
 
         public static AssetsReference Ref<T>(T source, GameObject instance, IResourceModule resourceModule = null) where T : UnityEngine.Object
@@ -189,7 +189,7 @@ namespace TEngine
             }
 
             var comp = instance.GetComponent<AssetsReference>();
-            return comp ? comp : instance.AddComponent<AssetsReference>().Ref(source, resourceModule);
+            return comp ? comp.Ref(source, resourceModule) : instance.AddComponent<AssetsReference>().Ref(source, resourceModule);
         }
     }
 }
