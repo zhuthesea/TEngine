@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace TEngine
@@ -30,6 +29,9 @@ namespace TEngine
         private List<AssetsRefInfo> refAssetInfoList;
 
         private static IResourceModule _resourceModule;
+
+        private static Dictionary<GameObject, AssetsReference> _originalRefs = new();
+
 
         private void CheckInit()
         {
@@ -60,9 +62,15 @@ namespace TEngine
             }
         }
 
+
         private void Awake()
         {
-            sourceGameObject = null;
+            // If it is a clone, clear the reference records before cloning
+            if (!_originalRefs.ContainsKey(gameObject) || _originalRefs[gameObject] != this)
+            {
+                sourceGameObject = null;
+                refAssetInfoList?.Clear();
+            }
         }
 
         private void OnDestroy()
@@ -103,10 +111,16 @@ namespace TEngine
 
             _resourceModule = resourceModule;
             sourceGameObject = source;
+
+            if (!_originalRefs.ContainsKey(gameObject))
+            {
+                _originalRefs.Add(gameObject, this);
+            }
+
             return this;
         }
 
-        public AssetsReference Ref<T>(T source, IResourceModule resourceModule = null) where T : UnityEngine.Object
+        public AssetsReference Ref<T>(T source, IResourceModule resourceModule = null) where T : Object
         {
             if (source == null)
             {
@@ -155,7 +169,7 @@ namespace TEngine
             return comp ? comp.Ref(source, resourceModule) : instance.AddComponent<AssetsReference>().Ref(source, resourceModule);
         }
 
-        public static AssetsReference Ref<T>(T source, GameObject instance, IResourceModule resourceModule = null) where T : UnityEngine.Object
+        public static AssetsReference Ref<T>(T source, GameObject instance, IResourceModule resourceModule = null) where T : Object
         {
             if (source == null)
             {
