@@ -23,8 +23,6 @@ namespace TEngine
     [DisallowMultipleComponent]
     public sealed class AssetsReference : MonoBehaviour
     {
-        private static readonly Dictionary<GameObject, int> _gameObjectCountMap = new Dictionary<GameObject, int>();
-
         [SerializeField]
         private GameObject sourceGameObject;
 
@@ -52,17 +50,9 @@ namespace TEngine
 
         private void CheckRelease()
         {
-            if (_gameObjectCountMap.TryGetValue(sourceGameObject, out var count))
+            if (sourceGameObject != null)
             {
-                if (count <= 1)
-                {
-                    _gameObjectCountMap.Remove(sourceGameObject);
-                    _resourceModule.UnloadAsset(sourceGameObject);
-                }
-                else
-                {
-                    _gameObjectCountMap[sourceGameObject] = count - 1;
-                }
+                _resourceModule.UnloadAsset(sourceGameObject);
             }
             else
             {
@@ -70,24 +60,9 @@ namespace TEngine
             }
         }
 
-        private void CheckAdd()
-        {
-            if (_gameObjectCountMap.TryGetValue(sourceGameObject, out var count))
-            {
-                _gameObjectCountMap[sourceGameObject] = count + 1;
-            }
-            else
-            {
-                _gameObjectCountMap[sourceGameObject] = 1;
-            }
-        }
-
         private void Awake()
         {
-            if (sourceGameObject != null)
-            {
-                _gameObjectCountMap[sourceGameObject] = _gameObjectCountMap.TryGetValue(sourceGameObject, out var count) ? count + 1 : 1;
-            }
+            sourceGameObject = null;
         }
 
         private void OnDestroy()
@@ -128,7 +103,6 @@ namespace TEngine
 
             _resourceModule = resourceModule;
             sourceGameObject = source;
-            CheckAdd();
             return this;
         }
 
@@ -149,7 +123,7 @@ namespace TEngine
             return this;
         }
 
-        public static AssetsReference Instantiate(GameObject source, Transform parent = null, IResourceModule resourceModule = null)
+        internal static AssetsReference Instantiate(GameObject source, Transform parent = null, IResourceModule resourceModule = null)
         {
             if (source == null)
             {
