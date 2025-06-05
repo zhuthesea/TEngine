@@ -66,11 +66,22 @@ namespace TEngine
         private void Awake()
         {
             // If it is a clone, clear the reference records before cloning
-            if (!_originalRefs.ContainsKey(gameObject) || _originalRefs[gameObject] != this)
+            if (!IsOriginalInstance())
             {
-                sourceGameObject = null;
-                refAssetInfoList?.Clear();
+                ClearCloneReferences();
             }
+        }
+
+        private bool IsOriginalInstance()
+        {
+            return _originalRefs.TryGetValue(gameObject, out var originalComponent) &&
+                   originalComponent == this;
+        }
+
+        private void ClearCloneReferences()
+        {
+            sourceGameObject = null;
+            refAssetInfoList?.Clear();
         }
 
         private void OnDestroy()
