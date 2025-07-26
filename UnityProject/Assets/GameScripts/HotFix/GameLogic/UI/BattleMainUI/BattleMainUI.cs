@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using TEngine;
 
 namespace GameLogic
 {
+    [Obfuz.ObfuzIgnore(Obfuz.ObfuzScope.TypeName)]
     [Window(UILayer.UI)]
     class BattleMainUI : UIWindow
     {

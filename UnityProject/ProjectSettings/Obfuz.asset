@@ -18,10 +18,12 @@ MonoBehaviour:
     obfuscationProcessCallbackOrder: 10000
   assemblySettings:
     assembliesToObfuscate:
-    - TEngine.Runtime
-    - Assembly-CSharp
+    - GameLogic
+    - GameProto
     nonObfuscatedButReferencingObfuscatedAssemblies:
+    - TEngine.Runtime
     - Launcher
+    - Assembly-CSharp
     additionalAssemblySearchPaths: []
     obfuscateObfuzRuntime: 1
   obfuscationPassSettings:

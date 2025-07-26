@@ -7,21 +7,21 @@
       <field signature="int $Obfuz$RVA_Value3" newName="$pJA" />
       <field signature="int $Obfuz$RVA_Value4" newName="$PJA" />
       <field signature="int $Obfuz$RVA_Value5" newName="$qJA" />
-      <field signature="float $Obfuz$RVA_Value6" newName="$QJA" />
+      <field signature="int $Obfuz$RVA_Value6" newName="$oIA" />
       <field signature="int $Obfuz$RVA_Value7" newName="$rJA" />
       <field signature="int $Obfuz$RVA_Value8" newName="$RJA" />
       <field signature="int $Obfuz$RVA_Value9" newName="$sJA" />
       <field signature="int $Obfuz$RVA_Value10" newName="$SJA" />
       <field signature="int $Obfuz$RVA_Value11" newName="$tJA" />
-      <field signature="int $Obfuz$RVA_Value12" newName="$TJA" />
-      <field signature="int $Obfuz$RVA_Value13" newName="$uJA" />
+      <field signature="string $Obfuz$RVA_Value12" newName="$OIA" />
+      <field signature="string $Obfuz$RVA_Value13" newName="$pIA" />
       <field signature="string $Obfuz$RVA_Value14" newName="$UJA" />
       <field signature="string $Obfuz$RVA_Value15" newName="$vJA" />
       <field signature="string $Obfuz$RVA_Value16" newName="$VJA" />
-      <field signature="string $Obfuz$RVA_Value17" newName="$wJA" />
-      <field signature="string $Obfuz$RVA_Value18" newName="$WJA" />
+      <field signature="int $Obfuz$RVA_Value17" newName="$PIA" />
+      <field signature="float $Obfuz$RVA_Value18" newName="$qIA" />
       <field signature="int $Obfuz$RVA_Value19" newName="$xJA" />
-      <field signature="float $Obfuz$RVA_Value20" newName="$XJA" />
+      <field signature="int $Obfuz$RVA_Value20" newName="$QIA" />
       <field signature="int $Obfuz$RVA_Value21" newName="$yJA" />
       <field signature="int $Obfuz$RVA_Value22" newName="$YJA" />
       <field signature="int $Obfuz$RVA_Value23" newName="$zJA" />
@@ -34,7 +34,7 @@
       <field signature="int $Obfuz$RVA_Value30" newName="$CkA" />
       <field signature="int $Obfuz$RVA_Value31" newName="$dkA" />
       <field signature="int $Obfuz$RVA_Value32" newName="$DkA" />
-      <field signature="float $Obfuz$RVA_Value33" newName="$ekA" />
+      <field signature="int $Obfuz$RVA_Value33" newName="$rIA" />
       <field signature="int $Obfuz$RVA_Value34" newName="$EkA" />
       <field signature="int $Obfuz$RVA_Value35" newName="$fkA" />
       <field signature="int $Obfuz$RVA_Value36" newName="$FkA" />
@@ -42,7 +42,7 @@
       <field signature="int $Obfuz$RVA_Value38" newName="$GkA" />
       <field signature="int $Obfuz$RVA_Value39" newName="$hkA" />
       <field signature="int $Obfuz$RVA_Value40" newName="$HkA" />
-      <field signature="int $Obfuz$RVA_Value41" newName="$ikA" />
+      <field signature="float $Obfuz$RVA_Value41" newName="$RIA" />
       <field signature="int $Obfuz$RVA_Value42" newName="$IkA" />
       <field signature="int $Obfuz$RVA_Value43" newName="$jkA" />
       <field signature="int $Obfuz$RVA_Value44" newName="$JkA" />
@@ -140,26 +140,6 @@
       <field signature="int $Obfuz$RVA_Value136" newName="$DlA" />
       <field signature="int $Obfuz$RVA_Value137" newName="$elA" />
       <field signature="int $Obfuz$RVA_Value138" newName="$ElA" />
-      <field signature="int $Obfuz$RVA_Value139" newName="$flA" />
-      <field signature="int $Obfuz$RVA_Value140" newName="$FlA" />
-      <field signature="int $Obfuz$RVA_Value141" newName="$glA" />
-      <field signature="int $Obfuz$RVA_Value142" newName="$GlA" />
-      <field signature="int $Obfuz$RVA_Value143" newName="$hlA" />
-      <field signature="int $Obfuz$RVA_Value144" newName="$HlA" />
-      <field signature="int $Obfuz$RVA_Value145" newName="$ilA" />
-      <field signature="int $Obfuz$RVA_Value146" newName="$IlA" />
-      <field signature="int $Obfuz$RVA_Value147" newName="$jlA" />
-      <field signature="int $Obfuz$RVA_Value148" newName="$JlA" />
-      <field signature="int $Obfuz$RVA_Value149" newName="$klA" />
-      <field signature="int $Obfuz$RVA_Value150" newName="$KlA" />
-      <field signature="int $Obfuz$RVA_Value151" newName="$llA" />
-      <field signature="int $Obfuz$RVA_Value152" newName="$LlA" />
-      <field signature="int $Obfuz$RVA_Value153" newName="$mlA" />
-      <field signature="int $Obfuz$RVA_Value154" newName="$MlA" />
-      <field signature="int $Obfuz$RVA_Value155" newName="$nlA" />
-      <field signature="int $Obfuz$RVA_Value156" newName="$NlA" />
-      <field signature="int $Obfuz$RVA_Value157" newName="$olA" />
-      <field signature="int $Obfuz$RVA_Value158" newName="$OlA" />
     </type>
     <type fullName="$Obfuz$ProxyCall" newFullName="$Md" status="Renamed">
       <method signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_7259852(int)" newName="$Bv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_7259852(Int32)" newStackTraceSignature="$Md:$Bv(Int32)" />
@@ -176,7 +156,6 @@
       <method signature="[UniTask]Cysharp.Threading.Tasks.UniTaskVoid $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_13443783(object, object, int)" newName="$hv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_13443783(Object, Object, Int32)" newStackTraceSignature="$Md:$hv(Object, Object, Int32)" />
       <method signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_13389309(int)" newName="$Hv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_13389309(Int32)" newStackTraceSignature="$Md:$Hv(Int32)" />
       <method signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_1576731$1(nint, int)" newName="$iv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_1576731$1(IntPtr, Int32)" newStackTraceSignature="$Md:$iv(IntPtr, Int32)" />
-      <method signature="[HybridCLR.Runtime]HybridCLR.LoadImageErrorCode $Obfuz$ProxyCall::@$Obfuz$Dispatch_54639_15112779(byte[], int, int)" newName="$Iv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_54639_15112779(Byte[], Int32, Int32)" newStackTraceSignature="$Md:$Iv(Byte[], Int32, Int32)" />
       <method signature="[Launcher]Launcher.LoadText $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_7539401(int)" newName="$jv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_7539401(Int32)" newStackTraceSignature="$Md:$jv(Int32)" />
       <method signature="bool $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12616511(object, int)" newName="$Jv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12616511(Object, Int32)" newStackTraceSignature="$Md:$Jv(Object, Int32)" />
       <method signature="bool $Obfuz$ProxyCall::@$Obfuz$Dispatch_12519_12616511(object, byte, int)" newName="$kv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_12519_12616511(Object, Byte, Int32)" newStackTraceSignature="$Md:$kv(Object, Byte, Int32)" />
@@ -186,7 +165,6 @@
       <method signature="byte[] $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_130600(object, int)" newName="$mv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_130600(Object, Int32)" newStackTraceSignature="$Md:$mv(Object, Int32)" />
       <method signature="System.Collections.IEnumerator $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_13605213(object, object, int)" newName="$Mv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_13605213(Object, Object, Int32)" newStackTraceSignature="$Md:$Mv(Object, Object, Int32)" />
       <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12091355(object, int)" newName="$nv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12091355(Object, Int32)" newStackTraceSignature="$Md:$nv(Object, Int32)" />
-      <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_25763_12091355(int, int)" newName="$Nv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_25763_12091355(Int32, Int32)" newStackTraceSignature="$Md:$Nv(Int32, Int32)" />
       <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_46378_12091355(int, int, int)" newName="$ov" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_46378_12091355(Int32, Int32, Int32)" newStackTraceSignature="$Md:$ov(Int32, Int32, Int32)" />
       <method signature="long $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_7551190(object, int)" newName="$Ov" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_7551190(Object, Int32)" newStackTraceSignature="$Md:$Ov(Object, Int32)" />
       <method signature="long $Obfuz$ProxyCall::@$Obfuz$Dispatch_40180_7551190(long, long, int)" newName="$pv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_40180_7551190(Int64, Int64, Int32)" newStackTraceSignature="$Md:$pv(Int64, Int64, Int32)" />
@@ -194,11 +172,8 @@
       <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_3119315(object, int)" newName="$qv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_3119315(Object, Int32)" newStackTraceSignature="$Md:$qv(Object, Int32)" />
       <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_19129_3119315(object, float, int)" newName="$Qv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_19129_3119315(Object, Single, Int32)" newStackTraceSignature="$Md:$Qv(Object, Single, Int32)" />
       <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_3119315(int)" newName="$rv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_3119315(Int32)" newStackTraceSignature="$Md:$rv(Int32)" />
-      <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_3119315(nint, int)" newName="$Rv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_3119315(IntPtr, Int32)" newStackTraceSignature="$Md:$Rv(IntPtr, Int32)" />
       <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_37781_3119315(float, float, float, int)" newName="$sv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_37781_3119315(Single, Single, Single, Int32)" newStackTraceSignature="$Md:$sv(Single, Single, Single, Int32)" />
-      <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_38088_3119315([UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, int)" newName="$Sv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_38088_3119315(Vector2, Vector2, Int32)" newStackTraceSignature="$Md:$Sv(Vector2, Vector2, Int32)" />
       <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_47418_3119315(float, float, int)" newName="$tv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_47418_3119315(Single, Single, Int32)" newStackTraceSignature="$Md:$tv(Single, Single, Int32)" />
-      <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_59003_3119315(float, int)" newName="$Tv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_59003_3119315(Single, Int32)" newStackTraceSignature="$Md:$Tv(Single, Int32)" />
       <method signature="string $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_11558398(object, int)" newName="$uv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_11558398(Object, Int32)" newStackTraceSignature="$Md:$uv(Object, Int32)" />
       <method signature="string $Obfuz$ProxyCall::@$Obfuz$Dispatch_19129_11558398(object, float, int)" newName="$Uv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_19129_11558398(Object, Single, Int32)" newStackTraceSignature="$Md:$Uv(Object, Single, Int32)" />
       <method signature="string $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_11558398(object, object, int)" newName="$vv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_11558398(Object, Object, Int32)" newStackTraceSignature="$Md:$vv(Object, Object, Int32)" />
@@ -213,19 +188,15 @@
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_19188_4780505(nint, object, int)" newName="$Zv" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_19188_4780505(IntPtr, Object, Int32)" newStackTraceSignature="$Md:$Zv(IntPtr, Object, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_4780505(int)" newName="$aV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_4780505(Int32)" newStackTraceSignature="$Md:$aV(Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_26461_4780505(object, object, byte, int)" newName="$AV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_26461_4780505(Object, Object, Byte, Int32)" newStackTraceSignature="$Md:$AV(Object, Object, Byte, Int32)" />
-      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_28024_4780505(object, int, float, int)" newName="$bV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_28024_4780505(Object, Int32, Single, Int32)" newStackTraceSignature="$Md:$bV(Object, Int32, Single, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_4780505(nint, int)" newName="$BV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_4780505(IntPtr, Int32)" newStackTraceSignature="$Md:$BV(IntPtr, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_30844_4780505(nint, nuint, nuint, int)" newName="$cV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_30844_4780505(IntPtr, UIntPtr, UIntPtr, Int32)" newStackTraceSignature="$Md:$cV(IntPtr, UIntPtr, UIntPtr, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_32318_4780505(object, object, float, float, int)" newName="$CV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_32318_4780505(Object, Object, Single, Single, Int32)" newStackTraceSignature="$Md:$CV(Object, Object, Single, Single, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_33071_4780505(object, object, float, int)" newName="$dV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_33071_4780505(Object, Object, Single, Int32)" newStackTraceSignature="$Md:$dV(Object, Object, Single, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_4780505(object, object, int)" newName="$DV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_4780505(Object, Object, Int32)" newStackTraceSignature="$Md:$DV(Object, Object, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_37338_4780505(object, int, int, object, object, object, int)" newName="$eV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_37338_4780505(Object, Int32, Int32, Object, Object, Object, Int32)" newStackTraceSignature="$Md:$eV(Object, Int32, Int32, Object, Object, Object, Int32)" />
-      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_40083_4780505(object, int, [UnityEngine.CoreModule]UnityEngine.Color, int)" newName="$EV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_40083_4780505(Object, Int32, Color, Int32)" newStackTraceSignature="$Md:$EV(Object, Int32, Color, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_45077_4780505(object, object, int, object, object, object, int)" newName="$fV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_45077_4780505(Object, Object, Int32, Object, Object, Object, Int32)" newStackTraceSignature="$Md:$fV(Object, Object, Int32, Object, Object, Object, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_50754_4780505(object, object, object, int)" newName="$FV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_50754_4780505(Object, Object, Object, Int32)" newStackTraceSignature="$Md:$FV(Object, Object, Object, Int32)" />
-      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_51425_4780505(object, int, int)" newName="$gV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_51425_4780505(Object, Int32, Int32)" newStackTraceSignature="$Md:$gV(Object, Int32, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_59003_4780505(float, int)" newName="$GV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_59003_4780505(Single, Int32)" newStackTraceSignature="$Md:$GV(Single, Int32)" />
-      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_60320_4780505(object, int, int, int)" newName="$hV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_60320_4780505(Object, Int32, Int32, Int32)" newStackTraceSignature="$Md:$hV(Object, Int32, Int32, Int32)" />
       <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_63447_4780505(nint, nuint, int)" newName="$HV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_63447_4780505(IntPtr, UIntPtr, Int32)" newStackTraceSignature="$Md:$HV(IntPtr, UIntPtr, Int32)" />
       <method signature="[TEngine.Runtime]TEngine.IAudioModule $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_2091141(int)" newName="$iV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_2091141(Int32)" newStackTraceSignature="$Md:$iV(Int32)" />
       <method signature="[TEngine.Runtime]TEngine.IDebuggerModule $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_15302954(int)" newName="$IV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_15302954(Int32)" newStackTraceSignature="$Md:$IV(Int32)" />
@@ -237,28 +208,8 @@
       <method signature="[TEngine.Runtime]TEngine.ProcedureSetting $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_3033287(int)" newName="$LV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_3033287(Int32)" newStackTraceSignature="$Md:$LV(Int32)" />
       <method signature="[TEngine.Runtime]TEngine.RootModule $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_10761570(int)" newName="$mV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_10761570(Int32)" newStackTraceSignature="$Md:$mV(Int32)" />
       <method signature="[TEngine.Runtime]TEngine.UpdateSetting $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_14354703(int)" newName="$MV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_14354703(Int32)" newStackTraceSignature="$Md:$MV(Int32)" />
-      <method signature="[UnityEngine.UIModule]UnityEngine.AdditionalCanvasShaderChannels $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_8424239(object, int)" newName="$nV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_8424239(Object, Int32)" newStackTraceSignature="$Md:$nV(Object, Int32)" />
-      <method signature="[UnityEngine.UIModule]UnityEngine.Canvas $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_14829071(object, int)" newName="$NV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_14829071(Object, Int32)" newStackTraceSignature="$Md:$NV(Object, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.Coroutine $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_11873513(object, int)" newName="$oV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_11873513(Object, Int32)" newStackTraceSignature="$Md:$oV(Object, Int32)" />
-      <method signature="[UnityEngine.TextRenderingModule]UnityEngine.Font $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_15352804(object, int)" newName="$OV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_15352804(Object, Int32)" newStackTraceSignature="$Md:$OV(Object, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.GameObject $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_11979780(object, int)" newName="$pV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_11979780(Object, Int32)" newStackTraceSignature="$Md:$pV(Object, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Material $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_4258084(object, int)" newName="$PV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_4258084(Object, Int32)" newStackTraceSignature="$Md:$PV(Object, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Shader $Obfuz$ProxyCall::@$Obfuz$Dispatch_50754_4364218(object, object, object, int)" newName="$qV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_50754_4364218(Object, Object, Object, Int32)" newStackTraceSignature="$Md:$qV(Object, Object, Object, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.TextAsset $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_3944058(nint, int)" newName="$QV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_3944058(IntPtr, Int32)" newStackTraceSignature="$Md:$QV(IntPtr, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Texture $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_654776(object, int)" newName="$rV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_654776(Object, Int32)" newStackTraceSignature="$Md:$rV(Object, Int32)" />
-      <method signature="[UnityEngine.UI]UnityEngine.UI.Graphic $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12636969(object, int)" newName="$RV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12636969(Object, Int32)" newStackTraceSignature="$Md:$RV(Object, Int32)" />
-      <method signature="[UnityEngine.UI]UnityEngine.UI.Text $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_3669768(object, int)" newName="$sV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_3669768(Object, Int32)" newStackTraceSignature="$Md:$sV(Object, Int32)" />
-      <method signature="[UnityEngine.TextRenderingModule]UnityEngine.UIVertex $Obfuz$ProxyCall::@$Obfuz$Dispatch_5472_16268395([UnityEngine.TextRenderingModule]UnityEngine.UIVertex, int, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector4, int)" newName="$SV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_5472_16268395(UIVertex, Int32, Vector2, Vector2, Vector2, Vector2, Vector2, Vector4, Int32)" newStackTraceSignature="$Md:$SV(UIVertex, Int32, Vector2, Vector2, Vector2, Vector2, Vector2, Vector4, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_590508(int)" newName="$tV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_590508(Int32)" newStackTraceSignature="$Md:$tV(Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_25934_590508([UnityEngine.CoreModule]UnityEngine.Vector4, int)" newName="$TV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_25934_590508(Vector4, Int32)" newStackTraceSignature="$Md:$TV(Vector4, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_590508(nint, int)" newName="$uV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_590508(IntPtr, Int32)" newStackTraceSignature="$Md:$uV(IntPtr, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_38088_590508([UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, int)" newName="$UV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_38088_590508(Vector2, Vector2, Int32)" newStackTraceSignature="$Md:$UV(Vector2, Vector2, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_57912_590508([UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, [UnityEngine.CoreModule]UnityEngine.Vector2, int)" newName="$vV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_57912_590508(Vector2, Vector2, Vector2, Int32)" newStackTraceSignature="$Md:$vV(Vector2, Vector2, Vector2, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_61619_590508([UnityEngine.CoreModule]UnityEngine.Vector3, int)" newName="$VV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_61619_590508(Vector3, Int32)" newStackTraceSignature="$Md:$VV(Vector3, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector2 $Obfuz$ProxyCall::@$Obfuz$Dispatch_65323_590508([UnityEngine.CoreModule]UnityEngine.Vector2, float, int)" newName="$wV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_65323_590508(Vector2, Single, Int32)" newStackTraceSignature="$Md:$wV(Vector2, Single, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector4 $Obfuz$ProxyCall::@$Obfuz$Dispatch_21369_590506([UnityEngine.CoreModule]UnityEngine.Vector4, float, int)" newName="$WV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_21369_590506(Vector4, Single, Int32)" newStackTraceSignature="$Md:$WV(Vector4, Single, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector4 $Obfuz$ProxyCall::@$Obfuz$Dispatch_31768_590506([UnityEngine.CoreModule]UnityEngine.Vector2, int)" newName="$xV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_31768_590506(Vector2, Int32)" newStackTraceSignature="$Md:$xV(Vector2, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.Vector4 $Obfuz$ProxyCall::@$Obfuz$Dispatch_53836_590506([UnityEngine.CoreModule]UnityEngine.Vector4, [UnityEngine.CoreModule]UnityEngine.Vector4, int)" newName="$XV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_53836_590506(Vector4, Vector4, Int32)" newStackTraceSignature="$Md:$XV(Vector4, Vector4, Int32)" />
       <method signature="[YooAsset]YooAsset.AssetInfo[] $Obfuz$ProxyCall::@$Obfuz$Dispatch_50754_7313902(object, object, object, int)" newName="$yV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_50754_7313902(Object, Object, Object, Int32)" newStackTraceSignature="$Md:$yV(Object, Object, Object, Int32)" />
       <method signature="[YooAsset]YooAsset.ClearCacheFilesOperation $Obfuz$ProxyCall::@$Obfuz$Dispatch_45707_10036602(object, int, object, int)" newName="$YV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_45707_10036602(Object, Int32, Object, Int32)" newStackTraceSignature="$Md:$YV(Object, Int32, Object, Int32)" />
       <method signature="[YooAsset]YooAsset.EOperationStatus $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_10989665(object, int)" newName="$zV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_10989665(Object, Int32)" newStackTraceSignature="$Md:$zV(Object, Int32)" />
@@ -349,6 +300,7 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$bjA" />
       <field signature="[Assembly-CSharp]Procedure.ProcedureCreateDownloader &lt;&gt;4__this" newName="$BjA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$cjA" />
+      <method signature="void Procedure.ProcedureCreateDownloader/&lt;CreateDownloader&gt;d__10::SetStateMachine([Assembly-CSharp]Procedure.ProcedureCreateDownloader/&lt;CreateDownloader&gt;d__10&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$VV" oldStackTraceSignature="Procedure.&lt;CreateDownloader&gt;d__10:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$Bd:$VV(IAsyncStateMachine)" />
     </type>
     <type fullName="Procedure.ProcedureDownloadFile" newFullName="$C.$cd" status="Renamed">
       <field signature="bool &lt;UseNativeDialog&gt;k__BackingField" newName="$CjA" />
@@ -373,6 +325,7 @@
       <field signature="[Assembly-CSharp]Procedure.ProcedureDownloadFile &lt;&gt;4__this" newName="$gjA" />
       <field signature="[YooAsset]YooAsset.ResourceDownloaderOperation &lt;downloader&gt;5__2" newName="$GjA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$hjA" />
+      <method signature="void Procedure.ProcedureDownloadFile/&lt;BeginDownload&gt;d__10::SetStateMachine([Assembly-CSharp]Procedure.ProcedureDownloadFile/&lt;BeginDownload&gt;d__10&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$wV" oldStackTraceSignature="Procedure.&lt;BeginDownload&gt;d__10:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$Cd:$wV(IAsyncStateMachine)" />
     </type>
     <type fullName="Procedure.ProcedureDownloadOver" newFullName="$C.$dd" status="Renamed">
       <field signature="bool &lt;UseNativeDialog&gt;k__BackingField" newName="$HjA" />
@@ -409,6 +362,7 @@
       <field signature="[TEngine.Runtime]TEngine.IFsm`1&lt;[TEngine.Runtime]TEngine.IProcedureModule&gt; procedureOwner" newName="$mjA" />
       <field signature="[Assembly-CSharp]Procedure.ProcedureInitPackage/&lt;&gt;c__DisplayClass5_0 &lt;&gt;8__1" newName="$MjA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[YooAsset]YooAsset.InitializationOperation&gt; &lt;&gt;u__1" newName="$njA" />
+      <method signature="void Procedure.ProcedureInitPackage/&lt;InitPackage&gt;d__5::SetStateMachine([Assembly-CSharp]Procedure.ProcedureInitPackage/&lt;InitPackage&gt;d__5&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$WV" oldStackTraceSignature="Procedure.&lt;InitPackage&gt;d__5:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$Ed:$WV(IAsyncStateMachine)" />
     </type>
     <type fullName="Procedure.ProcedureInitResources" newFullName="$C.$Fd" status="Renamed">
       <field signature="bool _initResourcesComplete" newName="$OjA" />
@@ -487,6 +441,7 @@
       <field signature="[Assembly-CSharp]Procedure.ProcedureLoadAssembly &lt;&gt;4__this" newName="$BJA" />
       <field signature="System.Collections.Generic.List`1/Enumerator&lt;string&gt; &lt;&gt;7__wrap1" newName="$cJA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[UnityEngine.CoreModule]UnityEngine.TextAsset&gt; &lt;&gt;u__1" newName="$CJA" />
+      <method signature="void Procedure.ProcedureLoadAssembly/&lt;LoadAssembly&gt;d__17::SetStateMachine([Assembly-CSharp]Procedure.ProcedureLoadAssembly/&lt;LoadAssembly&gt;d__17&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$xV" oldStackTraceSignature="Procedure.&lt;LoadAssembly&gt;d__17:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$id:$xV(IAsyncStateMachine)" />
     </type>
     <type fullName="Procedure.ProcedurePreload" newFullName="$C.$Id" status="Renamed">
       <field signature="float _progress" newName="$dJA" />
@@ -516,6 +471,7 @@
       <field signature="System.Action callback" newName="$iJA" />
       <field signature="float &lt;time&gt;5__2" newName="$IJA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$jJA" />
+      <method signature="void Procedure.ProcedurePreload/&lt;SmoothValue&gt;d__10::SetStateMachine([Assembly-CSharp]Procedure.ProcedurePreload/&lt;SmoothValue&gt;d__10&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$XV" oldStackTraceSignature="Procedure.&lt;SmoothValue&gt;d__10:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$jd:$XV(IAsyncStateMachine)" />
     </type>
     <type fullName="Procedure.ProcedureSplash" newFullName="$C.$Jd" status="Renamed">
       <property signature="bool UseNativeDialog" newName="$a" />
@@ -533,6 +489,7 @@
       <field signature="int &lt;&gt;1__state" newName="$kJA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$KJA" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$lJA" />
+      <method signature="void Procedure.ProcedureStartGame/&lt;StartGame&gt;d__4::SetStateMachine([Assembly-CSharp]Procedure.ProcedureStartGame/&lt;StartGame&gt;d__4&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$yBA" oldStackTraceSignature="Procedure.&lt;StartGame&gt;d__4:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$C.$Kd:$yBA(IAsyncStateMachine)" />
     </type>
   </assembly>
   <assembly name="GameLogic">
@@ -666,9 +623,6 @@
       <field signature="int $Obfuz$RVA_Value126" newName="$rC" />
       <field signature="int $Obfuz$RVA_Value127" newName="$RC" />
       <field signature="int $Obfuz$RVA_Value128" newName="$sC" />
-      <field signature="int $Obfuz$RVA_Value129" newName="$SC" />
-      <field signature="int $Obfuz$RVA_Value130" newName="$tC" />
-      <field signature="int $Obfuz$RVA_Value131" newName="$TC" />
     </type>
     <type fullName="$Obfuz$ProxyCall" newFullName="$bA" status="Renamed">
       <method signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1&lt;[UnityEngine.CoreModule]UnityEngine.GameObject&gt; $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_9527092(int)" newName="$iC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_9527092(Int32)" newStackTraceSignature="$bA:$iC(Int32)" />
@@ -683,7 +637,6 @@
       <method signature="[UniTask]Cysharp.Threading.Tasks.UniTaskVoid $Obfuz$ProxyCall::@$Obfuz$Dispatch_8408_13443783(object, object, object, byte, object[], int)" newName="$MC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_8408_13443783(Object, Object, Object, Byte, Object[], Int32)" newStackTraceSignature="$bA:$MC(Object, Object, Object, Byte, Object[], Int32)" />
       <method signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_13389309(int)" newName="$nC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_13389309(Int32)" newStackTraceSignature="$bA:$nC(Int32)" />
       <method signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_1576731(nint, int)" newName="$NC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_1576731(IntPtr, Int32)" newStackTraceSignature="$bA:$NC(IntPtr, Int32)" />
-      <method signature="[GameLogic]GameLogic.ILoginUI $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_8419894(int)" newName="$oC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_8419894(Int32)" newStackTraceSignature="$bA:$oC(Int32)" />
       <method signature="[GameLogic]GameLogic.UIBase $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_5129971(object, int)" newName="$OC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_5129971(Object, Int32)" newStackTraceSignature="$bA:$OC(Object, Int32)" />
       <method signature="[GameLogic]GameLogic.UIBase/UIType $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_3122694(object, int)" newName="$pC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_3122694(Object, Int32)" newStackTraceSignature="$bA:$pC(Object, Int32)" />
       <method signature="[GameLogic]GameLogic.UIModule $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_8095070(int)" newName="$PC" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_8095070(Int32)" newStackTraceSignature="$bA:$PC(Int32)" />
@@ -753,7 +706,6 @@
       <method signature="[UnityEngine.CoreModule]UnityEngine.GameObject $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_11979780(nint, int)" newName="$Vd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_11979780(IntPtr, Int32)" newStackTraceSignature="$bA:$Vd(IntPtr, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.GameObject $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_11979780(object, object, int)" newName="$wd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_11979780(Object, Object, Int32)" newStackTraceSignature="$bA:$wd(Object, Object, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.RectTransform $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12743197(object, int)" newName="$Wd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12743197(Object, Int32)" newStackTraceSignature="$bA:$Wd(Object, Int32)" />
-      <method signature="[UnityEngine.CoreModule]UnityEngine.RectTransform $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_12743197(object, object, int)" newName="$xd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_12743197(Object, Object, Int32)" newStackTraceSignature="$bA:$xd(Object, Object, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.Transform $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_11509251(object, int)" newName="$Xd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_11509251(Object, Int32)" newStackTraceSignature="$bA:$Xd(Object, Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.Transform $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_11509251(int)" newName="$yd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_11509251(Int32)" newStackTraceSignature="$bA:$yd(Int32)" />
       <method signature="[UnityEngine.CoreModule]UnityEngine.Transform $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_11509251(object, object, int)" newName="$Yd" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_11509251(Object, Object, Int32)" newStackTraceSignature="$bA:$Yd(Object, Object, Int32)" />
@@ -773,19 +725,13 @@
       <field signature="byte[] $RVA_Value0" newName="$UC" />
     </type>
     <type fullName="$ObfuzRVA$DataHolder2048" newFullName="$aA" status="Renamed" />
-    <type fullName="GameApp" newFullName="$d" status="Renamed">
-      <field signature="System.Collections.Generic.List`1&lt;System.Reflection.Assembly&gt; _hotfixAssembly" newName="$c" />
-      <method signature="void GameApp::@Entrance(object[])" newName="$fb" oldStackTraceSignature="GameApp:Entrance(Object[])" newStackTraceSignature="$d:$fb(Object[])" />
-      <method signature="void GameApp::@StartGameLogic()" newName="$Fb" oldStackTraceSignature="GameApp:StartGameLogic()" newStackTraceSignature="$d:$Fb()" />
-      <method signature="void GameApp::@Release()" newName="$gb" oldStackTraceSignature="GameApp:Release()" newStackTraceSignature="$d:$gb()" />
-    </type>
-    <type fullName="GameLogic.BattleMainUI" newFullName="$A.$x" status="Renamed">
-      <field signature="[UnityEngine.CoreModule]UnityEngine.RectTransform _rectContainer" newName="$cB" />
-      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemTouch" newName="$CB" />
-      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _goTopInfo" newName="$dB" />
-      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemRoleInfo" newName="$DB" />
-      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemMonsterInfo" newName="$eB" />
-      <method signature="void GameLogic.BattleMainUI::ScriptGenerator([GameLogic]GameLogic.BattleMainUI)" newName="$fD" oldStackTraceSignature="GameLogic.BattleMainUI:ScriptGenerator()" newStackTraceSignature="$A.$x:$fD()" />
+    <type fullName="GameLogic.BattleMainUI" newFullName="" status="NotRenamed">
+      <field signature="[UnityEngine.CoreModule]UnityEngine.RectTransform _rectContainer" newName="$c" />
+      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemTouch" newName="$cB" />
+      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _goTopInfo" newName="$CB" />
+      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemRoleInfo" newName="$dB" />
+      <field signature="[UnityEngine.CoreModule]UnityEngine.GameObject _itemMonsterInfo" newName="$DB" />
+      <method signature="void GameLogic.BattleMainUI::ScriptGenerator([GameLogic]GameLogic.BattleMainUI)" newName="$fb" oldStackTraceSignature="GameLogic.BattleMainUI:ScriptGenerator()" newStackTraceSignature="GameLogic.BattleMainUI:$fb()" />
     </type>
     <type fullName="GameLogic.ErrorLogger" newFullName="$A.$H" status="Renamed">
       <field signature="[GameLogic]GameLogic.UIModule _uiModule" newName="$H" />
@@ -835,7 +781,7 @@
       <field signature="System.Collections.Generic.Stack`1&lt;string&gt; _errorTextString" newName="$i" />
       <field signature="[UnityEngine.UI]UnityEngine.UI.Text m_textError" newName="$I" />
       <field signature="[UnityEngine.UI]UnityEngine.UI.Button m_btnClose" newName="$j" />
-      <method signature="void GameLogic.LogUI::ScriptGenerator([GameLogic]GameLogic.LogUI)" newName="$fD" oldStackTraceSignature="GameLogic.LogUI:ScriptGenerator()" newStackTraceSignature="$A.$i:$fD()" />
+      <method signature="void GameLogic.LogUI::ScriptGenerator([GameLogic]GameLogic.LogUI)" newName="$fb" oldStackTraceSignature="GameLogic.LogUI:ScriptGenerator()" newStackTraceSignature="$A.$i:$fb()" />
       <method signature="void GameLogic.LogUI::OnClickCloseBtn([GameLogic]GameLogic.LogUI)" newName="$ob" oldStackTraceSignature="GameLogic.LogUI:OnClickCloseBtn()" newStackTraceSignature="$A.$i:$ob()" />
       <method signature="void GameLogic.LogUI::OnRefresh([GameLogic]GameLogic.LogUI)" newName="$FD" oldStackTraceSignature="GameLogic.LogUI:OnRefresh()" newStackTraceSignature="$A.$i:$FD()" />
       <method signature="[UniTask]Cysharp.Threading.Tasks.UniTaskVoid GameLogic.LogUI::PopErrorLog([GameLogic]GameLogic.LogUI)" newName="$Ob" oldStackTraceSignature="GameLogic.LogUI:PopErrorLog()" newStackTraceSignature="$A.$i:$Ob()" />
@@ -928,7 +874,7 @@
       <method signature="[GameLogic]GameLogic.UIBase/UIType GameLogic.UIBase::get_Type([GameLogic]GameLogic.UIBase)" newName="$kD" oldStackTraceSignature="GameLogic.UIBase:get_Type()" newStackTraceSignature="$A.$K:$kD()" />
       <method signature="void GameLogic.UIBase::set_IsPrepare([GameLogic]GameLogic.UIBase, bool)" newName="$Qb" oldStackTraceSignature="GameLogic.UIBase:set_IsPrepare(Boolean)" newStackTraceSignature="$A.$K:$Qb(Boolean)" />
       <method signature="bool GameLogic.UIBase::get_IsPrepare([GameLogic]GameLogic.UIBase)" newName="$rb" oldStackTraceSignature="GameLogic.UIBase:get_IsPrepare()" newStackTraceSignature="$A.$K:$rb()" />
-      <method signature="void GameLogic.UIBase::ScriptGenerator([GameLogic]GameLogic.UIBase)" newName="$fD" oldStackTraceSignature="GameLogic.UIBase:ScriptGenerator()" newStackTraceSignature="$A.$K:$fD()" />
+      <method signature="void GameLogic.UIBase::ScriptGenerator([GameLogic]GameLogic.UIBase)" newName="$fb" oldStackTraceSignature="GameLogic.UIBase:ScriptGenerator()" newStackTraceSignature="$A.$K:$fb()" />
       <method signature="void GameLogic.UIBase::BindMemberProperty([GameLogic]GameLogic.UIBase)" newName="$KD" oldStackTraceSignature="GameLogic.UIBase:BindMemberProperty()" newStackTraceSignature="$A.$K:$KD()" />
       <method signature="void GameLogic.UIBase::RegisterEvent([GameLogic]GameLogic.UIBase)" newName="$lD" oldStackTraceSignature="GameLogic.UIBase:RegisterEvent()" newStackTraceSignature="$A.$K:$lD()" />
       <method signature="void GameLogic.UIBase::OnCreate([GameLogic]GameLogic.UIBase)" newName="$LD" oldStackTraceSignature="GameLogic.UIBase:OnCreate()" newStackTraceSignature="$A.$K:$LD()" />
@@ -1282,6 +1228,466 @@
       <method signature="[TEngine.Runtime]TEngine.ILocalizationModule GameModule::@get_Localization()" newName="$mb" oldStackTraceSignature="GameModule:get_Localization()" newStackTraceSignature="$G:$mb()" />
       <method signature="!!0 GameModule::@Get`1()" newName="$Mb" oldStackTraceSignature="GameModule:Get()" newStackTraceSignature="$G:$Mb()" />
       <method signature="void GameModule::@Shutdown()" newName="$nb" oldStackTraceSignature="GameModule:Shutdown()" newStackTraceSignature="$G:$nb()" />
+    </type>
+  </assembly>
+  <assembly name="GameProto">
+    <type fullName="$Obfuz$ConstFieldHolder$0" newFullName="$Xb" status="Renamed">
+      <field signature="int $Obfuz$RVA_Value0" newName="$TIA" />
+      <field signature="int $Obfuz$RVA_Value1" newName="$uIA" />
+      <field signature="int $Obfuz$RVA_Value2" newName="$UIA" />
+      <field signature="int $Obfuz$RVA_Value3" newName="$vIA" />
+      <field signature="int $Obfuz$RVA_Value4" newName="$VIA" />
+      <field signature="int $Obfuz$RVA_Value5" newName="$wIA" />
+      <field signature="int $Obfuz$RVA_Value6" newName="$WIA" />
+      <field signature="int $Obfuz$RVA_Value7" newName="$xIA" />
+      <field signature="int $Obfuz$RVA_Value8" newName="$XIA" />
+      <field signature="int $Obfuz$RVA_Value9" newName="$yIA" />
+      <field signature="int $Obfuz$RVA_Value10" newName="$YIA" />
+      <field signature="int $Obfuz$RVA_Value11" newName="$zIA" />
+      <field signature="int $Obfuz$RVA_Value12" newName="$ZIA" />
+      <field signature="int $Obfuz$RVA_Value13" newName="$ajA" />
+      <field signature="int $Obfuz$RVA_Value14" newName="$AjA" />
+      <field signature="int $Obfuz$RVA_Value15" newName="$bjA" />
+      <field signature="int $Obfuz$RVA_Value16" newName="$BjA" />
+      <field signature="int $Obfuz$RVA_Value17" newName="$cjA" />
+      <field signature="int $Obfuz$RVA_Value18" newName="$CjA" />
+      <field signature="int $Obfuz$RVA_Value19" newName="$djA" />
+      <field signature="int $Obfuz$RVA_Value20" newName="$DjA" />
+      <field signature="int $Obfuz$RVA_Value21" newName="$ejA" />
+      <field signature="long $Obfuz$RVA_Value22" newName="$EjA" />
+      <field signature="int $Obfuz$RVA_Value23" newName="$fjA" />
+      <field signature="long $Obfuz$RVA_Value24" newName="$FjA" />
+      <field signature="long $Obfuz$RVA_Value25" newName="$gjA" />
+      <field signature="int $Obfuz$RVA_Value26" newName="$GjA" />
+      <field signature="int $Obfuz$RVA_Value27" newName="$hjA" />
+      <field signature="int $Obfuz$RVA_Value28" newName="$HjA" />
+      <field signature="long $Obfuz$RVA_Value29" newName="$ijA" />
+      <field signature="int $Obfuz$RVA_Value30" newName="$IjA" />
+      <field signature="int $Obfuz$RVA_Value31" newName="$jjA" />
+      <field signature="long $Obfuz$RVA_Value32" newName="$JjA" />
+      <field signature="int $Obfuz$RVA_Value33" newName="$kjA" />
+      <field signature="int $Obfuz$RVA_Value34" newName="$KjA" />
+      <field signature="int $Obfuz$RVA_Value35" newName="$ljA" />
+      <field signature="string $Obfuz$RVA_Value36" newName="$LjA" />
+      <field signature="int $Obfuz$RVA_Value37" newName="$mjA" />
+      <field signature="int $Obfuz$RVA_Value38" newName="$MjA" />
+      <field signature="int $Obfuz$RVA_Value39" newName="$njA" />
+      <field signature="string $Obfuz$RVA_Value40" newName="$NjA" />
+      <field signature="int $Obfuz$RVA_Value41" newName="$ojA" />
+      <field signature="int $Obfuz$RVA_Value42" newName="$OjA" />
+      <field signature="int $Obfuz$RVA_Value43" newName="$pjA" />
+      <field signature="int $Obfuz$RVA_Value44" newName="$PjA" />
+      <field signature="int $Obfuz$RVA_Value45" newName="$qjA" />
+      <field signature="int $Obfuz$RVA_Value46" newName="$QjA" />
+      <field signature="int $Obfuz$RVA_Value47" newName="$rjA" />
+      <field signature="int $Obfuz$RVA_Value48" newName="$RjA" />
+      <field signature="int $Obfuz$RVA_Value49" newName="$sjA" />
+      <field signature="int $Obfuz$RVA_Value50" newName="$SjA" />
+      <field signature="int $Obfuz$RVA_Value51" newName="$tjA" />
+      <field signature="int $Obfuz$RVA_Value52" newName="$TjA" />
+      <field signature="int $Obfuz$RVA_Value53" newName="$ujA" />
+      <field signature="int $Obfuz$RVA_Value54" newName="$UjA" />
+      <field signature="int $Obfuz$RVA_Value55" newName="$vjA" />
+      <field signature="int $Obfuz$RVA_Value56" newName="$VjA" />
+      <field signature="int $Obfuz$RVA_Value57" newName="$wjA" />
+      <field signature="int $Obfuz$RVA_Value58" newName="$WjA" />
+      <field signature="int $Obfuz$RVA_Value59" newName="$xjA" />
+      <field signature="int $Obfuz$RVA_Value60" newName="$XjA" />
+      <field signature="int $Obfuz$RVA_Value61" newName="$yjA" />
+      <field signature="int $Obfuz$RVA_Value62" newName="$YjA" />
+      <field signature="int $Obfuz$RVA_Value63" newName="$zjA" />
+      <field signature="int $Obfuz$RVA_Value64" newName="$ZjA" />
+      <field signature="int $Obfuz$RVA_Value65" newName="$aJA" />
+      <field signature="int $Obfuz$RVA_Value66" newName="$AJA" />
+      <field signature="int $Obfuz$RVA_Value67" newName="$bJA" />
+      <field signature="int $Obfuz$RVA_Value68" newName="$BJA" />
+      <field signature="int $Obfuz$RVA_Value69" newName="$cJA" />
+      <field signature="int $Obfuz$RVA_Value70" newName="$CJA" />
+      <field signature="int $Obfuz$RVA_Value71" newName="$dJA" />
+      <field signature="int $Obfuz$RVA_Value72" newName="$DJA" />
+      <field signature="int $Obfuz$RVA_Value73" newName="$eJA" />
+      <field signature="int $Obfuz$RVA_Value74" newName="$EJA" />
+      <field signature="int $Obfuz$RVA_Value75" newName="$fJA" />
+      <field signature="int $Obfuz$RVA_Value76" newName="$FJA" />
+      <field signature="int $Obfuz$RVA_Value77" newName="$gJA" />
+      <field signature="int $Obfuz$RVA_Value78" newName="$GJA" />
+      <field signature="int $Obfuz$RVA_Value79" newName="$hJA" />
+      <field signature="int $Obfuz$RVA_Value80" newName="$HJA" />
+      <field signature="int $Obfuz$RVA_Value81" newName="$iJA" />
+      <field signature="int $Obfuz$RVA_Value82" newName="$IJA" />
+      <field signature="int $Obfuz$RVA_Value83" newName="$jJA" />
+      <field signature="int $Obfuz$RVA_Value84" newName="$JJA" />
+      <field signature="int $Obfuz$RVA_Value85" newName="$kJA" />
+      <field signature="int $Obfuz$RVA_Value86" newName="$KJA" />
+      <field signature="int $Obfuz$RVA_Value87" newName="$lJA" />
+      <field signature="int $Obfuz$RVA_Value88" newName="$LJA" />
+      <field signature="int $Obfuz$RVA_Value89" newName="$mJA" />
+      <field signature="int $Obfuz$RVA_Value90" newName="$MJA" />
+      <field signature="int $Obfuz$RVA_Value91" newName="$nJA" />
+      <field signature="int $Obfuz$RVA_Value92" newName="$NJA" />
+      <field signature="int $Obfuz$RVA_Value93" newName="$oJA" />
+      <field signature="int $Obfuz$RVA_Value94" newName="$OJA" />
+      <field signature="int $Obfuz$RVA_Value95" newName="$pJA" />
+      <field signature="int $Obfuz$RVA_Value96" newName="$PJA" />
+      <field signature="int $Obfuz$RVA_Value97" newName="$qJA" />
+      <field signature="int $Obfuz$RVA_Value98" newName="$QJA" />
+      <field signature="int $Obfuz$RVA_Value99" newName="$rJA" />
+      <field signature="int $Obfuz$RVA_Value100" newName="$RJA" />
+      <field signature="int $Obfuz$RVA_Value101" newName="$sJA" />
+      <field signature="int $Obfuz$RVA_Value102" newName="$SJA" />
+      <field signature="int $Obfuz$RVA_Value103" newName="$tJA" />
+      <field signature="int $Obfuz$RVA_Value104" newName="$TJA" />
+      <field signature="int $Obfuz$RVA_Value105" newName="$uJA" />
+      <field signature="int $Obfuz$RVA_Value106" newName="$UJA" />
+      <field signature="int $Obfuz$RVA_Value107" newName="$vJA" />
+      <field signature="int $Obfuz$RVA_Value108" newName="$VJA" />
+      <field signature="int $Obfuz$RVA_Value109" newName="$wJA" />
+      <field signature="int $Obfuz$RVA_Value110" newName="$WJA" />
+      <field signature="int $Obfuz$RVA_Value111" newName="$xJA" />
+      <field signature="int $Obfuz$RVA_Value112" newName="$XJA" />
+      <field signature="int $Obfuz$RVA_Value113" newName="$yJA" />
+      <field signature="int $Obfuz$RVA_Value114" newName="$YJA" />
+      <field signature="int $Obfuz$RVA_Value115" newName="$zJA" />
+      <field signature="int $Obfuz$RVA_Value116" newName="$ZJA" />
+      <field signature="int $Obfuz$RVA_Value117" newName="$akA" />
+      <field signature="int $Obfuz$RVA_Value118" newName="$AkA" />
+      <field signature="int $Obfuz$RVA_Value119" newName="$bkA" />
+      <field signature="int $Obfuz$RVA_Value120" newName="$BkA" />
+      <field signature="int $Obfuz$RVA_Value121" newName="$ckA" />
+      <field signature="int $Obfuz$RVA_Value122" newName="$CkA" />
+      <field signature="int $Obfuz$RVA_Value123" newName="$dkA" />
+      <field signature="int $Obfuz$RVA_Value124" newName="$DkA" />
+      <field signature="int $Obfuz$RVA_Value125" newName="$ekA" />
+      <field signature="int $Obfuz$RVA_Value126" newName="$EkA" />
+      <field signature="int $Obfuz$RVA_Value127" newName="$fkA" />
+      <field signature="int $Obfuz$RVA_Value128" newName="$FkA" />
+      <field signature="int $Obfuz$RVA_Value129" newName="$gkA" />
+      <field signature="int $Obfuz$RVA_Value130" newName="$GkA" />
+      <field signature="int $Obfuz$RVA_Value131" newName="$hkA" />
+      <field signature="int $Obfuz$RVA_Value132" newName="$HkA" />
+      <field signature="int $Obfuz$RVA_Value133" newName="$ikA" />
+      <field signature="int $Obfuz$RVA_Value134" newName="$IkA" />
+      <field signature="int $Obfuz$RVA_Value135" newName="$jkA" />
+      <field signature="int $Obfuz$RVA_Value136" newName="$JkA" />
+      <field signature="long $Obfuz$RVA_Value137" newName="$kkA" />
+      <field signature="long $Obfuz$RVA_Value138" newName="$KkA" />
+      <field signature="long $Obfuz$RVA_Value139" newName="$lkA" />
+      <field signature="long $Obfuz$RVA_Value140" newName="$LkA" />
+      <field signature="int $Obfuz$RVA_Value141" newName="$mkA" />
+      <field signature="int $Obfuz$RVA_Value142" newName="$MkA" />
+      <field signature="int $Obfuz$RVA_Value143" newName="$nkA" />
+      <field signature="long $Obfuz$RVA_Value144" newName="$NkA" />
+      <field signature="int $Obfuz$RVA_Value145" newName="$okA" />
+      <field signature="int $Obfuz$RVA_Value146" newName="$OkA" />
+      <field signature="int $Obfuz$RVA_Value147" newName="$pkA" />
+      <field signature="int $Obfuz$RVA_Value148" newName="$PkA" />
+      <field signature="int $Obfuz$RVA_Value149" newName="$qkA" />
+      <field signature="long $Obfuz$RVA_Value150" newName="$QkA" />
+      <field signature="int $Obfuz$RVA_Value151" newName="$rkA" />
+      <field signature="int $Obfuz$RVA_Value152" newName="$RkA" />
+      <field signature="int $Obfuz$RVA_Value153" newName="$skA" />
+      <field signature="int $Obfuz$RVA_Value154" newName="$SkA" />
+      <field signature="int $Obfuz$RVA_Value155" newName="$tkA" />
+      <field signature="int $Obfuz$RVA_Value156" newName="$TkA" />
+      <field signature="int $Obfuz$RVA_Value157" newName="$ukA" />
+      <field signature="int $Obfuz$RVA_Value158" newName="$UkA" />
+      <field signature="int $Obfuz$RVA_Value159" newName="$vkA" />
+      <field signature="int $Obfuz$RVA_Value160" newName="$VkA" />
+      <field signature="int $Obfuz$RVA_Value161" newName="$wkA" />
+      <field signature="int $Obfuz$RVA_Value162" newName="$WkA" />
+      <field signature="int $Obfuz$RVA_Value163" newName="$xkA" />
+      <field signature="int $Obfuz$RVA_Value164" newName="$XkA" />
+      <field signature="int $Obfuz$RVA_Value165" newName="$ykA" />
+      <field signature="int $Obfuz$RVA_Value166" newName="$YkA" />
+      <field signature="int $Obfuz$RVA_Value167" newName="$zkA" />
+      <field signature="int $Obfuz$RVA_Value168" newName="$ZkA" />
+      <field signature="int $Obfuz$RVA_Value169" newName="$aKA" />
+      <field signature="int $Obfuz$RVA_Value170" newName="$AKA" />
+      <field signature="int $Obfuz$RVA_Value171" newName="$bKA" />
+      <field signature="long $Obfuz$RVA_Value172" newName="$BKA" />
+      <field signature="int $Obfuz$RVA_Value173" newName="$cKA" />
+      <field signature="int $Obfuz$RVA_Value174" newName="$CKA" />
+      <field signature="int $Obfuz$RVA_Value175" newName="$dKA" />
+      <field signature="int $Obfuz$RVA_Value176" newName="$DKA" />
+      <field signature="int $Obfuz$RVA_Value177" newName="$eKA" />
+      <field signature="int $Obfuz$RVA_Value178" newName="$EKA" />
+      <field signature="int $Obfuz$RVA_Value179" newName="$fKA" />
+      <field signature="int $Obfuz$RVA_Value180" newName="$FKA" />
+      <field signature="int $Obfuz$RVA_Value181" newName="$gKA" />
+      <field signature="int $Obfuz$RVA_Value182" newName="$GKA" />
+      <field signature="int $Obfuz$RVA_Value183" newName="$hKA" />
+      <field signature="int $Obfuz$RVA_Value184" newName="$HKA" />
+      <field signature="int $Obfuz$RVA_Value185" newName="$iKA" />
+      <field signature="int $Obfuz$RVA_Value186" newName="$IKA" />
+      <field signature="int $Obfuz$RVA_Value187" newName="$jKA" />
+      <field signature="int $Obfuz$RVA_Value188" newName="$JKA" />
+      <field signature="int $Obfuz$RVA_Value189" newName="$kKA" />
+      <field signature="int $Obfuz$RVA_Value190" newName="$KKA" />
+      <field signature="int $Obfuz$RVA_Value191" newName="$lKA" />
+      <field signature="int $Obfuz$RVA_Value192" newName="$LKA" />
+      <field signature="int $Obfuz$RVA_Value193" newName="$mKA" />
+      <field signature="int $Obfuz$RVA_Value194" newName="$MKA" />
+      <field signature="int $Obfuz$RVA_Value195" newName="$nKA" />
+      <field signature="int $Obfuz$RVA_Value196" newName="$NKA" />
+      <field signature="int $Obfuz$RVA_Value197" newName="$oKA" />
+      <field signature="int $Obfuz$RVA_Value198" newName="$OKA" />
+      <field signature="int $Obfuz$RVA_Value199" newName="$pKA" />
+      <field signature="int $Obfuz$RVA_Value200" newName="$PKA" />
+      <field signature="int $Obfuz$RVA_Value201" newName="$qKA" />
+      <field signature="int $Obfuz$RVA_Value202" newName="$QKA" />
+      <field signature="int $Obfuz$RVA_Value203" newName="$rKA" />
+      <field signature="int $Obfuz$RVA_Value204" newName="$RKA" />
+      <field signature="int $Obfuz$RVA_Value205" newName="$sKA" />
+      <field signature="int $Obfuz$RVA_Value206" newName="$SKA" />
+      <field signature="int $Obfuz$RVA_Value207" newName="$tKA" />
+      <field signature="int $Obfuz$RVA_Value208" newName="$TKA" />
+      <field signature="int $Obfuz$RVA_Value209" newName="$uKA" />
+      <field signature="int $Obfuz$RVA_Value210" newName="$UKA" />
+      <field signature="int $Obfuz$RVA_Value211" newName="$vKA" />
+      <field signature="int $Obfuz$RVA_Value212" newName="$VKA" />
+      <field signature="int $Obfuz$RVA_Value213" newName="$wKA" />
+      <field signature="float $Obfuz$RVA_Value214" newName="$WKA" />
+      <field signature="float $Obfuz$RVA_Value215" newName="$xKA" />
+      <field signature="int $Obfuz$RVA_Value216" newName="$XKA" />
+      <field signature="int $Obfuz$RVA_Value217" newName="$yKA" />
+      <field signature="int $Obfuz$RVA_Value218" newName="$YKA" />
+      <field signature="int $Obfuz$RVA_Value219" newName="$zKA" />
+      <field signature="int $Obfuz$RVA_Value220" newName="$ZKA" />
+      <field signature="int $Obfuz$RVA_Value221" newName="$alA" />
+      <field signature="int $Obfuz$RVA_Value222" newName="$AlA" />
+      <field signature="int $Obfuz$RVA_Value223" newName="$blA" />
+      <field signature="int $Obfuz$RVA_Value224" newName="$BlA" />
+      <field signature="int $Obfuz$RVA_Value225" newName="$clA" />
+      <field signature="int $Obfuz$RVA_Value226" newName="$ClA" />
+      <field signature="int $Obfuz$RVA_Value227" newName="$dlA" />
+      <field signature="int $Obfuz$RVA_Value228" newName="$DlA" />
+      <field signature="int $Obfuz$RVA_Value229" newName="$elA" />
+      <field signature="int $Obfuz$RVA_Value230" newName="$ElA" />
+      <field signature="int $Obfuz$RVA_Value231" newName="$flA" />
+      <field signature="int $Obfuz$RVA_Value232" newName="$FlA" />
+      <field signature="int $Obfuz$RVA_Value233" newName="$glA" />
+      <field signature="int $Obfuz$RVA_Value234" newName="$GlA" />
+      <field signature="int $Obfuz$RVA_Value235" newName="$hlA" />
+      <field signature="int $Obfuz$RVA_Value236" newName="$HlA" />
+      <field signature="int $Obfuz$RVA_Value237" newName="$ilA" />
+      <field signature="int $Obfuz$RVA_Value238" newName="$IlA" />
+      <field signature="int $Obfuz$RVA_Value239" newName="$jlA" />
+      <field signature="int $Obfuz$RVA_Value240" newName="$JlA" />
+      <field signature="int $Obfuz$RVA_Value241" newName="$klA" />
+      <field signature="int $Obfuz$RVA_Value242" newName="$KlA" />
+      <field signature="int $Obfuz$RVA_Value243" newName="$llA" />
+      <field signature="int $Obfuz$RVA_Value244" newName="$LlA" />
+      <field signature="int $Obfuz$RVA_Value245" newName="$mlA" />
+      <field signature="int $Obfuz$RVA_Value246" newName="$MlA" />
+      <field signature="int $Obfuz$RVA_Value247" newName="$nlA" />
+      <field signature="int $Obfuz$RVA_Value248" newName="$NlA" />
+      <field signature="int $Obfuz$RVA_Value249" newName="$olA" />
+      <field signature="int $Obfuz$RVA_Value250" newName="$OlA" />
+      <field signature="int $Obfuz$RVA_Value251" newName="$plA" />
+      <field signature="int $Obfuz$RVA_Value252" newName="$PlA" />
+      <field signature="int $Obfuz$RVA_Value253" newName="$qlA" />
+      <field signature="int $Obfuz$RVA_Value254" newName="$QlA" />
+      <field signature="int $Obfuz$RVA_Value255" newName="$rlA" />
+      <field signature="int $Obfuz$RVA_Value256" newName="$RlA" />
+      <field signature="int $Obfuz$RVA_Value257" newName="$slA" />
+      <field signature="int $Obfuz$RVA_Value258" newName="$SlA" />
+      <field signature="int $Obfuz$RVA_Value259" newName="$tlA" />
+      <field signature="int $Obfuz$RVA_Value260" newName="$TlA" />
+      <field signature="int $Obfuz$RVA_Value261" newName="$ulA" />
+      <field signature="int $Obfuz$RVA_Value262" newName="$UlA" />
+      <field signature="int $Obfuz$RVA_Value263" newName="$vlA" />
+      <field signature="int $Obfuz$RVA_Value264" newName="$VlA" />
+      <field signature="int $Obfuz$RVA_Value265" newName="$wlA" />
+      <field signature="int $Obfuz$RVA_Value266" newName="$WlA" />
+      <field signature="int $Obfuz$RVA_Value267" newName="$xlA" />
+      <field signature="int $Obfuz$RVA_Value268" newName="$XlA" />
+      <field signature="int $Obfuz$RVA_Value269" newName="$ylA" />
+      <field signature="int $Obfuz$RVA_Value270" newName="$YlA" />
+      <field signature="int $Obfuz$RVA_Value271" newName="$zlA" />
+      <field signature="int $Obfuz$RVA_Value272" newName="$ZlA" />
+      <field signature="int $Obfuz$RVA_Value273" newName="$aLA" />
+      <field signature="int $Obfuz$RVA_Value274" newName="$ALA" />
+      <field signature="int $Obfuz$RVA_Value275" newName="$bLA" />
+    </type>
+    <type fullName="$Obfuz$ProxyCall" newFullName="$RB" status="Renamed">
+      <method signature="bool $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_12616511(object, object, int)" newName="$oV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_12616511(Object, Object, Int32)" newStackTraceSignature="$RB:$oV(Object, Object, Int32)" />
+      <method signature="bool $Obfuz$ProxyCall::@$Obfuz$Dispatch_51425_12616511(object, int, int)" newName="$QV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_51425_12616511(Object, Int32, Int32)" newStackTraceSignature="$RB:$QV(Object, Int32, Int32)" />
+      <method signature="byte[] $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_130600(object, int)" newName="$VV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_130600(Object, Int32)" newStackTraceSignature="$RB:$VV(Object, Int32)" />
+      <method signature="double $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12054002(object, int)" newName="$wV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12054002(Object, Int32)" newStackTraceSignature="$RB:$wV(Object, Int32)" />
+      <method signature="double $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_12054002(nint, int)" newName="$WV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_12054002(IntPtr, Int32)" newStackTraceSignature="$RB:$WV(IntPtr, Int32)" />
+      <method signature="System.Func`4&lt;byte[],int,int,string&gt; $Obfuz$ProxyCall::@$Obfuz$Dispatch_22824_13477626(int)" newName="$xV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22824_13477626(Int32)" newStackTraceSignature="$RB:$xV(Int32)" />
+      <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_12091355(object, int)" newName="$XV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_12091355(Object, Int32)" newStackTraceSignature="$RB:$XV(Object, Int32)" />
+      <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_2966_12091355(nint, int)" newName="$yV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_2966_12091355(IntPtr, Int32)" newStackTraceSignature="$RB:$yV(IntPtr, Int32)" />
+      <method signature="int $Obfuz$ProxyCall::@$Obfuz$Dispatch_46378_12091355(int, int, int)" newName="$YV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_46378_12091355(Int32, Int32, Int32)" newStackTraceSignature="$RB:$YV(Int32, Int32, Int32)" />
+      <method signature="long $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_7551190(object, int)" newName="$zV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_7551190(Object, Int32)" newStackTraceSignature="$RB:$zV(Object, Int32)" />
+      <method signature="long $Obfuz$ProxyCall::@$Obfuz$Dispatch_22765_7551190(long, int, int)" newName="$ZV" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_22765_7551190(Int64, Int32, Int32)" newStackTraceSignature="$RB:$ZV(Int64, Int32, Int32)" />
+      <method signature="long $Obfuz$ProxyCall::@$Obfuz$Dispatch_40180_7551190(long, long, int)" newName="$aw" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_40180_7551190(Int64, Int64, Int32)" newStackTraceSignature="$RB:$aw(Int64, Int64, Int32)" />
+      <method signature="nint $Obfuz$ProxyCall::@$Obfuz$Dispatch_33801_12828498(nint, int, int)" newName="$Aw" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_33801_12828498(IntPtr, Int32, Int32)" newStackTraceSignature="$RB:$Aw(IntPtr, Int32, Int32)" />
+      <method signature="float $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_3119315(object, int)" newName="$bw" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_3119315(Object, Int32)" newStackTraceSignature="$RB:$bw(Object, Int32)" />
+      <method signature="string $Obfuz$ProxyCall::@$Obfuz$Dispatch_36812_11558398(object, object, int)" newName="$Bw" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_36812_11558398(Object, Object, Int32)" newStackTraceSignature="$RB:$Bw(Object, Object, Int32)" />
+      <method signature="uint $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_3014968(object, int)" newName="$cw" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_3014968(Object, Int32)" newStackTraceSignature="$RB:$cw(Object, Int32)" />
+      <method signature="ulong $Obfuz$ProxyCall::@$Obfuz$Dispatch_11150_14620669(object, int)" newName="$VBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_11150_14620669(Object, Int32)" newStackTraceSignature="$RB:$VBA(Object, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_12519_4780505(object, byte, int)" newName="$wBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_12519_4780505(Object, Byte, Int32)" newStackTraceSignature="$RB:$wBA(Object, Byte, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_17483_4780505(object, ulong, int)" newName="$WBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_17483_4780505(Object, UInt64, Int32)" newStackTraceSignature="$RB:$WBA(Object, UInt64, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_19129_4780505(object, float, int)" newName="$xBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_19129_4780505(Object, Single, Int32)" newStackTraceSignature="$RB:$xBA(Object, Single, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_20882_4780505(object, uint, int)" newName="$XBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_20882_4780505(Object, UInt32, Int32)" newStackTraceSignature="$RB:$XBA(Object, UInt32, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_27714_4780505(object, byte[], int)" newName="$yBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_27714_4780505(Object, Byte[], Int32)" newStackTraceSignature="$RB:$yBA(Object, Byte[], Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_3304_4780505(object, long, int)" newName="$YBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_3304_4780505(Object, Int64, Int32)" newStackTraceSignature="$RB:$YBA(Object, Int64, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_34868_4780505(object, byte[], int, int, int)" newName="$zBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_34868_4780505(Object, Byte[], Int32, Int32, Int32)" newStackTraceSignature="$RB:$zBA(Object, Byte[], Int32, Int32, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_45886_4780505(nuint, nuint, int)" newName="$ZBA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_45886_4780505(UIntPtr, UIntPtr, Int32)" newStackTraceSignature="$RB:$ZBA(UIntPtr, UIntPtr, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_46324_4780505(object, double, int)" newName="$acA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_46324_4780505(Object, Double, Int32)" newStackTraceSignature="$RB:$acA(Object, Double, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_51425_4780505(object, int, int)" newName="$AcA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_51425_4780505(Object, Int32, Int32)" newStackTraceSignature="$RB:$AcA(Object, Int32, Int32)" />
+      <method signature="void $Obfuz$ProxyCall::@$Obfuz$Dispatch_59828_4780505(object, nuint, nuint, int)" newName="$bcA" oldStackTraceSignature="$Obfuz$ProxyCall:$Obfuz$Dispatch_59828_4780505(Object, UIntPtr, UIntPtr, Int32)" newStackTraceSignature="$RB:$bcA(Object, UIntPtr, UIntPtr, Int32)" />
+    </type>
+    <type fullName="$Obfuz$RVA$0" newFullName="$rB" status="Renamed">
+      <field signature="[GameProto]$ObfuzRVA$DataHolder2048 $RVA_Data0" newName="$BLA" />
+      <field signature="byte[] $RVA_Value0" newName="$cLA" />
+    </type>
+    <type fullName="$ObfuzRVA$DataHolder2048" newFullName="$JB" status="Renamed" />
+    <type fullName="Luban.BeanBase" newFullName="$c.$Db" status="Renamed">
+      <method signature="int Luban.BeanBase::GetTypeId([GameProto]Luban.BeanBase)" newName="$GcA" oldStackTraceSignature="Luban.BeanBase:GetTypeId()" newStackTraceSignature="$c.$Db:$GcA()" />
+    </type>
+    <type fullName="Luban.ByteBuf" newFullName="$c.$Tb" status="Renamed">
+      <field signature="int &lt;ReaderIndex&gt;k__BackingField" newName="$QIA" />
+      <field signature="int &lt;WriterIndex&gt;k__BackingField" newName="$rIA" />
+      <field signature="System.Action`1&lt;[GameProto]Luban.ByteBuf&gt; _releaser" newName="$RIA" />
+      <field signature="byte[] &lt;Bytes&gt;k__BackingField" newName="$sIA" />
+      <field signature="int MIN_CAPACITY" newName="$SIA" />
+      <field signature="System.Func`4&lt;byte[],int,int,string&gt; &lt;StringCacheFinder&gt;k__BackingField" newName="$tIA" />
+      <property signature="int ReaderIndex" newName="$a" />
+      <property signature="int WriterIndex" newName="$A" />
+      <property signature="int Capacity" newName="$b" />
+      <property signature="int Size" newName="$B" />
+      <property signature="bool Empty" newName="$c" />
+      <property signature="bool NotEmpty" newName="$C" />
+      <property signature="byte[] Bytes" newName="$d" />
+      <property signature="int Remaining" newName="$D" />
+      <property signature="int NotCompactWritable" newName="$e" />
+      <property signature="System.Func`4&lt;byte[],int,int,string&gt; StringCacheFinder" newName="$E" />
+      <method signature="[GameProto]Luban.ByteBuf Luban.ByteBuf::@Wrap(byte[])" newName="$iU" oldStackTraceSignature="Luban.ByteBuf:Wrap(Byte[])" newStackTraceSignature="$c.$Tb:$iU(Byte[])" />
+      <method signature="void Luban.ByteBuf::Replace([GameProto]Luban.ByteBuf, byte[])" newName="$IU" oldStackTraceSignature="Luban.ByteBuf:Replace(Byte[])" newStackTraceSignature="$c.$Tb:$IU(Byte[])" />
+      <method signature="void Luban.ByteBuf::Replace([GameProto]Luban.ByteBuf, byte[], int, int)" newName="$jU" oldStackTraceSignature="Luban.ByteBuf:Replace(Byte[], Int32, Int32)" newStackTraceSignature="$c.$Tb:$jU(Byte[], Int32, Int32)" />
+      <method signature="int Luban.ByteBuf::get_ReaderIndex([GameProto]Luban.ByteBuf)" newName="$JU" oldStackTraceSignature="Luban.ByteBuf:get_ReaderIndex()" newStackTraceSignature="$c.$Tb:$JU()" />
+      <method signature="void Luban.ByteBuf::set_ReaderIndex([GameProto]Luban.ByteBuf, int)" newName="$kU" oldStackTraceSignature="Luban.ByteBuf:set_ReaderIndex(Int32)" newStackTraceSignature="$c.$Tb:$kU(Int32)" />
+      <method signature="int Luban.ByteBuf::get_WriterIndex([GameProto]Luban.ByteBuf)" newName="$KU" oldStackTraceSignature="Luban.ByteBuf:get_WriterIndex()" newStackTraceSignature="$c.$Tb:$KU()" />
+      <method signature="void Luban.ByteBuf::set_WriterIndex([GameProto]Luban.ByteBuf, int)" newName="$lU" oldStackTraceSignature="Luban.ByteBuf:set_WriterIndex(Int32)" newStackTraceSignature="$c.$Tb:$lU(Int32)" />
+      <method signature="int Luban.ByteBuf::get_Capacity([GameProto]Luban.ByteBuf)" newName="$LU" oldStackTraceSignature="Luban.ByteBuf:get_Capacity()" newStackTraceSignature="$c.$Tb:$LU()" />
+      <method signature="int Luban.ByteBuf::get_Size([GameProto]Luban.ByteBuf)" newName="$mU" oldStackTraceSignature="Luban.ByteBuf:get_Size()" newStackTraceSignature="$c.$Tb:$mU()" />
+      <method signature="bool Luban.ByteBuf::get_Empty([GameProto]Luban.ByteBuf)" newName="$MU" oldStackTraceSignature="Luban.ByteBuf:get_Empty()" newStackTraceSignature="$c.$Tb:$MU()" />
+      <method signature="bool Luban.ByteBuf::get_NotEmpty([GameProto]Luban.ByteBuf)" newName="$nU" oldStackTraceSignature="Luban.ByteBuf:get_NotEmpty()" newStackTraceSignature="$c.$Tb:$nU()" />
+      <method signature="void Luban.ByteBuf::AddWriteIndex([GameProto]Luban.ByteBuf, int)" newName="$NU" oldStackTraceSignature="Luban.ByteBuf:AddWriteIndex(Int32)" newStackTraceSignature="$c.$Tb:$NU(Int32)" />
+      <method signature="void Luban.ByteBuf::AddReadIndex([GameProto]Luban.ByteBuf, int)" newName="$oU" oldStackTraceSignature="Luban.ByteBuf:AddReadIndex(Int32)" newStackTraceSignature="$c.$Tb:$oU(Int32)" />
+      <method signature="byte[] Luban.ByteBuf::get_Bytes([GameProto]Luban.ByteBuf)" newName="$OU" oldStackTraceSignature="Luban.ByteBuf:get_Bytes()" newStackTraceSignature="$c.$Tb:$OU()" />
+      <method signature="void Luban.ByteBuf::set_Bytes([GameProto]Luban.ByteBuf, byte[])" newName="$pU" oldStackTraceSignature="Luban.ByteBuf:set_Bytes(Byte[])" newStackTraceSignature="$c.$Tb:$pU(Byte[])" />
+      <method signature="byte[] Luban.ByteBuf::CopyData([GameProto]Luban.ByteBuf)" newName="$PU" oldStackTraceSignature="Luban.ByteBuf:CopyData()" newStackTraceSignature="$c.$Tb:$PU()" />
+      <method signature="int Luban.ByteBuf::get_Remaining([GameProto]Luban.ByteBuf)" newName="$qU" oldStackTraceSignature="Luban.ByteBuf:get_Remaining()" newStackTraceSignature="$c.$Tb:$qU()" />
+      <method signature="void Luban.ByteBuf::DiscardReadBytes([GameProto]Luban.ByteBuf)" newName="$QU" oldStackTraceSignature="Luban.ByteBuf:DiscardReadBytes()" newStackTraceSignature="$c.$Tb:$QU()" />
+      <method signature="int Luban.ByteBuf::get_NotCompactWritable([GameProto]Luban.ByteBuf)" newName="$rU" oldStackTraceSignature="Luban.ByteBuf:get_NotCompactWritable()" newStackTraceSignature="$c.$Tb:$rU()" />
+      <method signature="void Luban.ByteBuf::WriteBytesWithoutSize([GameProto]Luban.ByteBuf, byte[])" newName="$RU" oldStackTraceSignature="Luban.ByteBuf:WriteBytesWithoutSize(Byte[])" newStackTraceSignature="$c.$Tb:$RU(Byte[])" />
+      <method signature="void Luban.ByteBuf::WriteBytesWithoutSize([GameProto]Luban.ByteBuf, byte[], int, int)" newName="$sU" oldStackTraceSignature="Luban.ByteBuf:WriteBytesWithoutSize(Byte[], Int32, Int32)" newStackTraceSignature="$c.$Tb:$sU(Byte[], Int32, Int32)" />
+      <method signature="void Luban.ByteBuf::Clear([GameProto]Luban.ByteBuf)" newName="$SU" oldStackTraceSignature="Luban.ByteBuf:Clear()" newStackTraceSignature="$c.$Tb:$SU()" />
+      <method signature="int Luban.ByteBuf::@PropSize(int, int)" newName="$tU" oldStackTraceSignature="Luban.ByteBuf:PropSize(Int32, Int32)" newStackTraceSignature="$c.$Tb:$tU(Int32, Int32)" />
+      <method signature="void Luban.ByteBuf::EnsureWrite0([GameProto]Luban.ByteBuf, int)" newName="$TU" oldStackTraceSignature="Luban.ByteBuf:EnsureWrite0(Int32)" newStackTraceSignature="$c.$Tb:$TU(Int32)" />
+      <method signature="void Luban.ByteBuf::EnsureWrite([GameProto]Luban.ByteBuf, int)" newName="$uU" oldStackTraceSignature="Luban.ByteBuf:EnsureWrite(Int32)" newStackTraceSignature="$c.$Tb:$uU(Int32)" />
+      <method signature="void Luban.ByteBuf::EnsureRead([GameProto]Luban.ByteBuf, int)" newName="$UU" oldStackTraceSignature="Luban.ByteBuf:EnsureRead(Int32)" newStackTraceSignature="$c.$Tb:$UU(Int32)" />
+      <method signature="bool Luban.ByteBuf::CanRead([GameProto]Luban.ByteBuf, int)" newName="$vU" oldStackTraceSignature="Luban.ByteBuf:CanRead(Int32)" newStackTraceSignature="$c.$Tb:$vU(Int32)" />
+      <method signature="void Luban.ByteBuf::Append([GameProto]Luban.ByteBuf, byte)" newName="$VU" oldStackTraceSignature="Luban.ByteBuf:Append(Byte)" newStackTraceSignature="$c.$Tb:$VU(Byte)" />
+      <method signature="void Luban.ByteBuf::WriteBool([GameProto]Luban.ByteBuf, bool)" newName="$wU" oldStackTraceSignature="Luban.ByteBuf:WriteBool(Boolean)" newStackTraceSignature="$c.$Tb:$wU(Boolean)" />
+      <method signature="bool Luban.ByteBuf::ReadBool([GameProto]Luban.ByteBuf)" newName="$WU" oldStackTraceSignature="Luban.ByteBuf:ReadBool()" newStackTraceSignature="$c.$Tb:$WU()" />
+      <method signature="void Luban.ByteBuf::WriteByte([GameProto]Luban.ByteBuf, byte)" newName="$xU" oldStackTraceSignature="Luban.ByteBuf:WriteByte(Byte)" newStackTraceSignature="$c.$Tb:$xU(Byte)" />
+      <method signature="byte Luban.ByteBuf::ReadByte([GameProto]Luban.ByteBuf)" newName="$XU" oldStackTraceSignature="Luban.ByteBuf:ReadByte()" newStackTraceSignature="$c.$Tb:$XU()" />
+      <method signature="void Luban.ByteBuf::WriteShort([GameProto]Luban.ByteBuf, short)" newName="$yU" oldStackTraceSignature="Luban.ByteBuf:WriteShort(Int16)" newStackTraceSignature="$c.$Tb:$yU(Int16)" />
+      <method signature="short Luban.ByteBuf::ReadShort([GameProto]Luban.ByteBuf)" newName="$YU" oldStackTraceSignature="Luban.ByteBuf:ReadShort()" newStackTraceSignature="$c.$Tb:$YU()" />
+      <method signature="short Luban.ByteBuf::ReadFshort([GameProto]Luban.ByteBuf)" newName="$zU" oldStackTraceSignature="Luban.ByteBuf:ReadFshort()" newStackTraceSignature="$c.$Tb:$zU()" />
+      <method signature="void Luban.ByteBuf::WriteFshort([GameProto]Luban.ByteBuf, short)" newName="$ZU" oldStackTraceSignature="Luban.ByteBuf:WriteFshort(Int16)" newStackTraceSignature="$c.$Tb:$ZU(Int16)" />
+      <method signature="void Luban.ByteBuf::WriteInt([GameProto]Luban.ByteBuf, int)" newName="$av" oldStackTraceSignature="Luban.ByteBuf:WriteInt(Int32)" newStackTraceSignature="$c.$Tb:$av(Int32)" />
+      <method signature="int Luban.ByteBuf::ReadInt([GameProto]Luban.ByteBuf)" newName="$Av" oldStackTraceSignature="Luban.ByteBuf:ReadInt()" newStackTraceSignature="$c.$Tb:$Av()" />
+      <method signature="void Luban.ByteBuf::WriteUint([GameProto]Luban.ByteBuf, uint)" newName="$bv" oldStackTraceSignature="Luban.ByteBuf:WriteUint(UInt32)" newStackTraceSignature="$c.$Tb:$bv(UInt32)" />
+      <method signature="uint Luban.ByteBuf::ReadUint([GameProto]Luban.ByteBuf)" newName="$Bv" oldStackTraceSignature="Luban.ByteBuf:ReadUint()" newStackTraceSignature="$c.$Tb:$Bv()" />
+      <method signature="void Luban.ByteBuf::WriteUint_Unsafe([GameProto]Luban.ByteBuf, uint)" newName="$cv" oldStackTraceSignature="Luban.ByteBuf:WriteUint_Unsafe(UInt32)" newStackTraceSignature="$c.$Tb:$cv(UInt32)" />
+      <method signature="uint Luban.ByteBuf::ReadUint_Unsafe([GameProto]Luban.ByteBuf)" newName="$Cv" oldStackTraceSignature="Luban.ByteBuf:ReadUint_Unsafe()" newStackTraceSignature="$c.$Tb:$Cv()" />
+      <method signature="int Luban.ByteBuf::ReadFint([GameProto]Luban.ByteBuf)" newName="$dv" oldStackTraceSignature="Luban.ByteBuf:ReadFint()" newStackTraceSignature="$c.$Tb:$dv()" />
+      <method signature="void Luban.ByteBuf::WriteFint([GameProto]Luban.ByteBuf, int)" newName="$Dv" oldStackTraceSignature="Luban.ByteBuf:WriteFint(Int32)" newStackTraceSignature="$c.$Tb:$Dv(Int32)" />
+      <method signature="int Luban.ByteBuf::ReadFint_Safe([GameProto]Luban.ByteBuf)" newName="$ev" oldStackTraceSignature="Luban.ByteBuf:ReadFint_Safe()" newStackTraceSignature="$c.$Tb:$ev()" />
+      <method signature="void Luban.ByteBuf::WriteFint_Safe([GameProto]Luban.ByteBuf, int)" newName="$Ev" oldStackTraceSignature="Luban.ByteBuf:WriteFint_Safe(Int32)" newStackTraceSignature="$c.$Tb:$Ev(Int32)" />
+      <method signature="void Luban.ByteBuf::WriteLong([GameProto]Luban.ByteBuf, long)" newName="$fv" oldStackTraceSignature="Luban.ByteBuf:WriteLong(Int64)" newStackTraceSignature="$c.$Tb:$fv(Int64)" />
+      <method signature="long Luban.ByteBuf::ReadLong([GameProto]Luban.ByteBuf)" newName="$Fv" oldStackTraceSignature="Luban.ByteBuf:ReadLong()" newStackTraceSignature="$c.$Tb:$Fv()" />
+      <method signature="void Luban.ByteBuf::WriteNumberAsLong([GameProto]Luban.ByteBuf, double)" newName="$gv" oldStackTraceSignature="Luban.ByteBuf:WriteNumberAsLong(Double)" newStackTraceSignature="$c.$Tb:$gv(Double)" />
+      <method signature="double Luban.ByteBuf::ReadLongAsNumber([GameProto]Luban.ByteBuf)" newName="$Gv" oldStackTraceSignature="Luban.ByteBuf:ReadLongAsNumber()" newStackTraceSignature="$c.$Tb:$Gv()" />
+      <method signature="void Luban.ByteBuf::WriteUlong([GameProto]Luban.ByteBuf, ulong)" newName="$hv" oldStackTraceSignature="Luban.ByteBuf:WriteUlong(UInt64)" newStackTraceSignature="$c.$Tb:$hv(UInt64)" />
+      <method signature="ulong Luban.ByteBuf::ReadUlong([GameProto]Luban.ByteBuf)" newName="$Hv" oldStackTraceSignature="Luban.ByteBuf:ReadUlong()" newStackTraceSignature="$c.$Tb:$Hv()" />
+      <method signature="void Luban.ByteBuf::WriteFlong([GameProto]Luban.ByteBuf, long)" newName="$iv" oldStackTraceSignature="Luban.ByteBuf:WriteFlong(Int64)" newStackTraceSignature="$c.$Tb:$iv(Int64)" />
+      <method signature="long Luban.ByteBuf::ReadFlong([GameProto]Luban.ByteBuf)" newName="$jv" oldStackTraceSignature="Luban.ByteBuf:ReadFlong()" newStackTraceSignature="$c.$Tb:$jv()" />
+      <method signature="void Luban.ByteBuf::@Copy8(byte*, byte*)" newName="$Jv" oldStackTraceSignature="Luban.ByteBuf:Copy8(Byte*, Byte*)" newStackTraceSignature="$c.$Tb:$Jv(Byte*, Byte*)" />
+      <method signature="void Luban.ByteBuf::@Copy4(byte*, byte*)" newName="$kv" oldStackTraceSignature="Luban.ByteBuf:Copy4(Byte*, Byte*)" newStackTraceSignature="$c.$Tb:$kv(Byte*, Byte*)" />
+      <method signature="void Luban.ByteBuf::WriteFloat([GameProto]Luban.ByteBuf, float)" newName="$Kv" oldStackTraceSignature="Luban.ByteBuf:WriteFloat(Single)" newStackTraceSignature="$c.$Tb:$Kv(Single)" />
+      <method signature="float Luban.ByteBuf::ReadFloat([GameProto]Luban.ByteBuf)" newName="$lv" oldStackTraceSignature="Luban.ByteBuf:ReadFloat()" newStackTraceSignature="$c.$Tb:$lv()" />
+      <method signature="void Luban.ByteBuf::WriteDouble([GameProto]Luban.ByteBuf, double)" newName="$Lv" oldStackTraceSignature="Luban.ByteBuf:WriteDouble(Double)" newStackTraceSignature="$c.$Tb:$Lv(Double)" />
+      <method signature="double Luban.ByteBuf::ReadDouble([GameProto]Luban.ByteBuf)" newName="$mv" oldStackTraceSignature="Luban.ByteBuf:ReadDouble()" newStackTraceSignature="$c.$Tb:$mv()" />
+      <method signature="void Luban.ByteBuf::WriteSize([GameProto]Luban.ByteBuf, int)" newName="$Mv" oldStackTraceSignature="Luban.ByteBuf:WriteSize(Int32)" newStackTraceSignature="$c.$Tb:$Mv(Int32)" />
+      <method signature="int Luban.ByteBuf::ReadSize([GameProto]Luban.ByteBuf)" newName="$nv" oldStackTraceSignature="Luban.ByteBuf:ReadSize()" newStackTraceSignature="$c.$Tb:$nv()" />
+      <method signature="void Luban.ByteBuf::WriteSint([GameProto]Luban.ByteBuf, int)" newName="$ov" oldStackTraceSignature="Luban.ByteBuf:WriteSint(Int32)" newStackTraceSignature="$c.$Tb:$ov(Int32)" />
+      <method signature="int Luban.ByteBuf::ReadSint([GameProto]Luban.ByteBuf)" newName="$Ov" oldStackTraceSignature="Luban.ByteBuf:ReadSint()" newStackTraceSignature="$c.$Tb:$Ov()" />
+      <method signature="void Luban.ByteBuf::WriteSlong([GameProto]Luban.ByteBuf, long)" newName="$pv" oldStackTraceSignature="Luban.ByteBuf:WriteSlong(Int64)" newStackTraceSignature="$c.$Tb:$pv(Int64)" />
+      <method signature="long Luban.ByteBuf::ReadSlong([GameProto]Luban.ByteBuf)" newName="$Pv" oldStackTraceSignature="Luban.ByteBuf:ReadSlong()" newStackTraceSignature="$c.$Tb:$Pv()" />
+      <method signature="void Luban.ByteBuf::WriteString([GameProto]Luban.ByteBuf, string)" newName="$qv" oldStackTraceSignature="Luban.ByteBuf:WriteString(String)" newStackTraceSignature="$c.$Tb:$qv(String)" />
+      <method signature="System.Func`4&lt;byte[],int,int,string&gt; Luban.ByteBuf::@get_StringCacheFinder()" newName="$Qv" oldStackTraceSignature="Luban.ByteBuf:get_StringCacheFinder()" newStackTraceSignature="$c.$Tb:$Qv()" />
+      <method signature="void Luban.ByteBuf::@set_StringCacheFinder(System.Func`4&lt;byte[],int,int,string&gt;)" newName="$rv" oldStackTraceSignature="Luban.ByteBuf:set_StringCacheFinder(Func`4)" newStackTraceSignature="$c.$Tb:$rv(Func`4)" />
+      <method signature="string Luban.ByteBuf::ReadString([GameProto]Luban.ByteBuf)" newName="$sv" oldStackTraceSignature="Luban.ByteBuf:ReadString()" newStackTraceSignature="$c.$Tb:$sv()" />
+      <method signature="void Luban.ByteBuf::WriteBytes([GameProto]Luban.ByteBuf, byte[])" newName="$tv" oldStackTraceSignature="Luban.ByteBuf:WriteBytes(Byte[])" newStackTraceSignature="$c.$Tb:$tv(Byte[])" />
+      <method signature="byte[] Luban.ByteBuf::ReadBytes([GameProto]Luban.ByteBuf)" newName="$uv" oldStackTraceSignature="Luban.ByteBuf:ReadBytes()" newStackTraceSignature="$c.$Tb:$uv()" />
+      <method signature="void Luban.ByteBuf::WriteComplex([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Complex)" newName="$Uv" oldStackTraceSignature="Luban.ByteBuf:WriteComplex(Complex)" newStackTraceSignature="$c.$Tb:$Uv(Complex)" />
+      <method signature="[System.Numerics]System.Numerics.Complex Luban.ByteBuf::ReadComplex([GameProto]Luban.ByteBuf)" newName="$vv" oldStackTraceSignature="Luban.ByteBuf:ReadComplex()" newStackTraceSignature="$c.$Tb:$vv()" />
+      <method signature="void Luban.ByteBuf::WriteVector2([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Vector2)" newName="$Vv" oldStackTraceSignature="Luban.ByteBuf:WriteVector2(Vector2)" newStackTraceSignature="$c.$Tb:$Vv(Vector2)" />
+      <method signature="[System.Numerics]System.Numerics.Vector2 Luban.ByteBuf::ReadVector2([GameProto]Luban.ByteBuf)" newName="$wv" oldStackTraceSignature="Luban.ByteBuf:ReadVector2()" newStackTraceSignature="$c.$Tb:$wv()" />
+      <method signature="void Luban.ByteBuf::WriteVector3([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Vector3)" newName="$Wv" oldStackTraceSignature="Luban.ByteBuf:WriteVector3(Vector3)" newStackTraceSignature="$c.$Tb:$Wv(Vector3)" />
+      <method signature="[System.Numerics]System.Numerics.Vector3 Luban.ByteBuf::ReadVector3([GameProto]Luban.ByteBuf)" newName="$xv" oldStackTraceSignature="Luban.ByteBuf:ReadVector3()" newStackTraceSignature="$c.$Tb:$xv()" />
+      <method signature="void Luban.ByteBuf::WriteVector4([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Vector4)" newName="$Xv" oldStackTraceSignature="Luban.ByteBuf:WriteVector4(Vector4)" newStackTraceSignature="$c.$Tb:$Xv(Vector4)" />
+      <method signature="[System.Numerics]System.Numerics.Vector4 Luban.ByteBuf::ReadVector4([GameProto]Luban.ByteBuf)" newName="$yv" oldStackTraceSignature="Luban.ByteBuf:ReadVector4()" newStackTraceSignature="$c.$Tb:$yv()" />
+      <method signature="void Luban.ByteBuf::WriteQuaternion([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Quaternion)" newName="$Yv" oldStackTraceSignature="Luban.ByteBuf:WriteQuaternion(Quaternion)" newStackTraceSignature="$c.$Tb:$Yv(Quaternion)" />
+      <method signature="[System.Numerics]System.Numerics.Quaternion Luban.ByteBuf::ReadQuaternion([GameProto]Luban.ByteBuf)" newName="$zv" oldStackTraceSignature="Luban.ByteBuf:ReadQuaternion()" newStackTraceSignature="$c.$Tb:$zv()" />
+      <method signature="void Luban.ByteBuf::WriteMatrix4x4([GameProto]Luban.ByteBuf, [System.Numerics]System.Numerics.Matrix4x4)" newName="$Zv" oldStackTraceSignature="Luban.ByteBuf:WriteMatrix4x4(Matrix4x4)" newStackTraceSignature="$c.$Tb:$Zv(Matrix4x4)" />
+      <method signature="[System.Numerics]System.Numerics.Matrix4x4 Luban.ByteBuf::ReadMatrix4x4([GameProto]Luban.ByteBuf)" newName="$aV" oldStackTraceSignature="Luban.ByteBuf:ReadMatrix4x4()" newStackTraceSignature="$c.$Tb:$aV()" />
+      <method signature="void Luban.ByteBuf::SkipBytes([GameProto]Luban.ByteBuf)" newName="$AV" oldStackTraceSignature="Luban.ByteBuf:SkipBytes()" newStackTraceSignature="$c.$Tb:$AV()" />
+      <method signature="void Luban.ByteBuf::WriteByteBufWithSize([GameProto]Luban.ByteBuf, [GameProto]Luban.ByteBuf)" newName="$BV" oldStackTraceSignature="Luban.ByteBuf:WriteByteBufWithSize(ByteBuf)" newStackTraceSignature="$c.$Tb:$BV($Tb)" />
+      <method signature="void Luban.ByteBuf::WriteByteBufWithoutSize([GameProto]Luban.ByteBuf, [GameProto]Luban.ByteBuf)" newName="$cV" oldStackTraceSignature="Luban.ByteBuf:WriteByteBufWithoutSize(ByteBuf)" newStackTraceSignature="$c.$Tb:$cV($Tb)" />
+      <method signature="bool Luban.ByteBuf::TryReadByte([GameProto]Luban.ByteBuf, byte&amp;)" newName="$CV" oldStackTraceSignature="Luban.ByteBuf:TryReadByte(Byte&amp;)" newStackTraceSignature="$c.$Tb:$CV(Byte&amp;)" />
+      <method signature="[GameProto]Luban.EDeserializeError Luban.ByteBuf::TryDeserializeInplaceByteBuf([GameProto]Luban.ByteBuf, int, [GameProto]Luban.ByteBuf)" newName="$dV" oldStackTraceSignature="Luban.ByteBuf:TryDeserializeInplaceByteBuf(Int32, ByteBuf)" newStackTraceSignature="$c.$Tb:$dV(Int32, $Tb)" />
+      <method signature="void Luban.ByteBuf::WriteRawTag([GameProto]Luban.ByteBuf, byte)" newName="$DV" oldStackTraceSignature="Luban.ByteBuf:WriteRawTag(Byte)" newStackTraceSignature="$c.$Tb:$DV(Byte)" />
+      <method signature="void Luban.ByteBuf::WriteRawTag([GameProto]Luban.ByteBuf, byte, byte)" newName="$eV" oldStackTraceSignature="Luban.ByteBuf:WriteRawTag(Byte, Byte)" newStackTraceSignature="$c.$Tb:$eV(Byte, Byte)" />
+      <method signature="void Luban.ByteBuf::WriteRawTag([GameProto]Luban.ByteBuf, byte, byte, byte)" newName="$fV" oldStackTraceSignature="Luban.ByteBuf:WriteRawTag(Byte, Byte, Byte)" newStackTraceSignature="$c.$Tb:$fV(Byte, Byte, Byte)" />
+      <method signature="void Luban.ByteBuf::BeginWriteSegment([GameProto]Luban.ByteBuf, int&amp;)" newName="$FV" oldStackTraceSignature="Luban.ByteBuf:BeginWriteSegment(Int32&amp;)" newStackTraceSignature="$c.$Tb:$FV(Int32&amp;)" />
+      <method signature="void Luban.ByteBuf::EndWriteSegment([GameProto]Luban.ByteBuf, int)" newName="$GV" oldStackTraceSignature="Luban.ByteBuf:EndWriteSegment(Int32)" newStackTraceSignature="$c.$Tb:$GV(Int32)" />
+      <method signature="void Luban.ByteBuf::ReadSegment([GameProto]Luban.ByteBuf, int&amp;, int&amp;)" newName="$HV" oldStackTraceSignature="Luban.ByteBuf:ReadSegment(Int32&amp;, Int32&amp;)" newStackTraceSignature="$c.$Tb:$HV(Int32&amp;, Int32&amp;)" />
+      <method signature="void Luban.ByteBuf::ReadSegment([GameProto]Luban.ByteBuf, [GameProto]Luban.ByteBuf)" newName="$iV" oldStackTraceSignature="Luban.ByteBuf:ReadSegment(ByteBuf)" newStackTraceSignature="$c.$Tb:$iV($Tb)" />
+      <method signature="void Luban.ByteBuf::EnterSegment([GameProto]Luban.ByteBuf, [GameProto]Luban.SegmentSaveState&amp;)" newName="$IV" oldStackTraceSignature="Luban.ByteBuf:EnterSegment(SegmentSaveState&amp;)" newStackTraceSignature="$c.$Tb:$IV($ob&amp;)" />
+      <method signature="void Luban.ByteBuf::LeaveSegment([GameProto]Luban.ByteBuf, [GameProto]Luban.SegmentSaveState)" newName="$jV" oldStackTraceSignature="Luban.ByteBuf:LeaveSegment(SegmentSaveState)" newStackTraceSignature="$c.$Tb:$jV($ob)" />
+      <method signature="[GameProto]Luban.ByteBuf Luban.ByteBuf::@FromString(string)" newName="$JV" oldStackTraceSignature="Luban.ByteBuf:FromString(String)" newStackTraceSignature="$c.$Tb:$JV(String)" />
+      <method signature="void Luban.ByteBuf::Release([GameProto]Luban.ByteBuf)" newName="$kV" oldStackTraceSignature="Luban.ByteBuf:Release()" newStackTraceSignature="$c.$Tb:$kV()" />
+    </type>
+    <type fullName="Luban.EDeserializeError" newFullName="$c.$mb" status="Renamed">
+      <field signature="[GameProto]Luban.EDeserializeError OK" newName="$oIA" />
+      <field signature="[GameProto]Luban.EDeserializeError NOT_ENOUGH" newName="$OIA" />
+      <field signature="[GameProto]Luban.EDeserializeError EXCEED_SIZE" newName="$pIA" />
+    </type>
+    <type fullName="Luban.ITypeId" newFullName="$c.$Wb" status="Renamed">
+      <method signature="int Luban.ITypeId::GetTypeId([GameProto]Luban.ITypeId)" newName="$hcA" oldStackTraceSignature="Luban.ITypeId:GetTypeId()" newStackTraceSignature="$c.$Wb:$hcA()" />
+    </type>
+    <type fullName="Luban.SegmentSaveState" newFullName="$c.$ob" status="Renamed">
+      <field signature="int &lt;ReaderIndex&gt;k__BackingField" newName="$PIA" />
+      <field signature="int &lt;WriterIndex&gt;k__BackingField" newName="$qIA" />
+      <property signature="int ReaderIndex" newName="$a" />
+      <property signature="int WriterIndex" newName="$A" />
+      <method signature="int Luban.SegmentSaveState::get_ReaderIndex([GameProto]Luban.SegmentSaveState&amp;)" newName="$hU" oldStackTraceSignature="Luban.SegmentSaveState:get_ReaderIndex()" newStackTraceSignature="$c.$ob:$hU()" />
+      <method signature="int Luban.SegmentSaveState::get_WriterIndex([GameProto]Luban.SegmentSaveState&amp;)" newName="$HU" oldStackTraceSignature="Luban.SegmentSaveState:get_WriterIndex()" newStackTraceSignature="$c.$ob:$HU()" />
+    </type>
+    <type fullName="Luban.SerializationException" newFullName="$c.$Nb" status="Renamed" />
+    <type fullName="Luban.StringUtil" newFullName="$c.$xb" status="Renamed">
+      <method signature="string Luban.StringUtil::@ToStr(object)" newName="$KV" oldStackTraceSignature="Luban.StringUtil:ToStr(Object)" newStackTraceSignature="$c.$xb:$KV(Object)" />
+      <method signature="string Luban.StringUtil::@ToStr(object, System.Text.StringBuilder)" newName="$lV" oldStackTraceSignature="Luban.StringUtil:ToStr(Object, StringBuilder)" newStackTraceSignature="$c.$xb:$lV(Object, StringBuilder)" />
+      <method signature="string Luban.StringUtil::@ArrayToString`1(!!0[])" newName="$LV" oldStackTraceSignature="Luban.StringUtil:ArrayToString(T[])" newStackTraceSignature="$c.$xb:$LV(T[])" />
+      <method signature="string Luban.StringUtil::@CollectionToString`1(System.Collections.Generic.IEnumerable`1&lt;!!0&gt;)" newName="$mV" oldStackTraceSignature="Luban.StringUtil:CollectionToString(IEnumerable`1)" newStackTraceSignature="$c.$xb:$mV(IEnumerable`1)" />
+      <method signature="string Luban.StringUtil::@CollectionToString`2(System.Collections.Generic.IDictionary`2&lt;!!0,!!1&gt;)" newName="$MV" oldStackTraceSignature="Luban.StringUtil:CollectionToString(IDictionary`2)" newStackTraceSignature="$c.$xb:$MV(IDictionary`2)" />
     </type>
   </assembly>
   <assembly name="Obfuz.Runtime">
@@ -5470,6 +5876,7 @@
       <method signature="[System]System.Collections.Generic.LinkedListNode`1&lt;!0&gt; TEngine.GameFrameworkLinkedList`1::AddLast([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, !0)" newName="$Lb" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:AddLast(T)" newStackTraceSignature="$A.$i`1:$Lb(T)" />
       <method signature="void TEngine.GameFrameworkLinkedList`1::AddLast([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, [System]System.Collections.Generic.LinkedListNode`1&lt;!0&gt;)" newName="$mb" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:AddLast(LinkedListNode`1)" newStackTraceSignature="$A.$i`1:$mb(LinkedListNode`1)" />
       <method signature="void TEngine.GameFrameworkLinkedList`1::ClearCachedNodes([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;)" newName="$Mb" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:ClearCachedNodes()" newStackTraceSignature="$A.$i`1:$Mb()" />
+      <method signature="void TEngine.GameFrameworkLinkedList`1::CopyTo([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, System.Array, int)" newName="$bU" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:CopyTo(Array, Int32)" newStackTraceSignature="$A.$i`1:$bU(Array, Int32)" />
       <method signature="[System]System.Collections.Generic.LinkedListNode`1&lt;!0&gt; TEngine.GameFrameworkLinkedList`1::Find([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, !0)" newName="$nb" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:Find(T)" newStackTraceSignature="$A.$i`1:$nb(T)" />
       <method signature="[System]System.Collections.Generic.LinkedListNode`1&lt;!0&gt; TEngine.GameFrameworkLinkedList`1::FindLast([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, !0)" newName="$Nb" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:FindLast(T)" newStackTraceSignature="$A.$i`1:$Nb(T)" />
       <method signature="void TEngine.GameFrameworkLinkedList`1::Remove([TEngine.Runtime]TEngine.GameFrameworkLinkedList`1&lt;!0&gt;, [System]System.Collections.Generic.LinkedListNode`1&lt;!0&gt;)" newName="$ob" oldStackTraceSignature="TEngine.GameFrameworkLinkedList`1:Remove(LinkedListNode`1)" newStackTraceSignature="$A.$i`1:$ob(LinkedListNode`1)" />
@@ -7120,6 +7527,7 @@
       <method signature="[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode TEngine.Localization.SimpleJSON.JSONArray::Remove([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray, int)" newName="$ybA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:Remove(Int32)" newStackTraceSignature="$B.$pC:$ybA(Int32)" />
       <method signature="[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode TEngine.Localization.SimpleJSON.JSONArray::Remove([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray, [TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode)" newName="$YbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:Remove(JSONNode)" newStackTraceSignature="$B.$pC:$YbA($NC)" />
       <method signature="System.Collections.Generic.IEnumerable`1&lt;[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode&gt; TEngine.Localization.SimpleJSON.JSONArray::get_Childs([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray)" newName="$zbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:get_Childs()" newStackTraceSignature="$B.$pC:$zbA()" />
+      <method signature="System.Collections.IEnumerator TEngine.Localization.SimpleJSON.JSONArray::GetEnumerator([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray)" newName="$UV" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:GetEnumerator()" newStackTraceSignature="$B.$pC:$UV()" />
       <method signature="string TEngine.Localization.SimpleJSON.JSONArray::ToString([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray, string)" newName="$ZbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:ToString(String)" newStackTraceSignature="$B.$pC:$ZbA(String)" />
       <method signature="void TEngine.Localization.SimpleJSON.JSONArray::Serialize([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONArray, System.IO.BinaryWriter)" newName="$fBA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONArray:Serialize(BinaryWriter)" newStackTraceSignature="$B.$pC:$fBA(BinaryWriter)" />
     </type>
@@ -7177,6 +7585,7 @@
       <method signature="[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode TEngine.Localization.SimpleJSON.JSONClass::Remove([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass, int)" newName="$ybA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:Remove(Int32)" newStackTraceSignature="$B.$QC:$ybA(Int32)" />
       <method signature="[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode TEngine.Localization.SimpleJSON.JSONClass::Remove([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass, [TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode)" newName="$YbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:Remove(JSONNode)" newStackTraceSignature="$B.$QC:$YbA($NC)" />
       <method signature="System.Collections.Generic.IEnumerable`1&lt;[TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONNode&gt; TEngine.Localization.SimpleJSON.JSONClass::get_Childs([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass)" newName="$zbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:get_Childs()" newStackTraceSignature="$B.$QC:$zbA()" />
+      <method signature="System.Collections.IEnumerator TEngine.Localization.SimpleJSON.JSONClass::GetEnumerator([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass)" newName="$vV" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:GetEnumerator()" newStackTraceSignature="$B.$QC:$vV()" />
       <method signature="string TEngine.Localization.SimpleJSON.JSONClass::ToString([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass, string)" newName="$ZbA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:ToString(String)" newStackTraceSignature="$B.$QC:$ZbA(String)" />
       <method signature="void TEngine.Localization.SimpleJSON.JSONClass::Serialize([TEngine.Runtime]TEngine.Localization.SimpleJSON.JSONClass, System.IO.BinaryWriter)" newName="$fBA" oldStackTraceSignature="TEngine.Localization.SimpleJSON.JSONClass:Serialize(BinaryWriter)" newStackTraceSignature="$B.$QC:$fBA(BinaryWriter)" />
     </type>
@@ -7480,6 +7889,7 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1&lt;bool&gt; &lt;&gt;t__builder" newName="$Ze" />
       <field signature="[TEngine.Runtime]TEngine.LocalizationManager &lt;&gt;4__this" newName="$aE" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$AE" />
+      <method signature="void TEngine.LocalizationManager/&lt;AsyncInit&gt;d__16::SetStateMachine([TEngine.Runtime]TEngine.LocalizationManager/&lt;AsyncInit&gt;d__16&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$FU" oldStackTraceSignature="TEngine.&lt;AsyncInit&gt;d__16:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$qb:$FU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.LocalizationManager/&lt;LoadLanguage&gt;d__18" newFullName="TEngine.LocalizationManager/$rb" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$DE" />
@@ -7489,6 +7899,7 @@
       <field signature="string language" newName="$FE" />
       <field signature="bool setCurrent" newName="$gE" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[UnityEngine.CoreModule]UnityEngine.TextAsset&gt; &lt;&gt;u__1" newName="$GE" />
+      <method signature="void TEngine.LocalizationManager/&lt;LoadLanguage&gt;d__18::SetStateMachine([TEngine.Runtime]TEngine.LocalizationManager/&lt;LoadLanguage&gt;d__18&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$GU" oldStackTraceSignature="TEngine.&lt;LoadLanguage&gt;d__18:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$rb:$GU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.LocalizationManager/&lt;LoadLanguageTotalAsset&gt;d__17" newFullName="TEngine.LocalizationManager/$Qb" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$bE" />
@@ -7496,6 +7907,7 @@
       <field signature="[TEngine.Runtime]TEngine.LocalizationManager &lt;&gt;4__this" newName="$cE" />
       <field signature="string assetName" newName="$CE" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[UnityEngine.CoreModule]UnityEngine.TextAsset&gt; &lt;&gt;u__1" newName="$dE" />
+      <method signature="void TEngine.LocalizationManager/&lt;LoadLanguageTotalAsset&gt;d__17::SetStateMachine([TEngine.Runtime]TEngine.LocalizationManager/&lt;LoadLanguageTotalAsset&gt;d__17&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$gU" oldStackTraceSignature="TEngine.&lt;LoadLanguageTotalAsset&gt;d__17:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$Qb:$gU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.LocalizationModule" newFullName="$A.$Rb" status="Renamed">
       <field signature="[TEngine.Runtime]TEngine.LocalizationManager _localizationManager" newName="$hE" />
@@ -7522,6 +7934,7 @@
       <field signature="bool setCurrent" newName="$mE" />
       <field signature="bool fromInit" newName="$ME" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$nE" />
+      <method signature="void TEngine.LocalizationModule/&lt;LoadLanguage&gt;d__10::SetStateMachine([TEngine.Runtime]TEngine.LocalizationModule/&lt;LoadLanguage&gt;d__10&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$Nv" oldStackTraceSignature="TEngine.&lt;LoadLanguage&gt;d__10:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$Sb:$Nv(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.LocalizationModule/&lt;LoadLanguageTotalAsset&gt;d__9" newFullName="$A.$Rb/$sb" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$HE" />
@@ -7529,6 +7942,7 @@
       <field signature="[TEngine.Runtime]TEngine.LocalizationModule &lt;&gt;4__this" newName="$IE" />
       <field signature="string assetName" newName="$jE" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$JE" />
+      <method signature="void TEngine.LocalizationModule/&lt;LoadLanguageTotalAsset&gt;d__9::SetStateMachine([TEngine.Runtime]TEngine.LocalizationModule/&lt;LoadLanguageTotalAsset&gt;d__9&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$Iv" oldStackTraceSignature="TEngine.&lt;LoadLanguageTotalAsset&gt;d__9:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$sb:$Iv(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.LocalizationUtility" newFullName="$A.$tb" status="Renamed">
       <field signature="string I2ResAssetNamePrefix" newName="$NE" />
@@ -8065,6 +8479,7 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$hf" />
       <field signature="[TEngine.Runtime]TEngine.ProcedureSetting &lt;&gt;4__this" newName="$Hf" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$if" />
+      <method signature="void TEngine.ProcedureSetting/&lt;StartProcedure&gt;d__8::SetStateMachine([TEngine.Runtime]TEngine.ProcedureSetting/&lt;StartProcedure&gt;d__8&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$Rv" oldStackTraceSignature="TEngine.&lt;StartProcedure&gt;d__8:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$Zb:$Rv(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ReleaseObjectFilterCallback`1" newFullName="$A.$Xb`1" status="Renamed" />
     <type fullName="TEngine.RemoteServices" newFullName="$A.$VB" status="Renamed">
@@ -8116,6 +8531,7 @@
       <field signature="string spriteName" newName="$wF" />
       <field signature="[YooAsset]YooAsset.SubAssetsHandle &lt;subAssetsHandle&gt;5__2" newName="$WF" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$xF" />
+      <method signature="void TEngine.ResourceExtComponent/&lt;GetSubSpriteImp&gt;d__28::SetStateMachine([TEngine.Runtime]TEngine.ResourceExtComponent/&lt;GetSubSpriteImp&gt;d__28&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$gV" oldStackTraceSignature="TEngine.&lt;GetSubSpriteImp&gt;d__28:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$lB:$gV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceExtComponent/&lt;SetAssetByResources&gt;d__23`1" newFullName="TEngine.ResourceExtComponent/$JB`1" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$IF" />
@@ -8123,6 +8539,7 @@
       <field signature="[TEngine.Runtime]TEngine.ResourceExtComponent &lt;&gt;4__this" newName="$JF" />
       <field signature="[TEngine.Runtime]TEngine.ISetAssetObject setAssetObject" newName="$kF" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$KF" />
+      <method signature="void TEngine.ResourceExtComponent/&lt;SetAssetByResources&gt;d__23`1::SetStateMachine([TEngine.Runtime]TEngine.ResourceExtComponent/&lt;SetAssetByResources&gt;d__23`1&lt;!0&gt;&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$Tv" oldStackTraceSignature="TEngine.&lt;SetAssetByResources&gt;d__23`1:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$JB`1:$Tv(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__26" newFullName="TEngine.ResourceExtComponent/$kB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$lF" />
@@ -8134,6 +8551,7 @@
       <field signature="[UnityEngine.UI]UnityEngine.UI.Image image" newName="$oF" />
       <field signature="bool setNativeSize" newName="$OF" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[UnityEngine.CoreModule]UnityEngine.Sprite&gt; &lt;&gt;u__1" newName="$pF" />
+      <method signature="void TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__26::SetStateMachine([TEngine.Runtime]TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__26&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$bV" oldStackTraceSignature="TEngine.&lt;SetSubSprite&gt;d__26:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$kB:$bV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__27" newFullName="TEngine.ResourceExtComponent/$KB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$PF" />
@@ -8144,6 +8562,7 @@
       <field signature="System.Threading.CancellationToken cancellationToken" newName="$sF" />
       <field signature="[UnityEngine.CoreModule]UnityEngine.SpriteRenderer spriteRenderer" newName="$SF" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;[UnityEngine.CoreModule]UnityEngine.Sprite&gt; &lt;&gt;u__1" newName="$tF" />
+      <method signature="void TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__27::SetStateMachine([TEngine.Runtime]TEngine.ResourceExtComponent/&lt;SetSubSprite&gt;d__27&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$EV" oldStackTraceSignature="TEngine.&lt;SetSubSprite&gt;d__27:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$KB:$EV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceExtComponent/&lt;Start&gt;d__11" newFullName="TEngine.ResourceExtComponent/$iB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$dF" />
@@ -8163,6 +8582,7 @@
       <field signature="string assetObjectKey" newName="$hF" />
       <field signature="[TEngine.Runtime]TEngine.ResourceExtComponent/&lt;&gt;c__DisplayClass15_0 &lt;&gt;8__1" newName="$HF" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$iF" />
+      <method signature="void TEngine.ResourceExtComponent/&lt;TryWaitingLoading&gt;d__15::SetStateMachine([TEngine.Runtime]TEngine.ResourceExtComponent/&lt;TryWaitingLoading&gt;d__15&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$Sv" oldStackTraceSignature="TEngine.&lt;TryWaitingLoading&gt;d__15:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="TEngine.$jB:$Sv(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceLogger" newFullName="$A.$pB" status="Renamed" />
     <type fullName="TEngine.ResourceModule" newFullName="$A.$PB" status="Renamed">
@@ -8313,6 +8733,7 @@
       <field signature="string packageName" newName="$Sg" />
       <field signature="[YooAsset]YooAsset.InitializationOperation &lt;initializationOperation&gt;5__2" newName="$tg" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$Tg" />
+      <method signature="void TEngine.ResourceModule/&lt;InitPackage&gt;d__65::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;InitPackage&gt;d__65&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$hV" oldStackTraceSignature="TEngine.&lt;InitPackage&gt;d__65:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$QB:$hV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;InvokeProgress&gt;d__104" newFullName="$A.$PB/$uB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$bh" />
@@ -8322,6 +8743,7 @@
       <field signature="[YooAsset]YooAsset.AssetHandle assetHandle" newName="$dh" />
       <field signature="object userData" newName="$Dh" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$eh" />
+      <method signature="void TEngine.ResourceModule/&lt;InvokeProgress&gt;d__104::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;InvokeProgress&gt;d__104&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$qV" oldStackTraceSignature="TEngine.&lt;InvokeProgress&gt;d__104:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$uB:$qV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;LoadAsset&gt;d__99`1" newFullName="$A.$PB/$RB`1" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$Wg" />
@@ -8333,6 +8755,7 @@
       <field signature="[TEngine.Runtime]TEngine.ResourceModule/&lt;&gt;c__DisplayClass99_0`1&lt;!0&gt; &lt;&gt;8__1" newName="$Zg" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$aG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__2" newName="$AG" />
+      <method signature="void TEngine.ResourceModule/&lt;LoadAsset&gt;d__99`1::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;LoadAsset&gt;d__99`1&lt;!0&gt;&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$nV" oldStackTraceSignature="TEngine.&lt;LoadAsset&gt;d__99`1:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$RB`1:$nV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__100`1" newFullName="$A.$PB/$sB`1" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$bG" />
@@ -8347,6 +8770,7 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$FG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__2" newName="$gG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;bool&gt; &lt;&gt;u__3" newName="$GG" />
+      <method signature="void TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__100`1::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__100`1&lt;!0&gt;&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$NV" oldStackTraceSignature="TEngine.&lt;LoadAssetAsync&gt;d__100`1:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$sB`1:$NV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__102" newFullName="$A.$PB/$tB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$NG" />
@@ -8363,6 +8787,7 @@
       <field signature="[YooAsset]YooAsset.AssetHandle &lt;handle&gt;5__5" newName="$tG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$TG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__2" newName="$uG" />
+      <method signature="void TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__102::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__102&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$pV" oldStackTraceSignature="TEngine.&lt;LoadAssetAsync&gt;d__102:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$tB:$pV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__103" newFullName="$A.$PB/$TB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$UG" />
@@ -8378,6 +8803,7 @@
       <field signature="[YooAsset]YooAsset.AssetHandle &lt;handle&gt;5__5" newName="$ZG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$ah" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__2" newName="$Ah" />
+      <method signature="void TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__103::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;LoadAssetAsync&gt;d__103&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$PV" oldStackTraceSignature="TEngine.&lt;LoadAssetAsync&gt;d__103:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$TB:$PV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;LoadGameObjectAsync&gt;d__101" newFullName="$A.$PB/$SB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$hG" />
@@ -8393,6 +8819,7 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$mG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__2" newName="$MG" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;bool&gt; &lt;&gt;u__3" newName="$nG" />
+      <method signature="void TEngine.ResourceModule/&lt;LoadGameObjectAsync&gt;d__101::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;LoadGameObjectAsync&gt;d__101&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$OV" oldStackTraceSignature="TEngine.&lt;LoadGameObjectAsync&gt;d__101:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$SB:$OV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/&lt;TryWaitingLoading&gt;d__108" newFullName="$A.$PB/$vB" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$Fh" />
@@ -8401,6 +8828,7 @@
       <field signature="string assetObjectKey" newName="$hh" />
       <field signature="[TEngine.Runtime]TEngine.ResourceModule/&lt;&gt;c__DisplayClass108_0 &lt;&gt;8__1" newName="$Hh" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__1" newName="$ih" />
+      <method signature="void TEngine.ResourceModule/&lt;TryWaitingLoading&gt;d__108::SetStateMachine([TEngine.Runtime]TEngine.ResourceModule/&lt;TryWaitingLoading&gt;d__108&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$rV" oldStackTraceSignature="TEngine.&lt;TryWaitingLoading&gt;d__108:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$vB:$rV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.ResourceModule/AssetObject" newFullName="$A.$PB/$qB" status="Renamed">
       <field signature="[YooAsset]YooAsset.AssetHandle _assetHandle" newName="$qg" />
@@ -8546,6 +8974,7 @@
       <field signature="[YooAsset]YooAsset.SceneHandle sceneHandle" newName="$Zh" />
       <field signature="System.Action`1&lt;float&gt; progress" newName="$aH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$AH" />
+      <method signature="void TEngine.SceneModule/&lt;InvokeProgress&gt;d__10::SetStateMachine([TEngine.Runtime]TEngine.SceneModule/&lt;InvokeProgress&gt;d__10&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$sV" oldStackTraceSignature="TEngine.&lt;InvokeProgress&gt;d__10:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$bc:$sV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.SceneModule/&lt;LoadSceneAsync&gt;d__8" newFullName="$A.$ZB/$ac" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$rh" />
@@ -8560,6 +8989,7 @@
       <field signature="[YooAsset]YooAsset.SceneHandle &lt;subScene&gt;5__2" newName="$Vh" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$wh" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__2" newName="$Wh" />
+      <method signature="void TEngine.SceneModule/&lt;LoadSceneAsync&gt;d__8::SetStateMachine([TEngine.Runtime]TEngine.SceneModule/&lt;LoadSceneAsync&gt;d__8&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$RV" oldStackTraceSignature="TEngine.&lt;LoadSceneAsync&gt;d__8:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$ac:$RV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.SceneModule/&lt;UnloadAsync&gt;d__14" newFullName="$A.$ZB/$Bc" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$bH" />
@@ -8570,6 +9000,7 @@
       <field signature="[YooAsset]YooAsset.UnloadSceneOperation &lt;unloadOperation&gt;5__2" newName="$DH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$eH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask/Awaiter &lt;&gt;u__2" newName="$EH" />
+      <method signature="void TEngine.SceneModule/&lt;UnloadAsync&gt;d__14::SetStateMachine([TEngine.Runtime]TEngine.SceneModule/&lt;UnloadAsync&gt;d__14&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$SV" oldStackTraceSignature="TEngine.&lt;UnloadAsync&gt;d__14:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$Bc:$SV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.SetSpriteObject" newFullName="" status="NotRenamed">
       <field signature="[TEngine.Runtime]TEngine.SetSpriteObject/SetType _setType" newName="$rf" />
@@ -8708,6 +9139,7 @@
       <field signature="[TEngine.Runtime]TEngine.UpdateDriver &lt;&gt;4__this" newName="$sH" />
       <field signature="System.Action action" newName="$SH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$tH" />
+      <method signature="void TEngine.UpdateDriver/&lt;AddFixedUpdateListenerImp&gt;d__14::SetStateMachine([TEngine.Runtime]TEngine.UpdateDriver/&lt;AddFixedUpdateListenerImp&gt;d__14&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$TV" oldStackTraceSignature="TEngine.&lt;AddFixedUpdateListenerImp&gt;d__14:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$Fc:$TV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.UpdateDriver/&lt;AddLateUpdateListenerImp&gt;d__16" newFullName="$A.$Ec/$gc" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$TH" />
@@ -8715,6 +9147,7 @@
       <field signature="[TEngine.Runtime]TEngine.UpdateDriver &lt;&gt;4__this" newName="$UH" />
       <field signature="System.Action action" newName="$vH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$VH" />
+      <method signature="void TEngine.UpdateDriver/&lt;AddLateUpdateListenerImp&gt;d__16::SetStateMachine([TEngine.Runtime]TEngine.UpdateDriver/&lt;AddLateUpdateListenerImp&gt;d__16&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$uV" oldStackTraceSignature="TEngine.&lt;AddLateUpdateListenerImp&gt;d__16:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$gc:$uV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.UpdateDriver/&lt;AddUpdateListenerImp&gt;d__12" newFullName="$A.$Ec/$fc" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$OH" />
@@ -8722,6 +9155,7 @@
       <field signature="[TEngine.Runtime]TEngine.UpdateDriver &lt;&gt;4__this" newName="$PH" />
       <field signature="System.Action action" newName="$qH" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$QH" />
+      <method signature="void TEngine.UpdateDriver/&lt;AddUpdateListenerImp&gt;d__12::SetStateMachine([TEngine.Runtime]TEngine.UpdateDriver/&lt;AddUpdateListenerImp&gt;d__12&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$tV" oldStackTraceSignature="TEngine.&lt;AddUpdateListenerImp&gt;d__12:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$fc:$tV(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.UpdateDriver/MainBehaviour" newFullName="" status="NotRenamed">
       <field signature="System.Action UpdateEvent" newName="$lH" />
@@ -8912,6 +9346,7 @@
       <field signature="string url" newName="$Cb" />
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest &lt;unityWebRequest&gt;5__2" newName="$db" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;string&gt; &lt;&gt;u__1" newName="$Db" />
+      <method signature="void TEngine.Utility/Http/&lt;Get&gt;d__0::SetStateMachine([TEngine.Runtime]TEngine.Utility/Http/&lt;Get&gt;d__0&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$BU" oldStackTraceSignature="TEngine.&lt;Get&gt;d__0:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$CA:$BU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Http/&lt;OnDownloadFile&gt;d__12" newFullName="$A.$aA/$cA/$FA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$Tb" />
@@ -9006,6 +9441,7 @@
       <field signature="string postData" newName="$gb" />
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest &lt;unityWebRequest&gt;5__2" newName="$Gb" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;string&gt; &lt;&gt;u__1" newName="$hb" />
+      <method signature="void TEngine.Utility/Http/&lt;Post&gt;d__1::SetStateMachine([TEngine.Runtime]TEngine.Utility/Http/&lt;Post&gt;d__1&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$cU" oldStackTraceSignature="TEngine.&lt;Post&gt;d__1:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$dA:$cU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Http/&lt;Post&gt;d__2" newFullName="$A.$aA/$cA/$DA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$Hb" />
@@ -9015,6 +9451,7 @@
       <field signature="System.Collections.Generic.Dictionary`2&lt;string,string&gt; formFields" newName="$Jb" />
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest &lt;unityWebRequest&gt;5__2" newName="$kb" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;string&gt; &lt;&gt;u__1" newName="$Kb" />
+      <method signature="void TEngine.Utility/Http/&lt;Post&gt;d__2::SetStateMachine([TEngine.Runtime]TEngine.Utility/Http/&lt;Post&gt;d__2&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$CU" oldStackTraceSignature="TEngine.&lt;Post&gt;d__2:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$DA:$CU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Http/&lt;Post&gt;d__3" newFullName="$A.$aA/$cA/$eA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$lb" />
@@ -9024,6 +9461,7 @@
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.WWWForm formData" newName="$nb" />
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest &lt;unityWebRequest&gt;5__2" newName="$Nb" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;string&gt; &lt;&gt;u__1" newName="$ob" />
+      <method signature="void TEngine.Utility/Http/&lt;Post&gt;d__3::SetStateMachine([TEngine.Runtime]TEngine.Utility/Http/&lt;Post&gt;d__3&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$dU" oldStackTraceSignature="TEngine.&lt;Post&gt;d__3:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$eA:$dU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Http/&lt;SendWebRequest&gt;d__4" newFullName="$A.$aA/$cA/$EA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$Ob" />
@@ -9031,6 +9469,7 @@
       <field signature="[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest unityWebRequest" newName="$Pb" />
       <field signature="System.Threading.CancellationTokenSource cts" newName="$qb" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.UniTask`1/Awaiter&lt;System.ValueTuple`2&lt;bool,[UnityEngine.UnityWebRequestModule]UnityEngine.Networking.UnityWebRequest&gt;&gt; &lt;&gt;u__1" newName="$Qb" />
+      <method signature="void TEngine.Utility/Http/&lt;SendWebRequest&gt;d__4::SetStateMachine([TEngine.Runtime]TEngine.Utility/Http/&lt;SendWebRequest&gt;d__4&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$DU" oldStackTraceSignature="TEngine.&lt;SendWebRequest&gt;d__4:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$EA:$DU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Json" newFullName="$A.$aA/$NA" status="Renamed">
       <field signature="[TEngine.Runtime]TEngine.Utility/Json/IJsonHelper _jsonHelper" newName="$xB" />
@@ -9372,18 +9811,21 @@
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$sB" />
       <field signature="System.Action fun" newName="$SB" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$tB" />
+      <method signature="void TEngine.Utility/Unity/&lt;AddFixedUpdateListenerImp&gt;d__17::SetStateMachine([TEngine.Runtime]TEngine.Utility/Unity/&lt;AddFixedUpdateListenerImp&gt;d__17&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$EU" oldStackTraceSignature="TEngine.&lt;AddFixedUpdateListenerImp&gt;d__17:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$mA:$EU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Unity/&lt;AddLateUpdateListenerImp&gt;d__19" newFullName="$A.$aA/$lA/$MA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$TB" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$uB" />
       <field signature="System.Action fun" newName="$UB" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$vB" />
+      <method signature="void TEngine.Utility/Unity/&lt;AddLateUpdateListenerImp&gt;d__19::SetStateMachine([TEngine.Runtime]TEngine.Utility/Unity/&lt;AddLateUpdateListenerImp&gt;d__19&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$fU" oldStackTraceSignature="TEngine.&lt;AddLateUpdateListenerImp&gt;d__19:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$MA:$fU(IAsyncStateMachine)" />
     </type>
     <type fullName="TEngine.Utility/Unity/&lt;AddUpdateListenerImp&gt;d__15" newFullName="$A.$aA/$lA/$LA" status="Renamed">
       <field signature="int &lt;&gt;1__state" newName="$PB" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder &lt;&gt;t__builder" newName="$qB" />
       <field signature="System.Action fun" newName="$QB" />
       <field signature="[UniTask]Cysharp.Threading.Tasks.YieldAwaitable/Awaiter &lt;&gt;u__1" newName="$rB" />
+      <method signature="void TEngine.Utility/Unity/&lt;AddUpdateListenerImp&gt;d__15::SetStateMachine([TEngine.Runtime]TEngine.Utility/Unity/&lt;AddUpdateListenerImp&gt;d__15&amp;, System.Runtime.CompilerServices.IAsyncStateMachine)" newName="$eU" oldStackTraceSignature="TEngine.&lt;AddUpdateListenerImp&gt;d__15:SetStateMachine(IAsyncStateMachine)" newStackTraceSignature="$A.$LA:$eU(IAsyncStateMachine)" />
     </type>
   </assembly>
 </mapping>
