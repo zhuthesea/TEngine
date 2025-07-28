@@ -8,7 +8,7 @@ namespace TEngine
     {
         public static partial class MaterialHelper
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR&&EditorFixMaterialShader
             public static void FixedMaterialShader_All(Transform transform)
             {
                 FixedMaterialShader_GameObject(transform);

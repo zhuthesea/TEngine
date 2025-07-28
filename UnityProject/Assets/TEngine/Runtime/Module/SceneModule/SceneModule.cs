@@ -115,7 +115,7 @@ namespace TEngine
                 {
                     await _currentMainScene.ToUniTask();
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR&&EditorFixedMaterialShader
                 Utility.MaterialHelper.WaitGetRootGameObjects(_currentMainScene).Forget();
 #endif
                 ModuleSystem.GetModule<IResourceModule>().ForceUnloadUnusedAssets(gcCollect);
@@ -191,7 +191,7 @@ namespace TEngine
                 {
                     InvokeProgress(_currentMainScene, progressCallBack).Forget();
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR&&EditorFixedMaterialShader
                 Utility.MaterialHelper.WaitGetRootGameObjects(_currentMainScene).Forget();
 #endif
                 ModuleSystem.GetModule<IResourceModule>().ForceUnloadUnusedAssets(gcCollect);
