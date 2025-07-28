@@ -9,6 +9,14 @@ namespace TEngine
         public static partial class MaterialHelper
         {
 #if UNITY_EDITOR
+            public static void FixedMaterialShader_All(Transform transform)
+            {
+                FixedMaterialShader_GameObject(transform);
+                FixedMaterialShader_UI(transform);
+                FixedMaterialShader_Tmp(transform);
+            }
+
+
             /// <summary>
             /// 修复对象材质shader
             /// </summary>
@@ -22,14 +30,14 @@ namespace TEngine
                     {
                         mats[j].shader = Shader.Find(mats[j].shader.name);
                     }
-                
+
                     renderer[i].sharedMaterials = mats;
                 }
-                
-                FixedMaterialShader_UI(transform);
-                FixedMaterialShader_Tmp(transform);
             }
 
+            /// <summary>
+            /// 修复ui上带的材质
+            /// </summary>
             public static void FixedMaterialShader_UI(Transform transform)
             {
                 UnityEngine.UI.Graphic[] graphics = transform.GetComponentsInChildren<UnityEngine.UI.Graphic>();
@@ -43,6 +51,9 @@ namespace TEngine
                 }
             }
 
+            /// <summary>
+            /// 修复TMP字体
+            /// </summary>
             public static void FixedMaterialShader_Tmp(Transform transform)
             {
 #if TextMeshPro

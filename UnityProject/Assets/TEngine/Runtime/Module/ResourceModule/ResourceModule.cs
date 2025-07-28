@@ -707,7 +707,10 @@ namespace TEngine
             assetObject = AssetObject.Create(assetObjectKey, handle.AssetObject, handle, this);
             _assetPool.Register(assetObject, true);
 #if UNITY_EDITOR
-            Utility.MaterialHelper.FixedMaterialShader_GameObject(gameObject.transform);
+            if (PlayMode!=EPlayMode.EditorSimulateMode)
+            {
+                Utility.MaterialHelper.FixedMaterialShader_All(gameObject.transform);
+            }
 #endif
             return gameObject;
         }
@@ -841,7 +844,10 @@ namespace TEngine
 
             _assetLoadingList.Remove(assetObjectKey);
 #if UNITY_EDITOR
-            Utility.MaterialHelper.FixedMaterialShader_GameObject(gameObject.transform);
+            if (PlayMode!=EPlayMode.EditorSimulateMode)
+            {
+                Utility.MaterialHelper.FixedMaterialShader_All(gameObject.transform);
+            }
 #endif
             return gameObject;
         }
