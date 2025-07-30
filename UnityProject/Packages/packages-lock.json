@@ -11,14 +11,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "6ec1a74d577b6aa6cf16e6588aaf989ca035913a"
+      "hash": "9b6e6375f642816161724f4e74f478c3410ea621"
     },
     "com.code-philosophy.obfuz4hybridclr": {
       "version": "https://gitee.com/focus-creative-games/obfuz4hybridclr.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "be024a3b35d038d61fe8edb4807f14a443bc7751"
+      "hash": "59804e17a0d1562ca0f847db986ed93b25825b6d"
     },
     "com.cysharp.unitask": {
       "version": "file:UniTask",
