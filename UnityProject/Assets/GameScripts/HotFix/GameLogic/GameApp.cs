@@ -12,7 +12,7 @@ using TEngine;
 /// 游戏App。
 /// </summary>
 #if ENABLE_OBFUZ
-[ObfuzIgnore]
+[ObfuzIgnore(ObfuzScope.TypeName | ObfuzScope.MethodName)]
 #endif
 public partial class GameApp
 {
