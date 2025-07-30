@@ -48,7 +48,7 @@ public static class BuildDLLCommand
     /// <summary>
     /// 禁用Obfuz宏定义。
     /// </summary>
-    [MenuItem("HybridCLR/Define Symbols/Disable Obfuz", false, 30)]
+    [MenuItem("Obfuz/Define Symbols/Disable Obfuz", false, 30)]
     public static void DisableObfuz()
     {
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableObfuzScriptingDefineSymbol);
@@ -58,7 +58,7 @@ public static class BuildDLLCommand
     /// <summary>
     /// 开启Obfuz宏定义。
     /// </summary>
-    [MenuItem("HybridCLR/Define Symbols/Enable Obfuz", false, 31)]
+    [MenuItem("Obfuz/Define Symbols/Enable Obfuz", false, 31)]
     public static void EnableObfuz()
     {
         ScriptingDefineSymbols.RemoveScriptingDefineSymbol(EnableObfuzScriptingDefineSymbol);
