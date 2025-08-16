@@ -689,6 +689,8 @@ namespace TEngine
             {
                 throw new GameFrameworkException("Asset name is invalid.");
             }
+            
+            if (!CheckLocationValid(location, packageName))
 
             string assetObjectKey = GetCacheKey(location, packageName);
             AssetObject assetObject = _assetPool.Spawn(assetObjectKey);
