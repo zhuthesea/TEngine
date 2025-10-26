@@ -91,24 +91,24 @@ namespace Cysharp.Threading.Tasks
                         break;
                 }
 #else
-                switch (handle)
-                {
-                    case AssetHandle asset_handle:
-                        asset_handle.Completed += result.continuationAction;
-                        break;
-                    case SceneHandle scene_handle:
-                        scene_handle.Completed += result.continuationAction;
-                        break;
-                    case SubAssetsHandle sub_asset_handle:
-                        sub_asset_handle.Completed += result.continuationAction;
-                        break;
-                    case RawFileHandle raw_file_handle:
-                        raw_file_handle.Completed += result.continuationAction;
-                        break;
-                    case AllAssetsHandle all_assets_handle:
-                        all_assets_handle.Completed += result.continuationAction;
-                        break;
-                }
+                //switch (handle)
+                //{
+                //    case AssetHandle asset_handle:
+                //        asset_handle.Completed += result.continuationAction;
+                //        break;
+                //    case SceneHandle scene_handle:
+                //        scene_handle.Completed += result.continuationAction;
+                //        break;
+                //    case SubAssetsHandle sub_asset_handle:
+                //        sub_asset_handle.Completed += result.continuationAction;
+                //        break;
+                //    case RawFileHandle raw_file_handle:
+                //        raw_file_handle.Completed += result.continuationAction;
+                //        break;
+                //    case AllAssetsHandle all_assets_handle:
+                //        all_assets_handle.Completed += result.continuationAction;
+                //        break;
+                //}
 #endif
                 token = result._core.Version;
                 return result;
